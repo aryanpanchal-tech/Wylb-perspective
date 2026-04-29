@@ -4,7 +4,7 @@ function Hero() {
 
       {/* ── MAIN HEADLINE ── */}
       <h1 className="hero-title">
-        Your Big Headline Goes Here
+        Welcome to Wylb Perspective
       </h1>
 
       {/* ── SUBTITLE ── */}
