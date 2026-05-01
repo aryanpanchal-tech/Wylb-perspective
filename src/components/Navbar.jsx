@@ -1,45 +1,69 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-function Navbar({ searchQuery, setSearchQuery }) {
-  const [menuOpen, setMenuOpen] = useState(false)
+function Navbar() {
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
 
-      {/* ── LOGO ── */}
+      {/* ── LOGO - left ── */}
       <div className="navbar-logo">
         Wylb
       </div>
 
-      {/* ── NAVIGATION LINKS ── */}
-      <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+      {/* ── LINKS - center ── */}
+      <ul className="navbar-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#featured">Featured</a></li>
         <li><a href="#media">Media</a></li>
         <li><a href="#footer">Contact</a></li>
       </ul>
 
-      {/* ── SEARCH BAR ── */}
-      <input
-        className="navbar-search"
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-
-      {/* ── LOGIN BUTTON ── */}
-      <button className="navbar-login">
-        Login
-      </button>
-
-      {/* ── HAMBURGER - mobile only ── */}
+      {/* ── THREE LINE MENU ICON - right ── */}
       <button
-        className="navbar-hamburger"
-        onClick={() => setMenuOpen(!menuOpen)}
+        className="navbar-menu-icon"
+        onClick={() => setDrawerOpen(!drawerOpen)}
       >
-        {menuOpen ? '✕' : '☰'}
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
+
+      {/* ── DROPDOWN DRAWER ── */}
+      {drawerOpen && (
+        <div className="navbar-drawer">
+
+          {/* SEARCH - first item */}
+          <div className="drawer-search-row">
+            <input
+              className="drawer-search"
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              autoFocus
+            />
+          </div>
+
+          {/* SHORTCUT LINKS */}
+          <a href="#photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Photos</a>
+          <a href="#videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Videos</a>
+          <a href="#events" className="drawer-item" onClick={() => setDrawerOpen(false)}>Events</a>
+          <a href="#films"  className="drawer-item" onClick={() => setDrawerOpen(false)}>Films</a>
+          <a href="#tech"   className="drawer-item" onClick={() => setDrawerOpen(false)}>Tech</a>
+
+        </div>
+      )}
 
     </nav>
   )
