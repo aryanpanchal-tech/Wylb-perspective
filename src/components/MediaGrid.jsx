@@ -29,7 +29,7 @@ function MediaCard({ category, title, description }) {
 
 function MediaGrid() {
   return (
-    <section className="media-grid-section">
+    <section className="media-grid-section" id="media">
 
       <h2 className="section-title">Latest Media</h2>
 

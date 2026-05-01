@@ -1,6 +1,6 @@
 function FeaturedSection() {
   return (
-    <section className="featured">
+    <section className="featured" id="featured">
 
       <h2 className="section-title">Featured</h2>
 

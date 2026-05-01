@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
 
       {/* ── FOOTER LINKS ── */}
       <div className="footer-links">
