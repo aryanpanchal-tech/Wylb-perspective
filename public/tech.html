@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <div class="navbar-logo">
+          Wylb
+        </div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/#featured">Featured</a></li>
+          <li><a href="/#media">Media</a></li>
+          <li><a href="/#footer">Contact</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="techMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="techDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/films.html" class="drawer-item">Films</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+        </div>
+      </nav>
+
+      <!-- HERO SECTION -->
+      <section class="hero" id="tech">
+        <div class="hero-video-placeholder">
+          [ Tech showcase goes here ]
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <span class="hero-tag">Wylb Perspective</span>
+
+          <h1 class="hero-title">
+            Tech Meets <br />
+            Creative Media
+          </h1>
+
+          <p class="hero-subtitle">
+            Explore the technical side of Wylb Perspective Studios, including digital tools, production systems, editing workflows, and creative technology.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="hero-btn-primary">Explore Tech</button>
+            <button class="hero-btn-secondary">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED TECH SECTION -->
+      <section class="featured" id="featured">
+        <h2 class="section-title">Featured Tech</h2>
+
+        <div class="featured-card">
+          <div class="featured-thumbnail">
+            [ Tech feature goes here ]
+          </div>
+
+          <div class="featured-info">
+            <span class="featured-tag">Technology</span>
+
+            <h3 class="featured-title">
+              Tools That Power the Creative Process
+            </h3>
+
+            <p class="featured-description">
+              This section highlights the technology, equipment, software, and digital workflows used to support creative production.
+            </p>
+
+            <button class="featured-button">View Setup</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH GRID SECTION -->
+      <section class="media-grid-section" id="media">
+        <h2 class="section-title">Tech Categories</h2>
+
+        <div class="media-grid">
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Camera gear image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Gear</span>
+              <h3 class="card-title">Production Equipment</h3>
+              <p class="card-description">
+                Cameras, lighting, audio tools, and equipment used for production.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Editing setup image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Editing</span>
+              <h3 class="card-title">Editing Workflow</h3>
+              <p class="card-description">
+                Software, editing systems, and post-production workflows.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Digital tools image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Digital Tools</span>
+              <h3 class="card-title">Creative Technology</h3>
+              <p class="card-description">
+                Digital tools used to organize, produce, and improve media projects.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="footer-links">
+          <span>Photos</span>
+          <span>Videos</span>
+          <span>Events</span>
+          <span>Contact</span>
+        </div>
+
+        <p class="footer-copy">
+          © 2026 Wylb Perspective. All rights reserved.
+        </p>
+      </footer>
+
+    </div>
+
+    <script>
+      (() => {
+        const techMenuButton = document.getElementById('techMenuButton')
+        const techDrawer = document.getElementById('techDrawer')
+        const techNavbar = document.querySelector('.navbar')
+
+        if (techDrawer) {
+          techDrawer.style.display = 'none'
+        }
+
+        if (techMenuButton && techDrawer) {
+          techMenuButton.addEventListener('click', () => {
+            if (techDrawer.style.display === 'none') {
+              techDrawer.style.display = 'flex'
+            } else {
+              techDrawer.style.display = 'none'
+            }
+          })
+        }
+
+        window.addEventListener('scroll', () => {
+          if (!techNavbar) {
+            return
+          }
+
+          if (window.scrollY > 80) {
+            techNavbar.classList.add('navbar--scrolled')
+          } else {
+            techNavbar.classList.remove('navbar--scrolled')
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>

@@ -56,11 +56,11 @@ function Navbar() {
           </div>
 
           {/* SHORTCUT LINKS */}
-          <a href="#photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Photos</a>
-          <a href="#videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Videos</a>
-          <a href="#events" className="drawer-item" onClick={() => setDrawerOpen(false)}>Events</a>
-          <a href="#films"  className="drawer-item" onClick={() => setDrawerOpen(false)}>Films</a>
-          <a href="#tech"   className="drawer-item" onClick={() => setDrawerOpen(false)}>Tech</a>
+          <a href="/photos.html" className="drawer-item">Photos </a>
+          <a href="/videos.html" className="drawer-item">Videos</a>
+          <a href="/events.html" className="drawer-item">Events</a>
+          <a href="/films.html" className="drawer-item">Films</a>
+          <a href="/tech.html" className="drawer-item">Tech</a>
 
         </div>
       )}

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <div class="navbar-logo">
+          Wylb
+        </div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/#featured">Featured</a></li>
+          <li><a href="/#media">Media</a></li>
+          <li><a href="/#footer">Contact</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="eventMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="eventDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/films.html" class="drawer-item">Films</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+        </div>
+      </nav>
+
+      <!-- HERO SECTION -->
+      <section class="hero" id="events">
+        <div class="hero-video-placeholder">
+          [ Event showcase goes here ]
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <span class="hero-tag">Wylb Perspective</span>
+
+          <h1 class="hero-title">
+            Events Worth <br />
+            Remembering
+          </h1>
+
+          <p class="hero-subtitle">
+            Explore event coverage, creative gatherings, live moments, and visual experiences captured by Wylb Perspective Studios.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="hero-btn-primary">View Events</button>
+            <button class="hero-btn-secondary">Book Coverage</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED EVENT SECTION -->
+      <section class="featured" id="featured">
+        <h2 class="section-title">Featured Event</h2>
+
+        <div class="featured-card">
+          <div class="featured-thumbnail">
+            [ Featured event image goes here ]
+          </div>
+
+          <div class="featured-info">
+            <span class="featured-tag">Events</span>
+
+            <h3 class="featured-title">
+              Capturing Energy, People, and Atmosphere
+            </h3>
+
+            <p class="featured-description">
+              This section highlights event photography and video work, including live coverage, community moments, and special occasions.
+            </p>
+
+            <button class="featured-button">Explore More</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENT GRID SECTION -->
+      <section class="media-grid-section" id="media">
+        <h2 class="section-title">Event Categories</h2>
+
+        <div class="media-grid">
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Live event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Live Events</span>
+              <h3 class="card-title">Live Coverage</h3>
+              <p class="card-description">
+                Photos and videos from live shows, performances, and gatherings.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Community event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Community</span>
+              <h3 class="card-title">Community Moments</h3>
+              <p class="card-description">
+                Capturing people, stories, and meaningful local experiences.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Private event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Private Events</span>
+              <h3 class="card-title">Special Occasions</h3>
+              <p class="card-description">
+                Visual coverage for personal events, celebrations, and milestones.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="footer-links">
+          <span>Photos</span>
+          <span>Videos</span>
+          <span>Events</span>
+          <span>Contact</span>
+        </div>
+
+        <p class="footer-copy">
+          © 2026 Wylb Perspective. All rights reserved.
+        </p>
+      </footer>
+
+    </div>
+
+    <script>
+      (() => {
+        const eventMenuButton = document.getElementById('eventMenuButton')
+        const eventDrawer = document.getElementById('eventDrawer')
+        const eventNavbar = document.querySelector('.navbar')
+
+        if (eventDrawer) {
+          eventDrawer.style.display = 'none'
+        }
+
+        if (eventMenuButton && eventDrawer) {
+          eventMenuButton.addEventListener('click', () => {
+            if (eventDrawer.style.display === 'none') {
+              eventDrawer.style.display = 'flex'
+            } else {
+              eventDrawer.style.display = 'none'
+            }
+          })
+        }
+
+        window.addEventListener('scroll', () => {
+          if (!eventNavbar) {
+            return
+          }
+
+          if (window.scrollY > 80) {
+            eventNavbar.classList.add('navbar--scrolled')
+          } else {
+            eventNavbar.classList.remove('navbar--scrolled')
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>
