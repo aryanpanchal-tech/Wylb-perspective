@@ -1,11 +1,37 @@
+/**
+ * TechPage.jsx — Individual camera / gear detail page
+ * Route: /tech/:id
+ *
+ * Layout (top to bottom):
+ *   1. Navbar          — Home + Contact links, returns to Tech tab
+ *   2. Item header     — Name, tagline, description, price (left) | main photo (right)
+ *   3. Specs table     — Key/value grid of technical specifications
+ *   4. Gallery         — 4 sample photography images fetched from Unsplash
+ *   5. Footer          — Home + Contact links
+ *
+ * Unsplash API usage:
+ *   - Main photo: searches "<item.name> camera product" → 1 result
+ *   - Gallery:    searches "<item.category> photography" → 4 results
+ *   - Both fetches run in parallel via Promise.all for faster load
+ *   - API key read from import.meta.env.VITE_UNSPLASH_KEY (.env file)
+ *
+ * Navigation behaviour:
+ *   handleHome sets sessionStorage.activeTab = 'tech' before navigating
+ *   so MediaSection restores the Tech tab on return.
+ *
+ * Data source: src/data/techItems.js
+ */
+
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { techItems } from '../data/techItems'
 
+// Unsplash API key — never hardcode this; always use .env
 const KEY = import.meta.env.VITE_UNSPLASH_KEY
 
+// Reusable fetch helper — returns the results array from Unsplash search
 async function fetchPhoto(query, count = 1) {
-  const res = await fetch(
+  const res  = await fetch(
     `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${count}&client_id=${KEY}`
   )
   const data = await res.json()
@@ -13,30 +39,35 @@ async function fetchPhoto(query, count = 1) {
 }
 
 function TechPage() {
-  const { id } = useParams()
-  const navigate = useNavigate()
+  // useParams reads :id from the URL as a string
+  const { id }      = useParams()
+  const navigate    = useNavigate()
 
   const item = techItems.find((t) => t.id === Number(id))
 
-  const [mainPhoto,    setMainPhoto]    = useState(null)
+  const [mainPhoto,     setMainPhoto]     = useState(null)
   const [galleryPhotos, setGalleryPhotos] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading,       setLoading]       = useState(true)
 
+  // Scroll to top immediately when the page mounts
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
+  // Fetch images from Unsplash when item is resolved
   useEffect(() => {
     if (!item) return
 
     const load = async () => {
       setLoading(true)
 
+      // Run both fetches simultaneously instead of one after the other
       const [productResults, sampleResults] = await Promise.all([
-        fetchPhoto(`${item.name} camera product`, 1),
-        fetchPhoto(`${item.category} photography`, 4),
+        fetchPhoto(`${item.name} camera product`, 1),   // main photo
+        fetchPhoto(`${item.category} photography`, 4),  // gallery photos
       ])
 
+      // Use optional chaining (?.) to avoid errors if results are empty
       setMainPhoto(productResults[0]?.urls?.regular ?? null)
       setGalleryPhotos(sampleResults.map((r) => r.urls?.regular))
       setLoading(false)
@@ -45,11 +76,13 @@ function TechPage() {
     load()
   }, [item])
 
+  // Go home and restore the Tech tab + scroll position
   const handleHome = () => {
     sessionStorage.setItem('activeTab', 'tech')
     navigate('/', { state: { scrollTo: 'media' } })
   }
 
+  // Guard — show fallback if id doesn't match any tech item
   if (!item) {
     return (
       <div className="not-found">
@@ -62,7 +95,7 @@ function TechPage() {
   return (
     <div className="pg-page">
 
-      {/* ── NAVBAR ── */}
+      {/* Minimal navbar with Home and Contact */}
       <nav className="pg-nav">
         <div className="pg-nav-logo" onClick={handleHome} style={{ cursor: 'pointer' }}>
           Wylb
@@ -73,7 +106,7 @@ function TechPage() {
         </div>
       </nav>
 
-      {/* ── ITEM HEADER ── */}
+      {/* Two-column header: info left, Unsplash photo right */}
       <div className="tech-header">
 
         <div className="tech-header-left">
@@ -87,7 +120,7 @@ function TechPage() {
           </div>
         </div>
 
-        {/* ── MAIN PRODUCT PHOTO from Unsplash ── */}
+        {/* Main product photo — fetched from Unsplash, shows "Loading..." first */}
         <div className="tech-header-photo">
           {loading ? (
             <span style={{ color: '#444' }}>Loading...</span>
@@ -100,7 +133,7 @@ function TechPage() {
 
       </div>
 
-      {/* ── SPECS ── */}
+      {/* Specs table — each spec string is split on ": " to get label + value */}
       <div className="tech-specs-section">
         <h3 className="tech-specs-title">Technical Specifications</h3>
         <div className="tech-specs-grid">
@@ -116,7 +149,7 @@ function TechPage() {
         </div>
       </div>
 
-      {/* ── GALLERY — sample photos from Unsplash ── */}
+      {/* Gallery — 4 sample photos from Unsplash using the category as the query */}
       <div className="tech-gallery-section">
         <h3 className="tech-gallery-title">Sample Photography</h3>
         <div className="tech-gallery-grid">
@@ -134,7 +167,7 @@ function TechPage() {
         </div>
       </div>
 
-      {/* ── FOOTER ── */}
+      {/* Footer */}
       <footer className="pg-footer">
         <div className="pg-footer-links">
           <span onClick={handleHome}>Home</span>

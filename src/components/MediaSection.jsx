@@ -1,19 +1,42 @@
+/**
+ * MediaSection.jsx — Three-tab sliding content panel
+ *
+ * Tabs: Latest Media | Photographers | Tech
+ *
+ * How the slider works:
+ *   - A container 300% wide holds three equal panels side by side
+ *   - CSS transform: translateX(-N * 33.333%) shifts to the correct panel
+ *   - slideIndex maps tab name → panel number (0, 1, 2)
+ *
+ * Tab persistence:
+ *   - When a user navigates to a detail page and comes back, the active
+ *     tab is restored from sessionStorage so they land where they left off
+ *
+ * Unsplash API:
+ *   - TechCard fetches one photo per item using the camera name as a search query
+ *   - API key is read from import.meta.env.VITE_UNSPLASH_KEY (.env file)
+ */
+
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { photographers } from '../data/photographers'
 import { techItems } from '../data/techItems'
 
+// Unsplash API key — stored in .env as VITE_UNSPLASH_KEY
 const KEY = import.meta.env.VITE_UNSPLASH_KEY
 
+// Read saved tab from sessionStorage on first render.
+// sessionStorage is set by detail pages when navigating back home.
 const getInitialTab = () => {
   const saved = sessionStorage.getItem('activeTab')
   if (saved) {
-    sessionStorage.removeItem('activeTab')
+    sessionStorage.removeItem('activeTab') // consume it so it doesn't persist
     return saved
   }
   return 'media'
 }
 
+// Placeholder cards — replace with real data from an API or CMS
 const placeholderCards = [
   { id: 1, category: 'Video', title: 'Media Title One',   description: 'Short description here.' },
   { id: 2, category: 'Photo', title: 'Media Title Two',   description: 'Short description here.' },
@@ -23,11 +46,14 @@ const placeholderCards = [
   { id: 6, category: 'Video', title: 'Media Title Six',   description: 'Short description here.' },
 ]
 
+// Maps tab name to its panel position in the 3-panel slider
 const slideIndex = { media: 0, photographers: 1, tech: 2 }
 
+// ── Media Card ──────────────────────────────────────────────────────
 function MediaCard({ category, title, description }) {
   return (
     <div className="media-card">
+      {/* Replace with <img src="..."> when real thumbnails are available */}
       <div className="card-thumbnail">[ Thumbnail ]</div>
       <div className="card-content">
         <span className="card-category">{category}</span>
@@ -38,10 +64,13 @@ function MediaCard({ category, title, description }) {
   )
 }
 
+// ── Photographer Card ───────────────────────────────────────────────
 function PhotographerCard({ photographer }) {
   const navigate = useNavigate()
   return (
+    // Entire card is clickable — navigates to /photographer/:id
     <div className="photo-card" onClick={() => navigate(`/photographer/${photographer.id}`)}>
+      {/* Replace with <img src={photographer.avatar}> when photos are provided */}
       <div className="photo-card-avatar">[ Photo ]</div>
       <div className="photo-card-info">
         <h4 className="photo-card-name">{photographer.name}</h4>
@@ -53,21 +82,23 @@ function PhotographerCard({ photographer }) {
   )
 }
 
+// ── Tech Card ───────────────────────────────────────────────────────
+// Fetches its own thumbnail from Unsplash on mount
 function TechCard({ item }) {
   const navigate = useNavigate()
   const [photo, setPhoto] = useState(null)
 
   useEffect(() => {
+    // Search Unsplash for a photo matching the camera name
     fetch(
       `https://api.unsplash.com/search/photos?query=${encodeURIComponent(item.name + ' camera')}&per_page=1&client_id=${KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.results?.[0]) {
-          setPhoto(data.results[0].urls.small)
-        }
+        // Use the small-size URL for card thumbnails (faster load)
+        if (data.results?.[0]) setPhoto(data.results[0].urls.small)
       })
-  }, [])
+  }, []) // empty array = run once on mount only
 
   return (
     <div className="tech-card" onClick={() => navigate(`/tech/${item.id}`)}>
@@ -88,29 +119,32 @@ function TechCard({ item }) {
   )
 }
 
+// ── MediaSection (main export) ──────────────────────────────────────
 function MediaSection() {
   const [activeTab, setActiveTab] = useState(getInitialTab)
 
+  // Convert tab name to a numeric offset for the CSS transform
   const offset = slideIndex[activeTab] ?? 0
 
   return (
     <section className="media-section" id="media">
 
-      {/* ── TABS ── */}
+      {/* Tab buttons — active tab gets a red bottom border */}
       <div className="media-tabs">
         <button className={`media-tab ${activeTab === 'media'         ? 'media-tab--active' : ''}`} onClick={() => setActiveTab('media')}>Latest Media</button>
         <button className={`media-tab ${activeTab === 'photographers' ? 'media-tab--active' : ''}`} onClick={() => setActiveTab('photographers')}>Photographers</button>
         <button className={`media-tab ${activeTab === 'tech'          ? 'media-tab--active' : ''}`} onClick={() => setActiveTab('tech')}>Tech</button>
       </div>
 
-      {/* ── SLIDING PANELS ── */}
+      {/* Viewport clips overflow so only one panel is visible at a time */}
       <div className="tab-viewport">
+        {/* Slider: 300% wide, shifted left by offset panels via inline transform */}
         <div
           className="tab-slider-3"
           style={{ transform: `translateX(-${offset * 33.333}%)` }}
         >
 
-          {/* PANEL 1 — Latest Media */}
+          {/* Panel 1 — Latest Media */}
           <div className="tab-panel-3">
             <div className="media-grid">
               {placeholderCards.map((card) => (
@@ -119,7 +153,7 @@ function MediaSection() {
             </div>
           </div>
 
-          {/* PANEL 2 — Photographers */}
+          {/* Panel 2 — Photographers */}
           <div className="tab-panel-3">
             <div className="photographers-grid">
               {photographers.map((p) => (
@@ -128,7 +162,7 @@ function MediaSection() {
             </div>
           </div>
 
-          {/* PANEL 3 — Tech */}
+          {/* Panel 3 — Tech gear (images fetched from Unsplash) */}
           <div className="tab-panel-3">
             <div className="tech-grid">
               {techItems.map((item) => (
