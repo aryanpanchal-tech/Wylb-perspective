@@ -23,10 +23,10 @@ function Navbar() {
 
       {/* ── LINKS - center ── */}
       <ul className="navbar-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#featured">Featured</a></li>
-        <li><a href="#media">Media</a></li>
-        <li><a href="#footer">Contact</a></li>
+        <li><a href="/#hero">Home</a></li>
+        <li><a href="/#featured">Featured</a></li>
+        <li><a href="/#media">Media</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
 
       {/* ── THREE LINE MENU ICON - right ── */}
@@ -59,7 +59,7 @@ function Navbar() {
           <a href="/photos.html" className="drawer-item">Photos </a>
           <a href="/videos.html" className="drawer-item">Videos</a>
           <a href="/events.html" className="drawer-item">Events</a>
-          <a href="/films.html" className="drawer-item">Films</a>
+          <a href="/Art.html" className="drawer-item">Art</a>
           <a href="/tech.html" className="drawer-item">Tech</a>
 
         </div>

@@ -18,7 +18,7 @@
           <li><a href="/#hero">Home</a></li>
           <li><a href="/#featured">Featured</a></li>
           <li><a href="/#media">Media</a></li>
-          <li><a href="/#footer">Contact</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
 
         <button class="navbar-menu-icon" id="photoMenuButton">
@@ -39,7 +39,7 @@
           <a href="/photos.html" class="drawer-item">Photos</a>
           <a href="/videos.html" class="drawer-item">Videos</a>
           <a href="/events.html" class="drawer-item">Events</a>
-          <a href="/films.html" class="drawer-item">Films</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
           <a href="/tech.html" class="drawer-item">Tech</a>
         </div>
       </nav>
@@ -68,8 +68,7 @@
           </p>
 
           <div class="hero-buttons">
-            <button class="hero-btn-primary">View Gallery</button>
-            <button class="hero-btn-secondary">Book a Shoot</button>
+            <button class="hero-btn-primary" id="startGalleryBtn">View Gallery</button>
           </div>
         </div>
       </section>
@@ -464,7 +463,23 @@
           </div>
         </div>
       </section>
+      <div class="slideshow-picker" id="slideshowPicker">
+      <div class="slideshow-picker-box">
+        <h2>Choose a slideshow category</h2>
+        <p>Pick what type of photos you want to see.</p>
 
+        <div class="slideshow-picker-buttons">
+          <button type="button" class="slideshow-choice" data-choice="all">All Photos</button>
+          <button type="button" class="slideshow-choice" data-choice="scenery">Scenery</button>
+          <button type="button" class="slideshow-choice" data-choice="person">Person</button>
+          <button type="button" class="slideshow-choice" data-choice="animal">Animal</button>
+        </div>
+
+        <button type="button" class="slideshow-cancel" id="cancelSlideshow">
+          Cancel
+        </button>
+      </div>
+    </div>
       <div class="photo-viewer" id="photoViewer" aria-hidden="true">
         <div class="photo-viewer-header">
           <div>
@@ -497,13 +512,6 @@
       </div>
 
       <footer class="footer" id="footer">
-        <div class="footer-links">
-          <span>Photos</span>
-          <span>Videos</span>
-          <span>Events</span>
-          <span>Contact</span>
-        </div>
-
         <p class="footer-copy">
           © 2026 Wylb Perspective. All rights reserved.
         </p>
@@ -511,212 +519,292 @@
     </div>
 
     <script>
-      (() => {
-        const menuBtn = document.getElementById('photoMenuButton')
-        const drawer = document.getElementById('photoDrawer')
-        const nav = document.querySelector('.navbar')
+  (() => {
+    const menuBtn = document.getElementById('photoMenuButton')
+    const drawer = document.getElementById('photoDrawer')
+    const nav = document.querySelector('.navbar')
 
+    drawer.style.display = 'none'
+
+    menuBtn.addEventListener('click', () => {
+      if (drawer.style.display === 'none') {
+        drawer.style.display = 'flex'
+      } else {
         drawer.style.display = 'none'
+      }
+    })
 
-        menuBtn.addEventListener('click', () => {
-          if (drawer.style.display === 'none') {
-            drawer.style.display = 'flex'
-          } else {
-            drawer.style.display = 'none'
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('navbar--scrolled')
+      } else {
+        nav.classList.remove('navbar--scrolled')
+      }
+    })
+
+    const search = document.getElementById('photoSearch')
+    const filter = document.getElementById('photoTypeFilter')
+    const sort = document.getElementById('photoSort')
+    const noPhotos = document.getElementById('noPhotoResults')
+    const grid = document.querySelector('.media-grid')
+    const cards = Array.from(document.querySelectorAll('.media-card'))
+
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].dataset.spot = i
+    }
+
+    function getTitle(card) {
+      return card.querySelector('.card-title').textContent.toLowerCase().trim()
+    }
+
+    function getCategory(card) {
+      let text = card.querySelector('.card-category').textContent.toLowerCase().trim()
+
+      if (text === 'senery' || text === 'cenery') {
+        text = 'scenery'
+      }
+
+      return text
+    }
+
+    function updatePhotos() {
+      const typed = search.value.toLowerCase().trim()
+      const picked = filter.value
+      const order = sort.value
+
+      let list = Array.from(cards)
+      let amountShowing = 0
+
+      if (order === 'az') {
+        list.sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
+      } else {
+        list.sort((a, b) => Number(a.dataset.spot) - Number(b.dataset.spot))
+      }
+
+      list.forEach((card) => {
+        grid.appendChild(card)
+
+        const cardWords = card.textContent.toLowerCase()
+        const cardType = getCategory(card)
+
+        let matchesType = picked === 'all'
+
+        if (picked !== 'all' && cardType.includes(picked)) {
+          matchesType = true
+        }
+
+        if (cardWords.includes(typed) && matchesType) {
+          card.style.display = ''
+          amountShowing++
+        } else {
+          card.style.display = 'none'
+        }
+      })
+
+      if (amountShowing === 0) {
+        noPhotos.style.display = 'block'
+      } else {
+        noPhotos.style.display = 'none'
+      }
+    }
+
+    search.addEventListener('input', updatePhotos)
+    filter.addEventListener('change', updatePhotos)
+    sort.addEventListener('change', updatePhotos)
+
+    const viewer = document.getElementById('photoViewer')
+    const bigImg = document.getElementById('photoViewerImage')
+    const bigTitle = document.getElementById('photoViewerTitle')
+    const bigText = document.getElementById('photoViewerDescription')
+    const closeViewerBtn = document.getElementById('photoViewerCloseTop')
+    const prevBtn = document.getElementById('photoViewerPrev')
+    const nextBtn = document.getElementById('photoViewerNext')
+
+    let photoNumber = 0
+    let slideshowPhotos = []
+    let slideshowTimer = null
+    let usingSlideshow = false
+
+    function visibleCards() {
+      if (usingSlideshow && slideshowPhotos.length > 0) {
+        return slideshowPhotos
+      }
+
+      const showing = cards.filter((card) => card.style.display !== 'none')
+
+      if (showing.length > 0) {
+        return showing
+      }
+
+      return cards
+    }
+
+    function showBigPhoto(number) {
+      const showing = visibleCards()
+
+      if (showing.length === 0) {
+        return
+      }
+
+      if (number < 0) {
+        photoNumber = showing.length - 1
+      } else if (number >= showing.length) {
+        photoNumber = 0
+      } else {
+        photoNumber = number
+      }
+
+      const card = showing[photoNumber]
+      const img = card.querySelector('.card-thumbnail img')
+      const title = card.querySelector('.card-title')
+      const desc = card.querySelector('.card-description')
+
+      bigImg.src = img.src
+      bigImg.alt = img.alt
+      bigTitle.textContent = title.textContent
+      bigText.textContent = desc.textContent
+    }
+
+    function openViewer(card) {
+      usingSlideshow = false
+      slideshowPhotos = []
+
+      const showing = visibleCards()
+
+      photoNumber = showing.indexOf(card)
+
+      if (photoNumber < 0) {
+        photoNumber = 0
+      }
+
+      showBigPhoto(photoNumber)
+
+      viewer.classList.add('open')
+      viewer.setAttribute('aria-hidden', 'false')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function stopSlideshow() {
+      if (slideshowTimer) {
+        clearInterval(slideshowTimer)
+        slideshowTimer = null
+      }
+
+      usingSlideshow = false
+      slideshowPhotos = []
+    }
+
+    function closeViewer() {
+      stopSlideshow()
+
+      viewer.classList.remove('open')
+      viewer.setAttribute('aria-hidden', 'true')
+      document.body.style.overflow = ''
+    }
+
+    cards.forEach((card) => {
+      card.querySelector('.card-thumbnail').addEventListener('click', () => {
+        openViewer(card)
+      })
+    })
+
+    closeViewerBtn.addEventListener('click', closeViewer)
+
+    prevBtn.addEventListener('click', () => {
+      showBigPhoto(photoNumber - 1)
+    })
+
+    nextBtn.addEventListener('click', () => {
+      showBigPhoto(photoNumber + 1)
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (!viewer.classList.contains('open')) {
+        return
+      }
+
+      if (event.key === 'Escape') {
+        closeViewer()
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showBigPhoto(photoNumber - 1)
+      }
+
+      if (event.key === 'ArrowRight') {
+        showBigPhoto(photoNumber + 1)
+      }
+    })
+
+    const startGalleryBtn = document.getElementById('startGalleryBtn')
+    const picker = document.getElementById('slideshowPicker')
+    const cancelSlideshow = document.getElementById('cancelSlideshow')
+    const choices = document.querySelectorAll('.slideshow-choice')
+
+    startGalleryBtn.addEventListener('click', () => {
+      picker.classList.add('open')
+    })
+
+    cancelSlideshow.addEventListener('click', () => {
+      picker.classList.remove('open')
+    })
+
+    choices.forEach((button) => {
+      button.addEventListener('click', () => {
+        const picked = button.dataset.choice
+
+        slideshowPhotos = cards.filter((card) => {
+          const kind = getCategory(card)
+
+          if (picked === 'all') {
+            return true
           }
+
+          return kind.includes(picked)
         })
 
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 80) {
-            nav.classList.add('navbar--scrolled')
-          } else {
-            nav.classList.remove('navbar--scrolled')
-          }
-        })
-
-        const search = document.getElementById('photoSearch')
-        const filter = document.getElementById('photoTypeFilter')
-        const sort = document.getElementById('photoSort')
-        const noPhotos = document.getElementById('noPhotoResults')
-        const grid = document.querySelector('.media-grid')
-        const cards = Array.from(document.querySelectorAll('.media-card'))
-
-        for (let i = 0; i < cards.length; i++) {
-          cards[i].dataset.spot = i
+        if (slideshowPhotos.length === 0) {
+          picker.classList.remove('open')
+          return
         }
 
-        function getTitle(card) {
-          return card.querySelector('.card-title').textContent.toLowerCase().trim()
+        usingSlideshow = true
+        photoNumber = 0
+
+        picker.classList.remove('open')
+        viewer.classList.add('open')
+        viewer.setAttribute('aria-hidden', 'false')
+        document.body.style.overflow = 'hidden'
+
+        showBigPhoto(photoNumber)
+
+        if (slideshowTimer) {
+          clearInterval(slideshowTimer)
         }
 
-        function getCategory(card) {
-          let text = card.querySelector('.card-category').textContent.toLowerCase().trim()
-
-          if (text === 'senery' || text === 'cenery') {
-            text = 'scenery'
-          }
-
-          return text
-        }
-
-        function updatePhotos() {
-          const typed = search.value.toLowerCase().trim()
-          const picked = filter.value
-          const order = sort.value
-
-          let list = Array.from(cards)
-          let amountShowing = 0
-
-          if (order === 'az') {
-            list.sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
-          } else {
-            list.sort((a, b) => Number(a.dataset.spot) - Number(b.dataset.spot))
-          }
-
-          list.forEach((card) => {
-            grid.appendChild(card)
-
-            const cardWords = card.textContent.toLowerCase()
-            const cardType = getCategory(card)
-
-            let matchesType = picked === 'all'
-
-            if (picked !== 'all' && cardType.includes(picked)) {
-              matchesType = true
-            }
-
-            if (cardWords.includes(typed) && matchesType) {
-              card.style.display = ''
-              amountShowing++
-            } else {
-              card.style.display = 'none'
-            }
-          })
-
-          if (amountShowing === 0) {
-            noPhotos.style.display = 'block'
-          } else {
-            noPhotos.style.display = 'none'
-          }
-        }
-
-        search.addEventListener('input', updatePhotos)
-        filter.addEventListener('change', updatePhotos)
-        sort.addEventListener('change', updatePhotos)
-
-        const viewer = document.getElementById('photoViewer')
-        const bigImg = document.getElementById('photoViewerImage')
-        const bigTitle = document.getElementById('photoViewerTitle')
-        const bigText = document.getElementById('photoViewerDescription')
-        const closeViewerBtn = document.getElementById('photoViewerCloseTop')
-        const prevBtn = document.getElementById('photoViewerPrev')
-        const nextBtn = document.getElementById('photoViewerNext')
-
-        let photoNumber = 0
-
-        function visibleCards() {
-          const showing = cards.filter((card) => card.style.display !== 'none')
-
-          if (showing.length > 0) {
-            return showing
-          }
-
-          return cards
-        }
-
-        function showBigPhoto(number) {
-          const showing = visibleCards()
-
-          if (number < 0) {
-            photoNumber = showing.length - 1
-          } else if (number >= showing.length) {
-            photoNumber = 0
-          } else {
-            photoNumber = number
-          }
-
-          const card = showing[photoNumber]
-          const img = card.querySelector('.card-thumbnail img')
-          const title = card.querySelector('.card-title')
-          const desc = card.querySelector('.card-description')
-
-          bigImg.src = img.src
-          bigImg.alt = img.alt
-          bigTitle.textContent = title.textContent
-          bigText.textContent = desc.textContent
-        }
-
-        function openViewer(card) {
-          const showing = visibleCards()
-
-          photoNumber = showing.indexOf(card)
-
-          if (photoNumber < 0) {
-            photoNumber = 0
-          }
-
-          showBigPhoto(photoNumber)
-
-          viewer.classList.add('open')
-          viewer.setAttribute('aria-hidden', 'false')
-          document.body.style.overflow = 'hidden'
-        }
-
-        function closeViewer() {
-          viewer.classList.remove('open')
-          viewer.setAttribute('aria-hidden', 'true')
-          document.body.style.overflow = ''
-        }
-
-        cards.forEach((card) => {
-          card.querySelector('.card-thumbnail').addEventListener('click', () => {
-            openViewer(card)
-          })
-        })
-
-        closeViewerBtn.addEventListener('click', closeViewer)
-
-        prevBtn.addEventListener('click', () => {
-          showBigPhoto(photoNumber - 1)
-        })
-
-        nextBtn.addEventListener('click', () => {
+        slideshowTimer = setInterval(() => {
           showBigPhoto(photoNumber + 1)
-        })
+        }, 3000)
+      })
+    })
 
-        document.addEventListener('keydown', (event) => {
-          if (!viewer.classList.contains('open')) {
-            return
-          }
+    const heroSlides = document.querySelectorAll('.photo-hero-slide')
+    let heroSlideNumber = 0
 
-          if (event.key === 'Escape') {
-            closeViewer()
-          }
+    setInterval(() => {
+      heroSlides[heroSlideNumber].classList.remove('active')
 
-          if (event.key === 'ArrowLeft') {
-            showBigPhoto(photoNumber - 1)
-          }
+      heroSlideNumber++
 
-          if (event.key === 'ArrowRight') {
-            showBigPhoto(photoNumber + 1)
-          }
-        })
-        const heroSlides = document.querySelectorAll('.photo-hero-slide')
-        let heroSlideNumber = 0
+      if (heroSlideNumber >= heroSlides.length) {
+        heroSlideNumber = 0
+      }
 
-        setInterval(() => {
-          heroSlides[heroSlideNumber].classList.remove('active')
+      heroSlides[heroSlideNumber].classList.add('active')
+    }, 3500)
 
-          heroSlideNumber++
-
-          if (heroSlideNumber >= heroSlides.length) {
-            heroSlideNumber = 0
-          }
-
-          heroSlides[heroSlideNumber].classList.add('active')
-        }, 3500)
-        updatePhotos()
-      })()
-    </script>
+    updatePhotos()
+  })()
+</script>
   </body>
 </html>

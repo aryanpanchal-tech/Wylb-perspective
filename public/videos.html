@@ -16,9 +16,7 @@
 
         <ul class="navbar-links">
           <li><a href="/#hero">Home</a></li>
-          <li><a href="/#featured">Featured</a></li>
-          <li><a href="/#media">Media</a></li>
-          <li><a href="/#footer">Contact</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
 
         <button class="navbar-menu-icon" id="videoMenuButton">
@@ -35,27 +33,27 @@
           <a href="/photos.html" class="drawer-item">Photos</a>
           <a href="/videos.html" class="drawer-item">Videos</a>
           <a href="/events.html" class="drawer-item">Events</a>
-          <a href="/films.html" class="drawer-item">Films</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
           <a href="/tech.html" class="drawer-item">Tech</a>
         </div>
       </nav>
 
       <section class="hero" id="videos">
         <div class="video-hero-slideshow">
-          <video class="video-hero-slide active" muted loop playsinline preload="metadata">
-            <source src="/Videos/story-video.mp4" type="video/mp4">
+          <video class="video-hero-slide active" muted playsinline preload="metadata">
+            <source src="/Videos/Adebayor - Teaser.mp4" type="video/mp4">
           </video>
 
-          <video class="video-hero-slide" muted loop playsinline preload="metadata">
-            <source src="/Videos/event-recap.mp4" type="video/mp4">
+          <video class="video-hero-slide" muted playsinline preload="metadata">
+            <source src="/Videos/Asante Kente - Aaron Ashitey.mp4" type="video/mp4">
           </video>
 
-          <video class="video-hero-slide" muted loop playsinline preload="metadata">
-            <source src="/Videos/brand-promo.mp4" type="video/mp4">
+          <video class="video-hero-slide" muted playsinline preload="metadata">
+            <source src="/Videos/Keke @ 40 60fps.mp4" type="video/mp4">
           </video>
 
-          <video class="video-hero-slide" muted loop playsinline preload="metadata">
-            <source src="/Videos/behind-scenes.mp4" type="video/mp4">
+          <video class="video-hero-slide" muted playsinline preload="metadata">
+            <source src="/Videos/Prince & Susana 2024.mp4" type="video/mp4">
           </video>
         </div>
 
@@ -74,42 +72,15 @@
           </p>
 
           <div class="hero-buttons">
-            <button class="hero-btn-primary">Watch Videos</button>
-            <button class="hero-btn-secondary">View Projects</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="featured" id="featured">
-        <h2 class="section-title">Featured Video</h2>
-
-        <div class="featured-card">
-          <div class="featured-thumbnail">
-            <video class="video-preview" muted loop playsinline preload="metadata">
-              <source src="/Videos/story-video.mp4" type="video/mp4">
-            </video>
-
-            <div class="video-name">Featured Video</div>
-          </div>
-
-          <div class="featured-info">
-            <span class="featured-tag">Video Production</span>
-
-            <h3 class="featured-title">
-              Creative Media With a Strong Visual Direction
-            </h3>
-
-            <p class="featured-description">
-              This section highlights featured video work, including short films, edits, promotional content, and creative storytelling.
-            </p>
-
-            <button class="featured-button">Watch Now</button>
+            <button class="hero-btn-primary" id="watchVideosBtn">
+              Watch Videos
+            </button>
           </div>
         </div>
       </section>
 
       <section class="media-grid-section" id="media">
-        <h2 class="section-title">Video Categories</h2>
+        <h2 class="section-title">Videos</h2>
 
         <div class="video-controls">
           <input
@@ -118,13 +89,6 @@
             class="video-search"
             placeholder="Search videos..."
           />
-
-          <select id="videoTypeFilter" class="video-filter">
-            <option value="all">Show All</option>
-            <option value="short films">Short Films</option>
-            <option value="events">Events</option>
-            <option value="promotional">Promotional</option>
-          </select>
 
           <select id="videoSort" class="video-filter">
             <option value="default">Default Order</option>
@@ -245,15 +209,8 @@
       </div>
 
       <footer class="footer" id="footer">
-        <div class="footer-links">
-          <span>Photos</span>
-          <span>Videos</span>
-          <span>Events</span>
-          <span>Contact</span>
-        </div>
-
         <p class="footer-copy">
-          © 2026 Wylb Perspective. All rights reserved.
+          © 2026 Wyld Perspective. All rights reserved.
         </p>
       </footer>
     </div>
@@ -283,34 +240,28 @@
         })
 
         const search = document.getElementById('videoSearch')
-        const filter = document.getElementById('videoTypeFilter')
         const sort = document.getElementById('videoSort')
         const noVideos = document.getElementById('noVideoResults')
         const grid = document.querySelector('.media-grid')
         const cards = Array.from(document.querySelectorAll('.media-card'))
 
-        for (let i = 0; i < cards.length; i++) {
-          cards[i].dataset.spot = i
-        }
+        cards.forEach((card, index) => {
+          card.dataset.spot = index
+        })
 
-        function getTitle(card) {
+        function titleOf(card) {
           return card.querySelector('.card-title').textContent.toLowerCase().trim()
-        }
-
-        function getCategory(card) {
-          return card.querySelector('.card-category').textContent.toLowerCase().trim()
         }
 
         function updateVideos() {
           const typed = search.value.toLowerCase().trim()
-          const picked = filter.value
           const order = sort.value
 
           let list = Array.from(cards)
-          let amountShowing = 0
+          let showing = 0
 
           if (order === 'az') {
-            list.sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
+            list.sort((a, b) => titleOf(a).localeCompare(titleOf(b)))
           } else {
             list.sort((a, b) => Number(a.dataset.spot) - Number(b.dataset.spot))
           }
@@ -319,45 +270,35 @@
             grid.appendChild(card)
 
             const words = card.textContent.toLowerCase()
-            const kind = getCategory(card)
 
-            let matchesType = picked === 'all'
-
-            if (picked !== 'all' && kind.includes(picked)) {
-              matchesType = true
-            }
-
-            if (words.includes(typed) && matchesType) {
+            if (words.includes(typed)) {
               card.style.display = ''
-              amountShowing++
+              showing++
             } else {
               card.style.display = 'none'
             }
           })
 
-          if (amountShowing === 0) {
-            noVideos.style.display = 'block'
-          } else {
-            noVideos.style.display = 'none'
-          }
+          noVideos.style.display = showing === 0 ? 'block' : 'none'
         }
 
         search.addEventListener('input', updateVideos)
-        filter.addEventListener('change', updateVideos)
         sort.addEventListener('change', updateVideos)
 
         const viewer = document.getElementById('videoViewer')
-        const viewerVideo = document.getElementById('videoViewerScreen')
-        const viewerSource = document.getElementById('videoViewerSource')
-        const viewerTitle = document.getElementById('videoViewerTitle')
-        const viewerText = document.getElementById('videoViewerDescription')
+        const videoScreen = document.getElementById('videoViewerScreen')
+        const videoSource = document.getElementById('videoViewerSource')
+        const videoTitle = document.getElementById('videoViewerTitle')
+        const videoText = document.getElementById('videoViewerDescription')
         const closeBtn = document.getElementById('videoViewerClose')
         const prevBtn = document.getElementById('videoViewerPrev')
         const nextBtn = document.getElementById('videoViewerNext')
+        const watchBtn = document.getElementById('watchVideosBtn')
 
         let videoNumber = 0
+        let playAll = false
 
-        function visibleCards() {
+        function videosShowing() {
           const showing = cards.filter((card) => card.style.display !== 'none')
 
           if (showing.length > 0) {
@@ -367,8 +308,8 @@
           return cards
         }
 
-        function showVideo(number) {
-          const showing = visibleCards()
+        function showVideo(number, playNow) {
+          const showing = videosShowing()
 
           if (number < 0) {
             videoNumber = showing.length - 1
@@ -381,47 +322,67 @@
           const card = showing[videoNumber]
           const title = card.querySelector('.card-title')
           const desc = card.querySelector('.card-description')
-          const videoFile = card.getAttribute('data-video')
+          const file = card.getAttribute('data-video')
 
-          viewerTitle.textContent = title.textContent
-          viewerText.textContent = desc.textContent
+          videoTitle.textContent = title.textContent
+          videoText.textContent = desc.textContent
+          videoSource.src = file
 
-          viewerSource.src = videoFile
-          viewerVideo.load()
+          videoScreen.load()
+
+          if (playNow) {
+            videoScreen.play()
+          }
         }
 
         function openViewer(card) {
-          const showing = visibleCards()
+          const showing = videosShowing()
 
+          playAll = false
           videoNumber = showing.indexOf(card)
 
           if (videoNumber < 0) {
             videoNumber = 0
           }
 
-          showVideo(videoNumber)
+          showVideo(videoNumber, false)
 
           viewer.classList.add('open')
           viewer.setAttribute('aria-hidden', 'false')
           document.body.style.overflow = 'hidden'
         }
 
+        function startVideoShow() {
+          playAll = true
+          videoNumber = 0
+
+          viewer.classList.add('open')
+          viewer.setAttribute('aria-hidden', 'false')
+          document.body.style.overflow = 'hidden'
+
+          showVideo(videoNumber, true)
+        }
+
         function closeViewer() {
-          viewerVideo.pause()
+          playAll = false
+          videoScreen.pause()
           viewer.classList.remove('open')
           viewer.setAttribute('aria-hidden', 'true')
           document.body.style.overflow = ''
         }
 
         cards.forEach((card) => {
+          const thumb = card.querySelector('.card-thumbnail')
           const preview = card.querySelector('.video-preview')
 
-          card.querySelector('.card-thumbnail').addEventListener('click', () => {
+          thumb.addEventListener('click', () => {
             openViewer(card)
           })
 
           card.addEventListener('mouseenter', () => {
             if (preview) {
+              preview.muted = true
+              preview.volume = 0
               preview.play()
             }
           })
@@ -434,14 +395,21 @@
           })
         })
 
+        watchBtn.addEventListener('click', startVideoShow)
         closeBtn.addEventListener('click', closeViewer)
 
         prevBtn.addEventListener('click', () => {
-          showVideo(videoNumber - 1)
+          showVideo(videoNumber - 1, playAll)
         })
 
         nextBtn.addEventListener('click', () => {
-          showVideo(videoNumber + 1)
+          showVideo(videoNumber + 1, playAll)
+        })
+
+        videoScreen.addEventListener('ended', () => {
+          if (playAll) {
+            showVideo(videoNumber + 1, true)
+          }
         })
 
         document.addEventListener('keydown', (event) => {
@@ -451,37 +419,45 @@
 
           if (event.key === 'Escape') {
             closeViewer()
-          }
-
-          if (event.key === 'ArrowLeft') {
-            showVideo(videoNumber - 1)
-          }
-
-          if (event.key === 'ArrowRight') {
-            showVideo(videoNumber + 1)
+          } else if (event.key === 'ArrowLeft') {
+            showVideo(videoNumber - 1, playAll)
+          } else if (event.key === 'ArrowRight') {
+            showVideo(videoNumber + 1, playAll)
           }
         })
 
         const slides = document.querySelectorAll('.video-hero-slide')
         let slideNumber = 0
+        const clipTime = 2500
+
+        function playHeroClip(number) {
+          slides.forEach((slide, index) => {
+            slide.classList.remove('active')
+            slide.pause()
+            slide.currentTime = 0
+            slide.muted = true
+            slide.volume = 0
+
+            if (index === number) {
+              slide.classList.add('active')
+            }
+          })
+
+          slides[number].play()
+        }
 
         if (slides.length > 0) {
-          slides[0].play()
+          playHeroClip(slideNumber)
 
           setInterval(() => {
-            slides[slideNumber].classList.remove('active')
-            slides[slideNumber].pause()
-            slides[slideNumber].currentTime = 0
-
             slideNumber++
 
             if (slideNumber >= slides.length) {
               slideNumber = 0
             }
 
-            slides[slideNumber].classList.add('active')
-            slides[slideNumber].play()
-          }, 3500)
+            playHeroClip(slideNumber)
+          }, clipTime)
         }
 
         updateVideos()
