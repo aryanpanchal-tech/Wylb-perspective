@@ -4,8 +4,8 @@ function Footer() {
 
       {/* ── FOOTER LINKS ── */}
       <div className="footer-links">
-        <span>Privacy Policy</span>
-        <span>Terms of Service</span>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <a href="/Terms of service.html">Terms of Service</a>
       </div>
 
       {/* ── COPYRIGHT ── */}

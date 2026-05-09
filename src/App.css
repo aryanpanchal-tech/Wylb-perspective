@@ -921,3 +921,197 @@
     min-width: 80vw;
   }
 }
+.terms-menu-page {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d1a, #1a1a2e, #0f0f0f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 130px 20px 90px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.terms-menu-page.hide {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.terms-menu-page.fade-back-in {
+  animation: termsFadeBackIn 0.55s ease forwards;
+}
+
+.terms-menu-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.terms-menu-content .hero-title,
+.terms-menu-content .hero-subtitle,
+.terms-menu-content .hero-tag {
+  text-align: center;
+}
+
+.terms-menu-content .hero-subtitle {
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.terms-button-list {
+  margin: 38px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.terms-main-button {
+  width: 100%;
+  max-width: 420px;
+  padding: 16px 24px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.terms-main-button:hover {
+  background: #c1121f;
+  transform: scale(1.04);
+}
+
+.term-detail-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: none;
+  opacity: 0;
+  transform: scale(0.92);
+  transform-origin: bottom right;
+}
+
+.term-detail-page.open {
+  display: block;
+  animation: termZoomIn 0.45s ease forwards;
+}
+
+.term-detail-page.closing {
+  display: block;
+  animation: termZoomOut 0.4s ease forwards;
+  transform-origin: top right;
+}
+
+.term-detail-page img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.term-detail-content {
+  position: absolute;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-width: 680px;
+  width: calc(100% - 40px);
+  text-align: center;
+}
+
+.term-detail-content .hero-title,
+.term-detail-content .hero-subtitle,
+.term-detail-content .hero-tag {
+  text-align: center;
+}
+
+.term-detail-content .hero-subtitle {
+  margin: 0 auto;
+}
+
+.term-back-button {
+  position: absolute;
+  top: 105px;
+  right: 48px;
+  z-index: 3;
+  padding: 12px 22px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.term-back-button:hover {
+  background: #c1121f;
+}
+
+@keyframes termsFadeBackIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes termZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+    transform-origin: bottom right;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: bottom right;
+  }
+}
+
+@keyframes termZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top right;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 640px) {
+  .term-detail-content {
+    bottom: 60px;
+    width: calc(100% - 40px);
+  }
+
+  .term-back-button {
+    top: 90px;
+    right: 20px;
+  }
+
+  .terms-main-button {
+    font-size: 15px;
+  }
+}
