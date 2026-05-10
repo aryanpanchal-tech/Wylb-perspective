@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="navbar-logo">Wylb</div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="contactMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="contactDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+          <a href="/contact.html" class="drawer-item">Contact</a>
+        </div>
+      </nav>
+
+      <section class="contact-hero">
+        <div class="hero-overlay"></div>
+
+        <div class="contact-page-content">
+          <span class="hero-tag">Wylb Perspective</span>
+
+          <h1 class="hero-title">
+            Request a <br />
+            Creative Shoot
+          </h1>
+
+          <p class="hero-subtitle">
+            Select the work you would like to recieve and describe the request.
+          </p>
+
+          <form class="contact-form" id="contactForm">
+            <div class="contact-category-row">
+              <label class="contact-category">
+                <input type="radio" name="requestType" value="Art" required>
+                <span>Art</span>
+              </label>
+
+              <label class="contact-category">
+                <input type="radio" name="requestType" value="Films">
+                <span>Films</span>
+              </label>
+
+              <label class="contact-category">
+                <input type="radio" name="requestType" value="Photos">
+                <span>Photos</span>
+              </label>
+            </div>
+
+            <div class="contact-input-row">
+              <input
+                type="text"
+                id="firstName"
+                placeholder="First name"
+                required
+              >
+
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Last name"
+                required
+              >
+            </div>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Email address"
+              required
+            >
+
+            <textarea
+              id="message"
+              placeholder="Go ahead, describe the shoot you would like to see..."
+              required
+            ></textarea>
+
+            <button type="submit" class="hero-btn-primary">
+              Proceed to email
+            </button>
+
+            <p class="contact-note" id="contactNote">
+              This will open your email app with the request filled in.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <p class="footer-copy">
+          © 2026 Wylb Perspective. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const menuButton = document.getElementById('contactMenuButton')
+        const drawer = document.getElementById('contactDrawer')
+        const navbar = document.querySelector('.navbar')
+        const contactForm = document.getElementById('contactForm')
+        const contactNote = document.getElementById('contactNote')
+
+        drawer.style.display = 'none'
+
+        menuButton.addEventListener('click', () => {
+          if (drawer.style.display === 'none') {
+            drawer.style.display = 'flex'
+          } else {
+            drawer.style.display = 'none'
+          }
+        })
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 80) {
+            navbar.classList.add('navbar--scrolled')
+          } else {
+            navbar.classList.remove('navbar--scrolled')
+          }
+        })
+
+        contactForm.addEventListener('submit', (event) => {
+          event.preventDefault()
+
+          const requestChoice = document.querySelector('input[name="requestType"]:checked')
+          const firstName = document.getElementById('firstName').value.trim()
+          const lastName = document.getElementById('lastName').value.trim()
+          const email = document.getElementById('email').value.trim()
+          const message = document.getElementById('message').value.trim()
+
+          if (!requestChoice || firstName === '' || lastName === '' || email === '' || message === '') {
+            contactNote.textContent = 'Please fill out everything before sending.'
+            return
+          }
+
+          const ownerEmail = 'dekock.matt@gmail.com'
+          const subject = `Requesting ${requestChoice.value} piece for ${firstName} ${lastName}`
+
+          const emailBody =
+            'Request Type: ' + requestChoice.value + '%0D%0A' +
+            'Name: ' + firstName + ' ' + lastName + '%0D%0A' +
+            'Email: ' + email + '%0D%0A%0D%0A' +
+            'Message:%0D%0A' + message
+
+          window.location.href =
+            'mailto:' + ownerEmail +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + emailBody
+        })
+      })()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photos | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="navbar-logo">Wylb</div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/#featured">Featured</a></li>
+          <li><a href="/#media">Media</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="photoMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="photoDrawer">
+          <div class="drawer-search-row">
+            <input
+              class="drawer-search"
+              type="text"
+              placeholder="Search..."
+            />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+        </div>
+      </nav>
+
+      <section class="hero" id="photos">
+        <div class="photo-hero-slideshow">
+          <img class="photo-hero-slide active" src="/Images/SuspenceinSerenity.jpg" alt="Suspence In Serenity">
+          <img class="photo-hero-slide" src="/Images/Timeless Toronto 2.0.jpg" alt="Timeless Toronto 2.0">
+          <img class="photo-hero-slide" src="/Images/Timeless Toronto.jpg" alt="Timeless Toronto">
+          <img class="photo-hero-slide" src="/Images/Toronto_CN Tower.jpg" alt="Toronto CN Tower">
+          <img class="photo-hero-slide" src="/Images/Vibrance Beneath the Lion's Gaze.jpg" alt="Vibrance Beneath the Lion's Gaze">
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <span class="hero-tag">Wylb Perspective</span>
+
+          <h1 class="hero-title">
+            Capturing Moments <br />
+            Through the Lens
+          </h1>
+
+          <p class="hero-subtitle">
+            Explore creative photography, visual stories, and captured moments from Wylb Perspective Studios.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="hero-btn-primary" id="startGalleryBtn">View Gallery</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="media-grid-section" id="media">
+        <h2 class="section-title">Photo Categories</h2>
+
+        <div class="photo-controls">
+          <input
+            type="text"
+            id="photoSearch"
+            class="photo-search"
+            placeholder="Search photos..."
+          />
+
+          <select id="photoTypeFilter" class="photo-filter">
+            <option value="all">Show All</option>
+            <option value="scenery">Scenery</option>
+            <option value="person">Person</option>
+            <option value="animal">Animal</option>
+          </select>
+
+          <select id="photoSort" class="photo-filter">
+            <option value="default">Default Order</option>
+            <option value="az">A-Z</option>
+          </select>
+        </div>
+
+        <p id="noPhotoResults" class="no-photo-results">
+          No photos found.
+        </p>
+
+        <div class="media-grid">
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/SuspenceinSerenity.jpg" alt="Suspence In Serenity">
+              <div class="photo-name">Suspence In Serenity</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">scenery</span>
+              <h3 class="card-title">Suspence In Serenity</h3>
+              <p class="card-description">
+                Personal, studio, and creative portrait photography.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Timeless Toronto 2.0.jpg" alt="Timeless Toronto 2.0">
+              <div class="photo-name">Timeless Toronto 2.0</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">scenery</span>
+              <h3 class="card-title">Timeless Toronto 2.0</h3>
+              <p class="card-description">
+                Capturing moments from gatherings, celebrations, and live events.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Timeless Toronto.jpg" alt="Timeless Toronto">
+              <div class="photo-name">Timeless Toronto</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">scenery</span>
+              <h3 class="card-title">Timeless Toronto</h3>
+              <p class="card-description">
+                Stylized photos, artistic visuals, and experimental photography.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Toronto_CN Tower.jpg" alt="Toronto CN Tower">
+              <div class="photo-name">Toronto CN Tower</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">scenery</span>
+              <h3 class="card-title">Toronto CN Tower</h3>
+              <p class="card-description">
+                Natural moments, city visuals, and real-life scenes captured through the lens.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Vibrance Beneath the Lion's Gaze.jpg" alt="Golden Hour">
+              <div class="photo-name">Vibrance Beneath the Lion's Gaze</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">scenery</span>
+              <h3 class="card-title">Vibrance Beneath the Lion's Gaze</h3>
+              <p class="card-description">
+                A warm portrait-style photo focused on natural lighting and atmosphere.
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Family Photo.jpg" alt="City Motion">
+              <div class="photo-name">Family Photo</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Family photo</h3>
+              <p class="card-description">
+                A photo showing a happy family moment
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Smiling in the sunset.jpg" alt="Smiling in the sunset">
+              <div class="photo-name">Smiling in the sunset</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Smiling in the sunset</h3>
+              <p class="card-description">
+                A photo showing a happy individual embracing the suns warmth and light
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Playing in the beach.jpg" alt="Downtown Lights">
+              <div class="photo-name">Playing in the beach</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Playing in the beach</h3>
+              <p class="card-description">
+                A young girl enjoying a sunny day at the beach playing in the sand
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Camera shot.jpg" alt="Studio Detail">
+              <div class="photo-name">Camera shot</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Camera shot</h3>
+              <p class="card-description">
+                A clear view of 2 young boys
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Playing at the park.jpg" alt="Night Perspective">
+              <div class="photo-name">Playing at the park</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Playing at the park</h3>
+              <p class="card-description">
+                A child having a fun day at an indoor park
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Playful puppy.jpg" alt="Night Perspective">
+              <div class="photo-name">Playful puppy</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Animal</span>
+              <h3 class="card-title">Playful puppy</h3>
+              <p class="card-description">
+                A playful puppy engaging in a friendly game of fetch 
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Freedom and Justice monument.png" alt="Night Perspective">
+              <div class="photo-name">Freedom and Justice monument</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Senery</span>
+              <h3 class="card-title">Freedom and Justice monument</h3>
+              <p class="card-description">
+                Clear shot of the freedom and justice monument 
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Raining fish.jpg" alt="Raining fish">
+              <div class="photo-name">Raining fish</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person | Animal</span>
+              <h3 class="card-title">Raining fish</h3>
+              <p class="card-description">
+                A clear shot of a woman collecting fish from the ground
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Professional confidence.png" alt="Professional confidence">
+              <div class="photo-name">Professional confidence</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Professional confidence</h3>
+              <p class="card-description">
+                A photo shoot showcasing a casual and confident pose in a professional setting
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Family gathering.jpg" alt="Family gathering">
+              <div class="photo-name">Family gathering</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Family gathering</h3>
+              <p class="card-description">
+                A photo showing a family getting together for a family photo 
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/IMG_3616.png" alt="Smile for the camera!">
+              <div class="photo-name">Smile for the camera!</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Smile for the camera!</h3>
+              <p class="card-description">
+                Smiling for a quick photo
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/IMG_9871.jpg" alt="Brothers having fun">
+              <div class="photo-name">Brothers having fun</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Brothers having fun</h3>
+              <p class="card-description">
+                2 brothers spending quality time together
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/IMG_9915.jpg" alt="Net fishing">
+              <div class="photo-name">Net fishing</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Net fishing</h3>
+              <p class="card-description">
+                A boy playing around with a fishing net
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/IMG_9977.jpg" alt="Preparing to fish">
+              <div class="photo-name">Preparing to fish</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Preparing to fish</h3>
+              <p class="card-description">
+                A boy getting ready to go fishing with his hook and rope
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/MZS09459.jpg" alt="Posing for Justice">
+              <div class="photo-name">Posing for Justice</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Posing for Justice</h3>
+              <p class="card-description">
+                A person posing for a photo shoot in front of the justice building
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/Dog with a blue bg.jpg" alt="Night Perspective">
+              <div class="photo-name">Dog with a blue bg</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Animal</span>
+              <h3 class="card-title">Dog with a blue bg</h3>
+              <p class="card-description">
+                A dog doing a photo shoot with a blue bg 
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/MZS09877.jpg" alt="Robotic hand">
+              <div class="photo-name">Robotic hand</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Robotic hand</h3>
+              <p class="card-description">
+                A person showing off their custom robotic hand in a photo shoot
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/MZS09656.jpg" alt="Sleeping for the camera">
+              <div class="photo-name">Sleeping for the camera</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Sleeping for the camera</h3>
+              <p class="card-description">
+                A person sleeping for a photo shoot while lying on the grass
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              <img src="/Images/MZS09511.jpg" alt="Embracing natures grass">
+              <div class="photo-name">Embracing natures grass</div>
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Person</span>
+              <h3 class="card-title">Embracing natures grass</h3>
+              <p class="card-description">
+                A person embracing the beauty of nature's grass
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="slideshow-picker" id="slideshowPicker">
+      <div class="slideshow-picker-box">
+        <h2>Choose a slideshow category</h2>
+        <p>Pick what type of photos you want to see.</p>
+
+        <div class="slideshow-picker-buttons">
+          <button type="button" class="slideshow-choice" data-choice="all">All Photos</button>
+          <button type="button" class="slideshow-choice" data-choice="scenery">Scenery</button>
+          <button type="button" class="slideshow-choice" data-choice="person">Person</button>
+          <button type="button" class="slideshow-choice" data-choice="animal">Animal</button>
+        </div>
+
+        <button type="button" class="slideshow-cancel" id="cancelSlideshow">
+          Cancel
+        </button>
+      </div>
+    </div>
+      <div class="photo-viewer" id="photoViewer" aria-hidden="true">
+        <div class="photo-viewer-header">
+          <div>
+            <span class="hero-tag">Wylb Perspective</span>
+            <h2 id="photoViewerTitle">Photo Preview</h2>
+          </div>
+
+          <button type="button" class="photo-viewer-button" id="photoViewerCloseTop">
+            Back to Photos
+          </button>
+        </div>
+
+        <div class="photo-viewer-main">
+          <button type="button" class="photo-viewer-arrow photo-viewer-arrow-left" id="photoViewerPrev">
+            &#10094;
+          </button>
+
+          <img id="photoViewerImage" src="" alt="">
+
+          <button type="button" class="photo-viewer-arrow photo-viewer-arrow-right" id="photoViewerNext">
+            &#10095;
+          </button>
+        </div>
+
+        <div class="photo-viewer-footer">
+          <p id="photoViewerDescription">
+            Viewing selected photography.
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer" id="footer">
+        <p class="footer-copy">
+          © 2026 Wylb Perspective. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+  (() => {
+    const menuBtn = document.getElementById('photoMenuButton')
+    const drawer = document.getElementById('photoDrawer')
+    const nav = document.querySelector('.navbar')
+
+    drawer.style.display = 'none'
+
+    menuBtn.addEventListener('click', () => {
+      if (drawer.style.display === 'none') {
+        drawer.style.display = 'flex'
+      } else {
+        drawer.style.display = 'none'
+      }
+    })
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('navbar--scrolled')
+      } else {
+        nav.classList.remove('navbar--scrolled')
+      }
+    })
+
+    const search = document.getElementById('photoSearch')
+    const filter = document.getElementById('photoTypeFilter')
+    const sort = document.getElementById('photoSort')
+    const noPhotos = document.getElementById('noPhotoResults')
+    const grid = document.querySelector('.media-grid')
+    const cards = Array.from(document.querySelectorAll('.media-card'))
+
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].dataset.spot = i
+    }
+
+    function getTitle(card) {
+      return card.querySelector('.card-title').textContent.toLowerCase().trim()
+    }
+
+    function getCategory(card) {
+      let text = card.querySelector('.card-category').textContent.toLowerCase().trim()
+
+      if (text === 'senery' || text === 'cenery') {
+        text = 'scenery'
+      }
+
+      return text
+    }
+
+    function updatePhotos() {
+      const typed = search.value.toLowerCase().trim()
+      const picked = filter.value
+      const order = sort.value
+
+      let list = Array.from(cards)
+      let amountShowing = 0
+
+      if (order === 'az') {
+        list.sort((a, b) => getTitle(a).localeCompare(getTitle(b)))
+      } else {
+        list.sort((a, b) => Number(a.dataset.spot) - Number(b.dataset.spot))
+      }
+
+      list.forEach((card) => {
+        grid.appendChild(card)
+
+        const cardWords = card.textContent.toLowerCase()
+        const cardType = getCategory(card)
+
+        let matchesType = picked === 'all'
+
+        if (picked !== 'all' && cardType.includes(picked)) {
+          matchesType = true
+        }
+
+        if (cardWords.includes(typed) && matchesType) {
+          card.style.display = ''
+          amountShowing++
+        } else {
+          card.style.display = 'none'
+        }
+      })
+
+      if (amountShowing === 0) {
+        noPhotos.style.display = 'block'
+      } else {
+        noPhotos.style.display = 'none'
+      }
+    }
+
+    search.addEventListener('input', updatePhotos)
+    filter.addEventListener('change', updatePhotos)
+    sort.addEventListener('change', updatePhotos)
+
+    const viewer = document.getElementById('photoViewer')
+    const bigImg = document.getElementById('photoViewerImage')
+    const bigTitle = document.getElementById('photoViewerTitle')
+    const bigText = document.getElementById('photoViewerDescription')
+    const closeViewerBtn = document.getElementById('photoViewerCloseTop')
+    const prevBtn = document.getElementById('photoViewerPrev')
+    const nextBtn = document.getElementById('photoViewerNext')
+
+    let photoNumber = 0
+    let slideshowPhotos = []
+    let slideshowTimer = null
+    let usingSlideshow = false
+
+    function visibleCards() {
+      if (usingSlideshow && slideshowPhotos.length > 0) {
+        return slideshowPhotos
+      }
+
+      const showing = cards.filter((card) => card.style.display !== 'none')
+
+      if (showing.length > 0) {
+        return showing
+      }
+
+      return cards
+    }
+
+    function showBigPhoto(number) {
+      const showing = visibleCards()
+
+      if (showing.length === 0) {
+        return
+      }
+
+      if (number < 0) {
+        photoNumber = showing.length - 1
+      } else if (number >= showing.length) {
+        photoNumber = 0
+      } else {
+        photoNumber = number
+      }
+
+      const card = showing[photoNumber]
+      const img = card.querySelector('.card-thumbnail img')
+      const title = card.querySelector('.card-title')
+      const desc = card.querySelector('.card-description')
+
+      bigImg.src = img.src
+      bigImg.alt = img.alt
+      bigTitle.textContent = title.textContent
+      bigText.textContent = desc.textContent
+    }
+
+    function openViewer(card) {
+      usingSlideshow = false
+      slideshowPhotos = []
+
+      const showing = visibleCards()
+
+      photoNumber = showing.indexOf(card)
+
+      if (photoNumber < 0) {
+        photoNumber = 0
+      }
+
+      showBigPhoto(photoNumber)
+
+      viewer.classList.add('open')
+      viewer.setAttribute('aria-hidden', 'false')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function stopSlideshow() {
+      if (slideshowTimer) {
+        clearInterval(slideshowTimer)
+        slideshowTimer = null
+      }
+
+      usingSlideshow = false
+      slideshowPhotos = []
+    }
+
+    function closeViewer() {
+      stopSlideshow()
+
+      viewer.classList.remove('open')
+      viewer.setAttribute('aria-hidden', 'true')
+      document.body.style.overflow = ''
+    }
+
+    cards.forEach((card) => {
+      card.querySelector('.card-thumbnail').addEventListener('click', () => {
+        openViewer(card)
+      })
+    })
+
+    closeViewerBtn.addEventListener('click', closeViewer)
+
+    prevBtn.addEventListener('click', () => {
+      showBigPhoto(photoNumber - 1)
+    })
+
+    nextBtn.addEventListener('click', () => {
+      showBigPhoto(photoNumber + 1)
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (!viewer.classList.contains('open')) {
+        return
+      }
+
+      if (event.key === 'Escape') {
+        closeViewer()
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showBigPhoto(photoNumber - 1)
+      }
+
+      if (event.key === 'ArrowRight') {
+        showBigPhoto(photoNumber + 1)
+      }
+    })
+
+    const startGalleryBtn = document.getElementById('startGalleryBtn')
+    const picker = document.getElementById('slideshowPicker')
+    const cancelSlideshow = document.getElementById('cancelSlideshow')
+    const choices = document.querySelectorAll('.slideshow-choice')
+
+    startGalleryBtn.addEventListener('click', () => {
+      picker.classList.add('open')
+    })
+
+    cancelSlideshow.addEventListener('click', () => {
+      picker.classList.remove('open')
+    })
+
+    choices.forEach((button) => {
+      button.addEventListener('click', () => {
+        const picked = button.dataset.choice
+
+        slideshowPhotos = cards.filter((card) => {
+          const kind = getCategory(card)
+
+          if (picked === 'all') {
+            return true
+          }
+
+          return kind.includes(picked)
+        })
+
+        if (slideshowPhotos.length === 0) {
+          picker.classList.remove('open')
+          return
+        }
+
+        usingSlideshow = true
+        photoNumber = 0
+
+        picker.classList.remove('open')
+        viewer.classList.add('open')
+        viewer.setAttribute('aria-hidden', 'false')
+        document.body.style.overflow = 'hidden'
+
+        showBigPhoto(photoNumber)
+
+        if (slideshowTimer) {
+          clearInterval(slideshowTimer)
+        }
+
+        slideshowTimer = setInterval(() => {
+          showBigPhoto(photoNumber + 1)
+        }, 3000)
+      })
+    })
+
+    const heroSlides = document.querySelectorAll('.photo-hero-slide')
+    let heroSlideNumber = 0
+
+    setInterval(() => {
+      heroSlides[heroSlideNumber].classList.remove('active')
+
+      heroSlideNumber++
+
+      if (heroSlideNumber >= heroSlides.length) {
+        heroSlideNumber = 0
+      }
+
+      heroSlides[heroSlideNumber].classList.add('active')
+    }, 3500)
+
+    updatePhotos()
+  })()
+</script>
+  </body>
+</html>

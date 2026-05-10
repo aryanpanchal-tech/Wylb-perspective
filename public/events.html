@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <div class="navbar-logo">
+          Wylb
+        </div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="eventMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="eventDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+        </div>
+      </nav>
+
+      <!-- HERO SECTION -->
+      <section class="hero" id="events">
+        <div class="hero-video-placeholder">
+          [ Event showcase goes here ]
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <span class="hero-tag">Wylb Perspective</span>
+
+          <h1 class="hero-title">
+            Ongoing Events <br />
+  
+          </h1>
+
+          <p class="hero-subtitle">
+            Events and updates to Wylb Perspective Studios can be found here.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- EVENT GRID SECTION -->
+      <section class="media-grid-section" id="media">
+        <h2 class="section-title">Event Categories</h2>
+
+        <div class="media-grid">
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Live event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Live Events</span>
+              <h3 class="card-title">Live event title</h3>
+              <p class="card-description">
+                Description
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Live event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Live Events</span>
+              <h3 class="card-title">Live event title</h3>
+              <p class="card-description">
+                Description
+              </p>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="card-thumbnail">
+              [ Live event image ]
+            </div>
+
+            <div class="card-content">
+              <span class="card-category">Live Events</span>
+              <h3 class="card-title">Live event title</h3>
+              <p class="card-description">
+                Description
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+
+        <p class="footer-copy">
+          © 2026 Wylb Perspective. All rights reserved.
+        </p>
+      </footer>
+
+    </div>
+
+    <script>
+      (() => {
+        const eventMenuButton = document.getElementById('eventMenuButton')
+        const eventDrawer = document.getElementById('eventDrawer')
+        const eventNavbar = document.querySelector('.navbar')
+
+        if (eventDrawer) {
+          eventDrawer.style.display = 'none'
+        }
+
+        if (eventMenuButton && eventDrawer) {
+          eventMenuButton.addEventListener('click', () => {
+            if (eventDrawer.style.display === 'none') {
+              eventDrawer.style.display = 'flex'
+            } else {
+              eventDrawer.style.display = 'none'
+            }
+          })
+        }
+
+        window.addEventListener('scroll', () => {
+          if (!eventNavbar) {
+            return
+          }
+
+          if (window.scrollY > 80) {
+            eventNavbar.classList.add('navbar--scrolled')
+          } else {
+            eventNavbar.classList.remove('navbar--scrolled')
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>

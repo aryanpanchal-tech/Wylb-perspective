@@ -32,10 +32,10 @@ function Navbar() {
 
       {/* Anchor links — centered via absolute positioning in CSS */}
       <ul className="navbar-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#featured">Featured</a></li>
-        <li><a href="#media">Media</a></li>
-        <li><a href="#footer">Contact</a></li>
+        <li><a href="/#hero">Home</a></li>
+        <li><a href="/#featured">Featured</a></li>
+        <li><a href="/#media">Media</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
 
       {/* Three-line icon — toggles the drawer */}
@@ -64,12 +64,12 @@ function Navbar() {
             />
           </div>
 
-          {/* Category shortcuts — each closes the drawer on click */}
-          <a href="#photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Photos</a>
-          <a href="#videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>Videos</a>
-          <a href="#events" className="drawer-item" onClick={() => setDrawerOpen(false)}>Events</a>
-          <a href="#films"  className="drawer-item" onClick={() => setDrawerOpen(false)}>Films</a>
-          <a href="#tech"   className="drawer-item" onClick={() => setDrawerOpen(false)}>Tech</a>
+          {/* SHORTCUT LINKS */}
+          <a href="/photos.html" className="drawer-item">Photos</a>
+          <a href="/videos.html" className="drawer-item">Videos</a>
+          <a href="/events.html" className="drawer-item">Events</a>
+          <a href="/Art.html"    className="drawer-item">Art</a>
+          <a href="/tech.html"   className="drawer-item">Tech</a>
 
         </div>
       )}
