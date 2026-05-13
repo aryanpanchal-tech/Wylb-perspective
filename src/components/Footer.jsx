@@ -1,18 +1,14 @@
+import { useLanguage } from '../context/LanguageContext'
+
 function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="footer" id="footer">
-
-      {/* ── FOOTER LINKS ── */}
       <div className="footer-links">
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <a href="/Terms of service.html">Terms of Service</a>
+        <a href="/privacy.html">{t.footer.privacy}</a>
+        <a href="/Terms of service.html">{t.footer.terms}</a>
       </div>
-
-      {/* ── COPYRIGHT ── */}
-      <p className="footer-copy">
-        © 2026 YourSiteName. All rights reserved.
-      </p>
-
+      <p className="footer-copy">{t.footer.copyright}</p>
     </footer>
   )
 }

@@ -13,6 +13,8 @@
 
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { LanguageProvider } from './context/LanguageContext'
+import LanguageToggle from './components/LanguageToggle'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FeaturedSection from './components/FeaturedSection'
@@ -48,6 +50,7 @@ function HomePage() {
       <FeaturedSection />
       <MediaSection />
       <Footer />
+      <LanguageToggle />
     </div>
   )
 }
@@ -56,14 +59,16 @@ function HomePage() {
 // can use React Router hooks (useNavigate, useParams, etc.)
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollHandler />
-      <Routes>
-        <Route path="/"                  element={<HomePage />} />
-        <Route path="/photographer/:id"  element={<PhotographerPage />} />
-        <Route path="/tech/:id"          element={<TechPage />} />
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <ScrollHandler />
+        <Routes>
+          <Route path="/"                  element={<HomePage />} />
+          <Route path="/photographer/:id"  element={<PhotographerPage />} />
+          <Route path="/tech/:id"          element={<TechPage />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }
 

@@ -1,71 +1,43 @@
-/**
- * FeaturedSection.jsx — Auto-playing image slider
- *
- * Shows a full-width slider with 4 featured content slides.
- * - Auto-advances every 3.5 seconds using setInterval
- * - Clicking a dot manually jumps to that slide
- * - Hovering a slide reveals an overlay with description + "View Details" button
- * - Category label is pinned to the bottom-left of each slide
- *
- * To replace placeholders with real photos:
- *   Replace <div className="slide-image"> with <img src="..." />
- *   and update the slides array with real titles and descriptions.
- */
-
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
-// Slide data — update category and description when real content is available
-const slides = [
-  { id: 1, category: 'Photos',  description: 'A stunning collection from the latest photoshoot.' },
-  { id: 2, category: 'Videos',  description: 'Behind the scenes footage from the studio session.' },
-  { id: 3, category: 'Events',  description: 'Highlights from the annual media awards night.' },
-  { id: 4, category: 'Films',   description: 'Short film premiere — watch the full cut now.' },
+const slideImages = [
+  '/Images/Vibrance Beneath the Lion\'s Gaze.jpg',
+  '/Images/SuspenceinSerenity.jpg',
+  '/Images/Family gathering.jpg',
+  '/Images/Toronto_CN Tower.jpg',
 ]
 
 function FeaturedSection() {
-  // Index of the currently visible slide
+  const { t } = useLanguage()
   const [current, setCurrent] = useState(0)
 
-  // Auto-advance: increment current every 3.5s, wrap back to 0 at the end
-  // clearInterval in the return function prevents memory leaks on unmount
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length)
+      setCurrent((prev) => (prev + 1) % slideImages.length)
     }, 3500)
     return () => clearInterval(timer)
   }, [])
 
   return (
     <section className="featured" id="featured">
+      <h2 className="section-title">{t.featured.title}</h2>
 
-      <h2 className="section-title">Featured</h2>
-
-      {/* Slider container — all slides stacked via position: absolute */}
       <div className="slider">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            // Only the active slide has opacity: 1; others are opacity: 0
-            className={`slide ${index === current ? 'slide--active' : ''}`}
-          >
-            {/* Replace with <img src="..."> when company provides photos */}
-            <div className="slide-image">[ Photo goes here ]</div>
-
-            {/* Hover overlay — shown via CSS .slide:hover .slide-overlay */}
+        {slideImages.map((image, index) => (
+          <div key={index} className={`slide ${index === current ? 'slide--active' : ''}`}>
+            <img src={image} alt={t.featured.slides[index].category} className="slide-image" />
             <div className="slide-overlay">
-              <p className="slide-description">{slide.description}</p>
-              <button className="slide-btn">View Details</button>
+              <p className="slide-description">{t.featured.slides[index].description}</p>
+              <button className="slide-btn">{t.featured.viewDetails}</button>
             </div>
-
-            {/* Category badge — always visible, bottom-left */}
-            <span className="slide-category">{slide.category}</span>
+            <span className="slide-category">{t.featured.slides[index].category}</span>
           </div>
         ))}
       </div>
 
-      {/* Dot navigation — clicking a dot jumps directly to that slide */}
       <div className="slider-dots">
-        {slides.map((_, index) => (
+        {slideImages.map((_, index) => (
           <button
             key={index}
             className={`dot ${index === current ? 'dot--active' : ''}`}
@@ -73,7 +45,6 @@ function FeaturedSection() {
           />
         ))}
       </div>
-
     </section>
   )
 }
