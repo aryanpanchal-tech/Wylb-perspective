@@ -1,0 +1,124 @@
+.signin-two-page {
+  position: relative;
+  min-height: 125vh;
+  overflow: hidden;
+  background: #9caf88;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 130px 40px 100px;
+}
+
+.signin-two-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.signin-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.signin-two-left {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 470px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.signin-two-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.65);
+  margin-bottom: 30px;
+}
+
+.signin-two-main {
+  font-size: 86px;
+}
+
+.signin-two-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.signin-two-form input {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 10px;
+  border: 2px solid rgba(73, 92, 61, 0.75);
+  background: rgba(58, 76, 48, 0.55);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.signin-two-form input::placeholder {
+  color: #eef4df;
+}
+
+.signin-two-form input:focus {
+  border-color: #9caf88;
+}
+
+.signin-two-note {
+  color: #eef4df;
+  font-size: 14px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+}
+
+@media (max-width: 640px) {
+  .signin-two-page {
+    padding: 120px 20px 80px;
+  }
+
+  .signin-two-page::after {
+    width: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(156, 175, 136, 0.78) 0%,
+      rgba(156, 175, 136, 0.40) 100%
+    );
+  }
+
+  .signin-two-left {
+    margin-left: 0;
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .signin-two-title {
+    align-items: flex-start;
+    text-align: left;
+    font-size: 28px;
+  }
+
+  .signin-two-main {
+    font-size: 56px;
+  }
+
+  .signin-two-form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In 3 | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+    <link rel="stylesheet" href="/public/signin3.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="navbar-logo">Wylb</div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/signin.html">Sign In</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="signinThreeMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="signinThreeDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+          <a href="/contact.html" class="drawer-item">Contact</a>
+          <a href="/signin.html" class="drawer-item">Sign In</a>
+          <a href="/signin2.html" class="drawer-item">Sign In 2</a>
+          <a href="/signin3.html" class="drawer-item">Sign In 3</a>
+        </div>
+      </nav>
+
+      <section class="signin-three-page">
+        <div class="signin-three-moving-gallery">
+          <div class="signin-three-track">
+
+            <div class="signin-three-card">
+              <img src="/public/Images/Timeless Toronto.jpg" alt="See the world of Wyld Perspective through the lens of our photographers.">
+              <p>See the world of Wyld Perspective through the lens of our photographers.</p>
+            </div>
+
+            <div class="signin-three-card">
+              <img src="/public/Images/Toronto_CN Tower.jpg" alt="Enjoy the photography of multiple kinds of elements">
+              <p>Enjoy the photography of multiple kinds of elements</p>
+            </div>
+
+            <div class="signin-three-card">
+              <img src="/public/Art/1-34.jpg" alt="See how the magic at wyld perspective comes alive through the lens of our artists.">
+              <p>See how the magic at wyld perspective comes alive through the lens of our artists.</p>
+            </div>
+
+            <div class="signin-three-card">
+              <img src="/public/Images/Timeless Toronto.jpg" alt="See the world of Wyld Perspective through the lens of our photographers.">
+              <p>See the world of Wyld Perspective through the lens of our photographers.</p>
+            </div>
+
+            <div class="signin-three-card">
+              <img src="/public/Images/Toronto_CN Tower.jpg" alt="Enjoy the photography of multiple kinds of elements">
+              <p>Enjoy the photography of multiple kinds of elements</p>
+            </div>
+
+            <div class="signin-three-card">
+              <img src="/public/Art/1-34.jpg" alt="See how the magic at wyld perspective comes alive through the lens of our artists.">
+              <p>See how the magic at wyld perspective comes alive through the lens of our artists.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="signin-three-left">
+          <div class="signin-three-title">
+            <span class="signin-three-main">Wyld</span>
+            <span>Perspective Studios</span>
+          </div>
+
+          <form class="signin-three-form" id="signinThreeForm">
+            <input
+              type="text"
+              id="signinThreeFirstName"
+              placeholder="First name"
+              required
+            >
+
+            <input
+              type="text"
+              id="signinThreeLastName"
+              placeholder="Last name"
+              required
+            >
+
+            <input
+              type="email"
+              id="signinThreeEmail"
+              placeholder="Email address"
+              required
+            >
+
+            <input
+              type="password"
+              id="signinThreePassword"
+              placeholder="Password"
+              required
+            >
+
+            <input
+              type="password"
+              id="signinThreeConfirmPassword"
+              placeholder="Confirm password"
+              required
+            >
+
+            <button type="submit" class="hero-btn-primary">
+              Sign In
+            </button>
+
+            <p class="signin-three-note" id="signinThreeNote">
+              
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <p class="footer-copy">
+          © 2026 Wyld Perspective. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const menuBtn = document.getElementById('signinThreeMenuButton')
+        const drawer = document.getElementById('signinThreeDrawer')
+        const nav = document.querySelector('.navbar')
+        const form = document.getElementById('signinThreeForm')
+        const note = document.getElementById('signinThreeNote')
+
+        drawer.style.display = 'none'
+
+        menuBtn.addEventListener('click', () => {
+          if (drawer.style.display === 'none') {
+            drawer.style.display = 'flex'
+          } else {
+            drawer.style.display = 'none'
+          }
+        })
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 80) {
+            nav.classList.add('navbar--scrolled')
+          } else {
+            nav.classList.remove('navbar--scrolled')
+          }
+        })
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault()
+
+          const firstName = document.getElementById('signinThreeFirstName').value.trim()
+          const lastName = document.getElementById('signinThreeLastName').value.trim()
+          const email = document.getElementById('signinThreeEmail').value.trim()
+          const password = document.getElementById('signinThreePassword').value.trim()
+          const confirmPassword = document.getElementById('signinThreeConfirmPassword').value.trim()
+
+          if (
+            firstName === '' ||
+            lastName === '' ||
+            email === '' ||
+            password === '' ||
+            confirmPassword === ''
+          ) {
+            note.textContent = 'Please fill out every field.'
+            return
+          }
+
+          if (password !== confirmPassword) {
+            note.textContent = 'Passwords do not match.'
+            return
+          }
+
+          note.textContent = 'Account details entered. Connect this to a backend later.'
+        })
+      })()
+    </script>
+  </body>
+</html>

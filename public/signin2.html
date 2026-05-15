@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In 2 | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+    <link rel="stylesheet" href="/public/signin2.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="navbar-logo">Wylb</div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/signin.html">Sign In</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="signinTwoMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="signinTwoDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+          <a href="/contact.html" class="drawer-item">Contact</a>
+          <a href="/signin.html" class="drawer-item">Sign In</a>
+        </div>
+      </nav>
+
+      <section class="signin-two-page">
+        <div class="signin-two-bg">
+         <div class="signin-two-video-bg">
+            <video
+                id="signinBgVideo"
+                class="signin-bg-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                tabindex="-1"
+                aria-hidden="true"
+            >
+                <source src="/public/Videos/Keke @ 40 60fps.mp4" type="video/mp4">
+            </video>
+            </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="signin-two-left">
+          <div class="signin-two-title">
+            <span class="signin-two-main">Wyld</span>
+            <span>Perspective Studios</span>
+          </div>
+
+          <form class="signin-two-form" id="signinTwoForm">
+            <input
+              type="text"
+              id="signinTwoFirstName"
+              placeholder="First name"
+              required
+            >
+
+            <input
+              type="text"
+              id="signinTwoLastName"
+              placeholder="Last name"
+              required
+            >
+
+            <input
+              type="email"
+              id="signinTwoEmail"
+              placeholder="Email address"
+              required
+            >
+
+            <input
+              type="password"
+              id="signinTwoPassword"
+              placeholder="Password"
+              required
+            >
+
+            <input
+              type="password"
+              id="signinTwoConfirmPassword"
+              placeholder="Confirm password"
+              required
+            >
+
+            <button type="submit" class="hero-btn-primary">
+              Sign In
+            </button>
+
+            <p class="signin-two-note" id="signinTwoNote">
+              
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <p class="footer-copy">
+          © 2026 Wyld Perspective. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const menuBtn = document.getElementById('signinTwoMenuButton')
+        const drawer = document.getElementById('signinTwoDrawer')
+        const nav = document.querySelector('.navbar')
+        const form = document.getElementById('signinTwoForm')
+        const note = document.getElementById('signinTwoNote')
+
+        const bgVideo = document.getElementById('signinBgVideo')
+
+        if (bgVideo) {
+        bgVideo.muted = true
+        bgVideo.volume = 0
+        bgVideo.play()
+        }
+
+        drawer.style.display = 'none'
+
+        menuBtn.addEventListener('click', () => {
+          if (drawer.style.display === 'none') {
+            drawer.style.display = 'flex'
+          } else {
+            drawer.style.display = 'none'
+          }
+        })
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 80) {
+            nav.classList.add('navbar--scrolled')
+          } else {
+            nav.classList.remove('navbar--scrolled')
+          }
+        })
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault()
+
+          const firstName = document.getElementById('signinTwoFirstName').value.trim()
+          const lastName = document.getElementById('signinTwoLastName').value.trim()
+          const email = document.getElementById('signinTwoEmail').value.trim()
+          const password = document.getElementById('signinTwoPassword').value.trim()
+          const confirmPassword = document.getElementById('signinTwoConfirmPassword').value.trim()
+
+          if (
+            firstName === '' ||
+            lastName === '' ||
+            email === '' ||
+            password === '' ||
+            confirmPassword === ''
+          ) {
+            note.textContent = 'Please fill out every field.'
+            return
+          }
+
+          if (password !== confirmPassword) {
+            note.textContent = 'Passwords do not match.'
+            return
+          }
+
+          note.textContent = 'Account details entered. Connect this to a backend later.'
+        })
+      })()
+    </script>
+  </body>
+</html>

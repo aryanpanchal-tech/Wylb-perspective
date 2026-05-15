@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | Wylb Perspective</title>
+
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="navbar-logo">Wylb</div>
+
+        <ul class="navbar-links">
+          <li><a href="/#hero">Home</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/signin.html">Sign In</a></li>
+        </ul>
+
+        <button class="navbar-menu-icon" id="signinMenuButton">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-drawer" id="signinDrawer">
+          <div class="drawer-search-row">
+            <input class="drawer-search" type="text" placeholder="Search..." />
+          </div>
+
+          <a href="/photos.html" class="drawer-item">Photos</a>
+          <a href="/videos.html" class="drawer-item">Videos</a>
+          <a href="/events.html" class="drawer-item">Events</a>
+          <a href="/Art.html" class="drawer-item">Art</a>
+          <a href="/tech.html" class="drawer-item">Tech</a>
+          <a href="/contact.html" class="drawer-item">Contact</a>
+          <a href="/signin.html" class="drawer-item">Sign In</a>
+        </div>
+      </nav>
+
+      <section class="contact-hero signin-hero-bg">
+        <div class="signin-photo-scroll">
+          <div class="signin-scroll-track">
+
+            <div class="signin-scroll-lane">
+              <div class="signin-bg-photo"><img src="/public/Images/SuspenceinSerenity.jpg" alt="Suspence In Serenity"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Timeless Toronto 2.0.jpg" alt="Timeless Toronto 2.0"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Timeless Toronto.jpg" alt="Timeless Toronto"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Toronto_CN Tower.jpg" alt="Toronto CN Tower"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Vibrance Beneath the Lion's Gaze.jpg" alt="Vibrance Beneath the Lion's Gaze"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Freedom and Justice monument.png" alt="Freedom and Justice monument"></div>
+
+              <div class="signin-bg-photo"><img src="/public/Images/SuspenceinSerenity.jpg" alt="Suspence In Serenity"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Timeless Toronto 2.0.jpg" alt="Timeless Toronto 2.0"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Timeless Toronto.jpg" alt="Timeless Toronto"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Toronto_CN Tower.jpg" alt="Toronto CN Tower"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Vibrance Beneath the Lion's Gaze.jpg" alt="Vibrance Beneath the Lion's Gaze"></div>
+              <div class="signin-bg-photo"><img src="/public/Images/Freedom and Justice monument.png" alt="Freedom and Justice monument"></div>
+            </div>
+
+            <div class="signin-scroll-lane signin-scroll-lane-offset">
+              <div class="signin-bg-photo"><img src="/public/Art/1-34.jpg" alt="Tools of art"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-35.jpg" alt="Workshop of art"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-38.jpg" alt="Different angle of a workshop"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-57.jpg" alt="Art piece in project"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-66.jpg" alt="Relocating art piece"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-83.jpg" alt="Choosing the right piece"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-87.jpg" alt="Up close drilling shot"></div>
+
+              <div class="signin-bg-photo"><img src="/public/Art/1-34.jpg" alt="Tools of art"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-35.jpg" alt="Workshop of art"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-38.jpg" alt="Different angle of a workshop"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-57.jpg" alt="Art piece in project"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-66.jpg" alt="Relocating art piece"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-83.jpg" alt="Choosing the right piece"></div>
+              <div class="signin-bg-photo"><img src="/public/Art/1-87.jpg" alt="Up close drilling shot"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="contact-page-content signin-page-content">
+          <form class="contact-form" id="signinForm">
+            <input
+              type="text"
+              id="firstName"
+              placeholder="First name"
+              required
+            >
+
+            <input
+              type="text"
+              id="lastName"
+              placeholder="Last name"
+              required
+            >
+
+            <input
+              type="email"
+              id="signinEmail"
+              placeholder="Email address"
+              required
+            >
+
+            <input
+              type="password"
+              id="signinPassword"
+              placeholder="Password"
+              required
+            >
+
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm password"
+              required
+            >
+
+            <button type="submit" class="hero-btn-primary">
+              Sign In
+            </button>
+
+            <p class="contact-note" id="signinNote">
+              
+            </p>
+          </form>
+        </div>
+
+        <div class="signin-brand-title">
+          <span class="signin-brand-main">Wyld</span>
+          <span>Perspective Studios</span>
+        </div>
+      </section>
+
+      <footer class="footer" id="footer">
+        <p class="footer-copy">
+          © 2026 Wyld Perspective. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (() => {
+        const menuBtn = document.getElementById('signinMenuButton')
+        const drawer = document.getElementById('signinDrawer')
+        const nav = document.querySelector('.navbar')
+        const form = document.getElementById('signinForm')
+        const note = document.getElementById('signinNote')
+
+        drawer.style.display = 'none'
+
+        menuBtn.addEventListener('click', () => {
+          if (drawer.style.display === 'none') {
+            drawer.style.display = 'flex'
+          } else {
+            drawer.style.display = 'none'
+          }
+        })
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 80) {
+            nav.classList.add('navbar--scrolled')
+          } else {
+            nav.classList.remove('navbar--scrolled')
+          }
+        })
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault()
+
+          const firstName = document.getElementById('firstName').value.trim()
+          const lastName = document.getElementById('lastName').value.trim()
+          const email = document.getElementById('signinEmail').value.trim()
+          const password = document.getElementById('signinPassword').value.trim()
+          const confirmPassword = document.getElementById('confirmPassword').value.trim()
+
+          if (
+            firstName === '' ||
+            lastName === '' ||
+            email === '' ||
+            password === '' ||
+            confirmPassword === ''
+          ) {
+            note.textContent = 'Please fill out every field.'
+            return
+          }
+
+          if (password !== confirmPassword) {
+            note.textContent = 'Passwords do not match.'
+            return
+          }
+
+          note.textContent = 'Account details entered. Connect this to a backend later.'
+        })
+      })()
+    </script>
+  </body>
+</html>
