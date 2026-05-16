@@ -1,32 +1,41 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 
 function Navbar() {
   const { t } = useLanguage()
-  const [drawerOpen,  setDrawerOpen]  = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const [scrolled,    setScrolled]    = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-
       <div className="navbar-logo">Wylb</div>
 
       <ul className="navbar-links">
-        <li><a href="#hero">{t.navbar.home}</a></li>
-        <li><a href="#featured">{t.navbar.featured}</a></li>
-        <li><a href="#media">{t.navbar.media}</a></li>
-        <li><a href="#footer">{t.navbar.contact}</a></li>
+        <li><Link to="/">{t.navbar.home}</Link></li>
+        <li><a href="/#featured">{t.navbar.featured}</a></li>
+        <li><a href="/#media">{t.navbar.media}</a></li>
+        <li><Link to="/contact">{t.navbar.contact}</Link></li>
       </ul>
 
-      <button className="navbar-menu-icon" onClick={() => setDrawerOpen(!drawerOpen)}>
-        <span></span><span></span><span></span>
+      <button
+        className="navbar-menu-icon"
+        onClick={() => setDrawerOpen(!drawerOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       {drawerOpen && (
@@ -41,14 +50,28 @@ function Navbar() {
               autoFocus
             />
           </div>
-          <a href="/photos.html"  className="drawer-item" onClick={() => setDrawerOpen(false)}>{t.navbar.photos}</a>
-          <a href="/videos.html"  className="drawer-item" onClick={() => setDrawerOpen(false)}>{t.navbar.videos}</a>
-          <a href="/events.html"  className="drawer-item" onClick={() => setDrawerOpen(false)}>{t.navbar.events}</a>
-          <a href="/Art.html"     className="drawer-item" onClick={() => setDrawerOpen(false)}>{t.navbar.art}</a>
-          <a href="/tech.html"    className="drawer-item" onClick={() => setDrawerOpen(false)}>{t.navbar.tech}</a>
+
+          <Link to="/photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
+            {t.navbar.photos}
+          </Link>
+
+          <Link to="/videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
+            {t.navbar.videos}
+          </Link>
+
+          <Link to="/events" className="drawer-item" onClick={() => setDrawerOpen(false)}>
+            {t.navbar.events}
+          </Link>
+
+          <Link to="/art" className="drawer-item" onClick={() => setDrawerOpen(false)}>
+            {t.navbar.art}
+          </Link>
+
+          <Link to="/tech" className="drawer-item" onClick={() => setDrawerOpen(false)}>
+            {t.navbar.tech}
+          </Link>
         </div>
       )}
-
     </nav>
   )
 }
