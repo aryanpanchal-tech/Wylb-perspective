@@ -20,7 +20,9 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="navbar-logo">Wylb</div>
+      <div className="navbar-logo">
+        <img src="/Images/a470fad6-dfdf-4bcd-b175-596483965b1c_rwc_0x0x1916x1096x4096.png" alt="Wylb Perspective Studios logo" />
+      </div>
 
       <ul className="navbar-links">
         <li><Link to="/">{t.navbar.home}</Link></li>

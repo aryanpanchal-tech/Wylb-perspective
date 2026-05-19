@@ -18,6 +18,7 @@ import Events from './pages/Events'
 import Art from './pages/Art'
 import Tech from './pages/Tech'
 import Contact from './pages/Contact'
+import TermsOfService from './pages/TermsOfService'
 
 import './App.css'
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/art" element={<Art />} />
           <Route path="/tech" element={<Tech />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { photographers } from '../data/photographers'
 import { techItems } from '../data/techItems'
@@ -18,24 +18,24 @@ const cardImages = [
 const workers = [
   {
     name: 'Aaron Ashitey',
-    role: 'Founder / Photographer',
+    role: 'Photographer',
     image: '/Art/1-71.jpg',
     description:
-      'Aaron is the founder of Wyld Perspective Studios. He focuses on photography, video, and art, using the camera to capture moments that feel meaningful and real.',
+      'Meet the founder of Wyld perspective studios, a talented photographer known for his skills in caputring notable monets in life through videos, art and photographs all through the help of a lens',
   },
   {
     name: 'Matthew',
-    role: 'Web Development Intern',
-    image: '/Images/Matthew.png',
+    role: 'Intern',
+    image: '/Images/',
     description:
-      'Matthew is currently working as an intern with Wyld Perspective Studios. He is helping build the website, test page ideas, and shape the online experience for the studio.',
+      'Currently an intern at wyld perspective studios, Matthew experienceing his first steps in the web development work force, experimening and expressing his creativity with wyld perspective studios through his tools of choice',
   },
   {
     name: 'Aryankumar',
-    role: 'Web Development Intern',
+    role: 'Intern',
     image: '/Art/aryan.jpg',
     description:
-      'Aryan is an intern at Wyld Perspective Studios who helps with web development work. He is focused on learning, improving his skills, and contributing to the creative side of the project.',
+      'Aryan is a hard working intern at wyld perspective stuidos, an enthusiactic learner who is always looking to expand his knowlege and skills in the web development field, with a passion for creativity and a drive to succeed, Aryan is an asset to the team at wyld perspective studios',
   },
 ]
 
@@ -158,6 +158,7 @@ function TechCard({ item, t }) {
 function MediaSection() {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState(getInitialTab)
+
   const [workerIndex, setWorkerIndex] = useState(0)
   const [workerMove, setWorkerMove] = useState('')
   const [workerLocked, setWorkerLocked] = useState(false)
@@ -168,17 +169,17 @@ function MediaSection() {
   const previousWorker = workers[(workerIndex - 1 + workers.length) % workers.length]
   const nextWorker = workers[(workerIndex + 1) % workers.length]
 
-  const changeWorker = (way) => {
+  const changeWorker = (direction) => {
     if (workerLocked) {
       return
     }
 
     setWorkerLocked(true)
-    setWorkerMove(way === 'next' ? 'moving-next' : 'moving-prev')
+    setWorkerMove(direction === 'next' ? 'moving-next' : 'moving-prev')
 
     setTimeout(() => {
       setWorkerIndex((current) => {
-        if (way === 'next') {
+        if (direction === 'next') {
           return current === workers.length - 1 ? 0 : current + 1
         }
 
@@ -233,84 +234,186 @@ function MediaSection() {
               ))}
             </div>
 
-            <div className="about-workers-box">
-              <section className="about-section" id="about">
-                <div className="about-wrapper">
-                  <div className="about-content">
-                    <span className="hero-tag">About Us</span>
+            <section className="about-section" id="about">
+              <div className="about-wrapper">
+                <div className="about-content">
+                  <span className="hero-tag">About Us</span>
 
-                    <h2>About Wyld Perspective Studios</h2>
+                  <h2>About Wylb Perspective Studios</h2>
 
-                    <div className="about-title-line"></div>
+                  <div className="about-title-line"></div>
 
-                    <p>
-                      Wyld Perspective Studios is a creative media studio focused on
-                      photography, video, art, and storytelling. The goal is to capture
-                      meaningful moments and present them with a strong visual style.
-                    </p>
+                  <p>
+                    Wylb Perspective Studios is a creative media studio focused on
+                    photography, video, art, and storytelling. Our goal is to capture
+                    meaningful moments and present them with a unique visual style.
+                  </p>
 
-                    <p>
-                      From personal photo shoots to creative videos and art-focused
-                      projects, the studio helps bring ideas to life through visuals
-                      and a different perspective.
-                    </p>
+                  <p>
+                    From personal photo shoots to creative videos and art-focused
+                    projects, we help bring ideas to life through strong visuals and
+                    a different perspective.
+                  </p>
+                </div>
+
+                <div className="about-image">
+                  <img
+                    src="/Images/Timeless Toronto.jpg"
+                    alt="Wylb Perspective Studios"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section className="workers-section" id="workers">
+              <div className="workers-wrapper">
+                <div className="workers-content">
+                  <span className="hero-tag">Our Team</span>
+
+                  <h2>{currentWorker.name}</h2>
+
+                  <div className="about-title-line"></div>
+
+                  <h3>{currentWorker.role}</h3>
+
+                  <p>{currentWorker.description}</p>
+                </div>
+
+                <div className={`workers-image-gallery ${workerMove}`}>
+                  <button
+                    type="button"
+                    className="worker-gallery-arrow worker-gallery-arrow-left"
+                    onClick={() => changeWorker('prev')}
+                  >
+                    &#10094;
+                  </button>
+
+                  <div className="worker-image-card worker-image-left">
+                    <img src={previousWorker.image} alt={previousWorker.name} />
                   </div>
 
-                  <div className="about-image">
-                    <img
-                      src="/Images/67905086_2338137339605593_2509062775553130496_n.jpg"
-                      alt="Wyld Perspective Studios"
-                    />
+                  <div className="worker-image-card worker-image-main">
+                    <img src={currentWorker.image} alt={currentWorker.name} />
+                  </div>
+
+                  <div className="worker-image-card worker-image-right">
+                    <img src={nextWorker.image} alt={nextWorker.name} />
+                  </div>
+
+                  <button
+                    type="button"
+                    className="worker-gallery-arrow worker-gallery-arrow-right"
+                    onClick={() => changeWorker('next')}
+                  >
+                    &#10095;
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section className="quick-links-section">
+              <div className="quick-links-header">
+                <h2>Explore More From Wyld Perspective</h2>
+
+                <p>
+                  Take a look at the different types that we do from photoshoots to video proges and art peices, we have a wide variety of work that we have done and are always looking to expand our portfolio with new and exciting projects, click on any of the categories below to explore more of our work and see how we can bring your ideas to life with our unique perspective and creative vision.
+                </p>
+              </div>
+
+              <div className="quick-links-wrapper">
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img src="/Images/OIP (13).webp" alt="Photos icon" />
+                    <h3>Photos</h3>
+                  </div>
+
+                  <p>
+                    View photo shoots, creative portraits, scenery, animals, and captured moments from Wyld Perspective Studios.
+                  </p>
+
+                  <div className="quick-link-actions">
+                    <Link to="/photos" className="quick-link-button">
+                      View Photos
+                    </Link>
                   </div>
                 </div>
-              </section>
 
-              <section className="workers-section" id="workers">
-                <div className="workers-wrapper">
-                  <div className="workers-content">
-                    <span className="hero-tag">Our Team</span>
-
-                    <h2>{currentWorker.name}</h2>
-
-                    <div className="about-title-line"></div>
-
-                    <h3>{currentWorker.role}</h3>
-
-                    <p>{currentWorker.description}</p>
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img src="/Images/OIP (14).webp" alt="Videos icon" />
+                    <h3>Videos</h3>
                   </div>
 
-                  <div className={`workers-image-gallery ${workerMove}`}>
-                    <button
-                      type="button"
-                      className="worker-gallery-arrow worker-gallery-arrow-left"
-                      onClick={() => changeWorker('prev')}
-                    >
-                      &#10094;
-                    </button>
+                  <p>
+                    Watch video projects, short films, creative visuals, and storytelling work created by the studio.
+                  </p>
 
-                    <div className="worker-image-card worker-image-left">
-                      <img src={previousWorker.image} alt={previousWorker.name} />
-                    </div>
-
-                    <div className="worker-image-card worker-image-main">
-                      <img src={currentWorker.image} alt={currentWorker.name} />
-                    </div>
-
-                    <div className="worker-image-card worker-image-right">
-                      <img src={nextWorker.image} alt={nextWorker.name} />
-                    </div>
-
-                    <button
-                      type="button"
-                      className="worker-gallery-arrow worker-gallery-arrow-right"
-                      onClick={() => changeWorker('next')}
-                    >
-                      &#10095;
-                    </button>
+                  <div className="quick-link-actions">
+                    <Link to="/videos" className="quick-link-button">
+                      View Videos
+                    </Link>
                   </div>
                 </div>
-              </section>
-            </div>
+
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img src="/Images/OIP (15).webp" alt="Art icon" />
+                    <h3>Art</h3>
+                  </div>
+
+                  <p>
+                    Explore art projects, construction process shots, completed pieces, and creative visual work.
+                  </p>
+
+                  <div className="quick-link-actions">
+                    <Link to="/art" className="quick-link-button">
+                      View Art
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img src="/icons/events.png" alt="Events icon" />
+                    <h3>Events</h3>
+                  </div>
+
+                  <p>
+                    Check upcoming events, studio updates, live sessions, and announcements from Wyld Perspective Studios.
+                  </p>
+
+                  <div className="quick-link-actions">
+                    <Link to="/events" className="quick-link-button">
+                      View Events
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="home-contact-section">
+              <div className="home-contact-box">
+                <div className="home-contact-image">
+                  <img
+                    src="/Images/73a4aed8-50ec-4ecc-8cb9-23564c66d43d.png"
+                    alt="Wyld Perspective contact"
+                  />
+                </div>
+
+                <h2>Have an idea you want to bring to life?</h2>
+
+                <p>
+                  With the help of wyld perspective, we can bring an exception
+                  high quality peice of work to life wether it be through a photo shoot
+                  or a video project, or maybe you are interested in capturing an important moment
+                  in you're life and you would like to enhnance that moment, we are here to help you bring your ideas to life with our unique perspective and creative vision, contact us today to get started on your next project.
+                </p>
+
+                <Link to="/contact" className="home-contact-button">
+                  Contact Us
+                </Link>
+              </div>
+            </section>
           </div>
 
           <div className="tab-panel-3">
