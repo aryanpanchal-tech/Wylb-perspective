@@ -158,7 +158,6 @@ function TechCard({ item, t }) {
 function MediaSection() {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState(getInitialTab)
-
   const [workerIndex, setWorkerIndex] = useState(0)
   const [workerMove, setWorkerMove] = useState('')
   const [workerLocked, setWorkerLocked] = useState(false)
@@ -169,17 +168,17 @@ function MediaSection() {
   const previousWorker = workers[(workerIndex - 1 + workers.length) % workers.length]
   const nextWorker = workers[(workerIndex + 1) % workers.length]
 
-  const changeWorker = (direction) => {
+  const changeWorker = (way) => {
     if (workerLocked) {
       return
     }
 
     setWorkerLocked(true)
-    setWorkerMove(direction === 'next' ? 'moving-next' : 'moving-prev')
+    setWorkerMove(way === 'next' ? 'moving-next' : 'moving-prev')
 
     setTimeout(() => {
       setWorkerIndex((current) => {
-        if (direction === 'next') {
+        if (way === 'next') {
           return current === workers.length - 1 ? 0 : current + 1
         }
 
@@ -390,6 +389,287 @@ function MediaSection() {
                 </div>
               </div>
             </section>
+
+            <section className="packages-section">
+              <div className="packages-header">
+                <h2>Video Packages</h2>
+
+                <p>
+                 Browse the deals that we have for our videos and choose how good of a deal you want, we have different packages for different types of projects, whether you are looking to capture a special moment in your life or you want to create a creative video project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+                </p>
+              </div>
+
+              <div className="packages-wrapper">
+                <div className="package-card">
+                  <h3>Video package One</h3>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                   <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                   <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+
+
+                  <Link to="/contact" className="package-button">
+                    Get started
+                  </Link>
+                </div>
+
+                <div className="package-card">
+                  <h3>Video Package Two</h3>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <Link to="/contact" className="package-button">
+                    Get started
+                  </Link>
+                </div>
+
+                <div className="package-card">
+                  <h3>Video Package Three</h3>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <p>
+                    - XXXXXXXXXXXXXXXXXXXXXXXXX
+                  </p>
+
+                  <Link to="/contact" className="package-button">
+                    Get started
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            <section className="packages-section">
+  <div className="packages-header">
+    <h2>Art Packages</h2>
+
+    <p>
+      Here you can view what type of art packages we have to offer, whether you are looking to capture the process of a creative project or you want to create a unique piece of art, we have different packages that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+    </p>
+  </div>
+
+  <div className="packages-wrapper">
+    <div className="package-card">
+      <h3>Art Package One</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+
+    <div className="package-card">
+      <h3>Art Package Two</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+
+    <div className="package-card">
+      <h3>Art Package Three</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+  </div>
+</section>
+
+<section className="packages-section">
+  <div className="packages-header">
+    <h2>Photo Packages</h2>
+
+    <p>
+      Here you may view the different photo packages that we have to offer, whether you are looking to capture a special moment in your life or you want to create a creative photo project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+    </p>
+  </div>
+
+  <div className="packages-wrapper">
+    <div className="package-card">
+      <h3>Art Package One</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+
+    <div className="package-card">
+      <h3>Art Package Two</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+
+    <div className="package-card">
+      <h3>Art Package Three</h3>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <p>
+        - XXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+
+      <Link to="/contact" className="package-button">
+        Get started
+      </Link>
+    </div>
+  </div>
+</section>
+
+            
 
             <section className="home-contact-section">
               <div className="home-contact-box">
