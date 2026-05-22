@@ -1,12 +1,33 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const heroImages = [
-  { src: '/Art/1-34.jpg', alt: 'Tools of art' },
-  { src: '/Art/1-57.jpg', alt: 'Art piece in project' },
-  { src: '/Art/1-83.jpg', alt: 'Choosing the right piece' },
-  { src: '/Art/1-106.jpg', alt: 'Completed Art Piece' },
-  { src: '/Art/IMG_9564.jpg', alt: 'Handy wrapped art piece' },
-  { src: '/Art/IMG_9659.jpg', alt: 'Manmade Tree of plastic' },
+  {
+    src: '/Art/1-34.jpg',
+    alt: 'Tools of art',
+  },
+  {
+    src: '/Art/1-57.jpg',
+    alt: 'Art piece in project',
+  },
+  {
+    src: '/Art/1-83.jpg',
+    alt: 'Choosing the right piece',
+  },
+  {
+    src: '/Art/1-106.jpg',
+    alt: 'Completed Art Piece',
+  },
+  {
+    src: '/Art/IMG_9564.jpg',
+    alt: 'Handy wrapped art piece',
+  },
+  {
+    src: '/Art/IMG_9659.jpg',
+    alt: 'Manmade Tree of plastic',
+  },
 ]
 
 const artCards = [
@@ -111,33 +132,57 @@ const artCards = [
 ]
 
 function Art() {
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
   const [searchText, setSearchText] = useState('')
   const [category, setCategory] = useState('all')
   const [sortType, setSortType] = useState('default')
+  const [displayMode, setDisplayMode] = useState('carousel')
 
   const [viewerOpen, setViewerOpen] = useState(false)
   const [imageNumber, setImageNumber] = useState(0)
+  const [viewerAutoPlay, setViewerAutoPlay] = useState(false)
 
-  const [pickerOpen, setPickerOpen] = useState(false)
-  const [slideshowImages, setSlideshowImages] = useState([])
-  const [usingSlideshow, setUsingSlideshow] = useState(false)
+  const [sliderIndex, setSliderIndex] = useState(0)
+  const [sliderAutoPlay, setSliderAutoPlay] = useState(false)
 
-  const slideshowTimer = useRef(null)
+  const [carouselDragging, setCarouselDragging] = useState(false)
+  const [autoScroll, setAutoScroll] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80)
+  const carouselRef = useRef(null)
+  const autoScrollFrame = useRef(null)
+  const sliderTimer = useRef(null)
+  const viewerTimer = useRef(null)
+
+  const isDragging = useRef(false)
+  const didDrag = useRef(false)
+  const clickedImage = useRef(null)
+
+  const dragStartX = useRef(0)
+  const dragStartScroll = useRef(0)
+
+  const stopAutoScroll = () => {
+    if (autoScrollFrame.current) {
+      cancelAnimationFrame(autoScrollFrame.current)
+      autoScrollFrame.current = null
+    }
+  }
+
+  const stopSliderAutoPlay = () => {
+    if (sliderTimer.current) {
+      clearInterval(sliderTimer.current)
+      sliderTimer.current = null
     }
 
-    window.addEventListener('scroll', handleScroll)
+    setSliderAutoPlay(false)
+  }
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
+  const stopViewerAutoPlay = () => {
+    if (viewerTimer.current) {
+      clearInterval(viewerTimer.current)
+      viewerTimer.current = null
     }
-  }, [])
+
+    setViewerAutoPlay(false)
+  }
 
   const filteredCards = useMemo(() => {
     const typed = searchText.toLowerCase().trim()
@@ -151,25 +196,27 @@ function Art() {
 
     return list.filter((card) => {
       const words = `${card.category} ${card.title} ${card.description}`.toLowerCase()
-      const cardType = card.category.toLowerCase()
+      const cardCategory = card.category.toLowerCase()
 
-      let matchesCategory = category === 'all'
+      const matchesSearch = words.includes(typed)
+      const matchesCategory = category === 'all' || cardCategory === category
 
-      if (category !== 'all' && cardType === category) {
-        matchesCategory = true
-      }
-
-      return words.includes(typed) && matchesCategory
+      return matchesSearch && matchesCategory
     })
   }, [searchText, category, sortType])
 
-  const visibleImages = usingSlideshow && slideshowImages.length > 0
-    ? slideshowImages
-    : filteredCards.length > 0
-      ? filteredCards
-      : artCards
-
+  const visibleImages = filteredCards.length > 0 ? filteredCards : artCards
   const currentImage = visibleImages[imageNumber] || visibleImages[0]
+  const sliderImage = filteredCards[sliderIndex] || filteredCards[0]
+
+  useEffect(() => {
+    return () => {
+      stopAutoScroll()
+      stopSliderAutoPlay()
+      stopViewerAutoPlay()
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   useEffect(() => {
     if (imageNumber >= visibleImages.length) {
@@ -178,16 +225,26 @@ function Art() {
   }, [imageNumber, visibleImages.length])
 
   useEffect(() => {
+    if (sliderIndex >= filteredCards.length) {
+      setSliderIndex(0)
+    }
+  }, [sliderIndex, filteredCards.length])
+
+  useEffect(() => {
     const handleKeyDown = (event) => {
-      if (!viewerOpen) {
+      if (!viewerOpen || viewerAutoPlay) {
         return
       }
 
       if (event.key === 'Escape') {
         closeViewer()
-      } else if (event.key === 'ArrowLeft') {
+      }
+
+      if (event.key === 'ArrowLeft') {
         showPreviousImage()
-      } else if (event.key === 'ArrowRight') {
+      }
+
+      if (event.key === 'ArrowRight') {
         showNextImage()
       }
     }
@@ -199,20 +256,114 @@ function Art() {
     }
   })
 
-  const clearArtTimer = () => {
-    if (slideshowTimer.current) {
-      clearInterval(slideshowTimer.current)
-      slideshowTimer.current = null
+  useEffect(() => {
+    if (!autoScroll) {
+      stopAutoScroll()
+      return
     }
-  }
 
-  const openViewer = (card) => {
-    clearArtTimer()
+    let lastTime = performance.now()
+    const scrollSpeed = 110
 
-    setUsingSlideshow(false)
-    setSlideshowImages([])
+    const moveCarousel = (currentTime) => {
+      const carousel = carouselRef.current
 
-    const selectedIndex = filteredCards.indexOf(card)
+      if (carousel) {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth
+        const timePassed = currentTime - lastTime
+        const moveAmount = (scrollSpeed * timePassed) / 1000
+
+        lastTime = currentTime
+
+        if (maxScroll > 0) {
+          if (carousel.scrollLeft >= maxScroll - 2) {
+            carousel.scrollLeft = 0
+          } else {
+            carousel.scrollLeft += moveAmount
+          }
+        }
+      }
+
+      autoScrollFrame.current = requestAnimationFrame(moveCarousel)
+    }
+
+    autoScrollFrame.current = requestAnimationFrame(moveCarousel)
+
+    return () => {
+      stopAutoScroll()
+    }
+  }, [autoScroll, filteredCards.length])
+
+  useEffect(() => {
+    if (!sliderAutoPlay || displayMode !== 'slider') {
+      if (sliderTimer.current) {
+        clearInterval(sliderTimer.current)
+        sliderTimer.current = null
+      }
+
+      return
+    }
+
+    sliderTimer.current = setInterval(() => {
+      setSliderIndex((current) => {
+        if (filteredCards.length === 0) {
+          return 0
+        }
+
+        if (current + 1 >= filteredCards.length) {
+          return 0
+        }
+
+        return current + 1
+      })
+    }, 2500)
+
+    return () => {
+      if (sliderTimer.current) {
+        clearInterval(sliderTimer.current)
+        sliderTimer.current = null
+      }
+    }
+  }, [sliderAutoPlay, displayMode, filteredCards.length])
+
+  useEffect(() => {
+    if (!viewerAutoPlay || !viewerOpen) {
+      if (viewerTimer.current) {
+        clearInterval(viewerTimer.current)
+        viewerTimer.current = null
+      }
+
+      return
+    }
+
+    viewerTimer.current = setInterval(() => {
+      setImageNumber((current) => {
+        if (visibleImages.length === 0) {
+          return 0
+        }
+
+        if (current + 1 >= visibleImages.length) {
+          return 0
+        }
+
+        return current + 1
+      })
+    }, 2500)
+
+    return () => {
+      if (viewerTimer.current) {
+        clearInterval(viewerTimer.current)
+        viewerTimer.current = null
+      }
+    }
+  }, [viewerAutoPlay, viewerOpen, visibleImages.length])
+
+  const openViewer = (image) => {
+    setAutoScroll(false)
+    stopSliderAutoPlay()
+    stopViewerAutoPlay()
+
+    const selectedIndex = visibleImages.indexOf(image)
 
     if (selectedIndex >= 0) {
       setImageNumber(selectedIndex)
@@ -225,15 +376,20 @@ function Art() {
   }
 
   const closeViewer = () => {
-    clearArtTimer()
+    if (viewerAutoPlay) {
+      return
+    }
 
+    stopViewerAutoPlay()
     setViewerOpen(false)
-    setUsingSlideshow(false)
-    setSlideshowImages([])
     document.body.style.overflow = ''
   }
 
   const showPreviousImage = () => {
+    if (viewerAutoPlay) {
+      return
+    }
+
     setImageNumber((current) => {
       if (current - 1 < 0) {
         return visibleImages.length - 1
@@ -244,6 +400,10 @@ function Art() {
   }
 
   const showNextImage = () => {
+    if (viewerAutoPlay) {
+      return
+    }
+
     setImageNumber((current) => {
       if (current + 1 >= visibleImages.length) {
         return 0
@@ -253,80 +413,129 @@ function Art() {
     })
   }
 
-  const startSlideshow = (selectedCategory) => {
-    const selectedImages = artCards.filter((card) => {
-      if (selectedCategory === 'all') {
-        return true
-      }
-
-      return card.category.toLowerCase() === selectedCategory
-    })
-
-    if (selectedImages.length === 0) {
-      setPickerOpen(false)
+  const showPreviousSliderImage = () => {
+    if (sliderAutoPlay || filteredCards.length === 0) {
       return
     }
 
-    clearArtTimer()
+    setSliderIndex((current) => {
+      if (current - 1 < 0) {
+        return filteredCards.length - 1
+      }
 
-    setSlideshowImages(selectedImages)
-    setUsingSlideshow(true)
-    setImageNumber(0)
-    setPickerOpen(false)
-    setViewerOpen(true)
+      return current - 1
+    })
+  }
 
-    document.body.style.overflow = 'hidden'
+  const showNextSliderImage = () => {
+    if (sliderAutoPlay || filteredCards.length === 0) {
+      return
+    }
 
-    slideshowTimer.current = setInterval(() => {
-      setImageNumber((current) => {
-        if (current + 1 >= selectedImages.length) {
-          return 0
-        }
+    setSliderIndex((current) => {
+      if (current + 1 >= filteredCards.length) {
+        return 0
+      }
 
-        return current + 1
+      return current + 1
+    })
+  }
+
+  const startImageDrag = (event) => {
+    if (autoScroll || displayMode !== 'carousel' || !carouselRef.current) {
+      return
+    }
+
+    isDragging.current = true
+    didDrag.current = false
+    dragStartX.current = event.clientX
+    dragStartScroll.current = carouselRef.current.scrollLeft
+    setCarouselDragging(true)
+  }
+
+  const moveImageDrag = (event) => {
+    if (autoScroll || !isDragging.current || !carouselRef.current) {
+      return
+    }
+
+    const distance = event.clientX - dragStartX.current
+
+    if (Math.abs(distance) > 8) {
+      didDrag.current = true
+    }
+
+    carouselRef.current.scrollLeft = dragStartScroll.current - distance
+  }
+
+  const endImageDrag = () => {
+    if (autoScroll || !isDragging.current) {
+      return
+    }
+
+    isDragging.current = false
+    setCarouselDragging(false)
+
+    if (!didDrag.current && clickedImage.current) {
+      openViewer(clickedImage.current)
+    }
+
+    clickedImage.current = null
+    didDrag.current = false
+  }
+
+  const toggleAutoScroll = () => {
+    isDragging.current = false
+    didDrag.current = false
+    clickedImage.current = null
+    setCarouselDragging(false)
+
+    setAutoScroll((current) => !current)
+  }
+
+  const changeDisplayMode = (mode) => {
+    setAutoScroll(false)
+    stopSliderAutoPlay()
+    stopViewerAutoPlay()
+
+    isDragging.current = false
+    didDrag.current = false
+    clickedImage.current = null
+
+    setCarouselDragging(false)
+    setDisplayMode(mode)
+  }
+
+  const chooseHeroDisplayMode = (mode) => {
+    changeDisplayMode(mode)
+
+    setTimeout(() => {
+      document.getElementById('media')?.scrollIntoView({
+        behavior: 'smooth',
       })
-    }, 3000)
+    }, 100)
+  }
+
+  const toggleSliderAutoPlay = () => {
+    setSliderAutoPlay((current) => !current)
+  }
+
+  const toggleViewerAutoPlay = () => {
+    setViewerAutoPlay((current) => !current)
   }
 
   return (
     <div className="app">
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-        <div className="navbar-logo">Wylb</div>
-
-        <ul className="navbar-links">
-          <li><a href="/#hero">Home</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-
-        <button
-          className="navbar-menu-icon"
-          onClick={() => setDrawerOpen(!drawerOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {drawerOpen && (
-          <div className="navbar-drawer">
-            <div className="drawer-search-row">
-              <input className="drawer-search" type="text" placeholder="Search..." />
-            </div>
-
-            <a href="/photos.html" className="drawer-item">Photos</a>
-            <a href="/videos.html" className="drawer-item">Videos</a>
-            <a href="/events.html" className="drawer-item">Events</a>
-            <a href="/Art.html" className="drawer-item">Art</a>
-            <a href="/tech.html" className="drawer-item">Tech</a>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       <section className="hero" id="Art">
         <div className="art-hero-scroll">
           <div className="art-hero-track">
             {[...heroImages, ...heroImages].map((image, index) => (
-              <img key={`${image.src}-${index}`} src={image.src} alt={image.alt} />
+              <img
+                key={`${image.src}-${index}`}
+                src={image.src}
+                alt={image.alt}
+              />
             ))}
           </div>
         </div>
@@ -346,10 +555,27 @@ function Art() {
 
           <div className="hero-buttons">
             <button
-              className="hero-btn-primary"
-              onClick={() => setPickerOpen(true)}
+              type="button"
+              className={`hero-btn-primary photo-hero-view-button ${displayMode === 'carousel' ? 'photo-hero-view-button--active' : ''}`}
+              onClick={() => chooseHeroDisplayMode('carousel')}
             >
-              View Images
+              Carousel View
+            </button>
+
+            <button
+              type="button"
+              className={`hero-btn-primary photo-hero-view-button ${displayMode === 'grid' ? 'photo-hero-view-button--active' : ''}`}
+              onClick={() => chooseHeroDisplayMode('grid')}
+            >
+              Grid View
+            </button>
+
+            <button
+              type="button"
+              className={`hero-btn-primary photo-hero-view-button ${displayMode === 'slider' ? 'photo-hero-view-button--active' : ''}`}
+              onClick={() => chooseHeroDisplayMode('slider')}
+            >
+              Slider Gallery
             </button>
           </div>
         </div>
@@ -395,134 +621,252 @@ function Art() {
           </p>
         )}
 
-        <div className="media-grid">
-          {filteredCards.map((card) => (
-            <div className="media-card" key={card.src}>
-              <div
-                className="card-thumbnail"
-                onClick={() => openViewer(card)}
-              >
-                <img src={card.src} alt={card.alt} />
-                <div className="photo-name">{card.title}</div>
-              </div>
-
-              <div className="card-content">
-                <span className="card-category">{card.category}</span>
-                <h3 className="card-title">{card.title}</h3>
-                <p className="card-description">{card.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {pickerOpen && (
-        <div className="slideshow-picker">
-          <div className="slideshow-picker-box">
-            <h2>Choose an art category</h2>
-            <p>Pick what type of art images you want to see.</p>
-
-            <div className="slideshow-picker-buttons">
-              <button
-                type="button"
-                className="slideshow-choice"
-                onClick={() => startSlideshow('all')}
-              >
-                All Images
-              </button>
-
-              <button
-                type="button"
-                className="slideshow-choice"
-                onClick={() => startSlideshow('art shop')}
-              >
-                Art shop
-              </button>
-
-              <button
-                type="button"
-                className="slideshow-choice"
-                onClick={() => startSlideshow('constructing art')}
-              >
-                Constructing Art
-              </button>
-
-              <button
-                type="button"
-                className="slideshow-choice"
-                onClick={() => startSlideshow('art piece')}
-              >
-                Art piece
-              </button>
-
-              <button
-                type="button"
-                className="slideshow-choice"
-                onClick={() => startSlideshow('completed art')}
-              >
-                Completed Art
-              </button>
-            </div>
-
+        {displayMode === 'carousel' && (
+          <div className={`photo-carousel-area ${autoScroll ? 'photo-carousel-area--auto' : ''}`}>
             <button
               type="button"
-              className="slideshow-cancel"
-              onClick={() => setPickerOpen(false)}
+              className={`photo-carousel-autoplay-button ${autoScroll ? 'photo-carousel-autoplay-button--active' : ''}`}
+              onClick={toggleAutoScroll}
             >
-              Cancel
+              {autoScroll ? 'Stop Auto Play' : 'Auto Play'}
             </button>
-          </div>
-        </div>
-      )}
 
-      {viewerOpen && currentImage && (
-        <div className="photo-viewer open" aria-hidden="false">
-          <div className="photo-viewer-header">
-            <div>
-              <span className="hero-tag">Wylb Perspective</span>
-              <h2>{currentImage.title}</h2>
-            </div>
-
-            <button
-              type="button"
-              className="photo-viewer-button"
-              onClick={closeViewer}
+            <div
+              className={`photo-carousel ${carouselDragging ? 'photo-carousel--dragging' : ''} ${autoScroll ? 'photo-carousel--auto' : ''}`}
+              ref={carouselRef}
+              onPointerDown={startImageDrag}
+              onPointerMove={moveImageDrag}
+              onPointerUp={endImageDrag}
+              onPointerLeave={endImageDrag}
+              onPointerCancel={endImageDrag}
             >
-              Back to Images
-            </button>
-          </div>
+              {filteredCards.map((card) => (
+                <div className="media-card photo-carousel-card" key={card.src}>
+                  <div
+                    className="card-thumbnail"
+                    onPointerDown={() => {
+                      if (!autoScroll) {
+                        clickedImage.current = card
+                      }
+                    }}
+                  >
+                    <img
+                      src={card.src}
+                      alt={card.alt}
+                      draggable="false"
+                    />
 
-          <div className="photo-viewer-main">
+                    <div className="photo-name">{card.title}</div>
+                  </div>
+
+                  <div className="card-content">
+                    <span className="card-category">{card.category}</span>
+                    <h3 className="card-title">{card.title}</h3>
+                    <p className="card-description">{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {displayMode === 'grid' && (
+          <div className="media-grid">
+            {filteredCards.map((card) => (
+              <div className="media-card" key={card.src}>
+                <div
+                  className="card-thumbnail"
+                  onClick={() => openViewer(card)}
+                >
+                  <img src={card.src} alt={card.alt} />
+                  <div className="photo-name">{card.title}</div>
+                </div>
+
+                <div className="card-content">
+                  <span className="card-category">{card.category}</span>
+                  <h3 className="card-title">{card.title}</h3>
+                  <p className="card-description">{card.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {displayMode === 'slider' && sliderImage && (
+          <div className={`photo-slider-gallery ${sliderAutoPlay ? 'photo-slider-gallery--auto' : ''}`}>
             <button
               type="button"
-              className="photo-viewer-arrow photo-viewer-arrow-left"
-              onClick={showPreviousImage}
+              className="photo-slider-arrow photo-slider-arrow-left"
+              onClick={showPreviousSliderImage}
+              disabled={sliderAutoPlay}
             >
               &#10094;
             </button>
 
-            <img src={currentImage.src} alt={currentImage.alt} />
+            <div className="photo-slider-main">
+              <button
+                type="button"
+                className={`photo-slider-autoplay-button ${sliderAutoPlay ? 'photo-slider-autoplay-button--active' : ''}`}
+                onClick={toggleSliderAutoPlay}
+              >
+                {sliderAutoPlay ? 'Stop Auto Play' : 'Auto Play'}
+              </button>
+
+              <div
+                className="photo-slider-image-box"
+                onClick={() => {
+                  if (!sliderAutoPlay) {
+                    openViewer(sliderImage)
+                  }
+                }}
+              >
+                <img src={sliderImage.src} alt={sliderImage.alt} />
+              </div>
+
+              <div className="photo-slider-info">
+                <span>{sliderImage.category}</span>
+                <h3>{sliderImage.title}</h3>
+                <p>{sliderImage.description}</p>
+              </div>
+
+              <div className="photo-slider-thumbnails">
+                {filteredCards.map((card, index) => (
+                  <button
+                    type="button"
+                    key={card.src}
+                    className={`photo-slider-thumb ${sliderIndex === index ? 'photo-slider-thumb--active' : ''}`}
+                    onClick={() => {
+                      if (!sliderAutoPlay) {
+                        setSliderIndex(index)
+                      }
+                    }}
+                    disabled={sliderAutoPlay}
+                  >
+                    <img src={card.src} alt={card.alt} />
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <button
               type="button"
-              className="photo-viewer-arrow photo-viewer-arrow-right"
-              onClick={showNextImage}
+              className="photo-slider-arrow photo-slider-arrow-right"
+              onClick={showNextSliderImage}
+              disabled={sliderAutoPlay}
             >
               &#10095;
             </button>
           </div>
+        )}
 
-          <div className="photo-viewer-footer">
+        <section className="photo-packages-section">
+          <div className="packages-header">
+            <h2>Art Packages</h2>
+
+            <p>
+              Choose an art package based on the creative direction, documentation, and final visuals needed for your project.
+            </p>
+          </div>
+
+          <div className="packages-wrapper">
+            <div className="package-card">
+              <h3>Art Package One</h3>
+
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+              <Link to="/contact" className="package-button">
+                Contact us
+              </Link>
+            </div>
+
+            <div className="package-card">
+              <h3>Art Package Two</h3>
+
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+              <Link to="/contact" className="package-button">
+                Contact us
+              </Link>
+            </div>
+
+            <div className="package-card">
+              <h3>Art Package Three</h3>
+
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+              <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+              <Link to="/contact" className="package-button">
+                Contact us
+              </Link>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      {viewerOpen && currentImage && (
+        <div className={`photo-viewer-fullscreen ${viewerAutoPlay ? 'photo-viewer-fullscreen--auto' : ''}`}>
+          <button
+            type="button"
+            className={`photo-viewer-autoplay-button ${viewerAutoPlay ? 'photo-viewer-autoplay-button--active' : ''}`}
+            onClick={toggleViewerAutoPlay}
+          >
+            {viewerAutoPlay ? 'Stop Auto Play' : 'Auto Play'}
+          </button>
+
+          <img
+            className="photo-viewer-bg-image"
+            src={currentImage.src}
+            alt={currentImage.alt}
+          />
+
+          <div className="photo-viewer-dark-tint"></div>
+
+          <button
+            type="button"
+            className="photo-viewer-back-top"
+            onClick={closeViewer}
+            disabled={viewerAutoPlay}
+          >
+            Back to Art
+          </button>
+
+          <button
+            type="button"
+            className="photo-viewer-side-arrow photo-viewer-side-arrow-left"
+            onClick={showPreviousImage}
+            disabled={viewerAutoPlay}
+          >
+            &#10094;
+          </button>
+
+          <button
+            type="button"
+            className="photo-viewer-side-arrow photo-viewer-side-arrow-right"
+            onClick={showNextImage}
+            disabled={viewerAutoPlay}
+          >
+            &#10095;
+          </button>
+
+          <div className="photo-viewer-bottom-info">
+            <span>{currentImage.category}</span>
+            <h2>{currentImage.title}</h2>
             <p>{currentImage.description}</p>
           </div>
         </div>
       )}
 
-      <footer className="footer" id="footer">
-        <p className="footer-copy">
-          © 2026 Wyld Perspective. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

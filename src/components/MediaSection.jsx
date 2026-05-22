@@ -39,6 +39,44 @@ const workers = [
   },
 ]
 
+const terms = [
+  {
+    title: 'General Agreement',
+    category: 'Terms',
+    icon: '/Images/general-agreement-transparent.png',
+    description:
+      'By visiting wyld perspectve, you are agreeing to sharing information and allowing us to use it for marketing purpouses, this does not include private information',
+  },
+  {
+    title: 'Booking and Requests',
+    category: 'Bookings',
+    icon: '/Images/Requests.png',
+    description:
+      'Once booking please wait for a response, we will get back to you within 48 hours, if you have not heard from us please reach out again as we may have missed your message, failiure to reply after 48 hours after the confirmation was sent, you may loose a booking and will only be regranted a 75% refund.',
+  },
+  {
+    title: 'Payment Terms',
+    category: 'Payments',
+    icon: '/Images/payment-icon-transparent.png',
+    description:
+      'After reaching a complete understanding of the project, a full payment must be made before proceeding with the work, If unsatisfied with the results, you may either request a 50% refund or a free reshoot.',
+  },
+  {
+    title: 'Cancellations and Rescheduling',
+    category: 'Scheduling',
+    icon: '/Images/cancellation-reschedule-transparent.png',
+    description:
+      'For any reason if there is a conflict in schedule, please message us a day in advance to reschedule, Failiure to do so will result in a 25% fine of the price',
+  },
+  {
+    title: 'Photo, Video, and Art Usage',
+    category: 'Usage',
+    icon: '/Images/fair-use-business-transparent.png',
+    description:
+      'Wyld perspective studios has the right to use any photos videos or art peices created for marketing purposes, this includes reshoots if the client was unsatisfied with the results.',
+  },
+]
+
 const getInitialTab = () => {
   const saved = sessionStorage.getItem('activeTab')
 
@@ -54,6 +92,7 @@ const slideIndex = {
   media: 0,
   photographers: 1,
   tech: 2,
+  terms: 3,
 }
 
 function MediaCard({ category, title, description, image }) {
@@ -161,12 +200,41 @@ function MediaSection() {
   const [workerIndex, setWorkerIndex] = useState(0)
   const [workerMove, setWorkerMove] = useState('')
   const [workerLocked, setWorkerLocked] = useState(false)
+  const [selectedTerm, setSelectedTerm] = useState(null)
+  const [termFading, setTermFading] = useState(false)
 
   const offset = slideIndex[activeTab] ?? 0
 
   const currentWorker = workers[workerIndex]
   const previousWorker = workers[(workerIndex - 1 + workers.length) % workers.length]
   const nextWorker = workers[(workerIndex + 1) % workers.length]
+
+  const changeTab = (tab) => {
+    setActiveTab(tab)
+
+    if (tab !== 'terms') {
+      setSelectedTerm(null)
+      setTermFading(false)
+    }
+  }
+
+  const openTerm = (term) => {
+    setTermFading(true)
+
+    setTimeout(() => {
+      setSelectedTerm(term)
+      setTermFading(false)
+    }, 300)
+  }
+
+  const closeTerm = () => {
+    setTermFading(true)
+
+    setTimeout(() => {
+      setSelectedTerm(null)
+      setTermFading(false)
+    }, 300)
+  }
 
   const changeWorker = (way) => {
     if (workerLocked) {
@@ -195,32 +263,39 @@ function MediaSection() {
       <div className="media-tabs">
         <button
           className={`media-tab ${activeTab === 'media' ? 'media-tab--active' : ''}`}
-          onClick={() => setActiveTab('media')}
+          onClick={() => changeTab('media')}
         >
           {t.media.latestMedia}
         </button>
 
         <button
           className={`media-tab ${activeTab === 'photographers' ? 'media-tab--active' : ''}`}
-          onClick={() => setActiveTab('photographers')}
+          onClick={() => changeTab('photographers')}
         >
           {t.media.photographers}
         </button>
 
         <button
           className={`media-tab ${activeTab === 'tech' ? 'media-tab--active' : ''}`}
-          onClick={() => setActiveTab('tech')}
+          onClick={() => changeTab('tech')}
         >
           {t.media.tech}
+        </button>
+
+        <button
+          className={`media-tab ${activeTab === 'terms' ? 'media-tab--active' : ''}`}
+          onClick={() => changeTab('terms')}
+        >
+          Terms of Service
         </button>
       </div>
 
       <div className="tab-viewport">
         <div
-          className="tab-slider-3"
-          style={{ transform: `translateX(-${offset * 33.333}%)` }}
+          className="tab-slider-4"
+          style={{ transform: `translateX(-${offset * 25}%)` }}
         >
-          <div className="tab-panel-3">
+          <div className="tab-panel-4">
             <div className="media-grid">
               {t.media.cards.map((card, i) => (
                 <MediaCard
@@ -232,471 +307,9 @@ function MediaSection() {
                 />
               ))}
             </div>
-
-            <section className="about-section" id="about">
-              <div className="about-wrapper">
-                <div className="about-content">
-                  <span className="hero-tag">About Us</span>
-
-                  <h2>About Wylb Perspective Studios</h2>
-
-                  <div className="about-title-line"></div>
-
-                  <p>
-                    Wylb Perspective Studios is a creative media studio focused on
-                    photography, video, art, and storytelling. Our goal is to capture
-                    meaningful moments and present them with a unique visual style.
-                  </p>
-
-                  <p>
-                    From personal photo shoots to creative videos and art-focused
-                    projects, we help bring ideas to life through strong visuals and
-                    a different perspective.
-                  </p>
-                </div>
-
-                <div className="about-image">
-                  <img
-                    src="/Images/Timeless Toronto.jpg"
-                    alt="Wylb Perspective Studios"
-                  />
-                </div>
-              </div>
-            </section>
-
-            <section className="workers-section" id="workers">
-              <div className="workers-wrapper">
-                <div className="workers-content">
-                  <span className="hero-tag">Our Team</span>
-
-                  <h2>{currentWorker.name}</h2>
-
-                  <div className="about-title-line"></div>
-
-                  <h3>{currentWorker.role}</h3>
-
-                  <p>{currentWorker.description}</p>
-                </div>
-
-                <div className={`workers-image-gallery ${workerMove}`}>
-                  <button
-                    type="button"
-                    className="worker-gallery-arrow worker-gallery-arrow-left"
-                    onClick={() => changeWorker('prev')}
-                  >
-                    &#10094;
-                  </button>
-
-                  <div className="worker-image-card worker-image-left">
-                    <img src={previousWorker.image} alt={previousWorker.name} />
-                  </div>
-
-                  <div className="worker-image-card worker-image-main">
-                    <img src={currentWorker.image} alt={currentWorker.name} />
-                  </div>
-
-                  <div className="worker-image-card worker-image-right">
-                    <img src={nextWorker.image} alt={nextWorker.name} />
-                  </div>
-
-                  <button
-                    type="button"
-                    className="worker-gallery-arrow worker-gallery-arrow-right"
-                    onClick={() => changeWorker('next')}
-                  >
-                    &#10095;
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            <section className="quick-links-section">
-              <div className="quick-links-header">
-                <h2>Explore More From Wyld Perspective</h2>
-
-                <p>
-                  Take a look at the different types that we do from photoshoots to video proges and art peices, we have a wide variety of work that we have done and are always looking to expand our portfolio with new and exciting projects, click on any of the categories below to explore more of our work and see how we can bring your ideas to life with our unique perspective and creative vision.
-                </p>
-              </div>
-
-              <div className="quick-links-wrapper">
-                <div className="quick-link-card">
-                  <div className="quick-link-title">
-                    <img src="/Images/OIP (13).webp" alt="Photos icon" />
-                    <h3>Photos</h3>
-                  </div>
-
-                  <p>
-                    View photo shoots, creative portraits, scenery, animals, and captured moments from Wyld Perspective Studios.
-                  </p>
-
-                  <div className="quick-link-actions">
-                    <Link to="/photos" className="quick-link-button">
-                      View Photos
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="quick-link-card">
-                  <div className="quick-link-title">
-                    <img src="/Images/OIP (14).webp" alt="Videos icon" />
-                    <h3>Videos</h3>
-                  </div>
-
-                  <p>
-                    Watch video projects, short films, creative visuals, and storytelling work created by the studio.
-                  </p>
-
-                  <div className="quick-link-actions">
-                    <Link to="/videos" className="quick-link-button">
-                      View Videos
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="quick-link-card">
-                  <div className="quick-link-title">
-                    <img src="/Images/OIP (15).webp" alt="Art icon" />
-                    <h3>Art</h3>
-                  </div>
-
-                  <p>
-                    Explore art projects, construction process shots, completed pieces, and creative visual work.
-                  </p>
-
-                  <div className="quick-link-actions">
-                    <Link to="/art" className="quick-link-button">
-                      View Art
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="quick-link-card">
-                  <div className="quick-link-title">
-                    <img src="/icons/events.png" alt="Events icon" />
-                    <h3>Events</h3>
-                  </div>
-
-                  <p>
-                    Check upcoming events, studio updates, live sessions, and announcements from Wyld Perspective Studios.
-                  </p>
-
-                  <div className="quick-link-actions">
-                    <Link to="/events" className="quick-link-button">
-                      View Events
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="packages-section">
-              <div className="packages-header">
-                <h2>Video Packages</h2>
-
-                <p>
-                 Browse the deals that we have for our videos and choose how good of a deal you want, we have different packages for different types of projects, whether you are looking to capture a special moment in your life or you want to create a creative video project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
-                </p>
-              </div>
-
-              <div className="packages-wrapper">
-                <div className="package-card">
-                  <h3>Video package One</h3>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                   <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                   <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-
-
-                  <Link to="/contact" className="package-button">
-                    Get started
-                  </Link>
-                </div>
-
-                <div className="package-card">
-                  <h3>Video Package Two</h3>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <Link to="/contact" className="package-button">
-                    Get started
-                  </Link>
-                </div>
-
-                <div className="package-card">
-                  <h3>Video Package Three</h3>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <p>
-                    - XXXXXXXXXXXXXXXXXXXXXXXXX
-                  </p>
-
-                  <Link to="/contact" className="package-button">
-                    Get started
-                  </Link>
-                </div>
-              </div>
-            </section>
-
-            <section className="packages-section">
-  <div className="packages-header">
-    <h2>Art Packages</h2>
-
-    <p>
-      Here you can view what type of art packages we have to offer, whether you are looking to capture the process of a creative project or you want to create a unique piece of art, we have different packages that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
-    </p>
-  </div>
-
-  <div className="packages-wrapper">
-    <div className="package-card">
-      <h3>Art Package One</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-
-    <div className="package-card">
-      <h3>Art Package Two</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-
-    <div className="package-card">
-      <h3>Art Package Three</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-  </div>
-</section>
-
-<section className="packages-section">
-  <div className="packages-header">
-    <h2>Photo Packages</h2>
-
-    <p>
-      Here you may view the different photo packages that we have to offer, whether you are looking to capture a special moment in your life or you want to create a creative photo project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
-    </p>
-  </div>
-
-  <div className="packages-wrapper">
-    <div className="package-card">
-      <h3>Art Package One</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-
-    <div className="package-card">
-      <h3>Art Package Two</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-
-    <div className="package-card">
-      <h3>Art Package Three</h3>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <p>
-        - XXXXXXXXXXXXXXXXXXXXXXXXX
-      </p>
-
-      <Link to="/contact" className="package-button">
-        Get started
-      </Link>
-    </div>
-  </div>
-</section>
-
-            
-
-            <section className="home-contact-section">
-              <div className="home-contact-box">
-                <div className="home-contact-image">
-                  <img
-                    src="/Images/73a4aed8-50ec-4ecc-8cb9-23564c66d43d.png"
-                    alt="Wyld Perspective contact"
-                  />
-                </div>
-
-                <h2>Have an idea you want to bring to life?</h2>
-
-                <p>
-                  With the help of wyld perspective, we can bring an exception
-                  high quality peice of work to life wether it be through a photo shoot
-                  or a video project, or maybe you are interested in capturing an important moment
-                  in you're life and you would like to enhnance that moment, we are here to help you bring your ideas to life with our unique perspective and creative vision, contact us today to get started on your next project.
-                </p>
-
-                <Link to="/contact" className="home-contact-button">
-                  Contact Us
-                </Link>
-              </div>
-            </section>
           </div>
 
-          <div className="tab-panel-3">
+          <div className="tab-panel-4">
             <div className="photographers-grid">
               {photographers.map((p) => (
                 <PhotographerCard key={p.id} photographer={p} t={t} />
@@ -704,15 +317,436 @@ function MediaSection() {
             </div>
           </div>
 
-          <div className="tab-panel-3">
+          <div className="tab-panel-4">
             <div className="tech-grid">
               {techItems.map((item) => (
                 <TechCard key={item.id} item={item} t={t} />
               ))}
             </div>
           </div>
+
+          <div className="tab-panel-4">
+            <section
+              className={`media-terms-preview ${selectedTerm ? 'media-terms-preview--selected' : ''} ${termFading ? 'media-terms-preview--fading' : ''}`}
+            >
+              <div className="media-terms-bg">
+                <img src="/Images/Timeless Toronto.jpg" alt="Terms background" />
+              </div>
+
+              <div className="media-terms-overlay"></div>
+
+              <div className="media-terms-content">
+                {!selectedTerm && (
+                  <>
+                    <div className="media-terms-heading">
+                      <span className="hero-tag">Wylb Perspective</span>
+
+                      <h2>
+                        Terms of <br />
+                        Service
+                      </h2>
+
+                      <p>
+                        Review the terms for photo shoots, video work, art services, bookings, and creative requests.
+                      </p>
+                    </div>
+
+                    <div className="media-terms-boxes">
+                      {terms.map((term) => (
+                        <button
+                          type="button"
+                          className="media-terms-card"
+                          key={term.title}
+                          onClick={() => openTerm(term)}
+                        >
+                          <div className="media-terms-icon">
+                            {term.icon ? (
+                              <img src={term.icon} alt={`${term.title} icon`} />
+                            ) : (
+                              <span>Add Icon</span>
+                            )}
+                          </div>
+
+                          <span>{term.category}</span>
+
+                          <h3>{term.title}</h3>
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {selectedTerm && (
+                  <div className="media-terms-selected-view">
+                    <button
+                      type="button"
+                      className="media-terms-selected-back"
+                      onClick={closeTerm}
+                    >
+                      Back to Terms
+                    </button>
+
+                    <div className="media-terms-selected-box">
+                      <div className="media-terms-selected-icon">
+                        <img
+                          src={selectedTerm.icon}
+                          alt={`${selectedTerm.title} icon`}
+                        />
+                      </div>
+
+                      <span>{selectedTerm.category}</span>
+
+                      <h2>{selectedTerm.title}</h2>
+
+                      <p>{selectedTerm.description}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </section>
+          </div>
         </div>
       </div>
+
+      <section className="about-section" id="about">
+        <div className="about-wrapper">
+          <div className="about-content">
+            <span className="hero-tag">About Us</span>
+
+            <h2>About Wylb Perspective Studios</h2>
+
+            <div className="about-title-line"></div>
+
+            <p>
+              Wylb Perspective Studios is a creative media studio focused on
+              photography, video, art, and storytelling. Our goal is to capture
+              meaningful moments and present them with a unique visual style.
+            </p>
+
+            <p>
+              From personal photo shoots to creative videos and art-focused
+              projects, we help bring ideas to life through strong visuals and
+              a different perspective.
+            </p>
+          </div>
+
+          <div className="about-image">
+            <img
+              src="/Images/Timeless Toronto.jpg"
+              alt="Wylb Perspective Studios"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="workers-section" id="workers">
+        <div className="workers-wrapper">
+          <div className="workers-content">
+            <span className="hero-tag">Our Team</span>
+
+            <h2>{currentWorker.name}</h2>
+
+            <div className="about-title-line"></div>
+
+            <h3>{currentWorker.role}</h3>
+
+            <p>{currentWorker.description}</p>
+          </div>
+
+          <div className={`workers-image-gallery ${workerMove}`}>
+            <button
+              type="button"
+              className="worker-gallery-arrow worker-gallery-arrow-left"
+              onClick={() => changeWorker('prev')}
+            >
+              &#10094;
+            </button>
+
+            <div className="worker-image-card worker-image-left">
+              <img src={previousWorker.image} alt={previousWorker.name} />
+            </div>
+
+            <div className="worker-image-card worker-image-main">
+              <img src={currentWorker.image} alt={currentWorker.name} />
+            </div>
+
+            <div className="worker-image-card worker-image-right">
+              <img src={nextWorker.image} alt={nextWorker.name} />
+            </div>
+
+            <button
+              type="button"
+              className="worker-gallery-arrow worker-gallery-arrow-right"
+              onClick={() => changeWorker('next')}
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="quick-links-section">
+        <div className="quick-links-header">
+          <h2>Explore More From Wyld Perspective</h2>
+
+          <p>
+            Take a look at the different types that we do from photoshoots to video proges and art peices, we have a wide variety of work that we have done and are always looking to expand our portfolio with new and exciting projects, click on any of the categories below to explore more of our work and see how we can bring your ideas to life with our unique perspective and creative vision.
+          </p>
+        </div>
+
+        <div className="quick-links-wrapper">
+          <div className="quick-link-card">
+            <div className="quick-link-title">
+              <img src="/Images/OIP (13).webp" alt="Photos icon" />
+              <h3>Photos</h3>
+            </div>
+
+            <p>
+              View photo shoots, creative portraits, scenery, animals, and captured moments from Wyld Perspective Studios.
+            </p>
+
+            <div className="quick-link-actions">
+              <Link to="/photos" className="quick-link-button">
+                View Photos
+              </Link>
+            </div>
+          </div>
+
+          <div className="quick-link-card">
+            <div className="quick-link-title">
+              <img src="/Images/OIP (14).webp" alt="Videos icon" />
+              <h3>Videos</h3>
+            </div>
+
+            <p>
+              Watch video projects, short films, creative visuals, and storytelling work created by the studio.
+            </p>
+
+            <div className="quick-link-actions">
+              <Link to="/videos" className="quick-link-button">
+                View Videos
+              </Link>
+            </div>
+          </div>
+
+          <div className="quick-link-card">
+            <div className="quick-link-title">
+              <img src="/Images/OIP (15).webp" alt="Art icon" />
+              <h3>Art</h3>
+            </div>
+
+            <p>
+              Explore art projects, construction process shots, completed pieces, and creative visual work.
+            </p>
+
+            <div className="quick-link-actions">
+              <Link to="/art" className="quick-link-button">
+                View Art
+              </Link>
+            </div>
+          </div>
+
+          <div className="quick-link-card">
+            <div className="quick-link-title">
+              <img src="/icons/events.png" alt="Events icon" />
+              <h3>Events</h3>
+            </div>
+
+            <p>
+              Check upcoming events, studio updates, live sessions, and announcements from Wyld Perspective Studios.
+            </p>
+
+            <div className="quick-link-actions">
+              <Link to="/events" className="quick-link-button">
+                View Events
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="packages-section">
+        <div className="packages-header">
+          <h2>Video Packages</h2>
+
+          <p>
+            Browse the deals that we have for our videos and choose how good of a deal you want, we have different packages for different types of projects, whether you are looking to capture a special moment in your life or you want to create a creative video project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+          </p>
+        </div>
+
+        <div className="packages-wrapper">
+          <div className="package-card">
+            <h3>Video package One</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Video Package Two</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Video Package Three</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="packages-section">
+        <div className="packages-header">
+          <h2>Art Packages</h2>
+
+          <p>
+            Here you can view what type of art packages we have to offer, whether you are looking to capture the process of a creative project or you want to create a unique piece of art, we have different packages that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+          </p>
+        </div>
+
+        <div className="packages-wrapper">
+          <div className="package-card">
+            <h3>Art Package One</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Art Package Two</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Art Package Three</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="packages-section">
+        <div className="packages-header">
+          <h2>Photo Packages</h2>
+
+          <p>
+            Here you may view the different photo packages that we have to offer, whether you are looking to capture a special moment in your life or you want to create a creative photo project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+          </p>
+        </div>
+
+        <div className="packages-wrapper">
+          <div className="package-card">
+            <h3>Photo Package One</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Photo Package Two</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+
+          <div className="package-card">
+            <h3>Photo Package Three</h3>
+
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <p>- XXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
+            <Link to="/contact" className="package-button">
+              Get started
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-contact-section">
+        <div className="home-contact-box">
+          <div className="home-contact-image">
+            <img
+              src="/Images/73a4aed8-50ec-4ecc-8cb9-23564c66d43d.png"
+              alt="Wyld Perspective contact"
+            />
+          </div>
+
+          <h2>Have an idea you want to bring to life?</h2>
+
+          <p>
+            With the help of wyld perspective, we can bring an exception
+            high quality peice of work to life wether it be through a photo shoot
+            or a video project, or maybe you are interested in capturing an important moment
+            in you're life and you would like to enhnance that moment, we are here to help you bring your ideas to life with our unique perspective and creative vision, contact us today to get started on your next project.
+          </p>
+
+          <Link to="/contact" className="home-contact-button">
+            Contact Us
+          </Link>
+        </div>
+      </section>
     </section>
   )
 }
