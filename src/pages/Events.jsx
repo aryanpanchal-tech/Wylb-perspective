@@ -1,94 +1,88 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
-const eventCards = [
+const fallbackEvents = [
   {
+    id: 'fallback-1',
+    source: 'Wylb Perspective',
     category: 'Live Events',
-    title: 'Live event title',
-    description: 'Description',
+    title: 'Latest updates will appear here',
+    description: 'YouTube and Instagram posts will show here once the API connection is ready.',
+    image: '',
+    url: '',
+    date: '',
   },
   {
+    id: 'fallback-2',
+    source: 'Wylb Perspective',
     category: 'Live Events',
-    title: 'Live event title',
-    description: 'Description',
+    title: 'Instagram updates',
+    description: 'Instagram posts from Wylb Perspective Studios can appear here.',
+    image: '',
+    url: '',
+    date: '',
   },
   {
+    id: 'fallback-3',
+    source: 'Wylb Perspective',
     category: 'Live Events',
-    title: 'Live event title',
-    description: 'Description',
+    title: 'YouTube updates',
+    description: 'YouTube videos from Wylb Perspective Studios can appear here.',
+    image: '',
+    url: '',
+    date: '',
   },
 ]
 
 function Events() {
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [events, setEvents] = useState(fallbackEvents)
+  const [loading, setLoading] = useState(true)
+  const [message, setMessage] = useState('Loading latest posts...')
+  const [lastUpdated, setLastUpdated] = useState('')
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80)
+    const loadEvents = async () => {
+      try {
+        const response = await fetch('/.netlify/functions/events')
+        const result = await response.json()
+
+        if (!response.ok) {
+          setMessage(result.error || 'Could not load latest posts.')
+          setLoading(false)
+          return
+        }
+
+        if (result.events && result.events.length > 0) {
+          setEvents(result.events)
+          setMessage('')
+          setLastUpdated(new Date().toLocaleTimeString())
+        } else {
+          setEvents(fallbackEvents)
+          setMessage('No social media posts found yet.')
+        }
+      } catch (error) {
+        setEvents(fallbackEvents)
+        setMessage('Could not connect to the events feed.')
+      }
+
+      setLoading(false)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    loadEvents()
+
+    const refreshTimer = setInterval(() => {
+      loadEvents()
+    }, 300000)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      clearInterval(refreshTimer)
     }
   }, [])
 
   return (
     <div className="app">
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-        <div className="navbar-logo">
-          Wylb
-        </div>
-
-        <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
-
-        <button
-          className="navbar-menu-icon"
-          onClick={() => setDrawerOpen(!drawerOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {drawerOpen && (
-          <div className="navbar-drawer">
-            <div className="drawer-search-row">
-              <input
-                className="drawer-search"
-                type="text"
-                placeholder="Search..."
-                autoFocus
-              />
-            </div>
-
-            <Link to="/photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Photos
-            </Link>
-
-            <Link to="/videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Videos
-            </Link>
-
-            <Link to="/events" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Events
-            </Link>
-
-            <Link to="/art" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Art
-            </Link>
-
-            <Link to="/tech" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Tech
-            </Link>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       <section className="hero" id="events">
         <div className="hero-video-placeholder">
@@ -105,23 +99,47 @@ function Events() {
           </h1>
 
           <p className="hero-subtitle">
-            Events and updates to Wylb Perspective Studios can be found here.
+            Events, videos, Instagram posts, and updates from Wylb Perspective Studios can be found here.
           </p>
         </div>
       </section>
 
-      <section className="media-grid-section" id="media">
-        <h2 className="section-title">Event Categories</h2>
+      <section className="media-grid-section events-feed-section" id="media">
+        <h2 className="section-title">Latest Posts</h2>
 
-        <div className="media-grid">
-          {eventCards.map((event, index) => (
-            <div className="media-card" key={index}>
-              <div className="card-thumbnail">
-                [ Live event image ]
+        {lastUpdated && (
+          <p className="events-feed-updated">
+            Last updated: {lastUpdated}
+          </p>
+        )}
+
+        {loading && (
+          <p className="events-feed-message">
+            {message}
+          </p>
+        )}
+
+        {!loading && message && (
+          <p className="events-feed-message">
+            {message}
+          </p>
+        )}
+
+        <div className="media-grid events-feed-grid">
+          {events.map((event) => (
+            <article className="media-card event-card" key={event.id}>
+              <div className="card-thumbnail event-card-thumbnail">
+                {event.image ? (
+                  <img src={event.image} alt={event.title} />
+                ) : (
+                  <span>[ Live event image ]</span>
+                )}
               </div>
 
               <div className="card-content">
-                <span className="card-category">{event.category}</span>
+                <span className="card-category">
+                  {event.source} / {event.category}
+                </span>
 
                 <h3 className="card-title">
                   {event.title}
@@ -130,17 +148,30 @@ function Events() {
                 <p className="card-description">
                   {event.description}
                 </p>
+
+                {event.date && (
+                  <p className="event-date">
+                    {new Date(event.date).toLocaleDateString()}
+                  </p>
+                )}
+
+                {event.url && (
+                  <a
+                    className="event-link"
+                    href={event.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Post
+                  </a>
+                )}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <footer className="footer" id="footer">
-        <p className="footer-copy">
-          © 2026 Wylb Perspective. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

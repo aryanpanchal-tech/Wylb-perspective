@@ -1,0 +1,1265 @@
+html[data-theme="photo-display"] {
+  --site-bg: #000000;
+  --site-text: #ffffff;
+
+  --nav-bg: #111111;
+  --nav-text: #ffffff;
+
+  --section-bg: transparent;
+  --card-bg: transparent;
+  --card-text: #ffffff;
+
+  --heading-text: #ffffff;
+  --hero-text: #ffffff;
+  --muted-text: #ffffff;
+  --card-muted-text: #ffffff;
+
+  --button-bg: rgba(0, 0, 0, 0.35);
+  --button-hover-bg: rgba(255, 255, 255, 0.18);
+  --button-active-bg: rgba(255, 255, 255, 0.24);
+  --button-text: #ffffff;
+
+  --theme-border: rgba(255, 255, 255, 0.75);
+  --theme-dark: #000000;
+  --theme-accent: #ffffff;
+}
+
+/* Main font */
+html[data-theme="photo-display"] body,
+html[data-theme="photo-display"] button,
+html[data-theme="photo-display"] input,
+html[data-theme="photo-display"] select,
+html[data-theme="photo-display"] textarea,
+html[data-theme="photo-display"] a,
+html[data-theme="photo-display"] h1,
+html[data-theme="photo-display"] h2,
+html[data-theme="photo-display"] h3,
+html[data-theme="photo-display"] h4,
+html[data-theme="photo-display"] h5,
+html[data-theme="photo-display"] h6,
+html[data-theme="photo-display"] p,
+html[data-theme="photo-display"] span,
+html[data-theme="photo-display"] li,
+html[data-theme="photo-display"] label {
+  font-family: "Arial Narrow", Arial, sans-serif !important;
+}
+
+/* Full page photo background */
+html[data-theme="photo-display"],
+html[data-theme="photo-display"] body,
+html[data-theme="photo-display"] #root,
+html[data-theme="photo-display"] .app {
+  background: #000000 !important;
+  color: #ffffff !important;
+  position: relative;
+}
+
+/* Background collage layer */
+html[data-theme="photo-display"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background-image:
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Timeless Toronto 2.0.jpg"),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Toronto_CN Tower.jpg"),
+    url("/Images/Vibrance Beneath the Lion's Gaze.jpg"),
+    url("/Images/Family Photo.jpg"),
+    url("/Images/Smiling in the sunset.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Camera shot.jpg"),
+    url("/Images/Playing at the park.jpg"),
+    url("/Images/Playful puppy.jpg"),
+    url("/Images/Freedom and Justice monument.png"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/Professional confidence.png"),
+    url("/Images/Family gathering.jpg"),
+    url("/Images/IMG_3616.png"),
+    url("/Images/IMG_9871.jpg"),
+    url("/Images/IMG_9915.jpg"),
+    url("/Images/IMG_9977.jpg"),
+    url("/Images/MZS09459.jpg"),
+    url("/Images/Dog with a blue bg.jpg"),
+    url("/Images/MZS09877.jpg"),
+    url("/Images/MZS09656.jpg"),
+    url("/Images/MZS09511.jpg");
+
+  background-size:
+    34vw auto,
+    22vw auto,
+    30vw auto,
+    18vw auto,
+    26vw auto,
+    20vw auto,
+    32vw auto,
+    22vw auto,
+    18vw auto,
+    26vw auto,
+    20vw auto,
+    24vw auto,
+    31vw auto,
+    21vw auto,
+    27vw auto,
+    18vw auto,
+    22vw auto,
+    19vw auto,
+    21vw auto,
+    24vw auto,
+    19vw auto,
+    20vw auto,
+    27vw auto,
+    23vw auto;
+
+  background-position:
+    4% 8%,
+    72% 4%,
+    38% 12%,
+    88% 22%,
+    8% 34%,
+    55% 31%,
+    77% 42%,
+    20% 52%,
+    43% 49%,
+    66% 58%,
+    90% 64%,
+    5% 72%,
+    31% 78%,
+    58% 82%,
+    82% 86%,
+    13% 93%,
+    45% 96%,
+    70% 96%,
+    95% 95%,
+    2% 16%,
+    49% 3%,
+    96% 10%,
+    60% 70%,
+    26% 23%;
+
+  background-repeat: no-repeat;
+  filter: blur(1.5px) brightness(0.45) saturate(1.25);
+  transform: scale(1.03);
+}
+
+/* Dark transparent layer so text stays readable */
+html[data-theme="photo-display"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+/* Header stays solid */
+html[data-theme="photo-display"] .navbar,
+html[data-theme="photo-display"] .navbar--scrolled {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] .navbar-links a,
+html[data-theme="photo-display"] .navbar-logo {
+  color: #ffffff !important;
+}
+
+html[data-theme="photo-display"] .navbar-logo {
+  background: #111111 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+  padding: 8px 18px !important;
+}
+
+html[data-theme="photo-display"] .navbar-menu-icon span {
+  background: #ffffff !important;
+}
+
+/* Dropdown solid */
+html[data-theme="photo-display"] .theme-dropdown,
+html[data-theme="photo-display"] .drawer-theme-dropdown {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+}
+
+/* Footer stays solid */
+html[data-theme="photo-display"] .footer,
+html[data-theme="photo-display"] footer {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-top: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="photo-display"] .footer a,
+html[data-theme="photo-display"] footer a,
+html[data-theme="photo-display"] .footer p,
+html[data-theme="photo-display"] footer p,
+html[data-theme="photo-display"] .footer h2,
+html[data-theme="photo-display"] .footer h3 {
+  color: #ffffff !important;
+}
+
+/* Scrolling brand strip stays solid */
+html[data-theme="photo-display"] .hero-brand-strip,
+html[data-theme="photo-display"] .hero-service-strip {
+  background: #000000 !important;
+  border-top: 3px solid #ffffff !important;
+  border-bottom: 3px solid #ffffff !important;
+}
+
+html[data-theme="photo-display"] .hero-brand-title {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-right: 3px solid #ffffff !important;
+}
+
+html[data-theme="photo-display"] .hero-brand-scroll-window {
+  background: #000000 !important;
+}
+
+html[data-theme="photo-display"] .hero-brand-logo {
+  background: #ffffff !important;
+  border-radius: 14px !important;
+}
+
+/* Main sections transparent */
+html[data-theme="photo-display"] .media-section,
+html[data-theme="photo-display"] .media-grid-section,
+html[data-theme="photo-display"] .quick-links-section,
+html[data-theme="photo-display"] .packages-section,
+html[data-theme="photo-display"] .photo-packages-section,
+html[data-theme="photo-display"] .about-section,
+html[data-theme="photo-display"] .workers-section,
+html[data-theme="photo-display"] .media-section-frame {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Cards and content boxes transparent */
+html[data-theme="photo-display"] .package-card,
+html[data-theme="photo-display"] .quick-link-card,
+html[data-theme="photo-display"] .home-contact-box,
+html[data-theme="photo-display"] .about-wrapper,
+html[data-theme="photo-display"] .workers-wrapper,
+html[data-theme="photo-display"] .photo-slider-main,
+html[data-theme="photo-display"] .video-slider-main,
+html[data-theme="photo-display"] .media-card,
+html[data-theme="photo-display"] .tech-card,
+html[data-theme="photo-display"] .photo-card,
+html[data-theme="photo-display"] .packages-header,
+html[data-theme="photo-display"] .quick-links-header,
+html[data-theme="photo-display"] .contact-form,
+html[data-theme="photo-display"] .contact-page-content,
+html[data-theme="photo-display"] .media-terms-card,
+html[data-theme="photo-display"] .media-terms-selected-box {
+  background: rgba(0, 0, 0, 0.28) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Text white */
+html[data-theme="photo-display"] h1,
+html[data-theme="photo-display"] h2,
+html[data-theme="photo-display"] h3,
+html[data-theme="photo-display"] h4,
+html[data-theme="photo-display"] p,
+html[data-theme="photo-display"] span,
+html[data-theme="photo-display"] a,
+html[data-theme="photo-display"] .section-title,
+html[data-theme="photo-display"] .card-title,
+html[data-theme="photo-display"] .card-category,
+html[data-theme="photo-display"] .card-description,
+html[data-theme="photo-display"] .hero-title,
+html[data-theme="photo-display"] .hero-subtitle,
+html[data-theme="photo-display"] .hero-tag {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* Buttons transparent but visible */
+html[data-theme="photo-display"] .hero-btn-primary,
+html[data-theme="photo-display"] .hero-btn-secondary,
+html[data-theme="photo-display"] .photo-auto-button,
+html[data-theme="photo-display"] .photo-carousel-autoplay-button,
+html[data-theme="photo-display"] .photo-slider-autoplay-button,
+html[data-theme="photo-display"] .photo-viewer-autoplay-button,
+html[data-theme="photo-display"] .photo-viewer-back-top,
+html[data-theme="photo-display"] .video-carousel-autoplay-button,
+html[data-theme="photo-display"] .video-slider-autoplay-button,
+html[data-theme="photo-display"] .video-viewer-autoplay-button,
+html[data-theme="photo-display"] .video-viewer-back-top,
+html[data-theme="photo-display"] .home-contact-button,
+html[data-theme="photo-display"] .quick-link-button,
+html[data-theme="photo-display"] .package-button,
+html[data-theme="photo-display"] .photo-card-btn,
+html[data-theme="photo-display"] .media-tab,
+html[data-theme="photo-display"] .contact-category,
+html[data-theme="photo-display"] .media-terms-selected-back {
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] .hero-btn-primary:hover,
+html[data-theme="photo-display"] .hero-btn-secondary:hover,
+html[data-theme="photo-display"] .home-contact-button:hover,
+html[data-theme="photo-display"] .quick-link-button:hover,
+html[data-theme="photo-display"] .package-button:hover,
+html[data-theme="photo-display"] .photo-card-btn:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+}
+
+/* Inputs transparent */
+html[data-theme="photo-display"] input,
+html[data-theme="photo-display"] textarea,
+html[data-theme="photo-display"] select,
+html[data-theme="photo-display"] .photo-search,
+html[data-theme="photo-display"] .photo-filter,
+html[data-theme="photo-display"] .video-search,
+html[data-theme="photo-display"] .video-filter,
+html[data-theme="photo-display"] .drawer-search,
+html[data-theme="photo-display"] .contact-form input,
+html[data-theme="photo-display"] .contact-form textarea {
+  background: rgba(0, 0, 0, 0.32) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] input::placeholder,
+html[data-theme="photo-display"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Actual photos/images stay visible and not transparent */
+html[data-theme="photo-display"] img,
+html[data-theme="photo-display"] .card-thumbnail img,
+html[data-theme="photo-display"] .about-image img,
+html[data-theme="photo-display"] .home-contact-image img,
+html[data-theme="photo-display"] .worker-image-card img,
+html[data-theme="photo-display"] .photo-slider-image-box img,
+html[data-theme="photo-display"] .video-slider-screen {
+  opacity: 1 !important;
+  filter: none !important;
+  border-radius: 16px !important;
+}
+
+/* Photo image containers stay clean */
+html[data-theme="photo-display"] .card-thumbnail,
+html[data-theme="photo-display"] .about-image,
+html[data-theme="photo-display"] .home-contact-image,
+html[data-theme="photo-display"] .worker-image-card,
+html[data-theme="photo-display"] .photo-slider-image-box,
+html[data-theme="photo-display"] .video-slider-screen-box {
+  background: transparent !important;
+  border-radius: 16px !important;
+}
+
+/* Slider info boxes transparent */
+html[data-theme="photo-display"] .photo-slider-info,
+html[data-theme="photo-display"] .video-slider-info,
+html[data-theme="photo-display"] .photo-viewer-bottom-info,
+html[data-theme="photo-display"] .video-viewer-bottom-info {
+  background: rgba(0, 0, 0, 0.38) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 18px !important;
+}
+
+/* Arrow buttons stay rounded */
+html[data-theme="photo-display"] .photo-viewer-side-arrow,
+html[data-theme="photo-display"] .photo-viewer-arrow,
+html[data-theme="photo-display"] .photo-modal-arrow,
+html[data-theme="photo-display"] .fullscreen-arrow,
+html[data-theme="photo-display"] .photo-slider-arrow,
+html[data-theme="photo-display"] .video-slider-arrow {
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+}
+
+/* Photo Display - fixed photo wall background */
+
+html[data-theme="photo-display"],
+html[data-theme="photo-display"] body,
+html[data-theme="photo-display"] #root,
+html[data-theme="photo-display"] .app {
+  background: #000000 !important;
+  min-height: 100%;
+}
+
+html[data-theme="photo-display"] .app {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Far away photo layer */
+html[data-theme="photo-display"] .app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Timeless Toronto 2.0.jpg"),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Toronto_CN Tower.jpg"),
+    url("/Images/Vibrance Beneath the Lion's Gaze.jpg"),
+    url("/Images/Family Photo.jpg"),
+    url("/Images/Smiling in the sunset.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Camera shot.jpg"),
+    url("/Images/Playing at the park.jpg"),
+    url("/Images/Playful puppy.jpg"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/Professional confidence.png"),
+    url("/Images/Family gathering.jpg"),
+    url("/Images/IMG_3616.png"),
+    url("/Images/IMG_9871.jpg"),
+    url("/Images/IMG_9915.jpg"),
+    url("/Images/IMG_9977.jpg"),
+    url("/Images/MZS09459.jpg"),
+    url("/Images/Dog with a blue bg.jpg"),
+    url("/Images/MZS09877.jpg"),
+    url("/Images/MZS09656.jpg"),
+    url("/Images/MZS09511.jpg");
+
+  background-size:
+    22vw auto,
+    30vw auto,
+    18vw auto,
+    26vw auto,
+    21vw auto,
+    16vw auto,
+    28vw auto,
+    19vw auto,
+    15vw auto,
+    24vw auto,
+    17vw auto,
+    31vw auto,
+    20vw auto,
+    24vw auto,
+    16vw auto,
+    18vw auto,
+    17vw auto,
+    19vw auto,
+    21vw auto,
+    15vw auto,
+    17vw auto,
+    23vw auto,
+    19vw auto;
+
+  background-position:
+    3% 7%,
+    42% 4%,
+    78% 8%,
+    15% 25%,
+    60% 22%,
+    91% 25%,
+    5% 45%,
+    36% 40%,
+    70% 43%,
+    90% 52%,
+    18% 68%,
+    47% 65%,
+    78% 72%,
+    4% 88%,
+    31% 92%,
+    58% 88%,
+    86% 91%,
+    24% 11%,
+    53% 53%,
+    96% 82%,
+    11% 58%,
+    66% 14%,
+    39% 78%;
+
+  background-repeat: no-repeat;
+  filter: brightness(0.42) saturate(1.2) blur(1.2px);
+  transform: scale(1.04);
+}
+
+/* Close-up photo layer */
+html[data-theme="photo-display"] .app::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Smiling in the sunset.jpg");
+
+  background-size:
+    cover,
+    48vw auto,
+    36vw auto,
+    42vw auto,
+    38vw auto,
+    32vw auto;
+
+  background-position:
+    center,
+    -9% 18%,
+    105% 20%,
+    95% 83%,
+    -5% 88%,
+    48% 50%;
+
+  background-repeat: no-repeat;
+  filter: brightness(0.75) saturate(1.25);
+}
+
+/* Keep page content above the photo background */
+html[data-theme="photo-display"] .navbar,
+html[data-theme="photo-display"] .hero,
+html[data-theme="photo-display"] .media-section,
+html[data-theme="photo-display"] .media-grid-section,
+html[data-theme="photo-display"] .quick-links-section,
+html[data-theme="photo-display"] .packages-section,
+html[data-theme="photo-display"] .photo-packages-section,
+html[data-theme="photo-display"] .about-section,
+html[data-theme="photo-display"] .workers-section,
+html[data-theme="photo-display"] .home-contact-section,
+html[data-theme="photo-display"] footer,
+html[data-theme="photo-display"] .footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep header, footer, and brand strip solid */
+html[data-theme="photo-display"] .navbar,
+html[data-theme="photo-display"] .navbar--scrolled,
+html[data-theme="photo-display"] footer,
+html[data-theme="photo-display"] .footer,
+html[data-theme="photo-display"] .hero-brand-strip,
+html[data-theme="photo-display"] .hero-service-strip {
+  background: #000000 !important;
+}
+
+/* Make main content transparent so the photo wall shows through */
+html[data-theme="photo-display"] .hero,
+html[data-theme="photo-display"] .media-section,
+html[data-theme="photo-display"] .media-grid-section,
+html[data-theme="photo-display"] .quick-links-section,
+html[data-theme="photo-display"] .packages-section,
+html[data-theme="photo-display"] .photo-packages-section,
+html[data-theme="photo-display"] .about-section,
+html[data-theme="photo-display"] .workers-section,
+html[data-theme="photo-display"] .home-contact-section,
+html[data-theme="photo-display"] .media-section-frame {
+  background: transparent !important;
+}
+
+/* Make boxes glassy/transparent, using Rose Gold-style rounded corners */
+html[data-theme="photo-display"] .package-card,
+html[data-theme="photo-display"] .quick-link-card,
+html[data-theme="photo-display"] .home-contact-box,
+html[data-theme="photo-display"] .about-wrapper,
+html[data-theme="photo-display"] .workers-wrapper,
+html[data-theme="photo-display"] .photo-slider-main,
+html[data-theme="photo-display"] .video-slider-main,
+html[data-theme="photo-display"] .media-card,
+html[data-theme="photo-display"] .tech-card,
+html[data-theme="photo-display"] .photo-card,
+html[data-theme="photo-display"] .packages-header,
+html[data-theme="photo-display"] .quick-links-header,
+html[data-theme="photo-display"] .contact-form,
+html[data-theme="photo-display"] .contact-page-content,
+html[data-theme="photo-display"] .media-terms-card,
+html[data-theme="photo-display"] .media-terms-selected-box {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 18px !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Actual images should stay normal, not transparent */
+html[data-theme="photo-display"] img,
+html[data-theme="photo-display"] .card-thumbnail img,
+html[data-theme="photo-display"] .about-image img,
+html[data-theme="photo-display"] .home-contact-image img,
+html[data-theme="photo-display"] .worker-image-card img,
+html[data-theme="photo-display"] .photo-slider-image-box img,
+html[data-theme="photo-display"] .video-slider-screen {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Photo Display - smaller, wider-spaced static photo background */
+
+html[data-theme="photo-display"] .app::before {
+  background-size:
+    13vw auto,
+    16vw auto,
+    11vw auto,
+    14vw auto,
+    12vw auto,
+    10vw auto,
+    15vw auto,
+    11vw auto,
+    9vw auto,
+    13vw auto,
+    10vw auto,
+    14vw auto,
+    12vw auto,
+    13vw auto,
+    10vw auto,
+    11vw auto,
+    9vw auto,
+    10vw auto,
+    12vw auto,
+    9vw auto,
+    10vw auto,
+    13vw auto,
+    11vw auto !important;
+
+  background-position:
+    4% 8%,
+    39% 5%,
+    79% 9%,
+    12% 27%,
+    61% 24%,
+    92% 28%,
+    6% 49%,
+    34% 43%,
+    72% 46%,
+    91% 57%,
+    18% 72%,
+    48% 67%,
+    80% 76%,
+    5% 91%,
+    32% 94%,
+    59% 89%,
+    87% 92%,
+    24% 15%,
+    54% 55%,
+    96% 84%,
+    11% 61%,
+    67% 15%,
+    40% 80% !important;
+
+  filter: brightness(0.38) saturate(1.15) blur(0.6px) !important;
+  transform: none !important;
+}
+
+html[data-theme="photo-display"] .app::after {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Smiling in the sunset.jpg") !important;
+
+  background-size:
+    cover,
+    24vw auto,
+    20vw auto,
+    22vw auto,
+    19vw auto,
+    18vw auto !important;
+
+  background-position:
+    center,
+    -3% 18%,
+    104% 21%,
+    94% 82%,
+    -2% 87%,
+    51% 52% !important;
+
+  filter: brightness(0.62) saturate(1.15) !important;
+}
+
+/* Photo Display - better depth, less clumping */
+
+/* Back layer = bigger photos, but pushed farther back visually */
+html[data-theme="photo-display"] .app::before {
+  background-size:
+    15vw auto,
+    18vw auto,
+    13vw auto,
+    16vw auto,
+    14vw auto,
+    12vw auto,
+    17vw auto,
+    13vw auto,
+    11vw auto,
+    15vw auto,
+    12vw auto,
+    18vw auto,
+    14vw auto,
+    16vw auto,
+    12vw auto,
+    13vw auto,
+    11vw auto,
+    12vw auto,
+    15vw auto,
+    11vw auto,
+    12vw auto,
+    16vw auto,
+    13vw auto !important;
+
+  background-position:
+    3% 6%,
+    37% 4%,
+    80% 8%,
+    10% 25%,
+    63% 22%,
+    92% 27%,
+    5% 46%,
+    34% 40%,
+    74% 44%,
+    92% 56%,
+    16% 72%,
+    49% 67%,
+    82% 75%,
+    4% 90%,
+    30% 94%,
+    59% 89%,
+    88% 92%,
+    23% 14%,
+    54% 54%,
+    96% 84%,
+    10% 60%,
+    67% 14%,
+    40% 80% !important;
+
+  filter: brightness(0.28) saturate(1.05) blur(1.4px) !important;
+  transform: scale(1.01) !important;
+  opacity: 0.88 !important;
+}
+
+/* Front layer = some smaller ones brought forward a bit more */
+html[data-theme="photo-display"] .app::after {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68)),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Smiling in the sunset.jpg") !important;
+
+  background-size:
+    cover,
+    19vw auto,
+    16vw auto,
+    18vw auto,
+    17vw auto,
+    15vw auto !important;
+
+  background-position:
+    center,
+    6% 16%,
+    84% 20%,
+    78% 78%,
+    8% 82%,
+    50% 48% !important;
+
+  background-repeat: no-repeat !important;
+  filter: brightness(0.78) saturate(1.18) blur(0px) !important;
+  opacity: 1 !important;
+}
+
+/* Photo Display - bring front photos closer */
+
+html[data-theme="photo-display"] .app::after {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.66)),
+    url("/Images/Timeless Toronto.jpg"),
+    url("/Images/Playing in the beach.jpg"),
+    url("/Images/Raining fish.jpg"),
+    url("/Images/SuspenceinSerenity.jpg"),
+    url("/Images/Smiling in the sunset.jpg") !important;
+
+  background-size:
+    cover,
+    6vw auto,
+    4vw auto,
+    22vw auto,
+    21vw auto,
+    19vw auto !important;
+
+  background-position:
+    center,
+    8% 15%,
+    80% 18%,
+    75% 76%,
+    10% 80%,
+    50% 46% !important;
+
+  background-repeat: no-repeat !important;
+  filter: brightness(0.8) saturate(1.18) blur(0px) !important;
+  opacity: 1 !important;
+}
+
+/* Photo Display - spread out but not too far away */
+
+html[data-theme="photo-display"] .app::after {
+  background-size:
+    cover,
+    28vw auto,
+    23vw auto,
+    25vw auto,
+    24vw auto,
+    22vw auto !important;
+
+  background-position:
+    center,
+    18% 18%,
+    74% 18%,
+    72% 74%,
+    18% 76%,
+    50% 48% !important;
+}
+
+/* Photo Display - hamburger drawer should stay solid */
+html[data-theme="photo-display"] .navbar-drawer {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Drawer links should also be solid, not glassy */
+html[data-theme="photo-display"] .drawer-item {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Drawer search area should stay solid */
+html[data-theme="photo-display"] .drawer-search-row,
+html[data-theme="photo-display"] .drawer-search {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  border-radius: 14px !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="photo-display"] .drawer-search::placeholder {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Photo Display - hamburger drawer should stay solid */
+html[data-theme="photo-display"] .navbar-drawer {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Drawer links should also be solid, not glassy */
+html[data-theme="photo-display"] .drawer-item {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Drawer search area should stay solid */
+html[data-theme="photo-display"] .drawer-search-row,
+html[data-theme="photo-display"] .drawer-search {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  border-radius: 14px !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="photo-display"] .drawer-search::placeholder {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Photo Display - force hamburger drawer to appear */
+html[data-theme="photo-display"] .navbar {
+  position: relative !important;
+  z-index: 9999 !important;
+  overflow: visible !important;
+}
+
+html[data-theme="photo-display"] .navbar-menu-icon {
+  position: relative !important;
+  z-index: 10001 !important;
+  cursor: pointer !important;
+}
+
+html[data-theme="photo-display"] .navbar-drawer {
+  position: absolute !important;
+  top: 100% !important;
+  right: 20px !important;
+
+  width: 280px !important;
+  min-height: auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+
+  padding: 18px !important;
+  margin-top: 12px !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  z-index: 10000 !important;
+  overflow: visible !important;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75) !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme="photo-display"] .drawer-search-row {
+  width: 100% !important;
+  display: block !important;
+}
+
+html[data-theme="photo-display"] .drawer-search {
+  width: 100% !important;
+
+  background: #111111 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+
+  padding: 10px 12px !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html[data-theme="photo-display"] .drawer-item {
+  display: block !important;
+  width: 100% !important;
+
+  background: #111111 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+
+  padding: 12px 14px !important;
+
+  text-decoration: none !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html[data-theme="photo-display"] .drawer-item:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Photo Display - remove leftover brown/tan colors */
+
+/* Package title boxes should be transparent/glass, not brown */
+html[data-theme="photo-display"] .package-card h3,
+html[data-theme="photo-display"] .photo-packages-section .package-card h3,
+html[data-theme="photo-display"] .packages-header,
+html[data-theme="photo-display"] .photo-packages-section .packages-header,
+html[data-theme="photo-display"] .quick-links-header {
+  background: rgba(0, 0, 0, 0.28) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Package title text */
+html[data-theme="photo-display"] .package-card h3,
+html[data-theme="photo-display"] .package-card h3 *,
+html[data-theme="photo-display"] .packages-header h2,
+html[data-theme="photo-display"] .packages-header p,
+html[data-theme="photo-display"] .quick-links-header h2,
+html[data-theme="photo-display"] .quick-links-header p {
+  color: #ffffff !important;
+}
+
+/* Worker / gallery arrows should be white/transparent instead of tan */
+html[data-theme="photo-display"] .worker-gallery-arrow,
+html[data-theme="photo-display"] .worker-gallery-arrow-left,
+html[data-theme="photo-display"] .worker-gallery-arrow-right,
+html[data-theme="photo-display"] .photo-slider-arrow,
+html[data-theme="photo-display"] .video-slider-arrow,
+html[data-theme="photo-display"] .photo-viewer-side-arrow,
+html[data-theme="photo-display"] .video-viewer-side-arrow {
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+
+/* Hover arrows */
+html[data-theme="photo-display"] .worker-gallery-arrow:hover,
+html[data-theme="photo-display"] .photo-slider-arrow:hover,
+html[data-theme="photo-display"] .video-slider-arrow:hover,
+html[data-theme="photo-display"] .photo-viewer-side-arrow:hover,
+html[data-theme="photo-display"] .video-viewer-side-arrow:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Drawer title like THEMES should be white */
+html[data-theme="photo-display"] .drawer-theme-label,
+html[data-theme="photo-display"] .drawer-section-title,
+html[data-theme="photo-display"] .drawer-title,
+html[data-theme="photo-display"] .navbar-drawer h2,
+html[data-theme="photo-display"] .navbar-drawer h3,
+html[data-theme="photo-display"] .navbar-drawer label {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Drawer dropdown and links stay solid black/white */
+html[data-theme="photo-display"] .navbar-drawer,
+html[data-theme="photo-display"] .drawer-theme-dropdown,
+html[data-theme="photo-display"] .drawer-item,
+html[data-theme="photo-display"] .drawer-search {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Remove tan/brown slider/progress line */
+html[data-theme="photo-display"] input[type="range"],
+html[data-theme="photo-display"] .photo-slider-progress,
+html[data-theme="photo-display"] .video-slider-progress,
+html[data-theme="photo-display"] .slider-progress,
+html[data-theme="photo-display"] .carousel-progress,
+html[data-theme="photo-display"] .photo-progress-bar,
+html[data-theme="photo-display"] .video-progress-bar {
+  background: rgba(255, 255, 255, 0.35) !important;
+  accent-color: #ffffff !important;
+  border: none !important;
+}
+
+/* Progress fill / active bar, if your code uses divs */
+html[data-theme="photo-display"] .photo-slider-progress-fill,
+html[data-theme="photo-display"] .video-slider-progress-fill,
+html[data-theme="photo-display"] .slider-progress-fill,
+html[data-theme="photo-display"] .carousel-progress-fill,
+html[data-theme="photo-display"] .photo-progress-fill,
+html[data-theme="photo-display"] .video-progress-fill {
+  background: #ffffff !important;
+}
+
+/* Range thumbs white */
+html[data-theme="photo-display"] input[type="range"]::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html[data-theme="photo-display"] input[type="range"]::-moz-range-thumb {
+  background: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Make any leftover brown button classes transparent/white */
+html[data-theme="photo-display"] .photo-auto-button,
+html[data-theme="photo-display"] .photo-carousel-autoplay-button,
+html[data-theme="photo-display"] .photo-slider-autoplay-button,
+html[data-theme="photo-display"] .video-carousel-autoplay-button,
+html[data-theme="photo-display"] .video-slider-autoplay-button,
+html[data-theme="photo-display"] .photo-viewer-autoplay-button,
+html[data-theme="photo-display"] .video-viewer-autoplay-button,
+html[data-theme="photo-display"] .photo-viewer-back-top,
+html[data-theme="photo-display"] .video-viewer-back-top {
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Active autoplay buttons */
+html[data-theme="photo-display"] .photo-carousel-autoplay-button--active,
+html[data-theme="photo-display"] .photo-slider-autoplay-button--active,
+html[data-theme="photo-display"] .video-carousel-autoplay-button--active,
+html[data-theme="photo-display"] .video-slider-autoplay-button--active,
+html[data-theme="photo-display"] .photo-viewer-autoplay-button--active,
+html[data-theme="photo-display"] .video-viewer-autoplay-button--active {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Remove brown from media tabs if it leaks in */
+html[data-theme="photo-display"] .media-tab,
+html[data-theme="photo-display"] .media-tab--active {
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+}
+
+/* Keep real photos normal */
+html[data-theme="photo-display"] img {
+  opacity: 1 !important;
+}
+
+/* Photo Display - contact page should use the same photo-wall site background */
+
+html[data-theme="photo-display"] .contact-page,
+html[data-theme="photo-display"] .contact-hero,
+html[data-theme="photo-display"] .contact-section,
+html[data-theme="photo-display"] .contact-main,
+html[data-theme="photo-display"] .contact-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+/* Contact page content box */
+html[data-theme="photo-display"] .contact-page-content,
+html[data-theme="photo-display"] .contact-form,
+html[data-theme="photo-display"] .contact-form-wrapper,
+html[data-theme="photo-display"] .contact-box {
+  background: rgba(0, 0, 0, 0.34) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Contact title text */
+html[data-theme="photo-display"] .contact-page-content h1,
+html[data-theme="photo-display"] .contact-page-content h2,
+html[data-theme="photo-display"] .contact-page-content h3,
+html[data-theme="photo-display"] .contact-page-content p,
+html[data-theme="photo-display"] .contact-page-content span,
+html[data-theme="photo-display"] .contact-hero h1,
+html[data-theme="photo-display"] .contact-hero h2,
+html[data-theme="photo-display"] .contact-hero p,
+html[data-theme="photo-display"] .contact-hero span {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Contact option buttons: Art / Films / Photos */
+html[data-theme="photo-display"] .contact-category,
+html[data-theme="photo-display"] .contact-category span {
+  background: rgba(0, 0, 0, 0.42) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] .contact-category:hover,
+html[data-theme="photo-display"] .contact-category:hover span,
+html[data-theme="photo-display"] .contact-category:has(input:checked),
+html[data-theme="photo-display"] .contact-category:has(input:checked) span {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+/* Contact inputs */
+html[data-theme="photo-display"] .contact-form input,
+html[data-theme="photo-display"] .contact-form textarea,
+html[data-theme="photo-display"] .contact-page-content input,
+html[data-theme="photo-display"] .contact-page-content textarea {
+  background: rgba(0, 0, 0, 0.38) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] .contact-form input::placeholder,
+html[data-theme="photo-display"] .contact-form textarea::placeholder,
+html[data-theme="photo-display"] .contact-page-content input::placeholder,
+html[data-theme="photo-display"] .contact-page-content textarea::placeholder {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Contact submit/proceed button */
+html[data-theme="photo-display"] .contact-submit,
+html[data-theme="photo-display"] .contact-button,
+html[data-theme="photo-display"] .contact-form button,
+html[data-theme="photo-display"] .contact-page-content button {
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="photo-display"] .contact-submit:hover,
+html[data-theme="photo-display"] .contact-button:hover,
+html[data-theme="photo-display"] .contact-form button:hover,
+html[data-theme="photo-display"] .contact-page-content button:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Remove any brown inherited color from the contact body area */
+html[data-theme="photo-display"] main,
+html[data-theme="photo-display"] .page,
+html[data-theme="photo-display"] .contact-page main {
+  background: transparent !important;
+  background-color: transparent !important;
+}

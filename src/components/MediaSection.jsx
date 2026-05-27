@@ -103,7 +103,7 @@ function MediaCard({ category, title, description, image }) {
           <img
             src={image}
             alt={title}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
           />
         )}
       </div>
@@ -260,150 +260,152 @@ function MediaSection() {
 
   return (
     <section className="media-section" id="media">
-      <div className="media-tabs">
-        <button
-          className={`media-tab ${activeTab === 'media' ? 'media-tab--active' : ''}`}
-          onClick={() => changeTab('media')}
-        >
-          {t.media.latestMedia}
-        </button>
+      <div className="media-section-frame">
+        <div className="media-tabs">
+          <button
+            className={`media-tab ${activeTab === 'media' ? 'media-tab--active' : ''}`}
+            onClick={() => changeTab('media')}
+          >
+            {t.media.latestMedia}
+          </button>
 
-        <button
-          className={`media-tab ${activeTab === 'photographers' ? 'media-tab--active' : ''}`}
-          onClick={() => changeTab('photographers')}
-        >
-          {t.media.photographers}
-        </button>
+          <button
+            className={`media-tab ${activeTab === 'photographers' ? 'media-tab--active' : ''}`}
+            onClick={() => changeTab('photographers')}
+          >
+            {t.media.photographers}
+          </button>
 
-        <button
-          className={`media-tab ${activeTab === 'tech' ? 'media-tab--active' : ''}`}
-          onClick={() => changeTab('tech')}
-        >
-          {t.media.tech}
-        </button>
+          <button
+            className={`media-tab ${activeTab === 'tech' ? 'media-tab--active' : ''}`}
+            onClick={() => changeTab('tech')}
+          >
+            {t.media.tech}
+          </button>
 
-        <button
-          className={`media-tab ${activeTab === 'terms' ? 'media-tab--active' : ''}`}
-          onClick={() => changeTab('terms')}
-        >
-          Terms of Service
-        </button>
-      </div>
+          <button
+            className={`media-tab ${activeTab === 'terms' ? 'media-tab--active' : ''}`}
+            onClick={() => changeTab('terms')}
+          >
+            Terms of Service
+          </button>
+        </div>
 
-      <div className="tab-viewport">
-        <div
-          className="tab-slider-4"
-          style={{ transform: `translateX(-${offset * 25}%)` }}
-        >
-          <div className="tab-panel-4">
-            <div className="media-grid">
-              {t.media.cards.map((card, i) => (
-                <MediaCard
-                  key={i}
-                  category={card.category}
-                  title={card.title}
-                  description={card.description}
-                  image={cardImages[i]}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="tab-panel-4">
-            <div className="photographers-grid">
-              {photographers.map((p) => (
-                <PhotographerCard key={p.id} photographer={p} t={t} />
-              ))}
-            </div>
-          </div>
-
-          <div className="tab-panel-4">
-            <div className="tech-grid">
-              {techItems.map((item) => (
-                <TechCard key={item.id} item={item} t={t} />
-              ))}
-            </div>
-          </div>
-
-          <div className="tab-panel-4">
-            <section
-              className={`media-terms-preview ${selectedTerm ? 'media-terms-preview--selected' : ''} ${termFading ? 'media-terms-preview--fading' : ''}`}
-            >
-              <div className="media-terms-bg">
-                <img src="/Images/Timeless Toronto.jpg" alt="Terms background" />
+        <div className="tab-viewport">
+          <div
+            className="tab-slider-4"
+            style={{ transform: `translateX(-${offset * 25}%)` }}
+          >
+            <div className="tab-panel-4">
+              <div className="media-grid">
+                {t.media.cards.map((card, i) => (
+                  <MediaCard
+                    key={i}
+                    category={card.category}
+                    title={card.title}
+                    description={card.description}
+                    image={cardImages[i]}
+                  />
+                ))}
               </div>
+            </div>
 
-              <div className="media-terms-overlay"></div>
+            <div className="tab-panel-4">
+              <div className="photographers-grid">
+                {photographers.map((p) => (
+                  <PhotographerCard key={p.id} photographer={p} t={t} />
+                ))}
+              </div>
+            </div>
 
-              <div className="media-terms-content">
-                {!selectedTerm && (
-                  <>
-                    <div className="media-terms-heading">
-                      <span className="hero-tag">Wylb Perspective</span>
+            <div className="tab-panel-4">
+              <div className="tech-grid">
+                {techItems.map((item) => (
+                  <TechCard key={item.id} item={item} t={t} />
+                ))}
+              </div>
+            </div>
 
-                      <h2>
-                        Terms of <br />
-                        Service
-                      </h2>
+            <div className="tab-panel-4">
+              <section
+                className={`media-terms-preview ${selectedTerm ? 'media-terms-preview--selected' : ''} ${termFading ? 'media-terms-preview--fading' : ''}`}
+              >
+                <div className="media-terms-bg">
+                  <img src="/Images/Timeless Toronto.jpg" alt="Terms background" />
+                </div>
 
-                      <p>
-                        Review the terms for photo shoots, video work, art services, bookings, and creative requests.
-                      </p>
-                    </div>
+                <div className="media-terms-overlay"></div>
 
-                    <div className="media-terms-boxes">
-                      {terms.map((term) => (
-                        <button
-                          type="button"
-                          className="media-terms-card"
-                          key={term.title}
-                          onClick={() => openTerm(term)}
-                        >
-                          <div className="media-terms-icon">
-                            {term.icon ? (
-                              <img src={term.icon} alt={`${term.title} icon`} />
-                            ) : (
-                              <span>Add Icon</span>
-                            )}
-                          </div>
+                <div className="media-terms-content">
+                  {!selectedTerm && (
+                    <>
+                      <div className="media-terms-heading">
+                        <span className="hero-tag">Wylb Perspective</span>
 
-                          <span>{term.category}</span>
+                        <h2>
+                          Terms of <br />
+                          Service
+                        </h2>
 
-                          <h3>{term.title}</h3>
-                        </button>
-                      ))}
-                    </div>
-                  </>
-                )}
-
-                {selectedTerm && (
-                  <div className="media-terms-selected-view">
-                    <button
-                      type="button"
-                      className="media-terms-selected-back"
-                      onClick={closeTerm}
-                    >
-                      Back to Terms
-                    </button>
-
-                    <div className="media-terms-selected-box">
-                      <div className="media-terms-selected-icon">
-                        <img
-                          src={selectedTerm.icon}
-                          alt={`${selectedTerm.title} icon`}
-                        />
+                        <p>
+                          Review the terms for photo shoots, video work, art services, bookings, and creative requests.
+                        </p>
                       </div>
 
-                      <span>{selectedTerm.category}</span>
+                      <div className="media-terms-boxes">
+                        {terms.map((term) => (
+                          <button
+                            type="button"
+                            className="media-terms-card"
+                            key={term.title}
+                            onClick={() => openTerm(term)}
+                          >
+                            <div className="media-terms-icon">
+                              {term.icon ? (
+                                <img src={term.icon} alt={`${term.title} icon`} />
+                              ) : (
+                                <span>Add Icon</span>
+                              )}
+                            </div>
 
-                      <h2>{selectedTerm.title}</h2>
+                            <span>{term.category}</span>
 
-                      <p>{selectedTerm.description}</p>
+                            <h3>{term.title}</h3>
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {selectedTerm && (
+                    <div className="media-terms-selected-view">
+                      <button
+                        type="button"
+                        className="media-terms-selected-back"
+                        onClick={closeTerm}
+                      >
+                        Back to Terms
+                      </button>
+
+                      <div className="media-terms-selected-box">
+                        <div className="media-terms-selected-icon">
+                          <img
+                            src={selectedTerm.icon}
+                            alt={`${selectedTerm.title} icon`}
+                          />
+                        </div>
+
+                        <span>{selectedTerm.category}</span>
+
+                        <h2>{selectedTerm.title}</h2>
+
+                        <p>{selectedTerm.description}</p>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            </section>
+                  )}
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>

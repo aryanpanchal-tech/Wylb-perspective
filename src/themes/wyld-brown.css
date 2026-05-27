@@ -1,0 +1,201 @@
+html[data-theme="wyld-brown"] {
+  --site-bg: #2a1810;
+  --site-text: #ffffff;
+
+  --nav-bg: rgba(58, 33, 19, 0.9);
+  --nav-text: #ffffff;
+
+  --section-bg: #3a2113;
+  --card-bg: #3a2113;
+  --card-text: #ffffff;
+
+  --heading-text: #ffffff;
+  --normal-text: #ffffff;
+  --muted-text: #e7d2bd;
+
+  --button-bg: #c49a6c;
+  --button-hover-bg: #a9794b;
+  --button-active-bg: #3a2113;
+  --button-text: #ffffff;
+  --button-border: #6f4328;
+
+  --theme-primary: #c49a6c;
+  --theme-primary-hover: #a9794b;
+  --theme-dark: #3a2113;
+  --theme-border: #6f4328;
+  --theme-accent: #f0c38a;
+}
+
+/* Main site colors */
+html[data-theme="wyld-brown"] body {
+  background: var(--site-bg);
+  color: var(--site-text);
+}
+
+/* Navbar */
+html[data-theme="wyld-brown"] .navbar,
+html[data-theme="wyld-brown"] .navbar--scrolled {
+  background: var(--nav-bg);
+}
+
+html[data-theme="wyld-brown"] .navbar-links a {
+  color: var(--nav-text);
+}
+
+html[data-theme="wyld-brown"] .navbar-links a:hover {
+  color: var(--theme-accent);
+}
+
+/* Theme dropdown */
+html[data-theme="wyld-brown"] .theme-dropdown,
+html[data-theme="wyld-brown"] .drawer-theme-dropdown {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-border);
+}
+
+/* Main buttons */
+html[data-theme="wyld-brown"] .hero-btn-primary,
+html[data-theme="wyld-brown"] .photo-auto-button,
+html[data-theme="wyld-brown"] .photo-carousel-autoplay-button,
+html[data-theme="wyld-brown"] .photo-slider-autoplay-button,
+html[data-theme="wyld-brown"] .photo-viewer-autoplay-button,
+html[data-theme="wyld-brown"] .photo-viewer-back-top,
+html[data-theme="wyld-brown"] .video-carousel-autoplay-button,
+html[data-theme="wyld-brown"] .video-slider-autoplay-button,
+html[data-theme="wyld-brown"] .video-viewer-autoplay-button,
+html[data-theme="wyld-brown"] .video-viewer-back-top,
+html[data-theme="wyld-brown"] .home-contact-button,
+html[data-theme="wyld-brown"] .quick-link-button,
+html[data-theme="wyld-brown"] .package-button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-border);
+}
+
+/* Button hover */
+html[data-theme="wyld-brown"] .hero-btn-primary:hover,
+html[data-theme="wyld-brown"] .photo-auto-button:hover,
+html[data-theme="wyld-brown"] .photo-carousel-autoplay-button:hover,
+html[data-theme="wyld-brown"] .photo-slider-autoplay-button:hover,
+html[data-theme="wyld-brown"] .photo-viewer-autoplay-button:hover,
+html[data-theme="wyld-brown"] .photo-viewer-back-top:hover,
+html[data-theme="wyld-brown"] .video-carousel-autoplay-button:hover,
+html[data-theme="wyld-brown"] .video-slider-autoplay-button:hover,
+html[data-theme="wyld-brown"] .video-viewer-autoplay-button:hover,
+html[data-theme="wyld-brown"] .video-viewer-back-top:hover,
+html[data-theme="wyld-brown"] .home-contact-button:hover,
+html[data-theme="wyld-brown"] .quick-link-button:hover,
+html[data-theme="wyld-brown"] .package-button:hover {
+  background: var(--button-hover-bg);
+}
+
+/* Active buttons */
+html[data-theme="wyld-brown"] .photo-hero-view-button--active,
+html[data-theme="wyld-brown"] .photo-auto-button--active,
+html[data-theme="wyld-brown"] .photo-carousel-autoplay-button--active,
+html[data-theme="wyld-brown"] .photo-slider-autoplay-button--active,
+html[data-theme="wyld-brown"] .photo-viewer-autoplay-button--active,
+html[data-theme="wyld-brown"] .video-carousel-autoplay-button--active,
+html[data-theme="wyld-brown"] .video-slider-autoplay-button--active,
+html[data-theme="wyld-brown"] .video-viewer-autoplay-button--active {
+  background: var(--button-active-bg);
+  color: var(--button-text);
+  border-color: var(--theme-accent);
+}
+
+/* Sections */
+html[data-theme="wyld-brown"] .media-section,
+html[data-theme="wyld-brown"] .media-grid-section,
+html[data-theme="wyld-brown"] .quick-links-section,
+html[data-theme="wyld-brown"] .packages-section,
+html[data-theme="wyld-brown"] .photo-packages-section,
+html[data-theme="wyld-brown"] .home-contact-section,
+html[data-theme="wyld-brown"] .about-section,
+html[data-theme="wyld-brown"] .workers-section {
+  background: var(--section-bg);
+}
+
+/* Cards and boxes */
+html[data-theme="wyld-brown"] .package-card,
+html[data-theme="wyld-brown"] .quick-link-card,
+html[data-theme="wyld-brown"] .home-contact-box,
+html[data-theme="wyld-brown"] .about-wrapper,
+html[data-theme="wyld-brown"] .workers-wrapper,
+html[data-theme="wyld-brown"] .photo-slider-main,
+html[data-theme="wyld-brown"] .video-slider-main {
+  background: var(--card-bg);
+  color: var(--card-text);
+}
+
+/* Package title boxes */
+html[data-theme="wyld-brown"] .package-card h3,
+html[data-theme="wyld-brown"] .photo-packages-section .package-card h3 {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-border);
+}
+
+/* Headings */
+html[data-theme="wyld-brown"] .section-title,
+html[data-theme="wyld-brown"] .packages-header h2,
+html[data-theme="wyld-brown"] .photo-packages-section .packages-header h2,
+html[data-theme="wyld-brown"] .quick-links-header h2,
+html[data-theme="wyld-brown"] .about-content h2,
+html[data-theme="wyld-brown"] .workers-content h2,
+html[data-theme="wyld-brown"] .hero-title {
+  color: var(--heading-text);
+}
+
+/* Normal paragraph text */
+html[data-theme="wyld-brown"] .hero-subtitle,
+html[data-theme="wyld-brown"] .card-description,
+html[data-theme="wyld-brown"] .package-card p,
+html[data-theme="wyld-brown"] .quick-link-card p,
+html[data-theme="wyld-brown"] .packages-header p,
+html[data-theme="wyld-brown"] .photo-packages-section .packages-header p,
+html[data-theme="wyld-brown"] .about-content p,
+html[data-theme="wyld-brown"] .workers-content p,
+html[data-theme="wyld-brown"] .photo-slider-info p,
+html[data-theme="wyld-brown"] .video-slider-info p,
+html[data-theme="wyld-brown"] .photo-viewer-bottom-info p,
+html[data-theme="wyld-brown"] .video-viewer-bottom-info p {
+  color: var(--muted-text);
+}
+
+/* Accent text */
+html[data-theme="wyld-brown"] .hero-tag,
+html[data-theme="wyld-brown"] .card-category,
+html[data-theme="wyld-brown"] .photo-slider-info span,
+html[data-theme="wyld-brown"] .video-slider-info span,
+html[data-theme="wyld-brown"] .photo-viewer-bottom-info span,
+html[data-theme="wyld-brown"] .video-viewer-bottom-info span {
+  color: var(--theme-accent);
+}
+
+/* Arrows */
+html[data-theme="wyld-brown"] .photo-slider-arrow,
+html[data-theme="wyld-brown"] .video-slider-arrow,
+html[data-theme="wyld-brown"] .photo-viewer-side-arrow,
+html[data-theme="wyld-brown"] .video-viewer-side-arrow {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+html[data-theme="wyld-brown"] .photo-slider-arrow:hover:not(:disabled),
+html[data-theme="wyld-brown"] .video-slider-arrow:hover:not(:disabled),
+html[data-theme="wyld-brown"] .photo-viewer-side-arrow:hover,
+html[data-theme="wyld-brown"] .video-viewer-side-arrow:hover:not(:disabled) {
+  background: var(--button-hover-bg);
+}
+
+/* Carousel scrollbar */
+html[data-theme="wyld-brown"] .photo-carousel::-webkit-scrollbar-track,
+html[data-theme="wyld-brown"] .video-carousel::-webkit-scrollbar-track {
+  background: var(--theme-dark);
+}
+
+html[data-theme="wyld-brown"] .photo-carousel::-webkit-scrollbar-thumb,
+html[data-theme="wyld-brown"] .video-carousel::-webkit-scrollbar-thumb {
+  background: var(--button-bg);
+}

@@ -1,0 +1,1766 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+html[data-theme="classic-modern"] {
+  --site-bg: #ffffff;
+  --site-text: #111111;
+
+  --nav-bg: rgba(0, 0, 0, 0.94);
+  --nav-text: #ffffff;
+
+  --section-bg: #ffffff;
+  --card-bg: #000000;
+  --card-text: #ffffff;
+
+  --heading-text: #111111;
+  --hero-text: #ffffff;
+  --muted-text: #222222;
+  --card-muted-text: #e2e2e2;
+
+  --button-bg: #c1121f;
+  --button-hover-bg: #8f0d17;
+  --button-active-bg: #000000;
+  --button-text: #ffffff;
+
+  --theme-primary: #c1121f;
+  --theme-primary-hover: #8f0d17;
+  --theme-dark: #000000;
+  --theme-border: #8f8f8f;
+  --theme-accent: #ffffff;
+}
+
+html[data-theme="classic-modern"] body,
+html[data-theme="classic-modern"] button,
+html[data-theme="classic-modern"] input,
+html[data-theme="classic-modern"] select,
+html[data-theme="classic-modern"] textarea,
+html[data-theme="classic-modern"] a,
+html[data-theme="classic-modern"] h1,
+html[data-theme="classic-modern"] h2,
+html[data-theme="classic-modern"] h3,
+html[data-theme="classic-modern"] h4,
+html[data-theme="classic-modern"] h5,
+html[data-theme="classic-modern"] h6,
+html[data-theme="classic-modern"] p,
+html[data-theme="classic-modern"] span,
+html[data-theme="classic-modern"] li,
+html[data-theme="classic-modern"] label {
+  font-family: 'VT323', monospace !important;
+}
+
+/* Main background */
+html[data-theme="classic-modern"] body {
+  background: var(--site-bg) !important;
+  color: var(--site-text);
+}
+
+/* Header stays dark */
+html[data-theme="classic-modern"] .navbar,
+html[data-theme="classic-modern"] .navbar--scrolled {
+  background: var(--nav-bg);
+  border-bottom: 3px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .navbar-links a {
+  color: var(--nav-text);
+}
+
+html[data-theme="classic-modern"] .navbar-links a:hover {
+  color: var(--theme-accent);
+}
+
+/* Main white sections */
+html[data-theme="classic-modern"] .media-section,
+html[data-theme="classic-modern"] .media-grid-section,
+html[data-theme="classic-modern"] .quick-links-section,
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section,
+html[data-theme="classic-modern"] .home-contact-section,
+html[data-theme="classic-modern"] .about-section,
+html[data-theme="classic-modern"] .workers-section {
+  background: var(--section-bg) !important;
+  color: var(--site-text);
+  border: 4px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Black boxes with full grey border/frame */
+html[data-theme="classic-modern"] .package-card,
+html[data-theme="classic-modern"] .quick-link-card,
+html[data-theme="classic-modern"] .home-contact-box,
+html[data-theme="classic-modern"] .about-wrapper,
+html[data-theme="classic-modern"] .workers-wrapper,
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main,
+html[data-theme="classic-modern"] .media-card,
+html[data-theme="classic-modern"] .tech-card,
+html[data-theme="classic-modern"] .photo-card {
+  position: relative;
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border: 14px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Extra grey inside ring so the border area is clearly grey */
+html[data-theme="classic-modern"] .package-card::before,
+html[data-theme="classic-modern"] .quick-link-card::before,
+html[data-theme="classic-modern"] .home-contact-box::before,
+html[data-theme="classic-modern"] .about-wrapper::before,
+html[data-theme="classic-modern"] .workers-wrapper::before,
+html[data-theme="classic-modern"] .photo-slider-main::before,
+html[data-theme="classic-modern"] .video-slider-main::before,
+html[data-theme="classic-modern"] .media-card::before,
+html[data-theme="classic-modern"] .tech-card::before,
+html[data-theme="classic-modern"] .photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 6px solid var(--theme-border);
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Keep content above the grey frame */
+html[data-theme="classic-modern"] .package-card > *,
+html[data-theme="classic-modern"] .quick-link-card > *,
+html[data-theme="classic-modern"] .home-contact-box > *,
+html[data-theme="classic-modern"] .about-wrapper > *,
+html[data-theme="classic-modern"] .workers-wrapper > *,
+html[data-theme="classic-modern"] .photo-slider-main > *,
+html[data-theme="classic-modern"] .video-slider-main > *,
+html[data-theme="classic-modern"] .media-card > *,
+html[data-theme="classic-modern"] .tech-card > *,
+html[data-theme="classic-modern"] .photo-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Image containers get grey frames too */
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .quick-link-title img {
+  background: var(--theme-border) !important;
+  border: 12px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .about-image img,
+html[data-theme="classic-modern"] .home-contact-image img,
+html[data-theme="classic-modern"] .worker-image-card img {
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Red package title boxes */
+html[data-theme="classic-modern"] .package-card h3,
+html[data-theme="classic-modern"] .photo-packages-section .package-card h3 {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 4px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Buttons */
+html[data-theme="classic-modern"] .hero-btn-primary,
+html[data-theme="classic-modern"] .photo-auto-button,
+html[data-theme="classic-modern"] .photo-carousel-autoplay-button,
+html[data-theme="classic-modern"] .photo-slider-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-back-top,
+html[data-theme="classic-modern"] .video-carousel-autoplay-button,
+html[data-theme="classic-modern"] .video-slider-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-back-top,
+html[data-theme="classic-modern"] .home-contact-button,
+html[data-theme="classic-modern"] .quick-link-button,
+html[data-theme="classic-modern"] .package-button,
+html[data-theme="classic-modern"] .theme-dropdown,
+html[data-theme="classic-modern"] .drawer-theme-dropdown {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 4px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .hero-btn-primary:hover,
+html[data-theme="classic-modern"] .photo-auto-button:hover,
+html[data-theme="classic-modern"] .photo-carousel-autoplay-button:hover,
+html[data-theme="classic-modern"] .photo-slider-autoplay-button:hover,
+html[data-theme="classic-modern"] .photo-viewer-autoplay-button:hover,
+html[data-theme="classic-modern"] .photo-viewer-back-top:hover,
+html[data-theme="classic-modern"] .video-carousel-autoplay-button:hover,
+html[data-theme="classic-modern"] .video-slider-autoplay-button:hover,
+html[data-theme="classic-modern"] .video-viewer-autoplay-button:hover,
+html[data-theme="classic-modern"] .video-viewer-back-top:hover,
+html[data-theme="classic-modern"] .home-contact-button:hover,
+html[data-theme="classic-modern"] .quick-link-button:hover,
+html[data-theme="classic-modern"] .package-button:hover {
+  background: var(--button-hover-bg) !important;
+}
+
+/* Active buttons */
+html[data-theme="classic-modern"] .photo-hero-view-button--active,
+html[data-theme="classic-modern"] .photo-auto-button--active,
+html[data-theme="classic-modern"] .photo-carousel-autoplay-button--active,
+html[data-theme="classic-modern"] .photo-slider-autoplay-button--active,
+html[data-theme="classic-modern"] .photo-viewer-autoplay-button--active,
+html[data-theme="classic-modern"] .video-carousel-autoplay-button--active,
+html[data-theme="classic-modern"] .video-slider-autoplay-button--active,
+html[data-theme="classic-modern"] .video-viewer-autoplay-button--active {
+  background: var(--button-active-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Hero text stays white */
+html[data-theme="classic-modern"] .hero-title,
+html[data-theme="classic-modern"] .hero-subtitle,
+html[data-theme="classic-modern"] .hero-tag {
+  color: var(--hero-text) !important;
+}
+
+/* Headings on white background */
+html[data-theme="classic-modern"] .section-title,
+html[data-theme="classic-modern"] .packages-header h2,
+html[data-theme="classic-modern"] .photo-packages-section .packages-header h2,
+html[data-theme="classic-modern"] .quick-links-header h2 {
+  color: var(--heading-text) !important;
+}
+
+/* Paragraph text on white background */
+html[data-theme="classic-modern"] .packages-header p,
+html[data-theme="classic-modern"] .photo-packages-section .packages-header p,
+html[data-theme="classic-modern"] .quick-links-header p {
+  color: var(--muted-text) !important;
+}
+
+/* Text inside black cards */
+html[data-theme="classic-modern"] .card-description,
+html[data-theme="classic-modern"] .package-card p,
+html[data-theme="classic-modern"] .quick-link-card p,
+html[data-theme="classic-modern"] .about-content p,
+html[data-theme="classic-modern"] .workers-content p,
+html[data-theme="classic-modern"] .photo-slider-info p,
+html[data-theme="classic-modern"] .video-slider-info p,
+html[data-theme="classic-modern"] .photo-viewer-bottom-info p,
+html[data-theme="classic-modern"] .video-viewer-bottom-info p {
+  color: var(--card-muted-text) !important;
+}
+
+/* Accent text inside black boxes */
+html[data-theme="classic-modern"] .card-category,
+html[data-theme="classic-modern"] .photo-slider-info span,
+html[data-theme="classic-modern"] .video-slider-info span,
+html[data-theme="classic-modern"] .photo-viewer-bottom-info span,
+html[data-theme="classic-modern"] .video-viewer-bottom-info span,
+html[data-theme="classic-modern"] .about-content .hero-tag,
+html[data-theme="classic-modern"] .workers-content .hero-tag {
+  color: var(--theme-accent) !important;
+}
+
+/* Headings inside black boxes */
+html[data-theme="classic-modern"] .quick-link-card h3,
+html[data-theme="classic-modern"] .home-contact-box h2,
+html[data-theme="classic-modern"] .about-content h2,
+html[data-theme="classic-modern"] .workers-content h2,
+html[data-theme="classic-modern"] .photo-slider-info h3,
+html[data-theme="classic-modern"] .video-slider-info h3,
+html[data-theme="classic-modern"] .photo-viewer-bottom-info h2,
+html[data-theme="classic-modern"] .video-viewer-bottom-info h2 {
+  color: var(--card-text) !important;
+}
+
+/* Small title line */
+html[data-theme="classic-modern"] .about-title-line {
+  background: var(--theme-accent) !important;
+}
+
+/* Arrows */
+html[data-theme="classic-modern"] .photo-slider-arrow,
+html[data-theme="classic-modern"] .video-slider-arrow,
+html[data-theme="classic-modern"] .photo-viewer-side-arrow,
+html[data-theme="classic-modern"] .video-viewer-side-arrow {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 4px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-arrow:hover:not(:disabled),
+html[data-theme="classic-modern"] .video-slider-arrow:hover:not(:disabled),
+html[data-theme="classic-modern"] .photo-viewer-side-arrow:hover,
+html[data-theme="classic-modern"] .video-viewer-side-arrow:hover:not(:disabled) {
+  background: var(--button-hover-bg) !important;
+}
+
+/* Inputs and dropdowns */
+html[data-theme="classic-modern"] .photo-search,
+html[data-theme="classic-modern"] .photo-filter,
+html[data-theme="classic-modern"] .video-search,
+html[data-theme="classic-modern"] .video-filter,
+html[data-theme="classic-modern"] .drawer-search {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 4px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .photo-search::placeholder,
+html[data-theme="classic-modern"] .video-search::placeholder,
+html[data-theme="classic-modern"] .drawer-search::placeholder {
+  color: #cccccc;
+}
+
+/* Carousel scrollbar */
+html[data-theme="classic-modern"] .photo-carousel::-webkit-scrollbar-track,
+html[data-theme="classic-modern"] .video-carousel::-webkit-scrollbar-track {
+  background: var(--theme-dark);
+}
+
+html[data-theme="classic-modern"] .photo-carousel::-webkit-scrollbar-thumb,
+html[data-theme="classic-modern"] .video-carousel::-webkit-scrollbar-thumb {
+  background: var(--button-bg);
+}
+
+/* Media terms section */
+html[data-theme="classic-modern"] .media-terms-card,
+html[data-theme="classic-modern"] .media-terms-selected-box {
+  background: rgba(0, 0, 0, 0.72) !important;
+  color: #ffffff !important;
+  border: 12px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .media-terms-selected-box h2,
+html[data-theme="classic-modern"] .media-terms-selected-box p,
+html[data-theme="classic-modern"] .media-terms-card h3,
+html[data-theme="classic-modern"] .media-terms-card span,
+html[data-theme="classic-modern"] .media-terms-selected-box span {
+  color: #ffffff !important;
+}
+
+/* Footer stays dark */
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  background: #000000;
+  color: #ffffff;
+  border-top: 4px solid var(--theme-border);
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - change only the white package section background */
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section {
+  background: #8f8f8f !important;
+}
+
+/* Classic Modern - thinner borders and frames */
+html[data-theme="classic-modern"] .media-section,
+html[data-theme="classic-modern"] .media-grid-section,
+html[data-theme="classic-modern"] .quick-links-section,
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section,
+html[data-theme="classic-modern"] .home-contact-section,
+html[data-theme="classic-modern"] .about-section,
+html[data-theme="classic-modern"] .workers-section {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .package-card,
+html[data-theme="classic-modern"] .quick-link-card,
+html[data-theme="classic-modern"] .home-contact-box,
+html[data-theme="classic-modern"] .about-wrapper,
+html[data-theme="classic-modern"] .workers-wrapper,
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main,
+html[data-theme="classic-modern"] .media-card,
+html[data-theme="classic-modern"] .tech-card,
+html[data-theme="classic-modern"] .photo-card {
+  border: 6px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .package-card::before,
+html[data-theme="classic-modern"] .quick-link-card::before,
+html[data-theme="classic-modern"] .home-contact-box::before,
+html[data-theme="classic-modern"] .about-wrapper::before,
+html[data-theme="classic-modern"] .workers-wrapper::before,
+html[data-theme="classic-modern"] .photo-slider-main::before,
+html[data-theme="classic-modern"] .video-slider-main::before,
+html[data-theme="classic-modern"] .media-card::before,
+html[data-theme="classic-modern"] .tech-card::before,
+html[data-theme="classic-modern"] .photo-card::before {
+  border: 2px solid var(--theme-border) !important;
+}
+
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .quick-link-title img {
+  border: 5px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .package-card h3,
+html[data-theme="classic-modern"] .photo-packages-section .package-card h3 {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .hero-btn-primary,
+html[data-theme="classic-modern"] .photo-auto-button,
+html[data-theme="classic-modern"] .photo-carousel-autoplay-button,
+html[data-theme="classic-modern"] .photo-slider-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-back-top,
+html[data-theme="classic-modern"] .video-carousel-autoplay-button,
+html[data-theme="classic-modern"] .video-slider-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-back-top,
+html[data-theme="classic-modern"] .home-contact-button,
+html[data-theme="classic-modern"] .quick-link-button,
+html[data-theme="classic-modern"] .package-button,
+html[data-theme="classic-modern"] .theme-dropdown,
+html[data-theme="classic-modern"] .drawer-theme-dropdown {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .photo-search,
+html[data-theme="classic-modern"] .photo-filter,
+html[data-theme="classic-modern"] .video-search,
+html[data-theme="classic-modern"] .video-filter,
+html[data-theme="classic-modern"] .drawer-search {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .media-terms-card,
+html[data-theme="classic-modern"] .media-terms-selected-box {
+  border: 6px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  border-top: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - package card border layering */
+html[data-theme="classic-modern"] .package-card {
+  background: #000000 !important;
+  border: 6px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 2px #000000,
+    inset 0 0 0 2px #ffffff !important;
+}
+
+/* Remove the old package-card inner grey border layer */
+html[data-theme="classic-modern"] .package-card::before {
+  content: none !important;
+}
+
+/* Keep package card content above everything */
+html[data-theme="classic-modern"] .package-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Classic Modern - package card grey border with black outer outline */
+html[data-theme="classic-modern"] .package-card {
+  background: #000000 !important;
+  border: 6px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 0 3px #000000,
+    inset 0 0 0 2px #ffffff !important;
+}
+
+/* Remove old inner grey border layer on package cards */
+html[data-theme="classic-modern"] .package-card::before {
+  content: none !important;
+}
+
+/* Keep package content above the frame */
+html[data-theme="classic-modern"] .package-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Classic Modern - black outline around the entire grey package section */
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section {
+  background: #8f8f8f !important;
+  border: 5px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Classic Modern - make featured section white */
+html[data-theme="classic-modern"] .featured-section,
+html[data-theme="classic-modern"] #featured {
+  background: #ffffff !important;
+}
+
+/* Classic Modern - keep contact section image */
+html[data-theme="classic-modern"] .home-contact-section {
+  position: relative !important;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 4px solid #8f8f8f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the inside box readable over the image */
+html[data-theme="classic-modern"] .home-contact-box {
+  background: rgba(0, 0, 0, 0.86) !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - contact section image stays, no grey outer borders */
+html[data-theme="classic-modern"] .home-contact-section {
+  position: relative !important;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Make the text box white and transparent */
+html[data-theme="classic-modern"] .home-contact-box {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #111111 !important;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Text inside the transparent white box */
+html[data-theme="classic-modern"] .home-contact-box h2,
+html[data-theme="classic-modern"] .home-contact-box p {
+  color: #111111 !important;
+}
+
+/* Only the image/icon area keeps a grey border */
+html[data-theme="classic-modern"] .home-contact-image {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .home-contact-image img {
+  border: 4px solid #8f8f8f !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - transparent white Terms of Service boxes */
+html[data-theme="classic-modern"] .media-terms-card,
+html[data-theme="classic-modern"] .media-terms-selected-box {
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Terms text stays white */
+html[data-theme="classic-modern"] .media-terms-card h3,
+html[data-theme="classic-modern"] .media-terms-card span,
+html[data-theme="classic-modern"] .media-terms-selected-box h2,
+html[data-theme="classic-modern"] .media-terms-selected-box p,
+html[data-theme="classic-modern"] .media-terms-selected-box span {
+  color: #ffffff !important;
+}
+
+/* Terms back button stays red with white border */
+html[data-theme="classic-modern"] .media-terms-selected-back {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the Terms background image visible */
+html[data-theme="classic-modern"] .media-terms-preview--selected .media-terms-overlay {
+  background: rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Classic Modern - Contact Page */
+
+html[data-theme="classic-modern"] .contact-hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove brown overlay */
+html[data-theme="classic-modern"] .contact-hero .hero-overlay {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Top contact text */
+html[data-theme="classic-modern"] .contact-page-content {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .contact-page-content .hero-tag,
+html[data-theme="classic-modern"] .contact-page-content .hero-title,
+html[data-theme="classic-modern"] .contact-page-content .hero-subtitle {
+  color: #ffffff !important;
+}
+
+/* Main form box */
+html[data-theme="classic-modern"] .contact-form {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 6px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Radio option boxes */
+html[data-theme="classic-modern"] .contact-category {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .contact-category span {
+  color: #ffffff !important;
+}
+
+html[data-theme="classic-modern"] .contact-category input:checked + span {
+  color: #ffffff !important;
+}
+
+/* Inputs and textarea */
+html[data-theme="classic-modern"] .contact-form input,
+html[data-theme="classic-modern"] .contact-form textarea {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .contact-form input::placeholder,
+html[data-theme="classic-modern"] .contact-form textarea::placeholder {
+  color: #cccccc !important;
+}
+
+/* Submit button */
+html[data-theme="classic-modern"] .contact-form .hero-btn-primary {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 3px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .contact-form .hero-btn-primary:hover {
+  background: #8f0d17 !important;
+}
+
+/* Small note under button */
+html[data-theme="classic-modern"] .contact-note {
+  color: #e2e2e2 !important;
+}
+
+/* Classic Modern - Contact page final cleanup */
+
+/* Make the contact form border thinner and grey-transparent */
+html[data-theme="classic-modern"] .contact-form {
+  background: rgba(0, 0, 0, 0.72) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Art / Films / Photos buttons */
+html[data-theme="classic-modern"] .contact-category {
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Make selected category button feel active */
+html[data-theme="classic-modern"] .contact-category:has(input:checked) {
+  background: #c1121f !important;
+  border: 2px solid rgba(143, 143, 143, 0.85) !important;
+}
+
+/* Text inside category buttons */
+html[data-theme="classic-modern"] .contact-category span {
+  color: #ffffff !important;
+}
+
+/* Inputs and textarea match the thinner border */
+html[data-theme="classic-modern"] .contact-form input,
+html[data-theme="classic-modern"] .contact-form textarea {
+  background: rgba(0, 0, 0, 0.6) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .contact-form input::placeholder,
+html[data-theme="classic-modern"] .contact-form textarea::placeholder {
+  color: #cccccc !important;
+}
+
+/* Submit button stays red but sharp */
+html[data-theme="classic-modern"] .contact-form .hero-btn-primary {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .contact-form .hero-btn-primary:hover {
+  background: #8f0d17 !important;
+}
+
+/* Keep note readable */
+html[data-theme="classic-modern"] .contact-note {
+  color: #e2e2e2 !important;
+}
+
+/* Classic Modern - Contact category buttons final fix */
+html[data-theme="classic-modern"] .contact-category {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(143, 143, 143, 0.8) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove the smooth inside look */
+html[data-theme="classic-modern"] .contact-category span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Hide the real radio circle */
+html[data-theme="classic-modern"] .contact-category input {
+  display: none !important;
+}
+
+/* Selected button stays red, just slightly darker */
+html[data-theme="classic-modern"] .contact-category:has(input:checked),
+html[data-theme="classic-modern"] .contact-category:has(input:checked) span {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+/* Hover effect */
+html[data-theme="classic-modern"] .contact-category:hover,
+html[data-theme="classic-modern"] .contact-category:hover span {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - remove thick grey outlines */
+
+html[data-theme="classic-modern"] .media-section,
+html[data-theme="classic-modern"] .media-grid-section,
+html[data-theme="classic-modern"] .quick-links-section,
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section,
+html[data-theme="classic-modern"] .home-contact-section,
+html[data-theme="classic-modern"] .about-section,
+html[data-theme="classic-modern"] .workers-section {
+  border: 1px solid #8f8f8f !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .package-card,
+html[data-theme="classic-modern"] .quick-link-card,
+html[data-theme="classic-modern"] .home-contact-box,
+html[data-theme="classic-modern"] .about-wrapper,
+html[data-theme="classic-modern"] .workers-wrapper,
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main,
+html[data-theme="classic-modern"] .media-card,
+html[data-theme="classic-modern"] .tech-card,
+html[data-theme="classic-modern"] .photo-card,
+html[data-theme="classic-modern"] .contact-form {
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .package-card::before,
+html[data-theme="classic-modern"] .quick-link-card::before,
+html[data-theme="classic-modern"] .home-contact-box::before,
+html[data-theme="classic-modern"] .about-wrapper::before,
+html[data-theme="classic-modern"] .workers-wrapper::before,
+html[data-theme="classic-modern"] .photo-slider-main::before,
+html[data-theme="classic-modern"] .video-slider-main::before,
+html[data-theme="classic-modern"] .media-card::before,
+html[data-theme="classic-modern"] .tech-card::before,
+html[data-theme="classic-modern"] .photo-card::before {
+  content: none !important;
+  border: none !important;
+}
+
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .quick-link-title img,
+html[data-theme="classic-modern"] .about-image img,
+html[data-theme="classic-modern"] .home-contact-image img,
+html[data-theme="classic-modern"] .worker-image-card img {
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .package-card h3,
+html[data-theme="classic-modern"] .photo-packages-section .package-card h3,
+html[data-theme="classic-modern"] .hero-btn-primary,
+html[data-theme="classic-modern"] .photo-auto-button,
+html[data-theme="classic-modern"] .photo-carousel-autoplay-button,
+html[data-theme="classic-modern"] .photo-slider-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-autoplay-button,
+html[data-theme="classic-modern"] .photo-viewer-back-top,
+html[data-theme="classic-modern"] .video-carousel-autoplay-button,
+html[data-theme="classic-modern"] .video-slider-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-autoplay-button,
+html[data-theme="classic-modern"] .video-viewer-back-top,
+html[data-theme="classic-modern"] .home-contact-button,
+html[data-theme="classic-modern"] .quick-link-button,
+html[data-theme="classic-modern"] .package-button,
+html[data-theme="classic-modern"] .theme-dropdown,
+html[data-theme="classic-modern"] .drawer-theme-dropdown,
+html[data-theme="classic-modern"] .contact-category,
+html[data-theme="classic-modern"] .contact-form input,
+html[data-theme="classic-modern"] .contact-form textarea {
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - fix slider gallery layout */
+html[data-theme="classic-modern"] .photo-slider-gallery,
+html[data-theme="classic-modern"] .video-slider-gallery {
+  width: 100% !important;
+  max-width: 1500px !important;
+  margin: 0 auto !important;
+  padding: 45px 40px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Main slider box: replace brown with transparent grey */
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main {
+  width: 100% !important;
+  max-width: 1350px !important;
+  margin: 0 auto !important;
+  padding: 35px !important;
+  position: relative !important;
+  background: rgba(143, 143, 143, 0.28) !important;
+  border: 1px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove any fake border layer from the slider */
+html[data-theme="classic-modern"] .photo-slider-main::before,
+html[data-theme="classic-modern"] .video-slider-main::before {
+  content: none !important;
+}
+
+/* Image/video holder */
+html[data-theme="classic-modern"] .photo-slider-image-box,
+html[data-theme="classic-modern"] .video-slider-screen-box {
+  width: 100% !important;
+  height: 620px !important;
+  margin: 0 auto !important;
+  background: rgba(143, 143, 143, 0.22) !important;
+  border: 1px solid rgba(143, 143, 143, 0.7) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Make image/video fit cleanly instead of creating weird side blocks */
+html[data-theme="classic-modern"] .photo-slider-image-box img,
+html[data-theme="classic-modern"] .video-slider-screen {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Slider text area */
+html[data-theme="classic-modern"] .photo-slider-info,
+html[data-theme="classic-modern"] .video-slider-info {
+  margin-top: 22px !important;
+  padding: 20px !important;
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-info span,
+html[data-theme="classic-modern"] .photo-slider-info h3,
+html[data-theme="classic-modern"] .photo-slider-info p,
+html[data-theme="classic-modern"] .video-slider-info span,
+html[data-theme="classic-modern"] .video-slider-info h3,
+html[data-theme="classic-modern"] .video-slider-info p {
+  color: #ffffff !important;
+}
+
+/* Autoplay button goes inside the slider cleanly */
+html[data-theme="classic-modern"] .photo-slider-autoplay-button,
+html[data-theme="classic-modern"] .video-slider-autoplay-button {
+  position: absolute !important;
+  top: 18px !important;
+  right: 18px !important;
+  z-index: 10 !important;
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Arrows centered properly */
+html[data-theme="classic-modern"] .photo-slider-arrow,
+html[data-theme="classic-modern"] .video-slider-arrow {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 12 !important;
+  width: 58px !important;
+  height: 78px !important;
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-arrow-left,
+html[data-theme="classic-modern"] .video-slider-arrow-left {
+  left: 8px !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-arrow-right,
+html[data-theme="classic-modern"] .video-slider-arrow-right {
+  right: 8px !important;
+}
+
+/* Thumbnails stay clean and square */
+html[data-theme="classic-modern"] .photo-slider-thumbnails,
+html[data-theme="classic-modern"] .video-slider-thumbnails {
+  margin-top: 22px !important;
+  background: transparent !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-thumb,
+html[data-theme="classic-modern"] .video-slider-thumb {
+  background: #000000 !important;
+  border: 1px solid rgba(143, 143, 143, 0.75) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .photo-slider-thumb--active,
+html[data-theme="classic-modern"] .video-slider-thumb--active {
+  border: 2px solid #c1121f !important;
+}
+
+/* Classic Modern - make slider outer grey background black */
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main {
+  background: #000000 !important;
+}
+
+/* Keep the actual image/video holder grey-transparent */
+html[data-theme="classic-modern"] .photo-slider-image-box,
+html[data-theme="classic-modern"] .video-slider-screen-box {
+  background: rgba(143, 143, 143, 0.28) !important;
+}
+
+/* Classic Modern - make slider info box red */
+html[data-theme="classic-modern"] .photo-slider-info,
+html[data-theme="classic-modern"] .video-slider-info {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 1px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep all text inside the red info box white */
+html[data-theme="classic-modern"] .photo-slider-info span,
+html[data-theme="classic-modern"] .photo-slider-info h3,
+html[data-theme="classic-modern"] .photo-slider-info p,
+html[data-theme="classic-modern"] .video-slider-info span,
+html[data-theme="classic-modern"] .video-slider-info h3,
+html[data-theme="classic-modern"] .video-slider-info p {
+  color: #ffffff !important;
+}
+
+/* Classic Modern - package heading/title area */
+html[data-theme="classic-modern"] .packages-header,
+html[data-theme="classic-modern"] .photo-packages-section .packages-header {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 35px 45px !important;
+  width: fit-content !important;
+  max-width: 900px !important;
+  margin: 0 auto 55px auto !important;
+  text-align: center !important;
+}
+
+/* Package section title */
+html[data-theme="classic-modern"] .packages-header h2,
+html[data-theme="classic-modern"] .photo-packages-section .packages-header h2 {
+  color: #ffffff !important;
+  margin-bottom: 20px !important;
+}
+
+/* Package section description */
+html[data-theme="classic-modern"] .packages-header p,
+html[data-theme="classic-modern"] .photo-packages-section .packages-header p {
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* Keep the grey package background behind it */
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section {
+  background: #8f8f8f !important;
+}
+
+/* Classic Modern - thin grey outline around grey borders */
+html[data-theme="classic-modern"] .packages-section,
+html[data-theme="classic-modern"] .photo-packages-section,
+html[data-theme="classic-modern"] .about-section,
+html[data-theme="classic-modern"] .workers-section,
+html[data-theme="classic-modern"] .quick-links-section,
+html[data-theme="classic-modern"] .media-section,
+html[data-theme="classic-modern"] .media-grid-section {
+  border: 2px solid #8f8f8f !important;
+  outline: 1px solid #5f5f5f !important;
+  outline-offset: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Grey outline around package cards and other grey bordered boxes */
+html[data-theme="classic-modern"] .package-card,
+html[data-theme="classic-modern"] .quick-link-card,
+html[data-theme="classic-modern"] .about-wrapper,
+html[data-theme="classic-modern"] .workers-wrapper,
+html[data-theme="classic-modern"] .photo-slider-main,
+html[data-theme="classic-modern"] .video-slider-main,
+html[data-theme="classic-modern"] .media-card,
+html[data-theme="classic-modern"] .tech-card,
+html[data-theme="classic-modern"] .photo-card {
+  border: 6px solid #8f8f8f !important;
+  outline: 6px solid #5f5f5f !important;
+  outline-offset: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Grey outline around image frames */
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .about-image img,
+html[data-theme="classic-modern"] .home-contact-image img,
+html[data-theme="classic-modern"] .worker-image-card img {
+  border: 2px solid #8f8f8f !important;
+  outline: 1px solid #5f5f5f !important;
+  outline-offset: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Classic Modern - solid red logo border */
+html[data-theme="classic-modern"] .navbar-logo {
+  border: 2px solid #c1121f !important;
+  background: #000000 !important;
+  padding: 6px 10px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .navbar-logo img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Footer should not clip contact info */
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  overflow: visible !important;
+  padding-bottom: 35px !important;
+}
+
+/* Keep footer contact area organized */
+html[data-theme="classic-modern"] .footer-contact,
+html[data-theme="classic-modern"] .footer-contact-info,
+html[data-theme="classic-modern"] .footer-info,
+html[data-theme="classic-modern"] .footer-socials,
+html[data-theme="classic-modern"] .footer-icons,
+html[data-theme="classic-modern"] .footer-contact-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+
+  border: none !important;
+  background: transparent !important;
+  padding: 12px !important;
+  margin-top: 10px !important;
+
+  overflow: visible !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Give each footer contact item its own red border */
+html[data-theme="classic-modern"] .footer-contact a,
+html[data-theme="classic-modern"] .footer-contact-info a,
+html[data-theme="classic-modern"] .footer-info a,
+html[data-theme="classic-modern"] .footer-socials a,
+html[data-theme="classic-modern"] .footer-icons a,
+html[data-theme="classic-modern"] .footer-contact-row a,
+html[data-theme="classic-modern"] .footer-contact span,
+html[data-theme="classic-modern"] .footer-contact-info span,
+html[data-theme="classic-modern"] .footer-info span,
+html[data-theme="classic-modern"] .footer-socials span,
+html[data-theme="classic-modern"] .footer-icons span,
+html[data-theme="classic-modern"] .footer-contact-row span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 2px solid #c1121f !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  padding: 8px 12px !important;
+  min-height: 38px !important;
+
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+}
+
+/* Do not style the Contact title */
+html[data-theme="classic-modern"] .footer h2,
+html[data-theme="classic-modern"] .footer h3,
+html[data-theme="classic-modern"] footer h2,
+html[data-theme="classic-modern"] footer h3 {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Classic Modern - header logo as red button */
+html[data-theme="classic-modern"] .navbar-logo {
+  background: #c1121f !important;
+  border: 2px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  padding: 8px 18px !important;
+  min-height: 48px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html[data-theme="classic-modern"] .navbar-logo img {
+  max-width: 145px !important;
+  max-height: 42px !important;
+  object-fit: contain !important;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+}
+
+/* If navbar-logo is plain text on some page */
+html[data-theme="classic-modern"] .navbar-logo {
+  color: #ffffff !important;
+}
+
+/* Classic Modern - footer contact title stays normal */
+html[data-theme="classic-modern"] .footer h2,
+html[data-theme="classic-modern"] .footer h3,
+html[data-theme="classic-modern"] footer h2,
+html[data-theme="classic-modern"] footer h3 {
+  color: #ffffff !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Footer contact container should not clip */
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  overflow: visible !important;
+  padding-bottom: 35px !important;
+}
+
+/* Keep the contact info grouped neatly */
+html[data-theme="classic-modern"] .footer-contact,
+html[data-theme="classic-modern"] .footer-contact-info,
+html[data-theme="classic-modern"] .footer-info,
+html[data-theme="classic-modern"] .footer-contact-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Contact info items as red button-style boxes */
+html[data-theme="classic-modern"] .footer-contact a,
+html[data-theme="classic-modern"] .footer-contact-info a,
+html[data-theme="classic-modern"] .footer-info a,
+html[data-theme="classic-modern"] .footer-contact-row a,
+html[data-theme="classic-modern"] .footer-contact span,
+html[data-theme="classic-modern"] .footer-contact-info span,
+html[data-theme="classic-modern"] .footer-info span,
+html[data-theme="classic-modern"] .footer-contact-row span {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  padding: 9px 16px !important;
+  min-height: 38px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  text-decoration: none !important;
+  overflow: visible !important;
+}
+
+/* Classic Modern - footer contact rows fixed */
+
+/* Keep the Contact title alone */
+html[data-theme="classic-modern"] .footer h2,
+html[data-theme="classic-modern"] .footer h3,
+html[data-theme="classic-modern"] footer h2,
+html[data-theme="classic-modern"] footer h3 {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+}
+
+/* Footer should not clip anything */
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  overflow: visible !important;
+}
+
+/* Footer contact area layout */
+html[data-theme="classic-modern"] .footer-contact,
+html[data-theme="classic-modern"] .footer-contact-info,
+html[data-theme="classic-modern"] .footer-info,
+html[data-theme="classic-modern"] .footer-icons,
+html[data-theme="classic-modern"] .footer-socials {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 18px !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* The full row is the red button */
+html[data-theme="classic-modern"] .footer-contact-row,
+html[data-theme="classic-modern"] .footer-contact-item,
+html[data-theme="classic-modern"] .footer-social-link,
+html[data-theme="classic-modern"] .footer-contact-info > a,
+html[data-theme="classic-modern"] .footer-contact-info > div,
+html[data-theme="classic-modern"] .footer-info > a,
+html[data-theme="classic-modern"] .footer-info > div,
+html[data-theme="classic-modern"] .footer-icons > a,
+html[data-theme="classic-modern"] .footer-socials > a {
+  min-width: 280px !important;
+  min-height: 58px !important;
+  padding: 12px 22px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid #8f8f8f !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+}
+
+/* Remove the extra border around the text itself */
+html[data-theme="classic-modern"] .footer-contact-row span,
+html[data-theme="classic-modern"] .footer-contact-row a,
+html[data-theme="classic-modern"] .footer-contact-row p,
+html[data-theme="classic-modern"] .footer-contact-item span,
+html[data-theme="classic-modern"] .footer-contact-item a,
+html[data-theme="classic-modern"] .footer-contact-item p,
+html[data-theme="classic-modern"] .footer-social-link span,
+html[data-theme="classic-modern"] .footer-social-link a,
+html[data-theme="classic-modern"] .footer-social-link p,
+html[data-theme="classic-modern"] .footer-contact-info span,
+html[data-theme="classic-modern"] .footer-contact-info p,
+html[data-theme="classic-modern"] .footer-info span,
+html[data-theme="classic-modern"] .footer-info p,
+html[data-theme="classic-modern"] .footer-icons span,
+html[data-theme="classic-modern"] .footer-socials span {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Icons/logos sit beside the text and do not overlap */
+html[data-theme="classic-modern"] .footer-contact-row img,
+html[data-theme="classic-modern"] .footer-contact-item img,
+html[data-theme="classic-modern"] .footer-social-link img,
+html[data-theme="classic-modern"] .footer-contact-info img,
+html[data-theme="classic-modern"] .footer-info img,
+html[data-theme="classic-modern"] .footer-icons img,
+html[data-theme="classic-modern"] .footer-socials img {
+  width: 38px !important;
+  height: 38px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+
+  position: static !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - footer social logos aligned properly */
+html[data-theme="classic-modern"] .footer-contact-row,
+html[data-theme="classic-modern"] .footer-contact-item,
+html[data-theme="classic-modern"] .footer-social-link,
+html[data-theme="classic-modern"] .footer-contact-info > a,
+html[data-theme="classic-modern"] .footer-contact-info > div,
+html[data-theme="classic-modern"] .footer-info > a,
+html[data-theme="classic-modern"] .footer-info > div,
+html[data-theme="classic-modern"] .footer-icons > a,
+html[data-theme="classic-modern"] .footer-socials > a {
+  position: relative !important;
+  min-width: 320px !important;
+  min-height: 64px !important;
+  padding: 12px 24px 12px 78px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid #8f8f8f !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Put Instagram / YouTube / Email icons on the left side inside the red border */
+html[data-theme="classic-modern"] .footer-contact-row img,
+html[data-theme="classic-modern"] .footer-contact-item img,
+html[data-theme="classic-modern"] .footer-social-link img,
+html[data-theme="classic-modern"] .footer-contact-info img,
+html[data-theme="classic-modern"] .footer-info img,
+html[data-theme="classic-modern"] .footer-icons img,
+html[data-theme="classic-modern"] .footer-socials img {
+  position: absolute !important;
+  left: 22px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 36px !important;
+  height: 36px !important;
+  object-fit: contain !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Keep the text beside the icon, not overlapping it */
+html[data-theme="classic-modern"] .footer-contact-row span,
+html[data-theme="classic-modern"] .footer-contact-row a,
+html[data-theme="classic-modern"] .footer-contact-row p,
+html[data-theme="classic-modern"] .footer-contact-item span,
+html[data-theme="classic-modern"] .footer-contact-item a,
+html[data-theme="classic-modern"] .footer-contact-item p,
+html[data-theme="classic-modern"] .footer-social-link span,
+html[data-theme="classic-modern"] .footer-social-link a,
+html[data-theme="classic-modern"] .footer-social-link p,
+html[data-theme="classic-modern"] .footer-contact-info span,
+html[data-theme="classic-modern"] .footer-contact-info p,
+html[data-theme="classic-modern"] .footer-info span,
+html[data-theme="classic-modern"] .footer-info p,
+html[data-theme="classic-modern"] .footer-icons span,
+html[data-theme="classic-modern"] .footer-socials span {
+  position: static !important;
+  display: inline-block !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* Classic Modern - remove grey borders from images only */
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .quick-link-title img,
+html[data-theme="classic-modern"] .about-image img,
+html[data-theme="classic-modern"] .home-contact-image img,
+html[data-theme="classic-modern"] .worker-image-card img,
+html[data-theme="classic-modern"] .photo-slider-image-box img,
+html[data-theme="classic-modern"] .video-slider-screen,
+html[data-theme="classic-modern"] .card-thumbnail img,
+html[data-theme="classic-modern"] .photo-slider-thumb img,
+html[data-theme="classic-modern"] .video-slider-thumb video {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the image containers clean too */
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .photo-slider-image-box,
+html[data-theme="classic-modern"] .video-slider-screen-box,
+html[data-theme="classic-modern"] .card-thumbnail {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Classic Modern - make image borders very thin */
+html[data-theme="classic-modern"] .about-image,
+html[data-theme="classic-modern"] .home-contact-image,
+html[data-theme="classic-modern"] .worker-image-card,
+html[data-theme="classic-modern"] .workers-image-gallery,
+html[data-theme="classic-modern"] .photo-slider-image-box,
+html[data-theme="classic-modern"] .video-slider-screen-box,
+html[data-theme="classic-modern"] .card-thumbnail {
+  background: transparent !important;
+  border: 1px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Images themselves should not have thick borders */
+html[data-theme="classic-modern"] .about-image img,
+html[data-theme="classic-modern"] .home-contact-image img,
+html[data-theme="classic-modern"] .worker-image-card img,
+html[data-theme="classic-modern"] .workers-image-gallery img,
+html[data-theme="classic-modern"] .quick-link-title img,
+html[data-theme="classic-modern"] .photo-slider-image-box img,
+html[data-theme="classic-modern"] .video-slider-screen,
+html[data-theme="classic-modern"] .card-thumbnail img,
+html[data-theme="classic-modern"] .photo-slider-thumb img,
+html[data-theme="classic-modern"] .video-slider-thumb video {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Thumbnail buttons can keep a tiny border only */
+html[data-theme="classic-modern"] .photo-slider-thumb,
+html[data-theme="classic-modern"] .video-slider-thumb {
+  border: 1px solid rgba(143, 143, 143, 0.65) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - full bleed header/footer */
+html[data-theme="classic-modern"] .navbar,
+html[data-theme="classic-modern"] .footer,
+html[data-theme="classic-modern"] footer {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  border-radius: 0 !important;
+}
+
+/* Classic Modern - remove unwanted side color strips */
+html[data-theme="classic-modern"],
+html[data-theme="classic-modern"] body,
+html[data-theme="classic-modern"] #root,
+html[data-theme="classic-modern"] .app {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Classic Modern - media frame final cleanup */
+
+/* Make the separate media section border black */
+html[data-theme="classic-modern"] .media-section-frame {
+  background: #000000 !important;
+  border: 3px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Make the tab/options text white */
+html[data-theme="classic-modern"] .media-section-frame .media-tab {
+  color: #ffffff !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="classic-modern"] .media-section-frame .media-tab--active {
+  color: #ffffff !important;
+  border-bottom: 2px solid #c1121f !important;
+}
+
+/* Remove the outlines/borders around the photos/cards */
+html[data-theme="classic-modern"] .media-section-frame .media-card,
+html[data-theme="classic-modern"] .media-section-frame .card-thumbnail,
+html[data-theme="classic-modern"] .media-section-frame .card-thumbnail img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep images clean and not cropped */
+html[data-theme="classic-modern"] .media-section-frame .card-thumbnail {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+html[data-theme="classic-modern"] .media-section-frame .card-thumbnail img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Remove fake border layers if any were added before */
+html[data-theme="classic-modern"] .media-section-frame .media-card::before,
+html[data-theme="classic-modern"] .media-section-frame .card-thumbnail::before {
+  content: none !important;
+  display: none !important;
+}

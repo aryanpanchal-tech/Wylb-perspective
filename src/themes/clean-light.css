@@ -1,0 +1,1026 @@
+html[data-theme="clean-light"] {
+  --site-bg: #ffffff;
+  --site-text: #000000;
+
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+
+  --section-bg: #ffffff;
+  --card-bg: #ffffff;
+  --card-text: #000000;
+
+  --heading-text: #000000;
+  --hero-text: #ffffff;
+  --muted-text: #222222;
+  --card-muted-text: #222222;
+
+  --button-bg: #ffffff;
+  --button-hover-bg: #eeeeee;
+  --button-active-bg: #000000;
+  --button-text: #000000;
+  --button-active-text: #ffffff;
+
+  --theme-primary: #ffffff;
+  --theme-primary-hover: #eeeeee;
+  --theme-dark: #ffffff;
+  --theme-border: #000000;
+  --theme-accent: #000000;
+
+  --media-frame-border: #000000;
+  --main-section-border: #000000;
+}
+
+/* Main background */
+html[data-theme="clean-light"],
+html[data-theme="clean-light"] body,
+html[data-theme="clean-light"] #root,
+html[data-theme="clean-light"] .app {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Navbar */
+html[data-theme="clean-light"] .navbar,
+html[data-theme="clean-light"] .navbar--scrolled {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .navbar-links a,
+html[data-theme="clean-light"] .navbar-logo {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .navbar-logo {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  padding: 8px 18px !important;
+}
+
+html[data-theme="clean-light"] .navbar-logo img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Theme dropdown */
+html[data-theme="clean-light"] .theme-dropdown,
+html[data-theme="clean-light"] .drawer-theme-dropdown {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Drawer */
+html[data-theme="clean-light"] .navbar-drawer {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .drawer-item,
+html[data-theme="clean-light"] .drawer-theme-label {
+  color: #000000 !important;
+}
+
+/* Main sections */
+html[data-theme="clean-light"] .media-section,
+html[data-theme="clean-light"] .media-grid-section,
+html[data-theme="clean-light"] .quick-links-section,
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section,
+html[data-theme="clean-light"] .about-section,
+html[data-theme="clean-light"] .workers-section {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Separate media/options frame */
+html[data-theme="clean-light"] .media-section-frame {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .media-tab {
+  color: #000000 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .media-tab--active {
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+/* Cards / boxes */
+html[data-theme="clean-light"] .package-card,
+html[data-theme="clean-light"] .quick-link-card,
+html[data-theme="clean-light"] .home-contact-box,
+html[data-theme="clean-light"] .about-wrapper,
+html[data-theme="clean-light"] .workers-wrapper,
+html[data-theme="clean-light"] .photo-slider-main,
+html[data-theme="clean-light"] .video-slider-main,
+html[data-theme="clean-light"] .media-card,
+html[data-theme="clean-light"] .tech-card,
+html[data-theme="clean-light"] .photo-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove unwanted image borders */
+html[data-theme="clean-light"] img,
+html[data-theme="clean-light"] .card-thumbnail,
+html[data-theme="clean-light"] .card-thumbnail img,
+html[data-theme="clean-light"] .about-image,
+html[data-theme="clean-light"] .about-image img,
+html[data-theme="clean-light"] .home-contact-image,
+html[data-theme="clean-light"] .home-contact-image img,
+html[data-theme="clean-light"] .worker-image-card,
+html[data-theme="clean-light"] .worker-image-card img,
+html[data-theme="clean-light"] .photo-slider-image-box,
+html[data-theme="clean-light"] .photo-slider-image-box img,
+html[data-theme="clean-light"] .video-slider-screen-box,
+html[data-theme="clean-light"] .video-slider-screen {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Text */
+html[data-theme="clean-light"] .section-title,
+html[data-theme="clean-light"] .packages-header h2,
+html[data-theme="clean-light"] .photo-packages-section .packages-header h2,
+html[data-theme="clean-light"] .quick-links-header h2,
+html[data-theme="clean-light"] .about-content h2,
+html[data-theme="clean-light"] .workers-content h2,
+html[data-theme="clean-light"] .card-title,
+html[data-theme="clean-light"] .package-card h3,
+html[data-theme="clean-light"] .quick-link-card h3,
+html[data-theme="clean-light"] .photo-slider-info h3,
+html[data-theme="clean-light"] .video-slider-info h3 {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .hero-tag,
+html[data-theme="clean-light"] .card-category,
+html[data-theme="clean-light"] .photo-slider-info span,
+html[data-theme="clean-light"] .video-slider-info span {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] p,
+html[data-theme="clean-light"] .card-description,
+html[data-theme="clean-light"] .package-card p,
+html[data-theme="clean-light"] .quick-link-card p,
+html[data-theme="clean-light"] .packages-header p,
+html[data-theme="clean-light"] .photo-packages-section .packages-header p,
+html[data-theme="clean-light"] .about-content p,
+html[data-theme="clean-light"] .workers-content p,
+html[data-theme="clean-light"] .photo-slider-info p,
+html[data-theme="clean-light"] .video-slider-info p {
+  color: #000000 !important;
+}
+
+/* Package heading area */
+html[data-theme="clean-light"] .packages-header,
+html[data-theme="clean-light"] .photo-packages-section .packages-header {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Buttons */
+html[data-theme="clean-light"] .hero-btn-primary,
+html[data-theme="clean-light"] .photo-auto-button,
+html[data-theme="clean-light"] .photo-carousel-autoplay-button,
+html[data-theme="clean-light"] .photo-slider-autoplay-button,
+html[data-theme="clean-light"] .photo-viewer-autoplay-button,
+html[data-theme="clean-light"] .photo-viewer-back-top,
+html[data-theme="clean-light"] .video-carousel-autoplay-button,
+html[data-theme="clean-light"] .video-slider-autoplay-button,
+html[data-theme="clean-light"] .video-viewer-autoplay-button,
+html[data-theme="clean-light"] .video-viewer-back-top,
+html[data-theme="clean-light"] .home-contact-button,
+html[data-theme="clean-light"] .quick-link-button,
+html[data-theme="clean-light"] .package-button,
+html[data-theme="clean-light"] .photo-card-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .hero-btn-primary:hover,
+html[data-theme="clean-light"] .photo-auto-button:hover,
+html[data-theme="clean-light"] .photo-carousel-autoplay-button:hover,
+html[data-theme="clean-light"] .photo-slider-autoplay-button:hover,
+html[data-theme="clean-light"] .photo-viewer-autoplay-button:hover,
+html[data-theme="clean-light"] .photo-viewer-back-top:hover,
+html[data-theme="clean-light"] .video-carousel-autoplay-button:hover,
+html[data-theme="clean-light"] .video-slider-autoplay-button:hover,
+html[data-theme="clean-light"] .video-viewer-autoplay-button:hover,
+html[data-theme="clean-light"] .video-viewer-back-top:hover,
+html[data-theme="clean-light"] .home-contact-button:hover,
+html[data-theme="clean-light"] .quick-link-button:hover,
+html[data-theme="clean-light"] .package-button:hover,
+html[data-theme="clean-light"] .photo-card-btn:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Active buttons */
+html[data-theme="clean-light"] .photo-hero-view-button--active,
+html[data-theme="clean-light"] .photo-auto-button--active,
+html[data-theme="clean-light"] .photo-carousel-autoplay-button--active,
+html[data-theme="clean-light"] .photo-slider-autoplay-button--active,
+html[data-theme="clean-light"] .photo-viewer-autoplay-button--active,
+html[data-theme="clean-light"] .video-carousel-autoplay-button--active,
+html[data-theme="clean-light"] .video-slider-autoplay-button--active,
+html[data-theme="clean-light"] .video-viewer-autoplay-button--active {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Contact / home-contact section keeps image but light box */
+html[data-theme="clean-light"] .home-contact-section {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+}
+
+html[data-theme="clean-light"] .home-contact-box {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Contact page */
+html[data-theme="clean-light"] .contact-hero {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html[data-theme="clean-light"] .contact-page-content {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .contact-page-content .hero-tag,
+html[data-theme="clean-light"] .contact-page-content .hero-title,
+html[data-theme="clean-light"] .contact-page-content .hero-subtitle {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .contact-form {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .contact-category,
+html[data-theme="clean-light"] .contact-form input,
+html[data-theme="clean-light"] .contact-form textarea {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .contact-category span,
+html[data-theme="clean-light"] .contact-note {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .contact-category:has(input:checked),
+html[data-theme="clean-light"] .contact-category:has(input:checked) span {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Terms of service */
+html[data-theme="clean-light"] .media-terms-card,
+html[data-theme="clean-light"] .media-terms-selected-box {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .media-terms-card h3,
+html[data-theme="clean-light"] .media-terms-card span,
+html[data-theme="clean-light"] .media-terms-selected-box h2,
+html[data-theme="clean-light"] .media-terms-selected-box p,
+html[data-theme="clean-light"] .media-terms-selected-box span {
+  color: #000000 !important;
+}
+
+/* Footer */
+html[data-theme="clean-light"] .footer,
+html[data-theme="clean-light"] footer {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-top: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .footer a,
+html[data-theme="clean-light"] footer a,
+html[data-theme="clean-light"] .footer p,
+html[data-theme="clean-light"] footer p,
+html[data-theme="clean-light"] .footer h2,
+html[data-theme="clean-light"] .footer h3 {
+  color: #000000 !important;
+}
+
+/* Footer contact items */
+html[data-theme="clean-light"] .footer-contact-row,
+html[data-theme="clean-light"] .footer-contact-item,
+html[data-theme="clean-light"] .footer-social-link,
+html[data-theme="clean-light"] .footer-contact-info > a,
+html[data-theme="clean-light"] .footer-contact-info > div,
+html[data-theme="clean-light"] .footer-info > a,
+html[data-theme="clean-light"] .footer-info > div,
+html[data-theme="clean-light"] .footer-icons > a,
+html[data-theme="clean-light"] .footer-socials > a {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Clean Light - remove large wrapper borders */
+html[data-theme="clean-light"] .media-section,
+html[data-theme="clean-light"] .media-grid-section,
+html[data-theme="clean-light"] .quick-links-section,
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section,
+html[data-theme="clean-light"] .about-section,
+html[data-theme="clean-light"] .workers-section {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove the extra media wrapper border too */
+html[data-theme="clean-light"] .media-section-frame {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep borders only on actual boxes/cards/buttons */
+html[data-theme="clean-light"] .package-card,
+html[data-theme="clean-light"] .quick-link-card,
+html[data-theme="clean-light"] .home-contact-box,
+html[data-theme="clean-light"] .about-wrapper,
+html[data-theme="clean-light"] .workers-wrapper,
+html[data-theme="clean-light"] .photo-slider-main,
+html[data-theme="clean-light"] .video-slider-main,
+html[data-theme="clean-light"] .media-card,
+html[data-theme="clean-light"] .tech-card,
+html[data-theme="clean-light"] .photo-card,
+html[data-theme="clean-light"] .packages-header,
+html[data-theme="clean-light"] .contact-form,
+html[data-theme="clean-light"] .media-terms-card,
+html[data-theme="clean-light"] .media-terms-selected-box {
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Clean Light - remove unwanted large wrapper borders */
+html[data-theme="clean-light"] .media-section,
+html[data-theme="clean-light"] .media-grid-section,
+html[data-theme="clean-light"] .quick-links-section,
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section,
+html[data-theme="clean-light"] .about-section,
+html[data-theme="clean-light"] .workers-section {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Clean Light - KEEP the separate media/options border */
+html[data-theme="clean-light"] .media-section-frame {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Keep normal borders only on actual boxes/cards/forms */
+html[data-theme="clean-light"] .package-card,
+html[data-theme="clean-light"] .quick-link-card,
+html[data-theme="clean-light"] .home-contact-box,
+html[data-theme="clean-light"] .about-wrapper,
+html[data-theme="clean-light"] .workers-wrapper,
+html[data-theme="clean-light"] .photo-slider-main,
+html[data-theme="clean-light"] .video-slider-main,
+html[data-theme="clean-light"] .media-card,
+html[data-theme="clean-light"] .tech-card,
+html[data-theme="clean-light"] .photo-card,
+html[data-theme="clean-light"] .packages-header,
+html[data-theme="clean-light"] .contact-form,
+html[data-theme="clean-light"] .media-terms-card,
+html[data-theme="clean-light"] .media-terms-selected-box {
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Clean Light - final cleanup to remove old brown styling */
+
+/* Remove unwanted brown section/wrapper colors */
+html[data-theme="clean-light"] .media-section,
+html[data-theme="clean-light"] .media-grid-section,
+html[data-theme="clean-light"] .quick-links-section,
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section,
+html[data-theme="clean-light"] .about-section,
+html[data-theme="clean-light"] .workers-section {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Keep only the separate media/options frame */
+html[data-theme="clean-light"] .media-section-frame {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Media tabs/options */
+html[data-theme="clean-light"] .media-tab {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .media-tab--active {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+/* Remove brown card blocks from media/home grid */
+html[data-theme="clean-light"] .media-section-frame .media-card,
+html[data-theme="clean-light"] .media-section-frame .card-thumbnail,
+html[data-theme="clean-light"] .media-section-frame .card-thumbnail img {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* No media card text in home media grid */
+html[data-theme="clean-light"] .media-section-frame .card-content,
+html[data-theme="clean-light"] .media-section-frame .card-category,
+html[data-theme="clean-light"] .media-section-frame .card-title,
+html[data-theme="clean-light"] .media-section-frame .card-description {
+  display: none !important;
+}
+
+/* Images should not be cropped */
+html[data-theme="clean-light"] .media-section-frame .card-thumbnail {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+html[data-theme="clean-light"] .media-section-frame .card-thumbnail img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* About / workers / quick links boxes */
+html[data-theme="clean-light"] .about-wrapper,
+html[data-theme="clean-light"] .workers-wrapper,
+html[data-theme="clean-light"] .quick-link-card,
+html[data-theme="clean-light"] .home-contact-box,
+html[data-theme="clean-light"] .package-card {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove image frames that were added during Classic Modern cleanup */
+html[data-theme="clean-light"] .about-image,
+html[data-theme="clean-light"] .home-contact-image,
+html[data-theme="clean-light"] .worker-image-card,
+html[data-theme="clean-light"] .workers-image-gallery,
+html[data-theme="clean-light"] .card-thumbnail,
+html[data-theme="clean-light"] .photo-slider-image-box,
+html[data-theme="clean-light"] .video-slider-screen-box {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .about-image img,
+html[data-theme="clean-light"] .home-contact-image img,
+html[data-theme="clean-light"] .worker-image-card img,
+html[data-theme="clean-light"] .workers-image-gallery img,
+html[data-theme="clean-light"] .card-thumbnail img,
+html[data-theme="clean-light"] .photo-slider-image-box img,
+html[data-theme="clean-light"] .video-slider-screen {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Package sections */
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section {
+  background: #ffffff !important;
+}
+
+html[data-theme="clean-light"] .packages-header,
+html[data-theme="clean-light"] .photo-packages-section .packages-header {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .packages-header h2,
+html[data-theme="clean-light"] .packages-header p,
+html[data-theme="clean-light"] .photo-packages-section .packages-header h2,
+html[data-theme="clean-light"] .photo-packages-section .packages-header p {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .package-card h3,
+html[data-theme="clean-light"] .photo-packages-section .package-card h3 {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Buttons */
+html[data-theme="clean-light"] .hero-btn-primary,
+html[data-theme="clean-light"] .quick-link-button,
+html[data-theme="clean-light"] .package-button,
+html[data-theme="clean-light"] .home-contact-button,
+html[data-theme="clean-light"] .photo-card-btn,
+html[data-theme="clean-light"] .photo-slider-autoplay-button,
+html[data-theme="clean-light"] .video-slider-autoplay-button,
+html[data-theme="clean-light"] .photo-carousel-autoplay-button,
+html[data-theme="clean-light"] .video-carousel-autoplay-button,
+html[data-theme="clean-light"] .photo-viewer-autoplay-button,
+html[data-theme="clean-light"] .video-viewer-autoplay-button,
+html[data-theme="clean-light"] .photo-viewer-back-top,
+html[data-theme="clean-light"] .video-viewer-back-top {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .hero-btn-primary:hover,
+html[data-theme="clean-light"] .quick-link-button:hover,
+html[data-theme="clean-light"] .package-button:hover,
+html[data-theme="clean-light"] .home-contact-button:hover,
+html[data-theme="clean-light"] .photo-card-btn:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Slider gallery cleanup */
+html[data-theme="clean-light"] .photo-slider-gallery,
+html[data-theme="clean-light"] .video-slider-gallery {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .photo-slider-main,
+html[data-theme="clean-light"] .video-slider-main {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .photo-slider-main::before,
+html[data-theme="clean-light"] .video-slider-main::before {
+  content: none !important;
+  display: none !important;
+}
+
+html[data-theme="clean-light"] .photo-slider-info,
+html[data-theme="clean-light"] .video-slider-info {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .photo-slider-info span,
+html[data-theme="clean-light"] .photo-slider-info h3,
+html[data-theme="clean-light"] .photo-slider-info p,
+html[data-theme="clean-light"] .video-slider-info span,
+html[data-theme="clean-light"] .video-slider-info h3,
+html[data-theme="clean-light"] .video-slider-info p {
+  color: #000000 !important;
+}
+
+/* Terms of service transparent white style */
+html[data-theme="clean-light"] .media-terms-card,
+html[data-theme="clean-light"] .media-terms-selected-box {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html[data-theme="clean-light"] .media-terms-card h3,
+html[data-theme="clean-light"] .media-terms-card span,
+html[data-theme="clean-light"] .media-terms-selected-box h2,
+html[data-theme="clean-light"] .media-terms-selected-box p,
+html[data-theme="clean-light"] .media-terms-selected-box span {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .media-terms-selected-back {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Contact/home idea section keeps image */
+html[data-theme="clean-light"] .home-contact-section {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+}
+
+html[data-theme="clean-light"] .home-contact-box {
+  background: rgba(255, 255, 255, 0.78) !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .home-contact-box h2,
+html[data-theme="clean-light"] .home-contact-box p {
+  color: #000000 !important;
+}
+
+/* Contact page */
+html[data-theme="clean-light"] .contact-hero {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html[data-theme="clean-light"] .contact-page-content {
+  background: rgba(255, 255, 255, 0.78) !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .contact-page-content .hero-tag,
+html[data-theme="clean-light"] .contact-page-content .hero-title,
+html[data-theme="clean-light"] .contact-page-content .hero-subtitle {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .contact-form {
+  background: rgba(255, 255, 255, 0.86) !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .contact-category,
+html[data-theme="clean-light"] .contact-form input,
+html[data-theme="clean-light"] .contact-form textarea {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .contact-category span,
+html[data-theme="clean-light"] .contact-note {
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .contact-category:has(input:checked),
+html[data-theme="clean-light"] .contact-category:has(input:checked) span {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Clean Light - restore proper borders without giant wrapper borders */
+
+/* Do NOT border the giant page wrappers */
+html[data-theme="clean-light"] .media-section,
+html[data-theme="clean-light"] .media-grid-section {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the separate media/options border */
+html[data-theme="clean-light"] .media-section-frame {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Restore borders on actual content sections */
+html[data-theme="clean-light"] .about-section,
+html[data-theme="clean-light"] .workers-section,
+html[data-theme="clean-light"] .quick-links-section,
+html[data-theme="clean-light"] .packages-section,
+html[data-theme="clean-light"] .photo-packages-section {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Restore borders on boxes/cards */
+html[data-theme="clean-light"] .about-wrapper,
+html[data-theme="clean-light"] .workers-wrapper,
+html[data-theme="clean-light"] .quick-link-card,
+html[data-theme="clean-light"] .package-card,
+html[data-theme="clean-light"] .packages-header,
+html[data-theme="clean-light"] .photo-packages-section .packages-header,
+html[data-theme="clean-light"] .home-contact-box,
+html[data-theme="clean-light"] .contact-form,
+html[data-theme="clean-light"] .media-terms-card,
+html[data-theme="clean-light"] .media-terms-selected-box,
+html[data-theme="clean-light"] .photo-slider-main,
+html[data-theme="clean-light"] .video-slider-main,
+html[data-theme="clean-light"] .photo-slider-info,
+html[data-theme="clean-light"] .video-slider-info {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Restore package title boxes */
+html[data-theme="clean-light"] .package-card h3,
+html[data-theme="clean-light"] .photo-packages-section .package-card h3 {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Restore button borders */
+html[data-theme="clean-light"] .hero-btn-primary,
+html[data-theme="clean-light"] .quick-link-button,
+html[data-theme="clean-light"] .package-button,
+html[data-theme="clean-light"] .home-contact-button,
+html[data-theme="clean-light"] .photo-card-btn,
+html[data-theme="clean-light"] .media-tab,
+html[data-theme="clean-light"] .theme-dropdown,
+html[data-theme="clean-light"] .drawer-theme-dropdown,
+html[data-theme="clean-light"] .contact-category,
+html[data-theme="clean-light"] .media-terms-selected-back {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Active/hover states */
+html[data-theme="clean-light"] .media-tab--active,
+html[data-theme="clean-light"] .hero-btn-primary:hover,
+html[data-theme="clean-light"] .quick-link-button:hover,
+html[data-theme="clean-light"] .package-button:hover,
+html[data-theme="clean-light"] .home-contact-button:hover,
+html[data-theme="clean-light"] .photo-card-btn:hover,
+html[data-theme="clean-light"] .contact-category:has(input:checked),
+html[data-theme="clean-light"] .contact-category:has(input:checked) span {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Restore input borders */
+html[data-theme="clean-light"] input,
+html[data-theme="clean-light"] textarea,
+html[data-theme="clean-light"] select,
+html[data-theme="clean-light"] .photo-search,
+html[data-theme="clean-light"] .photo-filter,
+html[data-theme="clean-light"] .video-search,
+html[data-theme="clean-light"] .video-filter,
+html[data-theme="clean-light"] .drawer-search,
+html[data-theme="clean-light"] .contact-form input,
+html[data-theme="clean-light"] .contact-form textarea {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Keep image areas clean, but do not kill card borders */
+html[data-theme="clean-light"] .card-thumbnail img,
+html[data-theme="clean-light"] .about-image img,
+html[data-theme="clean-light"] .home-contact-image img,
+html[data-theme="clean-light"] .worker-image-card img,
+html[data-theme="clean-light"] .photo-slider-image-box img,
+html[data-theme="clean-light"] .video-slider-screen {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Footer/header borders */
+html[data-theme="clean-light"] .navbar,
+html[data-theme="clean-light"] .navbar--scrolled {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .footer,
+html[data-theme="clean-light"] footer {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-top: 2px solid #000000 !important;
+  box-shadow: none !important;
+}
+
+/* Clean Light - make hamburger menu lines black */
+html[data-theme="clean-light"] .navbar-menu-icon span {
+  background: #000000 !important;
+  border-color: #000000 !important;
+}
+
+/* Clean Light - photo full-screen viewer arrows */
+html[data-theme="clean-light"] .photo-viewer-side-arrow,
+html[data-theme="clean-light"] .photo-viewer-arrow,
+html[data-theme="clean-light"] .photo-modal-arrow,
+html[data-theme="clean-light"] .fullscreen-arrow {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+}
+
+html[data-theme="clean-light"] .photo-viewer-side-arrow:hover,
+html[data-theme="clean-light"] .photo-viewer-arrow:hover,
+html[data-theme="clean-light"] .photo-modal-arrow:hover,
+html[data-theme="clean-light"] .fullscreen-arrow:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Clean Light - slider gallery arrows */
+html[data-theme="clean-light"] .photo-slider-arrow,
+html[data-theme="clean-light"] .video-slider-arrow,
+html[data-theme="clean-light"] .photo-slider-arrow-left,
+html[data-theme="clean-light"] .photo-slider-arrow-right,
+html[data-theme="clean-light"] .video-slider-arrow-left,
+html[data-theme="clean-light"] .video-slider-arrow-right {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+}
+
+/* Hover stays white too */
+html[data-theme="clean-light"] .photo-slider-arrow:hover,
+html[data-theme="clean-light"] .video-slider-arrow:hover,
+html[data-theme="clean-light"] .photo-slider-arrow-left:hover,
+html[data-theme="clean-light"] .photo-slider-arrow-right:hover,
+html[data-theme="clean-light"] .video-slider-arrow-left:hover,
+html[data-theme="clean-light"] .video-slider-arrow-right:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Disabled arrows, if used */
+html[data-theme="clean-light"] .photo-slider-arrow:disabled,
+html[data-theme="clean-light"] .video-slider-arrow:disabled {
+  background: #ffffff !important;
+  color: #777777 !important;
+  border: 2px solid #777777 !important;
+  opacity: 0.65 !important;
+}

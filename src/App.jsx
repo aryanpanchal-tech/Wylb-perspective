@@ -19,8 +19,14 @@ import Art from './pages/Art'
 import Tech from './pages/Tech'
 import Contact from './pages/Contact'
 import TermsOfService from './pages/TermsOfService'
+import SignUp from './pages/SignUp'
+import Login from './pages/Login'
 
 import './App.css'
+import './themes/classic-modern.css'
+import './themes/clean-light.css'
+import './themes/rose-gold.css'
+import './themes/photo-display.css'
 
 function ScrollHandler() {
   const location = useLocation()
@@ -70,6 +76,9 @@ function App() {
           <Route path="/tech" element={<Tech />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<TermsOfService />} />
+
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

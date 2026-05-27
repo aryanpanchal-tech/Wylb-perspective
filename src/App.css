@@ -6083,3 +6083,1193 @@
     gap: 18px;
   }
 }
+
+.theme-dropdown {
+  padding: 9px 14px;
+  background: #c49a6c;
+  color: #fff;
+  border: 2px solid #6f4328;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.theme-dropdown:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+.theme-dropdown-item {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-theme-row {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-theme-label {
+  color: #f0c38a;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.drawer-theme-dropdown {
+  width: 100%;
+  padding: 12px 14px;
+  background: #c49a6c;
+  color: #fff;
+  border: 2px solid #6f4328;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* Make About section match the same width as the other main bordered sections */
+.about-section,
+.workers-section,
+.quick-links-section,
+.packages-section,
+.home-contact-section {
+  width: min(1800px, calc(100% - 80px));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Make the inside boxes line up consistently */
+.about-wrapper,
+.workers-wrapper {
+  width: min(1550px, calc(100% - 120px));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Featured section grid layout - base structure for all themes */
+.featured-section {
+  width: 100%;
+  padding: 90px 40px;
+  box-sizing: border-box;
+}
+
+/* If the featured section has a wrapper, keep it aligned with the rest of the site */
+.featured-wrapper,
+.featured-content {
+  width: min(1800px, calc(100% - 80px));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Turn featured items into the same kind of grid used by photo/art/video pages */
+.featured-grid,
+.featured-slider,
+.featured-track {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Each featured item/card */
+.featured-card,
+.featured-slide,
+.featured-item {
+  width: 100% !important;
+  height: auto !important;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Featured images should fill their grid spaces cleanly */
+.featured-card img,
+.featured-slide img,
+.featured-item img,
+.featured-image img {
+  width: 100%;
+  height: 360px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Remove carousel-style behavior from the old featured section */
+.featured-slider {
+  overflow: visible !important;
+  transform: none !important;
+}
+
+.featured-track {
+  transform: none !important;
+}
+
+/* Hide old carousel dots/buttons if they are still there */
+.featured-dots,
+.featured-dot,
+.featured-controls,
+.featured-arrow {
+  display: none !important;
+}
+
+/* Optional text overlay, if your featured cards have titles/categories */
+.featured-card-content,
+.featured-slide-content,
+.featured-info {
+  padding: 18px 20px;
+  box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .featured-grid,
+  .featured-slider,
+  .featured-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-card img,
+  .featured-slide img,
+  .featured-item img,
+  .featured-image img {
+    height: 320px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .featured-section {
+    padding: 60px 20px;
+  }
+
+  .featured-wrapper,
+  .featured-content {
+    width: 100%;
+  }
+
+  .featured-grid,
+  .featured-slider,
+  .featured-track {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .featured-card img,
+  .featured-slide img,
+  .featured-item img,
+  .featured-image img {
+    height: 280px;
+  }
+}
+
+/* Home Media Section - base grid structure */
+.media-section {
+  width: 100%;
+  padding: 90px 40px;
+  box-sizing: border-box;
+}
+
+.media-section .media-grid {
+  width: min(1800px, calc(100% - 80px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.media-section .media-card {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.media-section .card-thumbnail {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.media-section .card-thumbnail img,
+.media-section .card-thumbnail video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.media-section .card-content {
+  min-height: 150px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+}
+
+.media-section .card-category {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.media-section .card-title {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.media-section .card-description {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .media-section .media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, calc(100% - 40px));
+  }
+
+  .media-section .card-thumbnail {
+    height: 300px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .media-section {
+    padding: 60px 20px;
+  }
+
+  .media-section .media-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .media-section .card-thumbnail {
+    height: 260px;
+  }
+}
+
+/* Base cleanup - remove brown styling from main structure */
+
+.media-section,
+.media-grid-section,
+.featured-section,
+.quick-links-section,
+.packages-section,
+.photo-packages-section,
+.home-contact-section,
+.about-section,
+.workers-section {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.media-card,
+.package-card,
+.quick-link-card,
+.home-contact-box,
+.about-wrapper,
+.workers-wrapper,
+.photo-slider-main,
+.video-slider-main,
+.tech-card,
+.photo-card {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Remove brown content blocks from cards */
+.card-content,
+.media-card .card-content,
+.package-card,
+.quick-link-card,
+.home-contact-box {
+  background-color: transparent;
+}
+
+/* Remove brown title-box styling from base */
+.package-card h3,
+.photo-packages-section .package-card h3 {
+  box-shadow: none;
+}
+
+/* Remove brown image/card borders from base */
+.card-thumbnail,
+.card-thumbnail img,
+.about-image,
+.about-image img,
+.home-contact-image,
+.home-contact-image img,
+.worker-image-card,
+.worker-image-card img,
+.photo-slider-image-box,
+.photo-slider-image-box img,
+.video-slider-screen-box,
+.video-slider-screen {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Keep structure, but do not force brown colors */
+.media-section .media-card,
+.media-grid-section .media-card {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* Home Media Section - images only, no text, no crop */
+
+.media-section .media-card,
+.media-grid-section .media-card {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Hide all text/content under media images */
+.media-section .card-content,
+.media-grid-section .card-content,
+.media-section .card-category,
+.media-section .card-title,
+.media-section .card-description,
+.media-grid-section .card-category,
+.media-grid-section .card-title,
+.media-grid-section .card-description {
+  display: none !important;
+}
+
+/* Remove the forced cropped image box */
+.media-section .card-thumbnail,
+.media-grid-section .card-thumbnail {
+  width: 100% !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Images show full size without cropping */
+.media-section .card-thumbnail img,
+.media-grid-section .card-thumbnail img,
+.media-section .card-thumbnail video,
+.media-grid-section .card-thumbnail video {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Base structure - separate border only around media options and media grid */
+.media-section-frame {
+  width: calc(100% - 24px);
+  margin: 0 auto 90px auto;
+  padding: 24px 28px 60px 28px;
+
+  border: 3px solid var(--media-frame-border, #6f4328);
+  box-sizing: border-box;
+}
+
+/* Keep the grid inside this new border */
+.media-section-frame .media-grid {
+  width: 100%;
+  margin: 30px auto 0 auto;
+  box-sizing: border-box;
+}
+
+/* Keep about section away from this new border */
+.about-section {
+  margin-top: 90px;
+}
+
+/* Base full-page reset - removes side gaps */
+html,
+body,
+#root,
+.app {
+  width: 100%;
+  min-width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Header must cover the full page width */
+.navbar {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Footer must cover the full page width */
+.footer,
+footer {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Stop page sections from creating unwanted side strips */
+.media-section,
+.about-section,
+.workers-section,
+.quick-links-section,
+.packages-section,
+.photo-packages-section,
+.home-contact-section,
+.contact-hero {
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Hero bottom icon strip - only icons move */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-service-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 86px;
+
+  background: #000000;
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  z-index: 6;
+  box-sizing: border-box;
+
+  transform: none !important;
+  animation: none !important;
+}
+
+.hero-service-track {
+  display: flex;
+  align-items: center;
+  gap: 85px;
+
+  width: max-content;
+  min-width: max-content;
+
+  padding: 0 60px;
+
+  animation: heroServiceScroll 24s linear infinite;
+}
+
+.hero-service-icon {
+  width: 54px;
+  height: 54px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  transform: none !important;
+}
+
+.hero-service-icon img {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+  display: block;
+
+  background: transparent;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  transform: none !important;
+  animation: none !important;
+}
+
+@keyframes heroServiceScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Move hero text/buttons slightly upward so they do not overlap the bottom strip */
+.hero-content {
+  transform: translateY(-35px) !important;
+}
+
+/* Hero brand collaboration scrolling strip */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-brand-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 92px;
+
+  background: #000000;
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 6;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-brand-title {
+  height: 100%;
+  width: 360px;
+  min-width: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 28px;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+
+  border-right: 3px solid #ffffff;
+  box-sizing: border-box;
+
+  background: #000000;
+  z-index: 2;
+}
+
+.hero-brand-scroll-window {
+  flex: 1;
+  height: 100%;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  background: #000000;
+}
+
+.hero-brand-track {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+
+  width: max-content;
+  min-width: max-content;
+
+  padding: 0 60px;
+
+  animation: heroBrandScroll 26s linear infinite;
+}
+
+.hero-brand-logo {
+  width: 120px;
+  height: 62px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  padding: 8px;
+  box-sizing: border-box;
+
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.hero-brand-logo img {
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+  display: block;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@keyframes heroBrandScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.auth-page {
+  min-height: 100vh;
+  padding: 160px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: min(760px, 100%);
+  padding: 42px;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.auth-card h1 {
+  margin: 14px 0;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+}
+
+.auth-card p {
+  color: #ffffff;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 16px 18px;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-button {
+  padding: 16px 20px;
+  background: #d4111d;
+  color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.auth-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.auth-message {
+  margin: 0;
+  font-weight: 700;
+}
+
+.auth-switch {
+  margin-top: 22px;
+}
+
+.auth-switch a {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .auth-row {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 28px;
+  }
+}
+
+/* Auth pages - force form to the LEFT and make it transparent */
+.auth-page--video {
+  position: relative !important;
+  min-height: 100vh !important;
+  padding: 150px 7vw 90px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep video behind everything */
+.auth-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+/* Dark tint over video, but still lets video show clearly */
+.auth-video-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+
+  background: rgba(0, 0, 0, 0.28) !important;
+  z-index: 1 !important;
+}
+
+/* Main form card pushed LEFT */
+.auth-page--video .auth-card {
+  position: relative !important;
+  z-index: 2 !important;
+
+  width: min(540px, 100%) !important;
+
+  margin-left: 0 !important;
+  margin-right: auto !important;
+
+  transform: none !important;
+
+  text-align: left !important;
+
+  background: rgba(0, 0, 0, 0.18) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  border-radius: 22px !important;
+
+  box-shadow: none !important;
+
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Form text */
+.auth-page--video .auth-card h1,
+.auth-page--video .auth-card p,
+.auth-page--video .auth-card span,
+.auth-page--video .auth-card a,
+.auth-page--video .auth-message,
+.auth-page--video .auth-switch {
+  color: #ffffff !important;
+  text-align: left !important;
+}
+
+/* Inputs transparent */
+.auth-page--video .auth-form input {
+  background: rgba(0, 0, 0, 0.18) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+.auth-page--video .auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Button transparent */
+.auth-page--video .auth-button {
+  background: rgba(0, 0, 0, 0.22) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.78) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+.auth-page--video .auth-button:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #000000 !important;
+}
+
+/* Mobile keeps it centered only on small screens */
+@media (max-width: 760px) {
+  .auth-page--video {
+    justify-content: center !important;
+    padding: 130px 22px 70px !important;
+  }
+
+  .auth-page--video .auth-card {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Login page only - force left transparent layout */
+.login-auth-page {
+  position: relative !important;
+  min-height: 100vh !important;
+  padding: 150px 7vw 90px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Login video background */
+.login-auth-page .auth-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+/* Login video tint */
+.login-auth-page .auth-video-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+
+  background: rgba(0, 0, 0, 0.24) !important;
+  z-index: 1 !important;
+}
+
+/* Login form card pushed LEFT */
+.login-auth-page .auth-card {
+  position: relative !important;
+  z-index: 2 !important;
+
+  width: min(520px, 100%) !important;
+
+  margin-left: 0 !important;
+  margin-right: auto !important;
+
+  transform: translateX(0) !important;
+
+  text-align: left !important;
+
+  background: rgba(0, 0, 0, 0.16) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 22px !important;
+
+  box-shadow: none !important;
+
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Login text */
+.login-auth-page .auth-card h1,
+.login-auth-page .auth-card p,
+.login-auth-page .auth-card span,
+.login-auth-page .auth-card a,
+.login-auth-page .auth-message,
+.login-auth-page .auth-switch {
+  color: #ffffff !important;
+  text-align: left !important;
+}
+
+/* Login inputs transparent */
+.login-auth-page .auth-form input {
+  background: rgba(0, 0, 0, 0.16) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.login-auth-page .auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Login button transparent */
+.login-auth-page .auth-button {
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+.login-auth-page .auth-button:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #000000 !important;
+}
+
+/* Mobile only centers it */
+@media (max-width: 760px) {
+  .login-auth-page {
+    justify-content: center !important;
+    padding: 130px 22px 70px !important;
+  }
+
+  .login-auth-page .auth-card {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Login page only - video background, left side transparent form */
+.login-auth-page {
+  position: relative !important;
+  min-height: 100vh !important;
+  padding: 150px 0 90px 6vw !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.login-auth-page .auth-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+.login-auth-page .auth-video-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+
+  background: rgba(0, 0, 0, 0.22) !important;
+  z-index: 1 !important;
+}
+
+.login-auth-page .auth-card {
+  position: relative !important;
+  z-index: 2 !important;
+
+  width: 500px !important;
+  max-width: 90vw !important;
+
+  margin-left: 0 !important;
+  margin-right: auto !important;
+
+  transform: none !important;
+  text-align: left !important;
+
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 22px !important;
+
+  box-shadow: none !important;
+
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+
+  box-sizing: border-box !important;
+}
+
+.login-auth-page .auth-card h1,
+.login-auth-page .auth-card p,
+.login-auth-page .auth-card span,
+.login-auth-page .auth-card a,
+.login-auth-page .auth-message,
+.login-auth-page .auth-switch {
+  color: #ffffff !important;
+  text-align: left !important;
+}
+
+.login-auth-page .auth-form {
+  width: 100% !important;
+}
+
+.login-auth-page .auth-form input {
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.78) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.login-auth-page .auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.login-auth-page .auth-button {
+  background: rgba(0, 0, 0, 0.16) !important;
+  color: #ffffff !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.82) !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+.login-auth-page .auth-button:hover {
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #000000 !important;
+}
+
+@media (max-width: 760px) {
+  .login-auth-page {
+    justify-content: center !important;
+    padding: 130px 22px 70px !important;
+  }
+
+  .login-auth-page .auth-card {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+.navbar-username {
+  margin-left: 18px;
+  margin-right: 12px;
+  color: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.navbar-auth-button {
+  background: transparent;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar-auth-button:hover {
+  text-decoration: underline;
+}
+
+.navbar-username {
+  margin-left: 18px;
+  margin-right: 12px;
+  color: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.drawer-auth-button {
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.logout-message {
+  position: fixed;
+  top: 95px;
+  right: 28px;
+  z-index: 99999;
+
+  background: #000000;
+  color: #ffffff;
+
+  border: 2px solid #ffffff;
+  border-radius: 14px;
+
+  padding: 14px 22px;
+
+  font-weight: 800;
+  font-size: 0.95rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}

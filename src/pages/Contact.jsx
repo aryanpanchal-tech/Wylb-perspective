@@ -1,22 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 function Contact() {
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [note, setNote] = useState('This will open your email app with the request filled in.')
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -50,59 +37,7 @@ function Contact() {
 
   return (
     <div className="app">
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-        <div className="navbar-logo">Wylb</div>
-
-        <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
-
-        <button
-          className="navbar-menu-icon"
-          onClick={() => setDrawerOpen(!drawerOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {drawerOpen && (
-          <div className="navbar-drawer">
-            <div className="drawer-search-row">
-              <input className="drawer-search" type="text" placeholder="Search..." />
-            </div>
-
-            <Link to="/photos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Photos
-            </Link>
-
-            <Link to="/videos" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Videos
-            </Link>
-
-            <Link to="/events" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Events
-            </Link>
-
-            <Link to="/art" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Art
-            </Link>
-
-            <Link to="/tech" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Tech
-            </Link>
-
-            <Link to="/contact" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Contact
-            </Link>
-
-            <Link to="/signin" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-              Sign In
-            </Link>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       <section className="contact-hero">
         <div className="hero-overlay"></div>
@@ -177,11 +112,7 @@ function Contact() {
         </div>
       </section>
 
-      <footer className="footer" id="footer">
-        <p className="footer-copy">
-          © 2026 Wylb Perspective. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

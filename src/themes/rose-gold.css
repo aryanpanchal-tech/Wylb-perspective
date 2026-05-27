@@ -1,0 +1,882 @@
+html[data-theme="rose-gold"] {
+  --site-bg: #F8A58E;
+  --site-text: #241515;
+
+  --nav-bg: #803F49;
+  --nav-text: #ffffff;
+
+  --section-bg: #fff7f3;
+  --card-bg: #ffffff;
+  --card-text: #241515;
+
+  --heading-text: #241515;
+  --hero-text: #ffffff;
+  --muted-text: #4b2b2f;
+  --card-muted-text: #4b2b2f;
+
+  --button-bg: #b76e79;
+  --button-hover-bg: #8f4d58;
+  --button-active-bg: #241515;
+  --button-text: #ffffff;
+  --button-active-text: #ffffff;
+
+  --theme-primary: #b76e79;
+  --theme-primary-hover: #8f4d58;
+  --theme-dark: #241515;
+  --theme-border: #803F49;
+  --theme-outline: #f0c2c7;
+  --theme-accent: #d9a3a9;
+
+  --media-frame-border: #803F49;
+  --main-section-border: #803F49;
+}
+
+/* Rose Gold font */
+html[data-theme="rose-gold"] body,
+html[data-theme="rose-gold"] button,
+html[data-theme="rose-gold"] input,
+html[data-theme="rose-gold"] select,
+html[data-theme="rose-gold"] textarea,
+html[data-theme="rose-gold"] a,
+html[data-theme="rose-gold"] h1,
+html[data-theme="rose-gold"] h2,
+html[data-theme="rose-gold"] h3,
+html[data-theme="rose-gold"] h4,
+html[data-theme="rose-gold"] h5,
+html[data-theme="rose-gold"] h6,
+html[data-theme="rose-gold"] p,
+html[data-theme="rose-gold"] span,
+html[data-theme="rose-gold"] li,
+html[data-theme="rose-gold"] label {
+  font-family: "Arial Narrow", Arial, sans-serif !important;
+}
+
+/* Main site background */
+html[data-theme="rose-gold"],
+html[data-theme="rose-gold"] body,
+html[data-theme="rose-gold"] #root,
+html[data-theme="rose-gold"] .app {
+  background: var(--site-bg) !important;
+  color: var(--site-text) !important;
+}
+
+/* Header */
+html[data-theme="rose-gold"] .navbar,
+html[data-theme="rose-gold"] .navbar--scrolled {
+  background: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  border-bottom: 2px solid var(--theme-border) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .navbar-links a {
+  color: var(--nav-text) !important;
+}
+
+html[data-theme="rose-gold"] .navbar-links a:hover {
+  color: var(--theme-accent) !important;
+}
+
+html[data-theme="rose-gold"] .navbar-logo {
+  background: var(--button-bg) !important;
+  border: 2px solid var(--theme-border) !important;
+  color: var(--button-text) !important;
+  border-radius: 0 !important;
+  padding: 8px 18px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .navbar-logo img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hamburger menu */
+html[data-theme="rose-gold"] .navbar-menu-icon {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .navbar-menu-icon span {
+  background: var(--nav-text) !important;
+  border-color: var(--nav-text) !important;
+}
+
+/* Theme dropdown */
+html[data-theme="rose-gold"] .theme-dropdown,
+html[data-theme="rose-gold"] .drawer-theme-dropdown {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Drawer */
+html[data-theme="rose-gold"] .navbar-drawer {
+  background: var(--section-bg) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .drawer-item,
+html[data-theme="rose-gold"] .drawer-theme-label {
+  color: var(--site-text) !important;
+}
+
+/* Main outer wrappers use the site background */
+html[data-theme="rose-gold"] .media-section,
+html[data-theme="rose-gold"] .media-grid-section {
+  background: var(--site-bg) !important;
+  color: var(--site-text) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Bordered content sections keep their own lighter background */
+html[data-theme="rose-gold"] .quick-links-section,
+html[data-theme="rose-gold"] .packages-section,
+html[data-theme="rose-gold"] .photo-packages-section,
+html[data-theme="rose-gold"] .about-section,
+html[data-theme="rose-gold"] .workers-section {
+  background: var(--section-bg) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Separate media/options frame */
+html[data-theme="rose-gold"] .media-section-frame {
+  background: var(--section-bg) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--media-frame-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Media tabs */
+html[data-theme="rose-gold"] .media-tab {
+  background: transparent !important;
+  color: var(--site-text) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .media-tab--active {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-bottom: 2px solid var(--theme-border) !important;
+}
+
+/* Cards and main boxes */
+html[data-theme="rose-gold"] .package-card,
+html[data-theme="rose-gold"] .quick-link-card,
+html[data-theme="rose-gold"] .home-contact-box,
+html[data-theme="rose-gold"] .about-wrapper,
+html[data-theme="rose-gold"] .workers-wrapper,
+html[data-theme="rose-gold"] .photo-slider-main,
+html[data-theme="rose-gold"] .video-slider-main,
+html[data-theme="rose-gold"] .media-card,
+html[data-theme="rose-gold"] .tech-card,
+html[data-theme="rose-gold"] .photo-card {
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Text */
+html[data-theme="rose-gold"] .section-title,
+html[data-theme="rose-gold"] .packages-header h2,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header h2,
+html[data-theme="rose-gold"] .quick-links-header h2,
+html[data-theme="rose-gold"] .about-content h2,
+html[data-theme="rose-gold"] .workers-content h2,
+html[data-theme="rose-gold"] .card-title,
+html[data-theme="rose-gold"] .package-card h3,
+html[data-theme="rose-gold"] .quick-link-card h3,
+html[data-theme="rose-gold"] .photo-slider-info h3,
+html[data-theme="rose-gold"] .video-slider-info h3 {
+  color: var(--heading-text) !important;
+}
+
+html[data-theme="rose-gold"] p,
+html[data-theme="rose-gold"] .card-description,
+html[data-theme="rose-gold"] .package-card p,
+html[data-theme="rose-gold"] .quick-link-card p,
+html[data-theme="rose-gold"] .packages-header p,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header p,
+html[data-theme="rose-gold"] .about-content p,
+html[data-theme="rose-gold"] .workers-content p,
+html[data-theme="rose-gold"] .photo-slider-info p,
+html[data-theme="rose-gold"] .video-slider-info p {
+  color: var(--muted-text) !important;
+}
+
+/* Hero text stays readable */
+html[data-theme="rose-gold"] .hero-title,
+html[data-theme="rose-gold"] .hero-subtitle,
+html[data-theme="rose-gold"] .hero-tag {
+  color: var(--hero-text) !important;
+}
+
+/* Package heading */
+html[data-theme="rose-gold"] .packages-header,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .packages-header h2,
+html[data-theme="rose-gold"] .packages-header p,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header h2,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header p {
+  color: var(--button-text) !important;
+}
+
+/* Package title boxes */
+html[data-theme="rose-gold"] .package-card h3,
+html[data-theme="rose-gold"] .photo-packages-section .package-card h3 {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Buttons */
+html[data-theme="rose-gold"] .hero-btn-primary,
+html[data-theme="rose-gold"] .photo-auto-button,
+html[data-theme="rose-gold"] .photo-carousel-autoplay-button,
+html[data-theme="rose-gold"] .photo-slider-autoplay-button,
+html[data-theme="rose-gold"] .photo-viewer-autoplay-button,
+html[data-theme="rose-gold"] .photo-viewer-back-top,
+html[data-theme="rose-gold"] .video-carousel-autoplay-button,
+html[data-theme="rose-gold"] .video-slider-autoplay-button,
+html[data-theme="rose-gold"] .video-viewer-autoplay-button,
+html[data-theme="rose-gold"] .video-viewer-back-top,
+html[data-theme="rose-gold"] .home-contact-button,
+html[data-theme="rose-gold"] .quick-link-button,
+html[data-theme="rose-gold"] .package-button,
+html[data-theme="rose-gold"] .photo-card-btn {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .hero-btn-primary:hover,
+html[data-theme="rose-gold"] .photo-auto-button:hover,
+html[data-theme="rose-gold"] .photo-carousel-autoplay-button:hover,
+html[data-theme="rose-gold"] .photo-slider-autoplay-button:hover,
+html[data-theme="rose-gold"] .photo-viewer-autoplay-button:hover,
+html[data-theme="rose-gold"] .photo-viewer-back-top:hover,
+html[data-theme="rose-gold"] .video-carousel-autoplay-button:hover,
+html[data-theme="rose-gold"] .video-slider-autoplay-button:hover,
+html[data-theme="rose-gold"] .video-viewer-autoplay-button:hover,
+html[data-theme="rose-gold"] .video-viewer-back-top:hover,
+html[data-theme="rose-gold"] .home-contact-button:hover,
+html[data-theme="rose-gold"] .quick-link-button:hover,
+html[data-theme="rose-gold"] .package-button:hover,
+html[data-theme="rose-gold"] .photo-card-btn:hover {
+  background: var(--button-hover-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Inputs */
+html[data-theme="rose-gold"] input,
+html[data-theme="rose-gold"] textarea,
+html[data-theme="rose-gold"] select,
+html[data-theme="rose-gold"] .photo-search,
+html[data-theme="rose-gold"] .photo-filter,
+html[data-theme="rose-gold"] .video-search,
+html[data-theme="rose-gold"] .video-filter,
+html[data-theme="rose-gold"] .drawer-search,
+html[data-theme="rose-gold"] .contact-form input,
+html[data-theme="rose-gold"] .contact-form textarea {
+  background: #ffffff !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] input::placeholder,
+html[data-theme="rose-gold"] textarea::placeholder,
+html[data-theme="rose-gold"] .drawer-search::placeholder {
+  color: #8a5c62 !important;
+}
+
+/* Images stay clean */
+html[data-theme="rose-gold"] img,
+html[data-theme="rose-gold"] .card-thumbnail,
+html[data-theme="rose-gold"] .card-thumbnail img,
+html[data-theme="rose-gold"] .about-image,
+html[data-theme="rose-gold"] .about-image img,
+html[data-theme="rose-gold"] .home-contact-image,
+html[data-theme="rose-gold"] .home-contact-image img,
+html[data-theme="rose-gold"] .worker-image-card,
+html[data-theme="rose-gold"] .worker-image-card img,
+html[data-theme="rose-gold"] .photo-slider-image-box,
+html[data-theme="rose-gold"] .photo-slider-image-box img,
+html[data-theme="rose-gold"] .video-slider-screen-box,
+html[data-theme="rose-gold"] .video-slider-screen {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Terms of service */
+html[data-theme="rose-gold"] .media-terms-card,
+html[data-theme="rose-gold"] .media-terms-selected-box {
+  background: rgba(255, 247, 243, 0.82) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html[data-theme="rose-gold"] .media-terms-card h3,
+html[data-theme="rose-gold"] .media-terms-card span,
+html[data-theme="rose-gold"] .media-terms-selected-box h2,
+html[data-theme="rose-gold"] .media-terms-selected-box p,
+html[data-theme="rose-gold"] .media-terms-selected-box span {
+  color: var(--site-text) !important;
+}
+
+/* Home contact keeps image */
+html[data-theme="rose-gold"] .home-contact-section {
+  background-image:
+    linear-gradient(rgba(183, 110, 121, 0.28), rgba(183, 110, 121, 0.28)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+}
+
+html[data-theme="rose-gold"] .home-contact-box {
+  background: rgba(255, 247, 243, 0.78) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+}
+
+html[data-theme="rose-gold"] .home-contact-box h2,
+html[data-theme="rose-gold"] .home-contact-box p {
+  color: var(--site-text) !important;
+}
+
+/* Contact page */
+html[data-theme="rose-gold"] .contact-hero {
+  background-image:
+    linear-gradient(rgba(183, 110, 121, 0.28), rgba(183, 110, 121, 0.28)),
+    url("/Images/Timeless Toronto.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html[data-theme="rose-gold"] .contact-page-content {
+  background: rgba(255, 247, 243, 0.78) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .contact-page-content .hero-tag,
+html[data-theme="rose-gold"] .contact-page-content .hero-title,
+html[data-theme="rose-gold"] .contact-page-content .hero-subtitle {
+  color: var(--site-text) !important;
+}
+
+html[data-theme="rose-gold"] .contact-form {
+  background: rgba(255, 247, 243, 0.9) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .contact-category {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .contact-category span,
+html[data-theme="rose-gold"] .contact-note {
+  color: var(--site-text) !important;
+}
+
+html[data-theme="rose-gold"] .contact-category:has(input:checked),
+html[data-theme="rose-gold"] .contact-category:has(input:checked) span {
+  background: var(--button-active-bg) !important;
+  color: var(--button-active-text) !important;
+}
+
+/* Slider arrows */
+html[data-theme="rose-gold"] .photo-viewer-side-arrow,
+html[data-theme="rose-gold"] .photo-viewer-arrow,
+html[data-theme="rose-gold"] .photo-modal-arrow,
+html[data-theme="rose-gold"] .fullscreen-arrow,
+html[data-theme="rose-gold"] .photo-slider-arrow,
+html[data-theme="rose-gold"] .video-slider-arrow {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+}
+
+/* Hero logo scrolling strip */
+html[data-theme="rose-gold"] .hero-service-strip {
+  background: var(--theme-dark) !important;
+  border-top: 3px solid var(--theme-dark) !important;
+  border-bottom: 3px solid var(--theme-dark) !important;
+}
+
+/* Footer */
+html[data-theme="rose-gold"] .footer,
+html[data-theme="rose-gold"] footer {
+  background: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  border-top: 2px solid var(--theme-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .footer a,
+html[data-theme="rose-gold"] footer a,
+html[data-theme="rose-gold"] .footer p,
+html[data-theme="rose-gold"] footer p,
+html[data-theme="rose-gold"] .footer h2,
+html[data-theme="rose-gold"] .footer h3 {
+  color: var(--nav-text) !important;
+}
+
+/* Employee / team section */
+html[data-theme="rose-gold"] .workers-section,
+html[data-theme="rose-gold"] .workers-wrapper,
+html[data-theme="rose-gold"] .workers-content,
+html[data-theme="rose-gold"] .workers-image-gallery {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Employee image cards */
+html[data-theme="rose-gold"] .worker-image-card {
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Explore More From Wyld Perspective */
+html[data-theme="rose-gold"] .quick-links-section {
+  background: var(--section-bg) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .quick-links-header {
+  background: rgba(255, 247, 243, 0.92) !important;
+  color: var(--site-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .quick-link-card {
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Packages */
+html[data-theme="rose-gold"] .packages-section,
+html[data-theme="rose-gold"] .photo-packages-section {
+  background: var(--section-bg) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .packages-header,
+html[data-theme="rose-gold"] .photo-packages-section .packages-header {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .package-card {
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .package-card h3,
+html[data-theme="rose-gold"] .photo-packages-section .package-card h3 {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .package-button,
+html[data-theme="rose-gold"] .quick-link-button {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Rose Gold - contact category buttons match Rose Gold buttons */
+html[data-theme="rose-gold"] .contact-category {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: 2px solid var(--theme-border) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove the brown inner button color */
+html[data-theme="rose-gold"] .contact-category span {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Hover matches the rest of Rose Gold */
+html[data-theme="rose-gold"] .contact-category:hover,
+html[data-theme="rose-gold"] .contact-category:hover span {
+  background: var(--button-hover-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Selected category */
+html[data-theme="rose-gold"] .contact-category:has(input:checked),
+html[data-theme="rose-gold"] .contact-category:has(input:checked) span {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-radius: 0 !important;
+}
+
+/* Hide the actual radio input so it does not affect the button look */
+html[data-theme="rose-gold"] .contact-category input {
+  display: none !important;
+}
+
+/* Rose Gold - smooth rounded corners for borders and buttons */
+
+html[data-theme="rose-gold"] .navbar-logo,
+html[data-theme="rose-gold"] .theme-dropdown,
+html[data-theme="rose-gold"] .drawer-theme-dropdown,
+html[data-theme="rose-gold"] .navbar-drawer,
+html[data-theme="rose-gold"] .media-section-frame,
+html[data-theme="rose-gold"] .quick-links-section,
+html[data-theme="rose-gold"] .packages-section,
+html[data-theme="rose-gold"] .photo-packages-section,
+html[data-theme="rose-gold"] .about-section,
+html[data-theme="rose-gold"] .workers-section,
+html[data-theme="rose-gold"] .package-card,
+html[data-theme="rose-gold"] .quick-link-card,
+html[data-theme="rose-gold"] .home-contact-box,
+html[data-theme="rose-gold"] .about-wrapper,
+html[data-theme="rose-gold"] .workers-wrapper,
+html[data-theme="rose-gold"] .photo-slider-main,
+html[data-theme="rose-gold"] .video-slider-main,
+html[data-theme="rose-gold"] .media-card,
+html[data-theme="rose-gold"] .tech-card,
+html[data-theme="rose-gold"] .photo-card,
+html[data-theme="rose-gold"] .packages-header,
+html[data-theme="rose-gold"] .quick-links-header,
+html[data-theme="rose-gold"] .contact-form,
+html[data-theme="rose-gold"] .contact-page-content,
+html[data-theme="rose-gold"] .media-terms-card,
+html[data-theme="rose-gold"] .media-terms-selected-box {
+  border-radius: 18px !important;
+}
+
+/* Buttons */
+html[data-theme="rose-gold"] .hero-btn-primary,
+html[data-theme="rose-gold"] .hero-btn-secondary,
+html[data-theme="rose-gold"] .photo-auto-button,
+html[data-theme="rose-gold"] .photo-carousel-autoplay-button,
+html[data-theme="rose-gold"] .photo-slider-autoplay-button,
+html[data-theme="rose-gold"] .photo-viewer-autoplay-button,
+html[data-theme="rose-gold"] .photo-viewer-back-top,
+html[data-theme="rose-gold"] .video-carousel-autoplay-button,
+html[data-theme="rose-gold"] .video-slider-autoplay-button,
+html[data-theme="rose-gold"] .video-viewer-autoplay-button,
+html[data-theme="rose-gold"] .video-viewer-back-top,
+html[data-theme="rose-gold"] .home-contact-button,
+html[data-theme="rose-gold"] .quick-link-button,
+html[data-theme="rose-gold"] .package-button,
+html[data-theme="rose-gold"] .photo-card-btn,
+html[data-theme="rose-gold"] .media-tab,
+html[data-theme="rose-gold"] .contact-category,
+html[data-theme="rose-gold"] .media-terms-selected-back {
+  border-radius: 14px !important;
+}
+
+/* Package title boxes */
+html[data-theme="rose-gold"] .package-card h3,
+html[data-theme="rose-gold"] .photo-packages-section .package-card h3 {
+  border-radius: 14px !important;
+}
+
+/* Inputs and text areas */
+html[data-theme="rose-gold"] input,
+html[data-theme="rose-gold"] textarea,
+html[data-theme="rose-gold"] select,
+html[data-theme="rose-gold"] .photo-search,
+html[data-theme="rose-gold"] .photo-filter,
+html[data-theme="rose-gold"] .video-search,
+html[data-theme="rose-gold"] .video-filter,
+html[data-theme="rose-gold"] .drawer-search,
+html[data-theme="rose-gold"] .contact-form input,
+html[data-theme="rose-gold"] .contact-form textarea {
+  border-radius: 12px !important;
+}
+
+/* Image areas */
+html[data-theme="rose-gold"] .about-image,
+html[data-theme="rose-gold"] .about-image img,
+html[data-theme="rose-gold"] .home-contact-image,
+html[data-theme="rose-gold"] .home-contact-image img,
+html[data-theme="rose-gold"] .worker-image-card,
+html[data-theme="rose-gold"] .worker-image-card img,
+html[data-theme="rose-gold"] .card-thumbnail,
+html[data-theme="rose-gold"] .card-thumbnail img,
+html[data-theme="rose-gold"] .photo-slider-image-box,
+html[data-theme="rose-gold"] .photo-slider-image-box img,
+html[data-theme="rose-gold"] .video-slider-screen-box,
+html[data-theme="rose-gold"] .video-slider-screen {
+  border-radius: 16px !important;
+}
+
+/* Keep circular arrow buttons circular */
+html[data-theme="rose-gold"] .photo-viewer-side-arrow,
+html[data-theme="rose-gold"] .photo-viewer-arrow,
+html[data-theme="rose-gold"] .photo-modal-arrow,
+html[data-theme="rose-gold"] .fullscreen-arrow,
+html[data-theme="rose-gold"] .photo-slider-arrow,
+html[data-theme="rose-gold"] .video-slider-arrow {
+  border-radius: 50% !important;
+}
+
+/* Rose Gold - slider/gallery info box for Photos, Videos, and Art */
+html[data-theme="rose-gold"] .photo-slider-info,
+html[data-theme="rose-gold"] .video-slider-info,
+html[data-theme="rose-gold"] .art-slider-info,
+html[data-theme="rose-gold"] .photo-viewer-info,
+html[data-theme="rose-gold"] .video-viewer-info,
+html[data-theme="rose-gold"] .art-viewer-info {
+  background: #b76e79 !important;
+  color: #ffffff !important;
+  border: 2px solid #803F49 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Make category/title/description text white */
+html[data-theme="rose-gold"] .photo-slider-info span,
+html[data-theme="rose-gold"] .photo-slider-info h1,
+html[data-theme="rose-gold"] .photo-slider-info h2,
+html[data-theme="rose-gold"] .photo-slider-info h3,
+html[data-theme="rose-gold"] .photo-slider-info p,
+html[data-theme="rose-gold"] .video-slider-info span,
+html[data-theme="rose-gold"] .video-slider-info h1,
+html[data-theme="rose-gold"] .video-slider-info h2,
+html[data-theme="rose-gold"] .video-slider-info h3,
+html[data-theme="rose-gold"] .video-slider-info p,
+html[data-theme="rose-gold"] .art-slider-info span,
+html[data-theme="rose-gold"] .art-slider-info h1,
+html[data-theme="rose-gold"] .art-slider-info h2,
+html[data-theme="rose-gold"] .art-slider-info h3,
+html[data-theme="rose-gold"] .art-slider-info p,
+html[data-theme="rose-gold"] .photo-viewer-info span,
+html[data-theme="rose-gold"] .photo-viewer-info h1,
+html[data-theme="rose-gold"] .photo-viewer-info h2,
+html[data-theme="rose-gold"] .photo-viewer-info h3,
+html[data-theme="rose-gold"] .photo-viewer-info p,
+html[data-theme="rose-gold"] .video-viewer-info span,
+html[data-theme="rose-gold"] .video-viewer-info h1,
+html[data-theme="rose-gold"] .video-viewer-info h2,
+html[data-theme="rose-gold"] .video-viewer-info h3,
+html[data-theme="rose-gold"] .video-viewer-info p,
+html[data-theme="rose-gold"] .art-viewer-info span,
+html[data-theme="rose-gold"] .art-viewer-info h1,
+html[data-theme="rose-gold"] .art-viewer-info h2,
+html[data-theme="rose-gold"] .art-viewer-info h3,
+html[data-theme="rose-gold"] .art-viewer-info p {
+  color: #ffffff !important;
+}
+
+/* Extra targeting for category/title/description class names */
+html[data-theme="rose-gold"] .photo-slider-category,
+html[data-theme="rose-gold"] .photo-slider-title,
+html[data-theme="rose-gold"] .photo-slider-description,
+html[data-theme="rose-gold"] .video-slider-category,
+html[data-theme="rose-gold"] .video-slider-title,
+html[data-theme="rose-gold"] .video-slider-description,
+html[data-theme="rose-gold"] .art-slider-category,
+html[data-theme="rose-gold"] .art-slider-title,
+html[data-theme="rose-gold"] .art-slider-description {
+  color: #ffffff !important;
+}
+
+/* Rose Gold - force gallery info panel color for photos, videos, and art */
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-info,
+html[data-theme="rose-gold"] .photo-slider-main .photo-viewer-info,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-details,
+html[data-theme="rose-gold"] .photo-slider-main .photo-viewer-details,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-caption,
+html[data-theme="rose-gold"] .photo-slider-main .photo-viewer-caption,
+html[data-theme="rose-gold"] .photo-slider-main .photo-info-panel,
+html[data-theme="rose-gold"] .photo-slider-main [class*="info"],
+html[data-theme="rose-gold"] .photo-slider-main [class*="details"],
+html[data-theme="rose-gold"] .photo-slider-main [class*="caption"],
+html[data-theme="rose-gold"] .photo-viewer [class*="info"],
+html[data-theme="rose-gold"] .photo-viewer [class*="details"],
+html[data-theme="rose-gold"] .photo-viewer [class*="caption"],
+html[data-theme="rose-gold"] .video-slider-main .video-slider-info,
+html[data-theme="rose-gold"] .video-slider-main .video-viewer-info,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-details,
+html[data-theme="rose-gold"] .video-slider-main .video-viewer-details,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-caption,
+html[data-theme="rose-gold"] .video-slider-main .video-viewer-caption,
+html[data-theme="rose-gold"] .video-slider-main [class*="info"],
+html[data-theme="rose-gold"] .video-slider-main [class*="details"],
+html[data-theme="rose-gold"] .video-slider-main [class*="caption"],
+html[data-theme="rose-gold"] .video-viewer [class*="info"],
+html[data-theme="rose-gold"] .video-viewer [class*="details"],
+html[data-theme="rose-gold"] .video-viewer [class*="caption"],
+html[data-theme="rose-gold"] .art-slider-main .art-slider-info,
+html[data-theme="rose-gold"] .art-slider-main .art-viewer-info,
+html[data-theme="rose-gold"] .art-slider-main .art-slider-details,
+html[data-theme="rose-gold"] .art-slider-main .art-viewer-details,
+html[data-theme="rose-gold"] .art-slider-main .art-slider-caption,
+html[data-theme="rose-gold"] .art-slider-main .art-viewer-caption,
+html[data-theme="rose-gold"] .art-slider-main [class*="info"],
+html[data-theme="rose-gold"] .art-slider-main [class*="details"],
+html[data-theme="rose-gold"] .art-slider-main [class*="caption"],
+html[data-theme="rose-gold"] .art-viewer [class*="info"],
+html[data-theme="rose-gold"] .art-viewer [class*="details"],
+html[data-theme="rose-gold"] .art-viewer [class*="caption"] {
+  background: #b76e79 !important;
+  color: #ffffff !important;
+  border: 2px solid #803F49 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Force every text element inside the gallery info panel to white */
+html[data-theme="rose-gold"] .photo-slider-main [class*="info"] *,
+html[data-theme="rose-gold"] .photo-slider-main [class*="details"] *,
+html[data-theme="rose-gold"] .photo-slider-main [class*="caption"] *,
+html[data-theme="rose-gold"] .photo-viewer [class*="info"] *,
+html[data-theme="rose-gold"] .photo-viewer [class*="details"] *,
+html[data-theme="rose-gold"] .photo-viewer [class*="caption"] *,
+html[data-theme="rose-gold"] .video-slider-main [class*="info"] *,
+html[data-theme="rose-gold"] .video-slider-main [class*="details"] *,
+html[data-theme="rose-gold"] .video-slider-main [class*="caption"] *,
+html[data-theme="rose-gold"] .video-viewer [class*="info"] *,
+html[data-theme="rose-gold"] .video-viewer [class*="details"] *,
+html[data-theme="rose-gold"] .video-viewer [class*="caption"] *,
+html[data-theme="rose-gold"] .art-slider-main [class*="info"] *,
+html[data-theme="rose-gold"] .art-slider-main [class*="details"] *,
+html[data-theme="rose-gold"] .art-slider-main [class*="caption"] *,
+html[data-theme="rose-gold"] .art-viewer [class*="info"] *,
+html[data-theme="rose-gold"] .art-viewer [class*="details"] *,
+html[data-theme="rose-gold"] .art-viewer [class*="caption"] * {
+  color: #ffffff !important;
+}
+
+/* Rose Gold - slider info boxes for Photos, Art, and Videos */
+html[data-theme="rose-gold"] .photo-slider-gallery .photo-slider-info,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-info,
+html[data-theme="rose-gold"] .video-slider-gallery .video-slider-info,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-info,
+html[data-theme="rose-gold"] .photo-viewer-fullscreen .photo-viewer-bottom-info,
+html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info {
+  background: #b76e79 !important;
+  color: #ffffff !important;
+  border: 2px solid #803F49 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+
+/* Force category, title, and description to white */
+html[data-theme="rose-gold"] .photo-slider-gallery .photo-slider-info span,
+html[data-theme="rose-gold"] .photo-slider-gallery .photo-slider-info h3,
+html[data-theme="rose-gold"] .photo-slider-gallery .photo-slider-info p,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-info span,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-info h3,
+html[data-theme="rose-gold"] .photo-slider-main .photo-slider-info p,
+html[data-theme="rose-gold"] .video-slider-gallery .video-slider-info span,
+html[data-theme="rose-gold"] .video-slider-gallery .video-slider-info h3,
+html[data-theme="rose-gold"] .video-slider-gallery .video-slider-info p,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-info span,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-info h3,
+html[data-theme="rose-gold"] .video-slider-main .video-slider-info p,
+html[data-theme="rose-gold"] .photo-viewer-fullscreen .photo-viewer-bottom-info span,
+html[data-theme="rose-gold"] .photo-viewer-fullscreen .photo-viewer-bottom-info h2,
+html[data-theme="rose-gold"] .photo-viewer-fullscreen .photo-viewer-bottom-info p,
+html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info span,
+html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info h2,
+html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info p {
+  color: #ffffff !important;
+}
