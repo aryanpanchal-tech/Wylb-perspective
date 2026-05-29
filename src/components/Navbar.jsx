@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext'
 
 const themeOptions = [
   {
-    label: 'Wyld Brown',
+    label: 'Coffee brown',
     value: 'wyld-brown',
   },
   {
@@ -16,7 +16,7 @@ const themeOptions = [
     value: 'rose-gold',
   },
   {
-    label: 'Clean Light',
+    label: 'Paper White',
     value: 'clean-light',
   },
   {
@@ -189,22 +189,28 @@ function Navbar() {
         </li>
       </ul>
 
-      {currentUser && (
-        <span className="navbar-username">
+      <div className="navbar-right-side">
+          {currentUser && (
+        <Link
+          to="/userPage"
+          className="navbar-username"
+          onClick={() => setDrawerOpen(false)}
+        >
           @{currentUser.username}
-        </span>
+        </Link>
       )}
 
-      <button
-        type="button"
-        className="navbar-menu-icon"
-        onClick={() => setDrawerOpen(!drawerOpen)}
-        aria-label="Open navigation menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button
+          type="button"
+          className="navbar-menu-icon"
+          onClick={() => setDrawerOpen(!drawerOpen)}
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       {drawerOpen && (
         <div className="navbar-drawer">

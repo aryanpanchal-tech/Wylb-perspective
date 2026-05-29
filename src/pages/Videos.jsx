@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SaveButton from '../components/SaveButton'
 
 const heroVideos = [
   {
@@ -647,6 +648,14 @@ function Videos() {
                       <source src={video.src} type="video/mp4" />
                     </video>
                   </div>
+
+                  <div className="video-card-content">
+                    <span className="card-category">{video.category}</span>
+                    <h3 className="card-title">{video.title}</h3>
+                    <p className="card-description">{video.description}</p>
+
+                    <SaveButton item={video} type="video" />
+                  </div>
                 </div>
               ))}
             </div>
@@ -669,6 +678,14 @@ function Videos() {
                   <video className="video-preview" muted loop playsInline preload="metadata">
                     <source src={video.src} type="video/mp4" />
                   </video>
+                </div>
+
+                <div className="video-card-content">
+                  <span className="card-category">{video.category}</span>
+                  <h3 className="card-title">{video.title}</h3>
+                  <p className="card-description">{video.description}</p>
+
+                  <SaveButton item={video} type="video" />
                 </div>
               </div>
             ))}
@@ -712,6 +729,8 @@ function Videos() {
                 <span>{sliderVideo.category}</span>
                 <h3>{sliderVideo.title}</h3>
                 <p>{sliderVideo.description}</p>
+
+                <SaveButton item={sliderVideo} type="video" />
               </div>
 
               <div className="video-slider-thumbnails">
@@ -855,6 +874,8 @@ function Videos() {
             <span>{currentVideo.category}</span>
             <h2>{currentVideo.title}</h2>
             <p>{currentVideo.description}</p>
+
+            <SaveButton item={currentVideo} type="video" />
           </div>
         </div>
       )}

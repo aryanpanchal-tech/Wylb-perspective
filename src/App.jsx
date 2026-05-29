@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 
 import PhotographerPage from './pages/PhotographerPage'
 import TechPage from './pages/TechPage'
+import UserPage from './pages/UserPage'
 
 import Photos from './pages/Photos'
 import Videos from './pages/Videos'
@@ -68,6 +69,7 @@ function App() {
 
           <Route path="/photographer/:id" element={<PhotographerPage />} />
           <Route path="/tech/:id" element={<TechPage />} />
+          <Route path="/userPage" element={<UserPage />} />
 
           <Route path="/photos" element={<Photos />} />
           <Route path="/videos" element={<Videos />} />

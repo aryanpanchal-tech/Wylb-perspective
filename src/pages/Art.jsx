@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SaveButton from '../components/SaveButton'
 
 const heroImages = [
   {
@@ -663,6 +664,8 @@ function Art() {
                     <span className="card-category">{card.category}</span>
                     <h3 className="card-title">{card.title}</h3>
                     <p className="card-description">{card.description}</p>
+
+                    <SaveButton item={card} type="art" />
                   </div>
                 </div>
               ))}
@@ -686,6 +689,8 @@ function Art() {
                   <span className="card-category">{card.category}</span>
                   <h3 className="card-title">{card.title}</h3>
                   <p className="card-description">{card.description}</p>
+
+                  <SaveButton item={card} type="art" />
                 </div>
               </div>
             ))}
@@ -727,6 +732,8 @@ function Art() {
                 <span>{sliderImage.category}</span>
                 <h3>{sliderImage.title}</h3>
                 <p>{sliderImage.description}</p>
+
+                <SaveButton item={sliderImage} type="art" />
               </div>
 
               <div className="photo-slider-thumbnails">
@@ -862,6 +869,8 @@ function Art() {
             <span>{currentImage.category}</span>
             <h2>{currentImage.title}</h2>
             <p>{currentImage.description}</p>
+
+            <SaveButton item={currentImage} type="art" />
           </div>
         </div>
       )}
