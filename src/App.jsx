@@ -22,6 +22,7 @@ import MediaSection from './components/MediaSection'
 import Footer from './components/Footer'
 import PhotographerPage from './pages/PhotographerPage'
 import TechPage from './pages/TechPage'
+import Chatbot from './components/Chatbot/Chatbot'
 import './App.css'
 
 // Watches for location.state.scrollTo after any navigation
@@ -67,6 +68,7 @@ function App() {
           <Route path="/photographer/:id"  element={<PhotographerPage />} />
           <Route path="/tech/:id"          element={<TechPage />} />
         </Routes>
+        <Chatbot />
       </BrowserRouter>
     </LanguageProvider>
   )
