@@ -1,20 +1,8 @@
-/**
- * App.jsx — Root of the application
- *
- * Sets up React Router with two routes:
- *   /                    → HomePage (full landing page)
- *   /photographer/:id    → PhotographerPage (individual profile)
- *   /tech/:id            → TechPage (individual gear item)
- *
- * ScrollHandler reads router location.state to smoothly scroll
- * to a specific section after navigation (e.g. returning from a
- * detail page back to the photographers tab).
- */
-
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import LanguageToggle from './components/LanguageToggle'
+import SplashScreen from './components/SplashScreen'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FeaturedSection from './components/FeaturedSection'
@@ -22,15 +10,12 @@ import MediaSection from './components/MediaSection'
 import Footer from './components/Footer'
 import PhotographerPage from './pages/PhotographerPage'
 import TechPage from './pages/TechPage'
+import NotFoundPage from './pages/NotFoundPage'
 import Chatbot from './components/Chatbot/Chatbot'
 import './App.css'
 
-// Watches for location.state.scrollTo after any navigation
-// and smoothly scrolls to the matching section id.
-// The 100ms delay gives the DOM time to render before scrolling.
 function ScrollHandler() {
   const location = useLocation()
-
   useEffect(() => {
     if (location.state?.scrollTo) {
       setTimeout(() => {
@@ -38,11 +23,9 @@ function ScrollHandler() {
       }, 100)
     }
   }, [location])
-
   return null
 }
 
-// Main landing page — assembles all sections in order
 function HomePage() {
   return (
     <div className="app">
@@ -56,17 +39,19 @@ function HomePage() {
   )
 }
 
-// App wraps everything in BrowserRouter so any component
-// can use React Router hooks (useNavigate, useParams, etc.)
 function App() {
+  const [showSplash, setShowSplash] = useState(true)
+
   return (
     <LanguageProvider>
+      {showSplash && <SplashScreen onDone={() => setShowSplash(false)} />}
       <BrowserRouter>
         <ScrollHandler />
         <Routes>
-          <Route path="/"                  element={<HomePage />} />
-          <Route path="/photographer/:id"  element={<PhotographerPage />} />
-          <Route path="/tech/:id"          element={<TechPage />} />
+          <Route path="/"                 element={<HomePage />} />
+          <Route path="/photographer/:id" element={<PhotographerPage />} />
+          <Route path="/tech/:id"         element={<TechPage />} />
+          <Route path="*"                 element={<NotFoundPage />} />
         </Routes>
         <Chatbot />
       </BrowserRouter>
