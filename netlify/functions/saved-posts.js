@@ -12,7 +12,7 @@ const sendJson = (statusCode, data) => {
   }
 }
 
-const getUserId = (event) => {
+const getSignedInUserId = (event) => {
   const jwtSecret = process.env.JWT_SECRET
 
   if (!jwtSecret) {
@@ -27,15 +27,15 @@ const getUserId = (event) => {
   }
 
   try {
-    const user = jwt.verify(token, jwtSecret)
-    return user.userId
+    const decoded = jwt.verify(token, jwtSecret)
+    return decoded.userId
   } catch (error) {
     return ''
   }
 }
 
 export const handler = async (event) => {
-  const userId = getUserId(event)
+  const userId = getSignedInUserId(event)
 
   if (!userId) {
     return sendJson(401, {
@@ -55,14 +55,15 @@ export const handler = async (event) => {
     return sendJson(200, {
       posts: posts.map((post) => ({
         id: post.postId,
-        source: post.source,
-        category: post.category,
-        title: post.title,
-        description: post.description,
-        image: post.image,
-        url: post.url,
-        date: post.date,
-        savedAt: post.savedAt,
+        source: post.source || '',
+        category: post.category || '',
+        title: post.title || '',
+        description: post.description || '',
+        image: post.image || '',
+        url: post.url || '',
+        date: post.date || '',
+        mediaType: post.mediaType || '',
+        savedAt: post.savedAt || '',
       })),
     })
   } catch (error) {

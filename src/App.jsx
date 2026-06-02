@@ -24,6 +24,7 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 
 import './App.css'
+import './themes/wyld-brown.css'
 import './themes/classic-modern.css'
 import './themes/clean-light.css'
 import './themes/rose-gold.css'
@@ -33,13 +34,15 @@ function ScrollHandler() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.state?.scrollTo) {
-      setTimeout(() => {
-        document.getElementById(location.state.scrollTo)?.scrollIntoView({
-          behavior: 'smooth',
-        })
-      }, 100)
+    if (!location.state?.scrollTo) {
+      return
     }
+
+    setTimeout(() => {
+      document.getElementById(location.state.scrollTo)?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }, 100)
   }, [location])
 
   return null

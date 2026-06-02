@@ -1764,3 +1764,225 @@ html[data-theme="classic-modern"] .media-section-frame .card-thumbnail::before {
   content: none !important;
   display: none !important;
 }
+
+/* User Page - Classic Modern grey borders */
+
+html[data-theme="classic-modern"] .user-page-card,
+html[data-theme="classic-modern"] .user-info-card,
+html[data-theme="classic-modern"] .user-saved-posts-card,
+html[data-theme="classic-modern"] .user-side-bar,
+html[data-theme="classic-modern"] .account-change-section,
+html[data-theme="classic-modern"] .saved-post-card {
+  border-color: #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .account-info-row {
+  border-bottom-color: rgba(143, 143, 143, 0.55) !important;
+}
+
+html[data-theme="classic-modern"] .user-side-link,
+html[data-theme="classic-modern"] .account-change-form input,
+html[data-theme="classic-modern"] .account-change-form button,
+html[data-theme="classic-modern"] .saved-post-remove,
+html[data-theme="classic-modern"] .saved-post-link,
+html[data-theme="classic-modern"] .photo-search,
+html[data-theme="classic-modern"] .photo-filter {
+  border-color: #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .user-side-link:hover,
+html[data-theme="classic-modern"] .user-side-link--active,
+html[data-theme="classic-modern"] .account-change-form button:hover,
+html[data-theme="classic-modern"] .saved-post-remove:hover,
+html[data-theme="classic-modern"] .saved-post-link:hover {
+  border-color: #b8b8b8 !important;
+}
+
+html[data-theme="classic-modern"] .account-profile-picture,
+html[data-theme="classic-modern"] .profile-picture-preview,
+html[data-theme="classic-modern"] .navbar-profile-pic {
+  border-color: #8f8f8f !important;
+}
+
+/* User Page - Classic Modern grey border override */
+
+html[data-theme="classic-modern"] .user-page .user-page-card,
+html[data-theme="classic-modern"] .user-page .user-info-card,
+html[data-theme="classic-modern"] .user-page .user-saved-posts-card,
+html[data-theme="classic-modern"] .user-page .user-side-bar,
+html[data-theme="classic-modern"] .user-page .account-change-section,
+html[data-theme="classic-modern"] .user-page .saved-post-card,
+html[data-theme="classic-modern"] .user-page .saved-post-image,
+html[data-theme="classic-modern"] .user-page .profile-picture-preview,
+html[data-theme="classic-modern"] .user-page .account-profile-picture {
+  border: 2px solid #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .user-page .account-info-row {
+  border-bottom: 1px solid #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .user-page .user-side-link,
+html[data-theme="classic-modern"] .user-page .account-change-form input,
+html[data-theme="classic-modern"] .user-page .account-change-form button,
+html[data-theme="classic-modern"] .user-page .saved-post-remove,
+html[data-theme="classic-modern"] .user-page .saved-post-link,
+html[data-theme="classic-modern"] .user-page .photo-search,
+html[data-theme="classic-modern"] .user-page .photo-filter {
+  border: 2px solid #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .user-page .user-side-link:hover,
+html[data-theme="classic-modern"] .user-page .user-side-link--active,
+html[data-theme="classic-modern"] .user-page .account-change-form button:hover,
+html[data-theme="classic-modern"] .user-page .saved-post-remove:hover,
+html[data-theme="classic-modern"] .user-page .saved-post-link:hover {
+  border: 2px solid #b8b8b8 !important;
+}
+
+html[data-theme="classic-modern"] .navbar-profile-pic {
+  border: 2px solid #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .user-page {
+  outline: 10px solid lime !important;
+}
+
+body {
+  outline: 12px solid lime !important;
+}
+
+html body {
+  outline: 12px solid lime !important;
+}
+
+html body {
+  outline: 12px solid lime !important;
+}
+
+/* =========================================================
+   CLASSIC MODERN - USER PAGE BORDER COLORS ONLY
+   Uses the Classic Modern theme values.
+========================================================= */
+
+html[data-theme="classic-modern"] .user-page .user-page-card,
+html[data-theme="classic-modern"] .user-page .user-info-card,
+html[data-theme="classic-modern"] .user-page .user-saved-posts-card,
+html[data-theme="classic-modern"] .user-page .user-side-bar,
+html[data-theme="classic-modern"] .user-page .account-profile-header,
+html[data-theme="classic-modern"] .user-page .account-info-row,
+html[data-theme="classic-modern"] .user-page .account-change-section,
+html[data-theme="classic-modern"] .user-page .saved-post-card,
+html[data-theme="classic-modern"] .user-page .saved-post-image,
+html[data-theme="classic-modern"] .user-page .profile-picture-preview,
+html[data-theme="classic-modern"] .user-page .account-profile-picture {
+  border-color: var(--theme-border) !important;
+}
+
+html[data-theme="classic-modern"] .user-page .account-info-row {
+  border-bottom-color: var(--theme-border) !important;
+}
+
+html[data-theme="classic-modern"] .user-page .user-side-link,
+html[data-theme="classic-modern"] .user-page .account-change-form input,
+html[data-theme="classic-modern"] .user-page .account-change-form button,
+html[data-theme="classic-modern"] .user-page .saved-post-remove,
+html[data-theme="classic-modern"] .user-page .saved-post-link,
+html[data-theme="classic-modern"] .user-page .photo-search,
+html[data-theme="classic-modern"] .user-page .photo-filter {
+  border-color: var(--theme-border) !important;
+}
+
+html[data-theme="classic-modern"] .user-page .user-side-link:hover,
+html[data-theme="classic-modern"] .user-page .user-side-link--active,
+html[data-theme="classic-modern"] .user-page .account-change-form button:hover,
+html[data-theme="classic-modern"] .user-page .saved-post-remove:hover,
+html[data-theme="classic-modern"] .user-page .saved-post-link:hover {
+  border-color: #b8b8b8 !important;
+}
+
+/* =========================================================
+   CLASSIC MODERN - USER PAGE FULL BORDER VALUE ONLY
+========================================================= */
+
+html[data-theme="classic-modern"] .user-page .user-page-card,
+html[data-theme="classic-modern"] .user-page .user-info-card,
+html[data-theme="classic-modern"] .user-page .user-saved-posts-card,
+html[data-theme="classic-modern"] .user-page .user-side-bar,
+html[data-theme="classic-modern"] .user-page .account-profile-header,
+html[data-theme="classic-modern"] .user-page .account-info-row,
+html[data-theme="classic-modern"] .user-page .account-change-section,
+html[data-theme="classic-modern"] .user-page .saved-post-card,
+html[data-theme="classic-modern"] .user-page .saved-post-image,
+html[data-theme="classic-modern"] .user-page .profile-picture-preview,
+html[data-theme="classic-modern"] .user-page .account-profile-picture,
+html[data-theme="classic-modern"] .user-page .user-side-link,
+html[data-theme="classic-modern"] .user-page .account-change-form input,
+html[data-theme="classic-modern"] .user-page .account-change-form button,
+html[data-theme="classic-modern"] .user-page .saved-post-remove,
+html[data-theme="classic-modern"] .user-page .saved-post-link,
+html[data-theme="classic-modern"] .user-page .photo-search,
+html[data-theme="classic-modern"] .user-page .photo-filter {
+  border: 2px solid var(--theme-border) !important;
+}
+
+html[data-theme="classic-modern"] .user-page .account-info-row {
+  border-bottom: 2px solid var(--theme-border) !important;
+}
+
+/* =========================================================
+   CLASSIC MODERN - USER ACCOUNT INFO GREY BOXES
+   Changes the black account info boxes to grey.
+========================================================= */
+
+/* The profile picture + username box */
+html[data-theme="classic-modern"] .user-page .account-profile-header {
+  background: rgba(143, 143, 143, 0.28) !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f8f8f !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Each account info row box */
+html[data-theme="classic-modern"] .user-page .account-info-row {
+  background: rgba(143, 143, 143, 0.28) !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f8f8f !important;
+  border-bottom: 2px solid #8f8f8f !important;
+
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the text readable */
+html[data-theme="classic-modern"] .user-page .account-info-row span,
+html[data-theme="classic-modern"] .user-page .account-info-row strong,
+html[data-theme="classic-modern"] .user-page .account-profile-header h2,
+html[data-theme="classic-modern"] .user-page .account-profile-header p {
+  color: #ffffff !important;
+}
+
+/* Classic Modern - make the main Account Info container grey */
+
+html[data-theme="classic-modern"] .user-page .user-page-card.user-info-card {
+  background: #2b2b2b !important;
+  color: #ffffff !important;
+  border: 2px solid #8f8f8f !important;
+}
+
+/* Classic Modern - make the entire User Page sidebar grey */
+
+html[data-theme="classic-modern"] .user-page .user-side-bar {
+  background: #2b2b2b !important;
+  color: #ffffff !important;
+
+  border-right: 2px solid #8f8f8f !important;
+  border-top: 2px solid #8f8f8f !important;
+  border-bottom: 2px solid #8f8f8f !important;
+  border-left: none !important;
+
+  box-shadow: none !important;
+}

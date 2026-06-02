@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken'
 import { parse } from 'cookie'
-import { ObjectId } from 'mongodb'
 import { connectToDatabase } from './_db.js'
 
 const sendJson = (statusCode, data) => {
@@ -13,53 +12,64 @@ const sendJson = (statusCode, data) => {
   }
 }
 
-export const handler = async (event) => {
+const getSignedInUserId = (event) => {
   const jwtSecret = process.env.JWT_SECRET
 
   if (!jwtSecret) {
-    return sendJson(500, {
-      error: 'JWT secret is missing.',
+    return ''
+  }
+
+  const cookies = parse(event.headers.cookie || '')
+  const token = cookies.wylb_token
+
+  if (!token) {
+    return ''
+  }
+
+  try {
+    const decoded = jwt.verify(token, jwtSecret)
+    return decoded.userId
+  } catch (error) {
+    return ''
+  }
+}
+
+export const handler = async (event) => {
+  const userId = getSignedInUserId(event)
+
+  if (!userId) {
+    return sendJson(401, {
+      error: 'You must be signed in to view saved posts.',
     })
   }
 
   try {
-    const cookies = parse(event.headers.cookie || '')
-    const loginToken = cookies.wylb_token
-
-    if (!loginToken) {
-      return sendJson(401, {
-        error: 'Not signed in.',
-      })
-    }
-
-    const tokenData = jwt.verify(loginToken, jwtSecret)
-
     const { db } = await connectToDatabase()
-    const users = db.collection('users')
+    const savedPosts = db.collection('savedPosts')
 
-    const account = await users.findOne({
-      _id: new ObjectId(tokenData.userId),
-    })
-
-    if (!account) {
-      return sendJson(401, {
-        error: 'Account not found.',
-      })
-    }
+    const posts = await savedPosts
+      .find({ userId })
+      .sort({ savedAt: -1 })
+      .toArray()
 
     return sendJson(200, {
-      user: {
-        id: account._id.toString(),
-        firstName: account.firstName,
-        lastName: account.lastName,
-        username: account.username,
-        email: account.email,
-        role: account.role || 'user',
-      },
+      posts: posts.map((post) => ({
+        id: post.postId,
+        source: post.source || '',
+        category: post.category || '',
+        title: post.title || '',
+        description: post.description || '',
+        image: post.image || '',
+        url: post.url || '',
+        date: post.date || '',
+        mediaType: post.mediaType || '',
+        savedAt: post.savedAt || '',
+      })),
     })
   } catch (error) {
-    return sendJson(401, {
-      error: 'Login expired or invalid.',
+    return sendJson(500, {
+      error: 'Could not load saved posts.',
+      details: error.message,
     })
   }
 }

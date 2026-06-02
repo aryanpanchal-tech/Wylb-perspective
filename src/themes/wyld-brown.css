@@ -199,3 +199,136 @@ html[data-theme="wyld-brown"] .photo-carousel::-webkit-scrollbar-thumb,
 html[data-theme="wyld-brown"] .video-carousel::-webkit-scrollbar-thumb {
   background: var(--button-bg);
 }
+
+/* User Page - Wyld Brown Theme */
+
+html[data-theme="wyld-brown"] .user-side-bar,
+html[data-theme="wyld-brown"] .user-page-card,
+html[data-theme="wyld-brown"] .account-change-section,
+html[data-theme="wyld-brown"] .saved-post-card,
+html[data-theme="wyld-brown"] .account-info-box,
+html[data-theme="wyld-brown"] .account-profile-header {
+  background: rgba(74, 49, 31, 0.95);
+  color: #ffffff;
+  border-color: rgba(201, 155, 108, 0.45);
+}
+
+html[data-theme="wyld-brown"] .user-side-link,
+html[data-theme="wyld-brown"] .account-change-form input,
+html[data-theme="wyld-brown"] .account-change-form button,
+html[data-theme="wyld-brown"] .saved-post-remove,
+html[data-theme="wyld-brown"] .saved-post-link,
+html[data-theme="wyld-brown"] .photo-search,
+html[data-theme="wyld-brown"] .photo-filter {
+  background: rgba(111, 67, 36, 0.82);
+  color: #ffffff;
+  border-color: rgba(201, 155, 108, 0.45);
+}
+
+html[data-theme="wyld-brown"] .user-side-link:hover,
+html[data-theme="wyld-brown"] .user-side-link--active,
+html[data-theme="wyld-brown"] .account-change-form button:hover,
+html[data-theme="wyld-brown"] .saved-post-remove:hover,
+html[data-theme="wyld-brown"] .saved-post-link:hover {
+  background: rgba(201, 155, 108, 0.9);
+  color: #ffffff;
+  border-color: rgba(201, 155, 108, 0.6);
+}
+
+html[data-theme="wyld-brown"] .account-info-row {
+  border-bottom: 1px solid rgba(201, 155, 108, 0.25);
+}
+
+html[data-theme="wyld-brown"] .saved-post-info {
+  background: linear-gradient(
+    to top,
+    rgba(74, 49, 31, 0.95),
+    rgba(74, 49, 31, 0.65),
+    rgba(74, 49, 31, 0)
+  );
+}
+
+html[data-theme="wyld-brown"] .account-profile-picture,
+html[data-theme="wyld-brown"] .profile-picture-preview {
+  border-color: rgba(201, 155, 108, 0.45);
+}
+
+html[data-theme="wyld-brown"] .user-page-card h1,
+html[data-theme="wyld-brown"] .user-page-card h2,
+html[data-theme="wyld-brown"] .user-page-card p,
+html[data-theme="wyld-brown"] .user-side-bar h2,
+html[data-theme="wyld-brown"] .account-info-row span,
+html[data-theme="wyld-brown"] .account-info-row strong,
+html[data-theme="wyld-brown"] .account-profile-header h2,
+html[data-theme="wyld-brown"] .account-profile-header p,
+html[data-theme="wyld-brown"] .account-change-section h2,
+html[data-theme="wyld-brown"] .user-page-message {
+  color: #ffffff;
+}
+
+/* USER PAGE - WYLD BROWN OVERRIDES */
+
+html[data-theme="wyld-brown"] .user-page-card,
+html[data-theme="wyld-brown"] .user-info-card,
+html[data-theme="wyld-brown"] .user-saved-posts-card,
+html[data-theme="wyld-brown"] .user-side-bar,
+html[data-theme="wyld-brown"] .account-change-section,
+html[data-theme="wyld-brown"] .saved-post-card {
+  background: rgba(74, 49, 31, 0.96) !important;
+  color: #ffffff !important;
+  border-color: rgba(201, 155, 108, 0.45) !important;
+}
+
+html[data-theme="wyld-brown"] .account-profile-header {
+  background: transparent !important;
+  border: none !important;
+}
+
+html[data-theme="wyld-brown"] .account-info-row {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(201, 155, 108, 0.35) !important;
+}
+
+html[data-theme="wyld-brown"] .user-side-link,
+html[data-theme="wyld-brown"] .account-change-form input,
+html[data-theme="wyld-brown"] .account-change-form button,
+html[data-theme="wyld-brown"] .saved-post-remove,
+html[data-theme="wyld-brown"] .saved-post-link,
+html[data-theme="wyld-brown"] .photo-search,
+html[data-theme="wyld-brown"] .photo-filter {
+  background: rgba(111, 67, 36, 0.88) !important;
+  color: #ffffff !important;
+  border-color: rgba(201, 155, 108, 0.45) !important;
+}
+
+html[data-theme="wyld-brown"] .user-side-link:hover,
+html[data-theme="wyld-brown"] .user-side-link--active,
+html[data-theme="wyld-brown"] .account-change-form button:hover,
+html[data-theme="wyld-brown"] .saved-post-remove:hover,
+html[data-theme="wyld-brown"] .saved-post-link:hover {
+  background: rgba(201, 155, 108, 0.9) !important;
+  color: #ffffff !important;
+  border-color: rgba(201, 155, 108, 0.7) !important;
+}
+
+html[data-theme="wyld-brown"] .saved-post-info {
+  background: linear-gradient(
+    to top,
+    rgba(74, 49, 31, 0.96),
+    rgba(74, 49, 31, 0.68),
+    rgba(74, 49, 31, 0)
+  ) !important;
+}
+
+html[data-theme="wyld-brown"] .user-page-card h1,
+html[data-theme="wyld-brown"] .user-page-card h2,
+html[data-theme="wyld-brown"] .user-page-card p,
+html[data-theme="wyld-brown"] .user-side-bar h2,
+html[data-theme="wyld-brown"] .account-info-row span,
+html[data-theme="wyld-brown"] .account-info-row strong,
+html[data-theme="wyld-brown"] .account-profile-header h2,
+html[data-theme="wyld-brown"] .account-profile-header p,
+html[data-theme="wyld-brown"] .account-change-section h2,
+html[data-theme="wyld-brown"] .user-page-message {
+  color: #ffffff !important;
+}

@@ -66,7 +66,7 @@ function SignUp() {
 
       setTimeout(() => {
         navigate('/login')
-      }, 800)
+      }, 900)
     } catch (error) {
       setMessage('Could not connect to the server.')
     }
@@ -78,7 +78,7 @@ function SignUp() {
     <div className="app">
       <Navbar />
 
-      <section className="auth-page auth-page--video">
+      <section className="auth-page auth-page--video signup-auth-page">
         <video
           className="auth-bg-video"
           autoPlay
@@ -86,7 +86,7 @@ function SignUp() {
           loop
           playsInline
         >
-          <source src="/Videos/auth-bg.mp4" type="video/mp4" />
+          <source src="/Videos/Keke%20%40%2040%2060fps.mp4" type="video/mp4" />
         </video>
 
         <div className="auth-video-overlay"></div>
@@ -97,11 +97,11 @@ function SignUp() {
           <h1>Create Account</h1>
 
           <p>
-            Sign up to create your Wylb Perspective account.
+            Create an account with your basic sign up information.
           </p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
-            <div className="auth-row">
+            <div className="auth-name-row">
               <input
                 type="text"
                 name="firstName"

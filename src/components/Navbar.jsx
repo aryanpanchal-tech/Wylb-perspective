@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext'
 
 const themeOptions = [
   {
-    label: 'Coffee brown',
+    label: 'Wyld Brown',
     value: 'wyld-brown',
   },
   {
@@ -16,7 +16,7 @@ const themeOptions = [
     value: 'rose-gold',
   },
   {
-    label: 'Paper White',
+    label: 'Clean Light',
     value: 'clean-light',
   },
   {
@@ -36,15 +36,29 @@ function Navbar() {
   const [currentUser, setCurrentUser] = useState(null)
   const [logoutMessage, setLogoutMessage] = useState('')
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('siteTheme')
+  const checkLoginStatus = async () => {
+    try {
+      const response = await fetch('/.netlify/functions/status', {
+        credentials: 'include',
+      })
 
-    if (savedTheme) {
-      setSelectedTheme(savedTheme)
-      document.documentElement.setAttribute('data-theme', savedTheme)
-    } else {
-      document.documentElement.setAttribute('data-theme', 'wyld-brown')
+      const result = await response.json()
+
+      if (response.ok && result.user) {
+        setCurrentUser(result.user)
+      } else {
+        setCurrentUser(null)
+      }
+    } catch (error) {
+      setCurrentUser(null)
     }
+  }
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('siteTheme') || 'wyld-brown'
+
+    setSelectedTheme(savedTheme)
+    document.documentElement.setAttribute('data-theme', savedTheme)
   }, [])
 
   useEffect(() => {
@@ -61,38 +75,32 @@ function Navbar() {
   }, [])
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
-      try {
-        const response = await fetch('/.netlify/functions/status', {
-          credentials: 'include',
-        })
+    checkLoginStatus()
 
-        const result = await response.json()
-
-        if (response.ok && result.user) {
-          setCurrentUser(result.user)
-        } else {
-          setCurrentUser(null)
-        }
-      } catch (error) {
-        setCurrentUser(null)
-      }
+    const refreshUser = () => {
+      checkLoginStatus()
     }
 
-    checkLoginStatus()
+    window.addEventListener('accountUpdated', refreshUser)
+
+    return () => {
+      window.removeEventListener('accountUpdated', refreshUser)
+    }
   }, [])
 
   useEffect(() => {
-    const savedLogoutMessage = sessionStorage.getItem('logoutMessage')
+    const savedMessage = sessionStorage.getItem('logoutMessage')
 
-    if (savedLogoutMessage) {
-      setLogoutMessage(savedLogoutMessage)
-      sessionStorage.removeItem('logoutMessage')
-
-      setTimeout(() => {
-        setLogoutMessage('')
-      }, 3000)
+    if (!savedMessage) {
+      return
     }
+
+    setLogoutMessage(savedMessage)
+    sessionStorage.removeItem('logoutMessage')
+
+    setTimeout(() => {
+      setLogoutMessage('')
+    }, 3000)
   }, [])
 
   const changeTheme = (event) => {
@@ -190,20 +198,30 @@ function Navbar() {
       </ul>
 
       <div className="navbar-right-side">
-          {currentUser && (
-        <Link
-          to="/userPage"
-          className="navbar-username"
-          onClick={() => setDrawerOpen(false)}
-        >
-          @{currentUser.username}
-        </Link>
-      )}
+        {currentUser && (
+          <Link
+            to="/userPage"
+            className="navbar-user-link"
+            onClick={() => setDrawerOpen(false)}
+          >
+            <div className="navbar-profile-pic">
+              {currentUser.profileImage ? (
+                <img src={currentUser.profileImage} alt={currentUser.username} />
+              ) : (
+                <span>{currentUser.username?.charAt(0).toUpperCase()}</span>
+              )}
+            </div>
+
+            <span className="navbar-username">
+              @{currentUser.username}
+            </span>
+          </Link>
+        )}
 
         <button
           type="button"
           className="navbar-menu-icon"
-          onClick={() => setDrawerOpen(!drawerOpen)}
+          onClick={() => setDrawerOpen((isOpen) => !isOpen)}
           aria-label="Open navigation menu"
         >
           <span></span>

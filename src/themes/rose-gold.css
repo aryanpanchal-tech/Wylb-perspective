@@ -880,3 +880,133 @@ html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info 
 html[data-theme="rose-gold"] .video-viewer-fullscreen .video-viewer-bottom-info p {
   color: #ffffff !important;
 }
+
+/* =========================================================
+   ROSE GOLD - USER PAGE SAME COLOR AS PACKAGE HEADER
+========================================================= */
+
+/* Main black areas: sidebar + big user cards */
+html[data-theme="rose-gold"] .user-page .user-side-bar,
+html[data-theme="rose-gold"] .user-page .user-page-card,
+html[data-theme="rose-gold"] .user-page .user-info-card,
+html[data-theme="rose-gold"] .user-page .user-saved-posts-card {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  box-shadow: none !important;
+}
+
+/* Profile box */
+html[data-theme="rose-gold"] .user-page .account-profile-header {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  box-shadow: none !important;
+}
+
+/* Each account info row */
+html[data-theme="rose-gold"] .user-page .account-info-row {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  border-bottom: 2px solid #803f49 !important;
+
+  box-shadow: none !important;
+}
+
+/* Sidebar buttons */
+html[data-theme="rose-gold"] .user-page .user-side-link {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .user-page .user-side-link:hover,
+html[data-theme="rose-gold"] .user-page .user-side-link--active {
+  background: #803f49 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+}
+
+/* Settings boxes */
+html[data-theme="rose-gold"] .user-page .account-change-section {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  box-shadow: none !important;
+}
+
+/* Inputs and buttons */
+html[data-theme="rose-gold"] .user-page .account-change-form input,
+html[data-theme="rose-gold"] .user-page .account-change-form button,
+html[data-theme="rose-gold"] .user-page .photo-search,
+html[data-theme="rose-gold"] .user-page .photo-filter {
+  background: #803f49 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .user-page .account-change-form button:hover {
+  background: #ffffff !important;
+  color: #803f49 !important;
+}
+
+/* Saved post cards */
+html[data-theme="rose-gold"] .user-page .saved-post-card,
+html[data-theme="rose-gold"] .user-page .saved-post-image {
+  background: #b76f7d !important;
+  color: #ffffff !important;
+
+  border: 2px solid #803f49 !important;
+  box-shadow: none !important;
+}
+
+/* Saved post overlay */
+html[data-theme="rose-gold"] .user-page .saved-post-info {
+  background: linear-gradient(
+    to top,
+    rgba(183, 111, 125, 0.96),
+    rgba(183, 111, 125, 0.68),
+    rgba(183, 111, 125, 0)
+  ) !important;
+}
+
+/* Saved post buttons */
+html[data-theme="rose-gold"] .user-page .saved-post-remove,
+html[data-theme="rose-gold"] .user-page .saved-post-link {
+  background: #803f49 !important;
+  color: #ffffff !important;
+
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="rose-gold"] .user-page .saved-post-remove:hover,
+html[data-theme="rose-gold"] .user-page .saved-post-link:hover {
+  background: #ffffff !important;
+  color: #803f49 !important;
+}
+
+/* Text stays white */
+html[data-theme="rose-gold"] .user-page .user-page-card h1,
+html[data-theme="rose-gold"] .user-page .user-page-card h2,
+html[data-theme="rose-gold"] .user-page .user-page-card h3,
+html[data-theme="rose-gold"] .user-page .user-page-card p,
+html[data-theme="rose-gold"] .user-page .user-side-bar h2,
+html[data-theme="rose-gold"] .user-page .account-info-row span,
+html[data-theme="rose-gold"] .user-page .account-info-row strong,
+html[data-theme="rose-gold"] .user-page .account-profile-header h2,
+html[data-theme="rose-gold"] .user-page .account-profile-header p,
+html[data-theme="rose-gold"] .user-page .account-change-section h2,
+html[data-theme="rose-gold"] .user-page .user-page-message {
+  color: #ffffff !important;
+}

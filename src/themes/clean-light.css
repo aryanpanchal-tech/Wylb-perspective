@@ -1024,3 +1024,140 @@ html[data-theme="clean-light"] .video-slider-arrow:disabled {
   border: 2px solid #777777 !important;
   opacity: 0.65 !important;
 }
+
+/* =========================================================
+   CLEAN LIGHT - USER PAGE BRIGHT GREY AREAS
+========================================================= */
+
+/* Main User Page areas */
+html[data-theme="clean-light"] .user-page .user-side-bar,
+html[data-theme="clean-light"] .user-page .user-page-card,
+html[data-theme="clean-light"] .user-page .user-info-card,
+html[data-theme="clean-light"] .user-page .user-saved-posts-card {
+  background: #f2f2f2 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+/* Profile box */
+html[data-theme="clean-light"] .user-page .account-profile-header {
+  background: #f7f7f7 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+/* Account info rows */
+html[data-theme="clean-light"] .user-page .account-info-row {
+  background: #f7f7f7 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  border-bottom: 2px solid #d6d6d6 !important;
+
+  box-shadow: none !important;
+}
+
+/* Sidebar buttons */
+html[data-theme="clean-light"] .user-page .user-side-link {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .user-page .user-side-link:hover,
+html[data-theme="clean-light"] .user-page .user-side-link--active {
+  background: #e8e8e8 !important;
+  color: #111111 !important;
+
+  border: 2px solid #bdbdbd !important;
+}
+
+/* Settings boxes */
+html[data-theme="clean-light"] .user-page .account-change-section {
+  background: #f7f7f7 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+/* Inputs and buttons */
+html[data-theme="clean-light"] .user-page .account-change-form input,
+html[data-theme="clean-light"] .user-page .photo-search,
+html[data-theme="clean-light"] .user-page .photo-filter {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .user-page .account-change-form button {
+  background: #e8e8e8 !important;
+  color: #111111 !important;
+
+  border: 2px solid #bdbdbd !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .user-page .account-change-form button:hover {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Saved post cards */
+html[data-theme="clean-light"] .user-page .saved-post-card,
+html[data-theme="clean-light"] .user-page .saved-post-image {
+  background: #f7f7f7 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+/* Saved post overlay */
+html[data-theme="clean-light"] .user-page .saved-post-info {
+  background: linear-gradient(
+    to top,
+    rgba(242, 242, 242, 0.96),
+    rgba(247, 247, 247, 0.72),
+    rgba(247, 247, 247, 0)
+  ) !important;
+}
+
+/* Saved post buttons */
+html[data-theme="clean-light"] .user-page .saved-post-remove,
+html[data-theme="clean-light"] .user-page .saved-post-link {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d6d6d6 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .user-page .saved-post-remove:hover,
+html[data-theme="clean-light"] .user-page .saved-post-link:hover {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Text stays dark */
+html[data-theme="clean-light"] .user-page .user-page-card h1,
+html[data-theme="clean-light"] .user-page .user-page-card h2,
+html[data-theme="clean-light"] .user-page .user-page-card h3,
+html[data-theme="clean-light"] .user-page .user-page-card p,
+html[data-theme="clean-light"] .user-page .user-side-bar h2,
+html[data-theme="clean-light"] .user-page .account-info-row span,
+html[data-theme="clean-light"] .user-page .account-info-row strong,
+html[data-theme="clean-light"] .user-page .account-profile-header h2,
+html[data-theme="clean-light"] .user-page .account-profile-header p,
+html[data-theme="clean-light"] .user-page .account-change-section h2,
+html[data-theme="clean-light"] .user-page .user-page-message {
+  color: #111111 !important;
+}

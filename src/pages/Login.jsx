@@ -7,29 +7,27 @@ import LanguageToggle from '../components/LanguageToggle'
 function Login() {
   const navigate = useNavigate()
 
-  const [loginInfo, setLoginInfo] = useState({
+  const [formData, setFormData] = useState({
     login: '',
     password: '',
   })
 
   const [message, setMessage] = useState('')
-  const [isSigningIn, setIsSigningIn] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const handleChange = (event) => {
-    const fieldName = event.target.name
-    const fieldValue = event.target.value
+  const updateField = (event) => {
+    const { name, value } = event.target
 
-    setLoginInfo((currentInfo) => ({
-      ...currentInfo,
-      [fieldName]: fieldValue,
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
     }))
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     setMessage('')
-    setIsSigningIn(true)
+    setLoading(true)
 
     try {
       const response = await fetch('/.netlify/functions/login', {
@@ -38,18 +36,19 @@ function Login() {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(loginInfo),
+        body: JSON.stringify(formData),
       })
 
       const result = await response.json()
 
       if (!response.ok) {
         setMessage(result.error || 'Could not sign in.')
-        setIsSigningIn(false)
+        setLoading(false)
         return
       }
 
       setMessage('Signed in successfully.')
+      window.dispatchEvent(new Event('accountUpdated'))
 
       setTimeout(() => {
         navigate('/')
@@ -58,7 +57,7 @@ function Login() {
       setMessage('Could not connect to the server.')
     }
 
-    setIsSigningIn(false)
+    setLoading(false)
   }
 
   return (
@@ -73,7 +72,7 @@ function Login() {
           loop
           playsInline
         >
-          <source src="/Videos/auth-bg.mp4" type="video/mp4" />
+          <source src="/Videos/Keke @ 40 60fps.mp4" type="video/mp4" />
         </video>
 
         <div className="auth-video-overlay"></div>
@@ -92,8 +91,8 @@ function Login() {
               type="text"
               name="login"
               placeholder="Email or username"
-              value={loginInfo.login}
-              onChange={handleChange}
+              value={formData.login}
+              onChange={updateField}
               required
             />
 
@@ -101,8 +100,8 @@ function Login() {
               type="password"
               name="password"
               placeholder="Password"
-              value={loginInfo.password}
-              onChange={handleChange}
+              value={formData.password}
+              onChange={updateField}
               required
             />
 
@@ -112,8 +111,8 @@ function Login() {
               </p>
             )}
 
-            <button type="submit" className="auth-button" disabled={isSigningIn}>
-              {isSigningIn ? 'Signing in...' : 'Sign In'}
+            <button type="submit" className="auth-button" disabled={loading}>
+              {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
