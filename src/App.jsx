@@ -25,6 +25,7 @@ import Login from './pages/Login'
 
 import './App.css'
 import './themes/wyld-brown.css'
+import './themes/main.css'
 import './themes/classic-modern.css'
 import './themes/clean-light.css'
 import './themes/rose-gold.css'

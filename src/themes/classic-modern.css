@@ -1986,3 +1986,32 @@ html[data-theme="classic-modern"] .user-page .user-side-bar {
 
   box-shadow: none !important;
 }
+
+/* TEAM BOARD - CLASSIC MODERN THEME */
+
+html[data-theme="classic-modern"] #workers.team-showcase-section,
+html[data-theme="classic-modern"] #workers.quick-links-section.team-showcase-section,
+html[data-theme="classic-modern"] #team-workers.team-board-section {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: #8f8f8f !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .team-member-card,
+html[data-theme="classic-modern"] .team-board-card {
+  background: #000000 !important;
+  border-color: #8f8f8f !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="classic-modern"] .team-member-info,
+html[data-theme="classic-modern"] .team-board-name-strip {
+  background: rgba(0, 0, 0, 0.86) !important;
+  border-top-color: #8f8f8f !important;
+}
+
+html[data-theme="classic-modern"] .team-member-info h3,
+html[data-theme="classic-modern"] .team-board-name-strip h3 {
+  color: #ffffff !important;
+}

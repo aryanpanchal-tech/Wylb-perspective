@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 
+const DEFAULT_THEME = 'photo-display'
+
 const themeOptions = [
+  {
+    label: 'Main',
+    value: 'main',
+  },
   {
     label: 'Wyld Brown',
     value: 'wyld-brown',
@@ -28,17 +34,24 @@ const themeOptions = [
 function Navbar() {
   const { t } = useLanguage()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [scrolled, setScrolled] = useState(false)
-  const [selectedTheme, setSelectedTheme] = useState('wyld-brown')
+  const [selectedTheme, setSelectedTheme] = useState(DEFAULT_THEME)
   const [currentUser, setCurrentUser] = useState(null)
   const [logoutMessage, setLogoutMessage] = useState('')
+
+  const setDefaultTheme = () => {
+    setSelectedTheme(DEFAULT_THEME)
+    document.documentElement.setAttribute('data-theme', DEFAULT_THEME)
+  }
 
   const checkLoginStatus = async () => {
     try {
       const response = await fetch('/.netlify/functions/status', {
+        method: 'GET',
         credentials: 'include',
       })
 
@@ -46,19 +59,23 @@ function Navbar() {
 
       if (response.ok && result.user) {
         setCurrentUser(result.user)
+
+        const savedTheme = localStorage.getItem('siteTheme') || DEFAULT_THEME
+
+        setSelectedTheme(savedTheme)
+        document.documentElement.setAttribute('data-theme', savedTheme)
       } else {
         setCurrentUser(null)
+        setDefaultTheme()
       }
     } catch (error) {
       setCurrentUser(null)
+      setDefaultTheme()
     }
   }
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('siteTheme') || 'wyld-brown'
-
-    setSelectedTheme(savedTheme)
-    document.documentElement.setAttribute('data-theme', savedTheme)
+    setDefaultTheme()
   }, [])
 
   useEffect(() => {
@@ -76,7 +93,9 @@ function Navbar() {
 
   useEffect(() => {
     checkLoginStatus()
+  }, [location.pathname])
 
+  useEffect(() => {
     const refreshUser = () => {
       checkLoginStatus()
     }
@@ -88,22 +107,12 @@ function Navbar() {
     }
   }, [])
 
-  useEffect(() => {
-    const savedMessage = sessionStorage.getItem('logoutMessage')
-
-    if (!savedMessage) {
+  const changeTheme = (event) => {
+    if (!currentUser) {
+      setDefaultTheme()
       return
     }
 
-    setLogoutMessage(savedMessage)
-    sessionStorage.removeItem('logoutMessage')
-
-    setTimeout(() => {
-      setLogoutMessage('')
-    }, 3000)
-  }, [])
-
-  const changeTheme = (event) => {
     const newTheme = event.target.value
 
     setSelectedTheme(newTheme)
@@ -113,28 +122,29 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await fetch('/.netlify/functions/logout', {
+      const response = await fetch('/.netlify/functions/logout', {
         method: 'POST',
         credentials: 'include',
       })
 
+      if (!response.ok) {
+        setLogoutMessage('Could not log out. Please try again.')
+        return
+      }
+
       setCurrentUser(null)
       setDrawerOpen(false)
-
-      sessionStorage.setItem('logoutMessage', 'You have been logged out.')
       setLogoutMessage('You have been logged out.')
+      setDefaultTheme()
 
-      navigate('/')
+      window.dispatchEvent(new Event('accountUpdated'))
 
       setTimeout(() => {
         setLogoutMessage('')
-      }, 3000)
+        navigate('/')
+      }, 900)
     } catch (error) {
       setLogoutMessage('Could not log out. Please try again.')
-
-      setTimeout(() => {
-        setLogoutMessage('')
-      }, 3000)
     }
   }
 
@@ -153,19 +163,27 @@ function Navbar() {
 
       <ul className="navbar-links">
         <li>
-          <Link to="/">{t.navbar.home}</Link>
+          <Link to="/">
+            {t.navbar.home}
+          </Link>
         </li>
 
         <li>
-          <a href="/#featured">{t.navbar.featured}</a>
+          <a href="/#featured">
+            {t.navbar.featured}
+          </a>
         </li>
 
         <li>
-          <a href="/#media">{t.navbar.media}</a>
+          <a href="/#media">
+            {t.navbar.media}
+          </a>
         </li>
 
         <li>
-          <Link to="/contact">{t.navbar.contact}</Link>
+          <Link to="/contact">
+            {t.navbar.contact}
+          </Link>
         </li>
 
         <li>
@@ -178,23 +196,27 @@ function Navbar() {
               Log Out
             </button>
           ) : (
-            <Link to="/login">Sign In</Link>
+            <Link to="/login">
+              Sign In
+            </Link>
           )}
         </li>
 
-        <li className="theme-dropdown-item">
-          <select
-            className="theme-dropdown"
-            value={selectedTheme}
-            onChange={changeTheme}
-          >
-            {themeOptions.map((theme) => (
-              <option key={theme.value} value={theme.value}>
-                {theme.label}
-              </option>
-            ))}
-          </select>
-        </li>
+        {currentUser && (
+          <li className="theme-dropdown-item">
+            <select
+              className="theme-dropdown"
+              value={selectedTheme}
+              onChange={changeTheme}
+            >
+              {themeOptions.map((theme) => (
+                <option key={theme.value} value={theme.value}>
+                  {theme.label}
+                </option>
+              ))}
+            </select>
+          </li>
+        )}
       </ul>
 
       <div className="navbar-right-side">
@@ -221,7 +243,7 @@ function Navbar() {
         <button
           type="button"
           className="navbar-menu-icon"
-          onClick={() => setDrawerOpen((isOpen) => !isOpen)}
+          onClick={() => setDrawerOpen(!drawerOpen)}
           aria-label="Open navigation menu"
         >
           <span></span>
@@ -232,6 +254,16 @@ function Navbar() {
 
       {drawerOpen && (
         <div className="navbar-drawer">
+          <div className="drawernavbar-profile-pic">
+            {currentUser ? (
+              currentUser.profileImage ? (
+                <img src={currentUser.profileImage} alt={currentUser.username} />
+              ) : (
+                <span>{currentUser.username?.charAt(0).toUpperCase()}</span>
+              )
+            ) : null}
+          </div>
+
           <div className="drawer-search-row">
             <input
               className="drawer-search"
@@ -243,21 +275,25 @@ function Navbar() {
             />
           </div>
 
-          <div className="drawer-theme-row">
-            <label className="drawer-theme-label">Themes</label>
+          {currentUser && (
+            <div className="drawer-theme-row">
+              <label className="drawer-theme-label">
+                Themes
+              </label>
 
-            <select
-              className="drawer-theme-dropdown"
-              value={selectedTheme}
-              onChange={changeTheme}
-            >
-              {themeOptions.map((theme) => (
-                <option key={theme.value} value={theme.value}>
-                  {theme.label}
-                </option>
-              ))}
-            </select>
-          </div>
+              <select
+                className="drawer-theme-dropdown"
+                value={selectedTheme}
+                onChange={changeTheme}
+              >
+                {themeOptions.map((theme) => (
+                  <option key={theme.value} value={theme.value}>
+                    {theme.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
 
           <Link
             to="/photos"

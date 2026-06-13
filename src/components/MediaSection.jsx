@@ -26,7 +26,7 @@ const workers = [
   {
     name: 'Matthew',
     role: 'Intern',
-    image: '/Images/',
+    image: '/Images/Timeless Toronto.jpg',
     description:
       'Currently an intern at wyld perspective studios, Matthew experienceing his first steps in the web development work force, experimening and expressing his creativity with wyld perspective studios through his tools of choice',
   },
@@ -36,6 +36,36 @@ const workers = [
     image: '/Art/aryan.jpg',
     description:
       'Aryan is a hard working intern at wyld perspective stuidos, an enthusiactic learner who is always looking to expand his knowlege and skills in the web development field, with a passion for creativity and a drive to succeed, Aryan is an asset to the team at wyld perspective studios',
+  },
+  {
+    name: 'Name Here',
+    role: 'Role Here',
+    image: '/Images/Smiling in the sunset.jpg',
+    description: 'Description here.',
+  },
+  {
+    name: 'Name Here',
+    role: 'Role Here',
+    image: '/Images/Playing at the park.jpg',
+    description: 'Description here.',
+  },
+  {
+    name: 'Name Here',
+    role: 'Role Here',
+    image: '/Images/Playing in the beach.jpg',
+    description: 'Description here.',
+  },
+  {
+    name: 'Name Here',
+    role: 'Role Here',
+    image: '/Images/Playful puppy.jpg',
+    description: 'Description here.',
+  },
+  {
+    name: 'Name Here',
+    role: 'Role Here',
+    image: '/Images/Timeless Toronto 2.0.jpg',
+    description: 'Description here.',
   },
 ]
 
@@ -93,6 +123,165 @@ const slideIndex = {
   photographers: 1,
   tech: 2,
   terms: 3,
+}
+
+const teamBoardStyles = {
+  section: {
+    width: 'min(1180px, 90%)',
+    maxWidth: '1180px',
+    margin: '70px auto',
+    padding: '48px',
+    display: 'block',
+    position: 'relative',
+    boxSizing: 'border-box',
+    border: '4px solid currentColor',
+    borderRadius: '12px',
+    overflow: 'hidden',
+    background: 'rgba(255, 255, 255, 0.08)',
+    color: 'inherit',
+  },
+  content: {
+    width: '100%',
+    maxWidth: 'none',
+    margin: 0,
+    padding: 0,
+    display: 'block',
+    transition: 'opacity 0.3s ease, transform 0.3s ease',
+  },
+  fading: {
+    opacity: 0,
+    transform: 'scale(0.97)',
+  },
+  header: {
+    width: 'min(760px, 100%)',
+    margin: '0 auto 38px',
+    textAlign: 'center',
+  },
+  title: {
+    margin: '12px 0 14px',
+    fontSize: 'clamp(2.3rem, 5vw, 4.4rem)',
+    lineHeight: 1,
+  },
+  intro: {
+    margin: '0 auto',
+    maxWidth: '720px',
+    lineHeight: 1.6,
+    fontWeight: 800,
+  },
+  grid: {
+    width: '100%',
+    maxWidth: 'none',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+    gap: '24px',
+    margin: 0,
+    padding: 0,
+  },
+  card: {
+    position: 'relative',
+    width: '100%',
+    aspectRatio: '1 / 1',
+    padding: 0,
+    margin: 0,
+    display: 'block',
+    overflow: 'hidden',
+    border: '3px solid currentColor',
+    borderRadius: '14px',
+    background: 'rgba(0, 0, 0, 0.16)',
+    color: 'inherit',
+    cursor: 'pointer',
+  },
+  imageWrap: {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+    borderRadius: 0,
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    display: 'block',
+    objectFit: 'cover',
+  },
+  nameStrip: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    minHeight: '58px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '12px',
+    background: 'rgba(0, 0, 0, 0.72)',
+    color: '#ffffff',
+    textAlign: 'center',
+    boxSizing: 'border-box',
+  },
+  name: {
+    margin: 0,
+    color: '#ffffff',
+    fontSize: '1.35rem',
+    fontWeight: 900,
+    lineHeight: 1.1,
+  },
+  selectedView: {
+    minHeight: '620px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    gap: '28px',
+  },
+  backButton: {
+    alignSelf: 'flex-start',
+    padding: '13px 20px',
+    border: '3px solid currentColor',
+    borderRadius: '12px',
+    background: 'transparent',
+    color: 'inherit',
+    fontWeight: 900,
+    cursor: 'pointer',
+  },
+  selectedBox: {
+    display: 'grid',
+    gridTemplateColumns: 'minmax(320px, 0.85fr) 1fr',
+    gap: '42px',
+    alignItems: 'center',
+    padding: '38px',
+    border: '4px solid currentColor',
+    borderRadius: '18px',
+    background: 'rgba(0, 0, 0, 0.16)',
+  },
+  selectedImageWrap: {
+    width: '100%',
+    minHeight: '500px',
+    border: '4px solid currentColor',
+    borderRadius: '16px',
+    overflow: 'hidden',
+  },
+  selectedImage: {
+    width: '100%',
+    height: '100%',
+    display: 'block',
+    objectFit: 'cover',
+  },
+  selectedTitle: {
+    margin: '16px 0 18px',
+    fontSize: 'clamp(2.6rem, 6vw, 5.2rem)',
+    lineHeight: 1,
+  },
+  selectedRole: {
+    margin: '0 0 22px',
+    fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+  },
+  selectedDescription: {
+    margin: 0,
+    maxWidth: '720px',
+    lineHeight: 1.8,
+    fontWeight: 800,
+    fontSize: '1.1rem',
+  },
 }
 
 function MediaCard({ category, title, description, image }) {
@@ -197,17 +386,12 @@ function TechCard({ item, t }) {
 function MediaSection() {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState(getInitialTab)
-  const [workerIndex, setWorkerIndex] = useState(0)
-  const [workerMove, setWorkerMove] = useState('')
-  const [workerLocked, setWorkerLocked] = useState(false)
+  const [selectedWorker, setSelectedWorker] = useState(null)
+  const [workerFading, setWorkerFading] = useState(false)
   const [selectedTerm, setSelectedTerm] = useState(null)
   const [termFading, setTermFading] = useState(false)
 
   const offset = slideIndex[activeTab] ?? 0
-
-  const currentWorker = workers[workerIndex]
-  const previousWorker = workers[(workerIndex - 1 + workers.length) % workers.length]
-  const nextWorker = workers[(workerIndex + 1) % workers.length]
 
   const changeTab = (tab) => {
     setActiveTab(tab)
@@ -236,26 +420,22 @@ function MediaSection() {
     }, 300)
   }
 
-  const changeWorker = (way) => {
-    if (workerLocked) {
-      return
-    }
-
-    setWorkerLocked(true)
-    setWorkerMove(way === 'next' ? 'moving-next' : 'moving-prev')
+  const openWorker = (worker) => {
+    setWorkerFading(true)
 
     setTimeout(() => {
-      setWorkerIndex((current) => {
-        if (way === 'next') {
-          return current === workers.length - 1 ? 0 : current + 1
-        }
+      setSelectedWorker(worker)
+      setWorkerFading(false)
+    }, 300)
+  }
 
-        return current === 0 ? workers.length - 1 : current - 1
-      })
+  const closeWorker = () => {
+    setWorkerFading(true)
 
-      setWorkerMove('')
-      setWorkerLocked(false)
-    }, 420)
+    setTimeout(() => {
+      setSelectedWorker(null)
+      setWorkerFading(false)
+    }, 300)
   }
 
   return (
@@ -331,7 +511,10 @@ function MediaSection() {
                 className={`media-terms-preview ${selectedTerm ? 'media-terms-preview--selected' : ''} ${termFading ? 'media-terms-preview--fading' : ''}`}
               >
                 <div className="media-terms-bg">
-                  <img src="/Images/Timeless Toronto.jpg" alt="Terms background" />
+                  <img
+                    src="/Images/Timeless Toronto.jpg"
+                    alt="Terms background"
+                  />
                 </div>
 
                 <div className="media-terms-overlay"></div>
@@ -348,7 +531,8 @@ function MediaSection() {
                         </h2>
 
                         <p>
-                          Review the terms for photo shoots, video work, art services, bookings, and creative requests.
+                          Review the terms for photo shoots, video work, art
+                          services, bookings, and creative requests.
                         </p>
                       </div>
 
@@ -362,7 +546,10 @@ function MediaSection() {
                           >
                             <div className="media-terms-icon">
                               {term.icon ? (
-                                <img src={term.icon} alt={`${term.title} icon`} />
+                                <img
+                                  src={term.icon}
+                                  alt={`${term.title} icon`}
+                                />
                               ) : (
                                 <span>Add Icon</span>
                               )}
@@ -441,49 +628,112 @@ function MediaSection() {
         </div>
       </section>
 
-      <section className="workers-section" id="workers">
-        <div className="workers-wrapper">
-          <div className="workers-content">
-            <span className="hero-tag">Our Team</span>
+      <section
+        className="team-board-section"
+        id="team-workers"
+        style={teamBoardStyles.section}
+      >
+        <div
+          className={`team-board-content ${selectedWorker ? 'team-board-content--selected' : ''} ${
+            workerFading ? 'team-board-content--fading' : ''
+          }`}
+          style={{
+            ...teamBoardStyles.content,
+            ...(workerFading ? teamBoardStyles.fading : {}),
+          }}
+        >
+          {!selectedWorker && (
+            <>
+              <div className="team-board-header" style={teamBoardStyles.header}>
+                <span className="hero-tag">Our Team</span>
 
-            <h2>{currentWorker.name}</h2>
+                <h2 style={teamBoardStyles.title}>Meet The Team</h2>
 
-            <div className="about-title-line"></div>
+                <p style={teamBoardStyles.intro}>
+                  Click on a team member to view their full profile, image, role,
+                  and description.
+                </p>
+              </div>
 
-            <h3>{currentWorker.role}</h3>
+              <div className="team-board-grid" style={teamBoardStyles.grid}>
+                {workers.map((worker, index) => (
+                  <button
+                    type="button"
+                    className="team-board-card"
+                    key={`${worker.name}-${index}`}
+                    onClick={() => openWorker(worker)}
+                    style={teamBoardStyles.card}
+                  >
+                    <div
+                      className="team-board-image"
+                      style={teamBoardStyles.imageWrap}
+                    >
+                      <img
+                        src={worker.image}
+                        alt={worker.name}
+                        style={teamBoardStyles.image}
+                      />
+                    </div>
 
-            <p>{currentWorker.description}</p>
-          </div>
+                    <div
+                      className="team-board-name-strip"
+                      style={teamBoardStyles.nameStrip}
+                    >
+                      <h3 style={teamBoardStyles.name}>{worker.name}</h3>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
 
-          <div className={`workers-image-gallery ${workerMove}`}>
-            <button
-              type="button"
-              className="worker-gallery-arrow worker-gallery-arrow-left"
-              onClick={() => changeWorker('prev')}
+          {selectedWorker && (
+            <div
+              className="team-board-selected-view"
+              style={teamBoardStyles.selectedView}
             >
-              &#10094;
-            </button>
+              <button
+                type="button"
+                className="team-board-back"
+                onClick={closeWorker}
+                style={teamBoardStyles.backButton}
+              >
+                Back to Team
+              </button>
 
-            <div className="worker-image-card worker-image-left">
-              <img src={previousWorker.image} alt={previousWorker.name} />
+              <div
+                className="team-board-selected-box"
+                style={teamBoardStyles.selectedBox}
+              >
+                <div
+                  className="team-board-selected-image"
+                  style={teamBoardStyles.selectedImageWrap}
+                >
+                  <img
+                    src={selectedWorker.image}
+                    alt={selectedWorker.name}
+                    style={teamBoardStyles.selectedImage}
+                  />
+                </div>
+
+                <div className="team-board-selected-info">
+                  <span className="hero-tag">Team Member</span>
+
+                  <h2 style={teamBoardStyles.selectedTitle}>
+                    {selectedWorker.name}
+                  </h2>
+
+                  <h3 style={teamBoardStyles.selectedRole}>
+                    {selectedWorker.role}
+                  </h3>
+
+                  <p style={teamBoardStyles.selectedDescription}>
+                    {selectedWorker.description}
+                  </p>
+                </div>
+              </div>
             </div>
-
-            <div className="worker-image-card worker-image-main">
-              <img src={currentWorker.image} alt={currentWorker.name} />
-            </div>
-
-            <div className="worker-image-card worker-image-right">
-              <img src={nextWorker.image} alt={nextWorker.name} />
-            </div>
-
-            <button
-              type="button"
-              className="worker-gallery-arrow worker-gallery-arrow-right"
-              onClick={() => changeWorker('next')}
-            >
-              &#10095;
-            </button>
-          </div>
+          )}
         </div>
       </section>
 
@@ -492,7 +742,12 @@ function MediaSection() {
           <h2>Explore More From Wyld Perspective</h2>
 
           <p>
-            Take a look at the different types that we do from photoshoots to video proges and art peices, we have a wide variety of work that we have done and are always looking to expand our portfolio with new and exciting projects, click on any of the categories below to explore more of our work and see how we can bring your ideas to life with our unique perspective and creative vision.
+            Take a look at the different types that we do from photoshoots to
+            video proges and art peices, we have a wide variety of work that we
+            have done and are always looking to expand our portfolio with new
+            and exciting projects, click on any of the categories below to
+            explore more of our work and see how we can bring your ideas to life
+            with our unique perspective and creative vision.
           </p>
         </div>
 
@@ -504,7 +759,8 @@ function MediaSection() {
             </div>
 
             <p>
-              View photo shoots, creative portraits, scenery, animals, and captured moments from Wyld Perspective Studios.
+              View photo shoots, creative portraits, scenery, animals, and
+              captured moments from Wyld Perspective Studios.
             </p>
 
             <div className="quick-link-actions">
@@ -521,7 +777,8 @@ function MediaSection() {
             </div>
 
             <p>
-              Watch video projects, short films, creative visuals, and storytelling work created by the studio.
+              Watch video projects, short films, creative visuals, and
+              storytelling work created by the studio.
             </p>
 
             <div className="quick-link-actions">
@@ -538,7 +795,8 @@ function MediaSection() {
             </div>
 
             <p>
-              Explore art projects, construction process shots, completed pieces, and creative visual work.
+              Explore art projects, construction process shots, completed
+              pieces, and creative visual work.
             </p>
 
             <div className="quick-link-actions">
@@ -555,7 +813,8 @@ function MediaSection() {
             </div>
 
             <p>
-              Check upcoming events, studio updates, live sessions, and announcements from Wyld Perspective Studios.
+              Check upcoming events, studio updates, live sessions, and
+              announcements from Wyld Perspective Studios.
             </p>
 
             <div className="quick-link-actions">
@@ -572,7 +831,12 @@ function MediaSection() {
           <h2>Video Packages</h2>
 
           <p>
-            Browse the deals that we have for our videos and choose how good of a deal you want, we have different packages for different types of projects, whether you are looking to capture a special moment in your life or you want to create a creative video project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+            Browse the deals that we have for our videos and choose how good of
+            a deal you want, we have different packages for different types of
+            projects, whether you are looking to capture a special moment in
+            your life or you want to create a creative video project, we have a
+            package that can fit your needs and help you bring your ideas to
+            life with our unique perspective and creative vision.
           </p>
         </div>
 
@@ -625,7 +889,11 @@ function MediaSection() {
           <h2>Art Packages</h2>
 
           <p>
-            Here you can view what type of art packages we have to offer, whether you are looking to capture the process of a creative project or you want to create a unique piece of art, we have different packages that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+            Here you can view what type of art packages we have to offer,
+            whether you are looking to capture the process of a creative project
+            or you want to create a unique piece of art, we have different
+            packages that can fit your needs and help you bring your ideas to
+            life with our unique perspective and creative vision.
           </p>
         </div>
 
@@ -678,7 +946,11 @@ function MediaSection() {
           <h2>Photo Packages</h2>
 
           <p>
-            Here you may view the different photo packages that we have to offer, whether you are looking to capture a special moment in your life or you want to create a creative photo project, we have a package that can fit your needs and help you bring your ideas to life with our unique perspective and creative vision.
+            Here you may view the different photo packages that we have to
+            offer, whether you are looking to capture a special moment in your
+            life or you want to create a creative photo project, we have a
+            package that can fit your needs and help you bring your ideas to
+            life with our unique perspective and creative vision.
           </p>
         </div>
 
@@ -738,10 +1010,13 @@ function MediaSection() {
           <h2>Have an idea you want to bring to life?</h2>
 
           <p>
-            With the help of wyld perspective, we can bring an exception
-            high quality peice of work to life wether it be through a photo shoot
-            or a video project, or maybe you are interested in capturing an important moment
-            in you're life and you would like to enhnance that moment, we are here to help you bring your ideas to life with our unique perspective and creative vision, contact us today to get started on your next project.
+            With the help of wyld perspective, we can bring an exception high
+            quality peice of work to life wether it be through a photo shoot or
+            a video project, or maybe you are interested in capturing an
+            important moment in you're life and you would like to enhnance that
+            moment, we are here to help you bring your ideas to life with our
+            unique perspective and creative vision, contact us today to get
+            started on your next project.
           </p>
 
           <Link to="/contact" className="home-contact-button">

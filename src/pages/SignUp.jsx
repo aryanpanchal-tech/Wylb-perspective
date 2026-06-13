@@ -68,7 +68,7 @@ function SignUp() {
         navigate('/login')
       }, 900)
     } catch (error) {
-      setMessage('Could not connect to the server.')
+      setMessage(`Could not connect to the server: ${error.message}`)
     }
 
     setLoading(false)
@@ -78,16 +78,12 @@ function SignUp() {
     <div className="app">
       <Navbar />
 
-      <section className="auth-page auth-page--video signup-auth-page">
-        <video
-          className="auth-bg-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/Videos/Keke%20%40%2040%2060fps.mp4" type="video/mp4" />
-        </video>
+      <section className="auth-page auth-page--image signup-auth-page">
+        <img
+          src="/Images/Timeless Toronto 2.0.jpg"
+          alt="Wylb Perspective background"
+          className="auth-bg-image"
+        />
 
         <div className="auth-video-overlay"></div>
 

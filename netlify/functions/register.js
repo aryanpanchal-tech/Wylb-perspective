@@ -15,6 +15,14 @@ const emailLooksValid = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
+const nameLooksValid = (name) => {
+  return /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/.test(name)
+}
+
+const usernameLooksValid = (username) => {
+  return /^[a-zA-Z0-9_]+$/.test(username)
+}
+
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return sendJson(405, {
@@ -37,6 +45,18 @@ export const handler = async (event) => {
       })
     }
 
+    if (!nameLooksValid(firstName)) {
+      return sendJson(400, {
+        error: 'First name can only contain letters, spaces, hyphens, and apostrophes.',
+      })
+    }
+
+    if (!nameLooksValid(lastName)) {
+      return sendJson(400, {
+        error: 'Last name can only contain letters, spaces, hyphens, and apostrophes.',
+      })
+    }
+
     if (!emailLooksValid(email)) {
       return sendJson(400, {
         error: 'Please enter a valid email address.',
@@ -46,6 +66,18 @@ export const handler = async (event) => {
     if (username.length < 3) {
       return sendJson(400, {
         error: 'Username must be at least 3 characters.',
+      })
+    }
+
+    if (username.length > 20) {
+      return sendJson(400, {
+        error: 'Username must be 20 characters or less.',
+      })
+    }
+
+    if (!usernameLooksValid(username)) {
+      return sendJson(400, {
+        error: 'Username can only contain letters, numbers, and underscores.',
       })
     }
 
@@ -81,6 +113,8 @@ export const handler = async (event) => {
       email,
       passwordHash: hashedPassword,
       role: 'user',
+      profileImage: '',
+      profileImagePublicId: '',
       createdAt: now,
       updatedAt: now,
     })

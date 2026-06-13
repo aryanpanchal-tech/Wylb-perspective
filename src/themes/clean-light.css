@@ -1161,3 +1161,32 @@ html[data-theme="clean-light"] .user-page .account-change-section h2,
 html[data-theme="clean-light"] .user-page .user-page-message {
   color: #111111 !important;
 }
+
+/* TEAM BOARD - CLEAN LIGHT THEME */
+
+html[data-theme="clean-light"] #workers.team-showcase-section,
+html[data-theme="clean-light"] #workers.quick-links-section.team-showcase-section,
+html[data-theme="clean-light"] #team-workers.team-board-section {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .team-member-card,
+html[data-theme="clean-light"] .team-board-card {
+  background: #ffffff !important;
+  border-color: #000000 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="clean-light"] .team-member-info,
+html[data-theme="clean-light"] .team-board-name-strip {
+  background: rgba(0, 0, 0, 0.86) !important;
+  border-top-color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .team-member-info h3,
+html[data-theme="clean-light"] .team-board-name-strip h3 {
+  color: #ffffff !important;
+}

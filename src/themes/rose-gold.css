@@ -1010,3 +1010,32 @@ html[data-theme="rose-gold"] .user-page .account-change-section h2,
 html[data-theme="rose-gold"] .user-page .user-page-message {
   color: #ffffff !important;
 }
+
+/* TEAM BOARD - ROSE GOLD THEME */
+
+html[data-theme="rose-gold"] #workers.team-showcase-section,
+html[data-theme="rose-gold"] #workers.quick-links-section.team-showcase-section,
+html[data-theme="rose-gold"] #team-workers.team-board-section {
+  background: #fff7f3 !important;
+  color: #241515 !important;
+  border-color: #b76e79 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .team-member-card,
+html[data-theme="rose-gold"] .team-board-card {
+  background: #ffffff !important;
+  border-color: #b76e79 !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme="rose-gold"] .team-member-info,
+html[data-theme="rose-gold"] .team-board-name-strip {
+  background: rgba(183, 110, 121, 0.92) !important;
+  border-top-color: #8c4f59 !important;
+}
+
+html[data-theme="rose-gold"] .team-member-info h3,
+html[data-theme="rose-gold"] .team-board-name-strip h3 {
+  color: #ffffff !important;
+}

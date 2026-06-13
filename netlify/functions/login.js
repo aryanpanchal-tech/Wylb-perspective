@@ -1,14 +1,18 @@
+console.log('Login function started')
+console.log('Mongo URI exists:', Boolean(process.env.MONGODB_URI))
+console.log('JWT secret exists:', Boolean(process.env.JWT_SECRET))
+
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie'
 import { connectToDatabase } from './_db.js'
 
-const sendJson = (statusCode, data, headers = {}) => {
+const sendJson = (statusCode, data, extraHeaders = {}) => {
   return {
     statusCode,
     headers: {
       'Content-Type': 'application/json',
-      ...headers,
+      ...extraHeaders,
     },
     body: JSON.stringify(data),
   }
@@ -21,15 +25,15 @@ export const handler = async (event) => {
     })
   }
 
-  const jwtSecret = process.env.JWT_SECRET
-
-  if (!jwtSecret) {
-    return sendJson(500, {
-      error: 'JWT secret is missing.',
-    })
-  }
-
   try {
+    const jwtSecret = process.env.JWT_SECRET
+
+    if (!jwtSecret) {
+      return sendJson(500, {
+        error: 'Missing JWT_SECRET in .env',
+      })
+    }
+
     const form = JSON.parse(event.body || '{}')
 
     const login = String(form.login || '').trim().toLowerCase()
@@ -57,9 +61,9 @@ export const handler = async (event) => {
       })
     }
 
-    const correctPassword = await bcrypt.compare(password, account.passwordHash)
+    const passwordMatches = await bcrypt.compare(password, account.passwordHash)
 
-    if (!correctPassword) {
+    if (!passwordMatches) {
       return sendJson(401, {
         error: 'Invalid email/username or password.',
       })
@@ -78,7 +82,7 @@ export const handler = async (event) => {
       }
     )
 
-    const loginCookie = serialize('wylb_token', token, {
+    const cookie = serialize('wylb_token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -97,10 +101,11 @@ export const handler = async (event) => {
           username: account.username,
           email: account.email,
           role: account.role || 'user',
+          profileImage: account.profileImage || '',
         },
       },
       {
-        'Set-Cookie': loginCookie,
+        'Set-Cookie': cookie,
       }
     )
   } catch (error) {

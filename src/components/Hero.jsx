@@ -13,11 +13,15 @@ function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <img
-        src="/Images/Timeless Toronto 2.0.jpg"
-        alt="Wylb Perspective"
-        className="hero-bg-img"
-      />
+      <video
+        className="hero-bg-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/Videos/Keke @ 40 60fps.mp4" type="video/mp4" />
+      </video>
 
       <div className="hero-overlay" />
 
@@ -29,8 +33,13 @@ function Hero() {
         <p className="hero-subtitle">{t.hero.subtitle}</p>
 
         <div className="hero-buttons">
-          <button className="hero-btn-primary">{t.hero.getStarted}</button>
-          <button className="hero-btn-secondary">{t.hero.learnMore}</button>
+          <button className="hero-btn-primary">
+            {t.hero.getStarted}
+          </button>
+
+          <button className="hero-btn-secondary">
+            {t.hero.learnMore}
+          </button>
         </div>
       </div>
 

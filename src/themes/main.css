@@ -1,0 +1,1175 @@
+/* =========================================================
+   MAIN THEME
+   Yellow header, white page background
+========================================================= */
+
+html[data-theme="main"],
+html[data-theme="main"] body {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Header / Navbar */
+html[data-theme="main"] .navbar {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border-bottom: 2px solid #d89f00 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .navbar--scrolled {
+  background: #FFBF00 !important;
+}
+
+/* Navbar links */
+html[data-theme="main"] .navbar a,
+html[data-theme="main"] .navbar button,
+html[data-theme="main"] .navbar-username {
+  color: #111111 !important;
+}
+
+html[data-theme="main"] .navbar-auth-button {
+  background: transparent !important;
+  color: #111111 !important;
+  border: none !important;
+}
+
+/* Theme dropdown */
+html[data-theme="main"] .theme-dropdown {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+/* Hamburger lines */
+html[data-theme="main"] .navbar-menu-icon span {
+  background: #111111 !important;
+}
+
+/* Drawer */
+html[data-theme="main"] .navbar-drawer {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .drawer-item,
+html[data-theme="main"] .drawer-auth-button {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .drawer-search,
+html[data-theme="main"] .drawer-theme-dropdown {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+/* Main page background sections */
+html[data-theme="main"] .app,
+html[data-theme="main"] .user-page,
+html[data-theme="main"] .auth-page,
+html[data-theme="main"] .photos-page,
+html[data-theme="main"] .videos-page,
+html[data-theme="main"] .events-page,
+html[data-theme="main"] .art-page,
+html[data-theme="main"] .tech-page,
+html[data-theme="main"] .contact-page {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Profile icon in navbar */
+html[data-theme="main"] .navbar-profile-pic {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 2px solid #111111 !important;
+}
+
+/* =========================================================
+   MAIN THEME - RED BUTTONS
+========================================================= */
+
+html[data-theme="main"] button,
+html[data-theme="main"] .auth-button,
+html[data-theme="main"] .save-button,
+html[data-theme="main"] .hero-button,
+html[data-theme="main"] .media-button,
+html[data-theme="main"] .featured-button,
+html[data-theme="main"] .drawer-item,
+html[data-theme="main"] .user-side-link,
+html[data-theme="main"] .account-change-form button,
+html[data-theme="main"] .saved-post-remove,
+html[data-theme="main"] .saved-post-link,
+html[data-theme="main"] .delete-account-confirm,
+html[data-theme="main"] .delete-account-cancel {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] button:hover,
+html[data-theme="main"] .auth-button:hover,
+html[data-theme="main"] .save-button:hover,
+html[data-theme="main"] .hero-button:hover,
+html[data-theme="main"] .media-button:hover,
+html[data-theme="main"] .featured-button:hover,
+html[data-theme="main"] .drawer-item:hover,
+html[data-theme="main"] .user-side-link:hover,
+html[data-theme="main"] .account-change-form button:hover,
+html[data-theme="main"] .saved-post-remove:hover,
+html[data-theme="main"] .saved-post-link:hover,
+html[data-theme="main"] .delete-account-confirm:hover,
+html[data-theme="main"] .delete-account-cancel:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - RED BUTTONS ONLY
+========================================================= */
+
+html[data-theme="main"] button,
+html[data-theme="main"] .hero-button,
+html[data-theme="main"] .media-button,
+html[data-theme="main"] .featured-button,
+html[data-theme="main"] .package-button,
+html[data-theme="main"] .pricing-button,
+html[data-theme="main"] .service-button,
+html[data-theme="main"] .auth-button,
+html[data-theme="main"] .save-button,
+html[data-theme="main"] .saved-post-link,
+html[data-theme="main"] .saved-post-remove,
+html[data-theme="main"] .account-change-form button,
+html[data-theme="main"] .user-side-link,
+html[data-theme="main"] a[class*="button"],
+html[data-theme="main"] a[class*="Button"] {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] button:hover,
+html[data-theme="main"] .hero-button:hover,
+html[data-theme="main"] .media-button:hover,
+html[data-theme="main"] .featured-button:hover,
+html[data-theme="main"] .package-button:hover,
+html[data-theme="main"] .pricing-button:hover,
+html[data-theme="main"] .service-button:hover,
+html[data-theme="main"] .auth-button:hover,
+html[data-theme="main"] .save-button:hover,
+html[data-theme="main"] .saved-post-link:hover,
+html[data-theme="main"] .saved-post-remove:hover,
+html[data-theme="main"] .account-change-form button:hover,
+html[data-theme="main"] .user-side-link:hover,
+html[data-theme="main"] a[class*="button"]:hover,
+html[data-theme="main"] a[class*="Button"]:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - SLIDER GALLERY ONLY
+   Yellow border + darker amber gallery background
+========================================================= */
+
+html[data-theme="main"] .photos-page .photo-carousel,
+html[data-theme="main"] .photos-page .photo-slideshow,
+html[data-theme="main"] .photos-page .gallery-slider,
+html[data-theme="main"] .photos-page .slider-gallery,
+html[data-theme="main"] .photos-page .carousel-wrapper,
+html[data-theme="main"] .photos-page .slideshow-wrapper,
+html[data-theme="main"] .art-page .art-carousel,
+html[data-theme="main"] .art-page .art-slideshow,
+html[data-theme="main"] .art-page .gallery-slider,
+html[data-theme="main"] .art-page .slider-gallery,
+html[data-theme="main"] .art-page .carousel-wrapper,
+html[data-theme="main"] .art-page .slideshow-wrapper,
+html[data-theme="main"] .videos-page .video-carousel,
+html[data-theme="main"] .videos-page .video-slideshow,
+html[data-theme="main"] .videos-page .gallery-slider,
+html[data-theme="main"] .videos-page .slider-gallery,
+html[data-theme="main"] .videos-page .carousel-wrapper,
+html[data-theme="main"] .videos-page .slideshow-wrapper {
+  background: #b87900 !important;
+  border: 4px solid #FFBF00 !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   MAIN THEME - VIDEO PACKAGES YELLOW + BORDERS BACK
+========================================================= */
+
+/* The main Video Packages container */
+html[data-theme="main"] .video-packages-section,
+html[data-theme="main"] .packages-section,
+html[data-theme="main"] .pricing-section {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+  border-radius: 12px !important;
+}
+
+/* Each package column/card */
+html[data-theme="main"] .video-package-card,
+html[data-theme="main"] .package-card,
+html[data-theme="main"] .pricing-card,
+html[data-theme="main"] .packages-section article,
+html[data-theme="main"] .pricing-section article {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+  border-radius: 10px !important;
+
+  padding: 22px !important;
+  box-shadow: none !important;
+}
+
+/* Package title boxes: Video Package One, Two, Three */
+html[data-theme="main"] .video-package-card h2,
+html[data-theme="main"] .package-card h2,
+html[data-theme="main"] .pricing-card h2,
+html[data-theme="main"] .packages-section article h2,
+html[data-theme="main"] .pricing-section article h2 {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+  border-radius: 8px !important;
+
+  padding: 12px 18px !important;
+  text-align: center !important;
+}
+
+/* Package bullet text */
+html[data-theme="main"] .video-package-card li,
+html[data-theme="main"] .package-card li,
+html[data-theme="main"] .pricing-card li,
+html[data-theme="main"] .packages-section article li,
+html[data-theme="main"] .pricing-section article li {
+  color: #111111 !important;
+}
+
+/* Keep Get Started buttons red */
+html[data-theme="main"] .video-package-card button,
+html[data-theme="main"] .package-card button,
+html[data-theme="main"] .pricing-card button,
+html[data-theme="main"] .packages-section article button,
+html[data-theme="main"] .pricing-section article button,
+html[data-theme="main"] .video-package-card a,
+html[data-theme="main"] .package-card a,
+html[data-theme="main"] .pricing-card a,
+html[data-theme="main"] .packages-section article a,
+html[data-theme="main"] .pricing-section article a {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  border-radius: 8px !important;
+
+  padding: 12px 18px !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .video-package-card button:hover,
+html[data-theme="main"] .package-card button:hover,
+html[data-theme="main"] .pricing-card button:hover,
+html[data-theme="main"] .packages-section article button:hover,
+html[data-theme="main"] .pricing-section article button:hover,
+html[data-theme="main"] .video-package-card a:hover,
+html[data-theme="main"] .package-card a:hover,
+html[data-theme="main"] .pricing-card a:hover,
+html[data-theme="main"] .packages-section article a:hover,
+html[data-theme="main"] .pricing-section article a:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - PACKAGE TITLE BOXES RED
+========================================================= */
+
+html[data-theme="main"] .video-package-card h2,
+html[data-theme="main"] .package-card h2,
+html[data-theme="main"] .pricing-card h2,
+html[data-theme="main"] .packages-section article h2,
+html[data-theme="main"] .pricing-section article h2 {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  border-radius: 8px !important;
+
+  padding: 12px 18px !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   MAIN THEME - PACKAGE TITLE BOXES RED
+   Targets the title rectangles like Photo Package One/Two/Three
+========================================================= */
+
+html[data-theme="main"] .package-title,
+html[data-theme="main"] .package-heading,
+html[data-theme="main"] .package-name,
+html[data-theme="main"] .package-card-title,
+html[data-theme="main"] .photo-package-title,
+html[data-theme="main"] .video-package-title,
+html[data-theme="main"] .photo-package-heading,
+html[data-theme="main"] .video-package-heading,
+html[data-theme="main"] .photo-package-card h2,
+html[data-theme="main"] .photo-package-card h3,
+html[data-theme="main"] .video-package-card h2,
+html[data-theme="main"] .video-package-card h3,
+html[data-theme="main"] .package-card h2,
+html[data-theme="main"] .package-card h3,
+html[data-theme="main"] .packages-grid h2,
+html[data-theme="main"] .packages-grid h3,
+html[data-theme="main"] .photo-packages-grid h2,
+html[data-theme="main"] .photo-packages-grid h3,
+html[data-theme="main"] .video-packages-grid h2,
+html[data-theme="main"] .video-packages-grid h3 {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+  border-radius: 10px !important;
+
+  padding: 18px 24px !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   MAIN THEME - PACKAGE CARD INSIDE BRIGHTER YELLOW
+========================================================= */
+
+html[data-theme="main"] .photo-package-card,
+html[data-theme="main"] .video-package-card,
+html[data-theme="main"] .package-card,
+html[data-theme="main"] .pricing-card,
+html[data-theme="main"] .packages-section article,
+html[data-theme="main"] .pricing-section article {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border-color: #d89f00 !important;
+}
+
+/* =========================================================
+   MAIN THEME - EXPLORE MORE / QUICK LINKS SECTION
+   Changes the brown Explore More area to yellow with border
+========================================================= */
+
+html[data-theme="main"] .quick-links-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 12px !important;
+
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Text inside the Explore More section */
+html[data-theme="main"] .quick-links-section h1,
+html[data-theme="main"] .quick-links-section h2,
+html[data-theme="main"] .quick-links-section h3,
+html[data-theme="main"] .quick-links-section p,
+html[data-theme="main"] .quick-links-section span {
+  color: #111111 !important;
+}
+
+/* The individual Photos / Videos / Art / Events areas */
+html[data-theme="main"] .quick-link-card {
+  background: transparent !important;
+  color: #111111 !important;
+
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the View buttons red */
+html[data-theme="main"] .quick-link-button,
+html[data-theme="main"] .quick-links-section button,
+html[data-theme="main"] .quick-links-section a[class*="button"],
+html[data-theme="main"] .quick-links-section a[class*="Button"] {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .quick-link-button:hover,
+html[data-theme="main"] .quick-links-section button:hover,
+html[data-theme="main"] .quick-links-section a[class*="button"]:hover,
+html[data-theme="main"] .quick-links-section a[class*="Button"]:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - FOOTER AMBER YELLOW
+========================================================= */
+
+html[data-theme="main"] .footer,
+html[data-theme="main"] footer {
+  background: #FFBF00 !important;
+  color: #111111 !important;
+
+  border-top: 3px solid #d89f00 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .footer h1,
+html[data-theme="main"] .footer h2,
+html[data-theme="main"] .footer h3,
+html[data-theme="main"] .footer p,
+html[data-theme="main"] .footer a,
+html[data-theme="main"] .footer span,
+html[data-theme="main"] footer h1,
+html[data-theme="main"] footer h2,
+html[data-theme="main"] footer h3,
+html[data-theme="main"] footer p,
+html[data-theme="main"] footer a,
+html[data-theme="main"] footer span {
+  color: #111111 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT PAGE WHITE BACKGROUND
+========================================================= */
+
+html[data-theme="main"] .contact-page,
+html[data-theme="main"] .contact-section,
+html[data-theme="main"] .contact-hero,
+html[data-theme="main"] .contact-page-wrapper {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Contact page title text */
+html[data-theme="main"] .contact-page h1,
+html[data-theme="main"] .contact-page h2,
+html[data-theme="main"] .contact-page h3,
+html[data-theme="main"] .contact-page p,
+html[data-theme="main"] .contact-section h1,
+html[data-theme="main"] .contact-section h2,
+html[data-theme="main"] .contact-section h3,
+html[data-theme="main"] .contact-section p {
+  color: #111111 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT FORM YELLOW BORDERS
+========================================================= */
+
+/* Main form box border */
+html[data-theme="main"] .contact-form,
+html[data-theme="main"] .contact-card,
+html[data-theme="main"] .contact-form-card,
+html[data-theme="main"] .contact-panel,
+html[data-theme="main"] .contact-box,
+html[data-theme="main"] .request-form,
+html[data-theme="main"] .request-card {
+  border: 3px solid #FFBF00 !important;
+  box-shadow: 0 0 0 2px #d89f00 !important;
+}
+
+/* Input / textarea / category button borders */
+html[data-theme="main"] .contact-page input,
+html[data-theme="main"] .contact-page textarea,
+html[data-theme="main"] .contact-page select,
+html[data-theme="main"] .contact-page .contact-category-button,
+html[data-theme="main"] .contact-page .category-button,
+html[data-theme="main"] .contact-page .request-type-button {
+  border: 2px solid #FFBF00 !important;
+}
+
+/* Keep the form button red */
+html[data-theme="main"] .contact-page button[type="submit"],
+html[data-theme="main"] .contact-page .contact-submit,
+html[data-theme="main"] .contact-page .request-submit {
+  background: #c1121f !important;
+  color: #ffffff !important;
+  border: 2px solid #8f0d17 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT FORM BOX YELLOW
+========================================================= */
+
+/* Entire brown contact form box */
+html[data-theme="main"] .contact-form,
+html[data-theme="main"] .contact-card,
+html[data-theme="main"] .contact-form-card,
+html[data-theme="main"] .contact-panel,
+html[data-theme="main"] .contact-box,
+html[data-theme="main"] .request-form,
+html[data-theme="main"] .request-card {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+/* Text inside the contact form box */
+html[data-theme="main"] .contact-form h1,
+html[data-theme="main"] .contact-form h2,
+html[data-theme="main"] .contact-form h3,
+html[data-theme="main"] .contact-form p,
+html[data-theme="main"] .contact-card h1,
+html[data-theme="main"] .contact-card h2,
+html[data-theme="main"] .contact-card h3,
+html[data-theme="main"] .contact-card p,
+html[data-theme="main"] .request-form h1,
+html[data-theme="main"] .request-form h2,
+html[data-theme="main"] .request-form h3,
+html[data-theme="main"] .request-form p {
+  color: #111111 !important;
+}
+
+/* Inputs inside the yellow box */
+html[data-theme="main"] .contact-page input,
+html[data-theme="main"] .contact-page textarea,
+html[data-theme="main"] .contact-page select {
+  background: #fff3a3 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+/* Art / Films / Photos buttons */
+html[data-theme="main"] .contact-page .contact-category-button,
+html[data-theme="main"] .contact-page .category-button,
+html[data-theme="main"] .contact-page .request-type-button {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #d89f00 !important;
+}
+
+/* Proceed button stays red */
+html[data-theme="main"] .contact-page button[type="submit"],
+html[data-theme="main"] .contact-page .contact-submit,
+html[data-theme="main"] .contact-page .request-submit {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT FORM INNER BOXES DARKER YELLOW
+========================================================= */
+
+/* Art / Films / Photos boxes */
+html[data-theme="main"] .contact-page .contact-category-button,
+html[data-theme="main"] .contact-page .category-button,
+html[data-theme="main"] .contact-page .request-type-button,
+html[data-theme="main"] .contact-page .contact-type-button {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #b87900 !important;
+  box-shadow: none !important;
+}
+
+/* First name, last name, email, and message box */
+html[data-theme="main"] .contact-page input,
+html[data-theme="main"] .contact-page textarea,
+html[data-theme="main"] .contact-page select {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #b87900 !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder text */
+html[data-theme="main"] .contact-page input::placeholder,
+html[data-theme="main"] .contact-page textarea::placeholder {
+  color: #111111 !important;
+}
+
+/* Keep Proceed button red */
+html[data-theme="main"] .contact-page button[type="submit"],
+html[data-theme="main"] .contact-page .contact-submit,
+html[data-theme="main"] .contact-page .request-submit {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT INNER FIELDS DARKER YELLOW
+   Put this at the VERY BOTTOM of main.css
+========================================================= */
+
+/* Art / Films / Photos option buttons only */
+html[data-theme="main"] .contact-page form button:not([type="submit"]) {
+  background: #d89f00 !important;
+  background-color: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #b87900 !important;
+  box-shadow: none !important;
+}
+
+/* First name, last name, email, and message box */
+html[data-theme="main"] .contact-page form input,
+html[data-theme="main"] .contact-page form textarea {
+  background: #d89f00 !important;
+  background-color: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 2px solid #b87900 !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder text */
+html[data-theme="main"] .contact-page form input::placeholder,
+html[data-theme="main"] .contact-page form textarea::placeholder {
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+
+/* Keep Proceed to email button red */
+html[data-theme="main"] .contact-page form button[type="submit"] {
+  background: #c1121f !important;
+  background-color: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT PAGE YELLOW BORDERS ONLY
+   Put this at the very bottom of main.css
+========================================================= */
+
+/* Big contact form container border */
+html[data-theme="main"] .contact-page form,
+html[data-theme="main"] .contact-page .contact-form,
+html[data-theme="main"] .contact-page .contact-card,
+html[data-theme="main"] .contact-page .contact-form-card,
+html[data-theme="main"] .contact-page .contact-panel,
+html[data-theme="main"] .contact-page .contact-box,
+html[data-theme="main"] .contact-page .request-form,
+html[data-theme="main"] .contact-page .request-card {
+  border: 4px solid #ffbf00 !important;
+  outline: 2px solid #d89f00 !important;
+  outline-offset: 0 !important;
+}
+
+/* Art / Films / Photos box borders */
+html[data-theme="main"] .contact-page form button,
+html[data-theme="main"] .contact-page .contact-category-button,
+html[data-theme="main"] .contact-page .category-button,
+html[data-theme="main"] .contact-page .request-type-button,
+html[data-theme="main"] .contact-page .contact-type-button {
+  border: 3px solid #ffbf00 !important;
+  outline: none !important;
+}
+
+/* First name, last name, email, and message borders */
+html[data-theme="main"] .contact-page form input,
+html[data-theme="main"] .contact-page form textarea,
+html[data-theme="main"] .contact-page form select,
+html[data-theme="main"] .contact-page input,
+html[data-theme="main"] .contact-page textarea,
+html[data-theme="main"] .contact-page select {
+  border: 3px solid #ffbf00 !important;
+  outline: none !important;
+}
+
+/* Stronger visible yellow border backup */
+html[data-theme="main"] .contact-page form input,
+html[data-theme="main"] .contact-page form textarea,
+html[data-theme="main"] .contact-page form button {
+  box-shadow: 0 0 0 1px #d89f00 !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT PAGE EXACT YELLOW BORDERS
+   Uses the real class names from Contact.jsx
+========================================================= */
+
+/* Big yellow contact form box */
+html[data-theme="main"] .contact-form {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 14px !important;
+
+  box-shadow: none !important;
+}
+
+/* Art / Films / Photos boxes */
+html[data-theme="main"] .contact-category span {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #ffbf00 !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+/* Selected Art / Films / Photos box */
+html[data-theme="main"] .contact-category input:checked + span {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+}
+
+/* First name, last name, email, and message fields */
+html[data-theme="main"] .contact-form input[type="text"],
+html[data-theme="main"] .contact-form input[type="email"],
+html[data-theme="main"] .contact-form textarea {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #ffbf00 !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+/* Placeholder text */
+html[data-theme="main"] .contact-form input::placeholder,
+html[data-theme="main"] .contact-form textarea::placeholder {
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+
+/* Proceed button stays red */
+html[data-theme="main"] .contact-form .hero-btn-primary {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 2px solid #8f0d17 !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   MAIN THEME - CONTACT CATEGORY BUTTONS RED
+   Art / Films / Photos
+========================================================= */
+
+html[data-theme="main"] .contact-category span {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+/* When Art / Films / Photos is selected */
+html[data-theme="main"] .contact-category input:checked + span {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border: 3px solid #ffffff !important;
+}
+
+/* Hover effect */
+html[data-theme="main"] .contact-category span:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - ACCOUNT CHANGES SECTION BOXES
+========================================================= */
+
+/* Account Changes main area */
+html[data-theme="main"] .account-changes-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #111111 !important;
+}
+
+/* Titles: Profile Picture, Change Username, Change Password */
+html[data-theme="main"] .account-change-title {
+  color: #111111 !important;
+  text-align: center !important;
+
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+
+  margin: 0 0 16px !important;
+}
+
+/* Each individual yellow bordered section */
+html[data-theme="main"] .account-change-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 16px !important;
+
+  padding: 34px !important;
+  margin-bottom: 46px !important;
+
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Text inside each section */
+html[data-theme="main"] .account-change-section h1,
+html[data-theme="main"] .account-change-section h2,
+html[data-theme="main"] .account-change-section h3,
+html[data-theme="main"] .account-change-section p,
+html[data-theme="main"] .account-change-section span,
+html[data-theme="main"] .account-change-section label {
+  color: #111111 !important;
+}
+
+/* Input boxes */
+html[data-theme="main"] .account-change-form input[type="text"],
+html[data-theme="main"] .account-change-form input[type="password"],
+html[data-theme="main"] .account-change-form input[type="file"] {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+  border-radius: 8px !important;
+
+  padding: 12px 14px !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder text */
+html[data-theme="main"] .account-change-form input::placeholder {
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+
+/* Profile picture preview */
+html[data-theme="main"] .profile-picture-preview {
+  background: #ffffff !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+  border-radius: 999px !important;
+
+  box-shadow: none !important;
+}
+
+/* Buttons: Update Profile Picture, Update Username, Update Password */
+html[data-theme="main"] .account-change-form button {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+  border-radius: 10px !important;
+
+  padding: 12px 18px !important;
+
+  font-weight: 900 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .account-change-form button:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - TEAM SHOWCASE AMBER YELLOW BOX
+========================================================= */
+
+/* Whole Our Team section */
+html[data-theme="main"] .team-showcase-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 5px solid #d89f00 !important;
+  border-radius: 18px !important;
+
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Inner team container */
+html[data-theme="main"] .team-showcase {
+  background: transparent !important;
+  color: #111111 !important;
+}
+
+/* Team header text */
+html[data-theme="main"] .team-showcase-header,
+html[data-theme="main"] .team-showcase-header h2,
+html[data-theme="main"] .team-showcase-header p,
+html[data-theme="main"] .team-showcase-header span {
+  color: #111111 !important;
+}
+
+/* Each team member card */
+html[data-theme="main"] .team-member-card {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 18px !important;
+
+  box-shadow: none !important;
+}
+
+/* Team member image border */
+html[data-theme="main"] .team-member-image {
+  background: #ffffff !important;
+
+  border: 3px solid #d89f00 !important;
+  border-radius: 14px !important;
+}
+
+/* Team member text */
+html[data-theme="main"] .team-member-info h3,
+html[data-theme="main"] .team-member-info p {
+  color: #111111 !important;
+}
+
+/* Full selected team member view */
+html[data-theme="main"] .team-member-selected-box {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 5px solid #d89f00 !important;
+  border-radius: 22px !important;
+
+  box-shadow: none !important;
+}
+
+/* Selected full image border */
+html[data-theme="main"] .team-member-selected-image {
+  background: #ffffff !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 18px !important;
+}
+
+/* Selected full profile text */
+html[data-theme="main"] .team-member-selected-info,
+html[data-theme="main"] .team-member-selected-info h2,
+html[data-theme="main"] .team-member-selected-info h3,
+html[data-theme="main"] .team-member-selected-info p,
+html[data-theme="main"] .team-member-selected-info span {
+  color: #111111 !important;
+}
+
+/* Back to Team button stays red */
+html[data-theme="main"] .team-member-back {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+  border-radius: 12px !important;
+
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .team-member-back:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - TEAM SHOWCASE AMBER YELLOW
+========================================================= */
+
+html[data-theme="main"] .team-showcase-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 12px !important;
+
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .team-member-card {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .team-member-info {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border-top: 3px solid #b87900 !important;
+}
+
+html[data-theme="main"] .team-member-info h3 {
+  color: #111111 !important;
+}
+
+html[data-theme="main"] .team-member-selected-box {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-selected-image {
+  border: 4px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-selected-info,
+html[data-theme="main"] .team-member-selected-info h2,
+html[data-theme="main"] .team-member-selected-info h3,
+html[data-theme="main"] .team-member-selected-info p,
+html[data-theme="main"] .team-member-selected-info span {
+  color: #111111 !important;
+}
+
+html[data-theme="main"] .team-member-back {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+}
+
+html[data-theme="main"] .team-member-back:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   MAIN THEME - TEAM SHOWCASE AMBER YELLOW
+========================================================= */
+
+html[data-theme="main"] .team-showcase-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+  border-radius: 12px !important;
+
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .team-member-card {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 3px solid #d89f00 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="main"] .team-member-info {
+  background: #d89f00 !important;
+  color: #111111 !important;
+
+  border-top: 3px solid #b87900 !important;
+}
+
+html[data-theme="main"] .team-member-info h3 {
+  color: #111111 !important;
+}
+
+html[data-theme="main"] .team-member-selected-box {
+  background: #ffbf00 !important;
+  color: #111111 !important;
+
+  border: 4px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-selected-image {
+  border: 4px solid #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-selected-info,
+html[data-theme="main"] .team-member-selected-info h2,
+html[data-theme="main"] .team-member-selected-info h3,
+html[data-theme="main"] .team-member-selected-info p,
+html[data-theme="main"] .team-member-selected-info span {
+  color: #111111 !important;
+}
+
+html[data-theme="main"] .team-member-back {
+  background: #c1121f !important;
+  color: #ffffff !important;
+
+  border: 3px solid #8f0d17 !important;
+}
+
+html[data-theme="main"] .team-member-back:hover {
+  background: #8f0d17 !important;
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* TEAM BOARD - MAIN THEME */
+
+html[data-theme="main"] #workers.team-showcase-section,
+html[data-theme="main"] #workers.quick-links-section.team-showcase-section,
+html[data-theme="main"] #team-workers.team-board-section {
+  background: #ffd21a !important;
+  color: #111111 !important;
+  border-color: #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-card,
+html[data-theme="main"] .team-board-card {
+  background: #ffbf00 !important;
+  border-color: #d89f00 !important;
+}
+
+html[data-theme="main"] .team-member-info,
+html[data-theme="main"] .team-board-name-strip {
+  background: rgba(193, 18, 31, 0.92) !important;
+  border-top-color: #8f0d17 !important;
+}
+
+html[data-theme="main"] .team-member-info h3,
+html[data-theme="main"] .team-board-name-strip h3 {
+  color: #ffffff !important;
+}
