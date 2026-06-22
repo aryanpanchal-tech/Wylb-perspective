@@ -57,21 +57,40 @@ function SignUp() {
       const result = await response.json()
 
       if (!response.ok) {
-        setMessage(result.error || 'Could not create account.')
-        setLoading(false)
+        setMessage(
+          result.error ||
+            'Could not begin account registration.'
+        )
         return
       }
 
-      setMessage('Account created successfully.')
+      const verificationEmail =
+        result.email ||
+        formData.email.trim().toLowerCase()
 
-      setTimeout(() => {
-        navigate('/login')
-      }, 900)
+      /*
+        Save the email temporarily so the verification page
+        can still find it if the page is refreshed.
+      */
+      sessionStorage.setItem(
+        'verificationEmail',
+        verificationEmail
+      )
+
+      navigate('/verify-email', {
+        state: {
+          email: verificationEmail,
+        },
+      })
     } catch (error) {
-      setMessage(`Could not connect to the server: ${error.message}`)
-    }
+      console.error('Signup error:', error)
 
-    setLoading(false)
+      setMessage(
+        `Could not connect to the server: ${error.message}`
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -88,15 +107,21 @@ function SignUp() {
         <div className="auth-video-overlay"></div>
 
         <div className="auth-card">
-          <span className="hero-tag">Wylb Perspective</span>
+          <span className="hero-tag">
+            Wylb Perspective
+          </span>
 
           <h1>Create Account</h1>
 
           <p>
-            Create an account with your basic sign up information.
+            Create an account with your basic sign up
+            information.
           </p>
 
-          <form className="auth-form" onSubmit={handleSubmit}>
+          <form
+            className="auth-form"
+            onSubmit={handleSubmit}
+          >
             <div className="auth-name-row">
               <input
                 type="text"
@@ -104,6 +129,7 @@ function SignUp() {
                 placeholder="First name"
                 value={formData.firstName}
                 onChange={updateField}
+                autoComplete="given-name"
                 required
               />
 
@@ -113,6 +139,7 @@ function SignUp() {
                 placeholder="Last name"
                 value={formData.lastName}
                 onChange={updateField}
+                autoComplete="family-name"
                 required
               />
             </div>
@@ -123,6 +150,9 @@ function SignUp() {
               placeholder="Username"
               value={formData.username}
               onChange={updateField}
+              autoComplete="username"
+              minLength={3}
+              maxLength={20}
               required
             />
 
@@ -132,6 +162,7 @@ function SignUp() {
               placeholder="Email address"
               value={formData.email}
               onChange={updateField}
+              autoComplete="email"
               required
             />
 
@@ -141,6 +172,8 @@ function SignUp() {
               placeholder="Password"
               value={formData.password}
               onChange={updateField}
+              autoComplete="new-password"
+              minLength={8}
               required
             />
 
@@ -150,6 +183,8 @@ function SignUp() {
               placeholder="Confirm password"
               value={formData.confirmPassword}
               onChange={updateField}
+              autoComplete="new-password"
+              minLength={8}
               required
             />
 
@@ -159,13 +194,20 @@ function SignUp() {
               </p>
             )}
 
-            <button type="submit" className="auth-button" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create Account'}
+            <button
+              type="submit"
+              className="auth-button"
+              disabled={loading}
+            >
+              {loading
+                ? 'Sending verification code...'
+                : 'Create Account'}
             </button>
           </form>
 
           <p className="auth-switch">
-            Already have an account? <Link to="/login">Sign in</Link>
+            Already have an account?{' '}
+            <Link to="/login">Sign in</Link>
           </p>
         </div>
       </section>

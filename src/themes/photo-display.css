@@ -1290,3 +1290,10 @@ html[data-theme="photo-display"] .team-member-info h3,
 html[data-theme="photo-display"] .team-board-name-strip h3 {
   color: #ffffff !important;
 }
+
+html[data-theme="photo-display"] .hero-brand-strip,
+html[data-theme="photo-display"] .hero-service-strip {
+  background: #000000 !important;
+  border-top: 3px solid #ffffff !important;
+  border-bottom: 3px solid #ffffff !important;
+}

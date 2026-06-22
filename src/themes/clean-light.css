@@ -1190,3 +1190,44 @@ html[data-theme="clean-light"] .team-member-info h3,
 html[data-theme="clean-light"] .team-board-name-strip h3 {
   color: #ffffff !important;
 }
+
+/* Clean Light contact category buttons */
+html[data-theme="clean-light"] .contact-category {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+html[data-theme="clean-light"] .contact-category span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="clean-light"] .contact-category:hover,
+html[data-theme="clean-light"] .contact-category:hover span {
+  background: #eeeeee !important;
+  color: #000000 !important;
+}
+
+html[data-theme="clean-light"] .contact-category:has(input:checked),
+html[data-theme="clean-light"] .contact-category:has(input:checked) span {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="clean-light"] .contact-category input {
+  display: none !important;
+}

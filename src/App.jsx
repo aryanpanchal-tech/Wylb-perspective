@@ -1,5 +1,10 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom'
 
 import { LanguageProvider } from './context/LanguageContext'
 import LanguageToggle from './components/LanguageToggle'
@@ -22,6 +27,7 @@ import Contact from './pages/Contact'
 import TermsOfService from './pages/TermsOfService'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
+import VerifyEmail from './pages/VerifyEmail'
 
 import './App.css'
 import './themes/wyld-brown.css'
@@ -40,9 +46,11 @@ function ScrollHandler() {
     }
 
     setTimeout(() => {
-      document.getElementById(location.state.scrollTo)?.scrollIntoView({
-        behavior: 'smooth',
-      })
+      document
+        .getElementById(location.state.scrollTo)
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        })
     }, 100)
   }, [location])
 
@@ -71,9 +79,20 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/photographer/:id" element={<PhotographerPage />} />
-          <Route path="/tech/:id" element={<TechPage />} />
-          <Route path="/userPage" element={<UserPage />} />
+          <Route
+            path="/photographer/:id"
+            element={<PhotographerPage />}
+          />
+
+          <Route
+            path="/tech/:id"
+            element={<TechPage />}
+          />
+
+          <Route
+            path="/userPage"
+            element={<UserPage />}
+          />
 
           <Route path="/photos" element={<Photos />} />
           <Route path="/videos" element={<Videos />} />
@@ -81,10 +100,19 @@ function App() {
           <Route path="/art" element={<Art />} />
           <Route path="/tech" element={<Tech />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/terms" element={<TermsOfService />} />
+
+          <Route
+            path="/terms"
+            element={<TermsOfService />}
+          />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/verify-email"
+            element={<VerifyEmail />}
+          />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

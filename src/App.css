@@ -9395,11 +9395,6 @@ html[data-theme="photo-display"] .user-page .user-page-card.user-info-card.accou
   }
 }
 
-/* =========================================================
-   TEAM SECTION LAYOUT ONLY
-   Colors belong in each theme file
-========================================================= */
-
 #workers.team-showcase-section,
 #workers.quick-links-section.team-showcase-section,
 #team-workers.team-board-section {
@@ -9508,10 +9503,6 @@ html[data-theme="photo-display"] .user-page .user-page-card.user-info-card.accou
   }
 }
 
-/* =========================================================
-   TEAM WORKER NAME BAR - REMOVE RED BOX
-========================================================= */
-
 #workers.team-showcase-section .team-member-info,
 #workers.quick-links-section.team-showcase-section .team-member-info,
 #team-workers.team-board-section .team-board-name-strip {
@@ -9525,4 +9516,78 @@ html[data-theme="photo-display"] .user-page .user-page-card.user-info-card.accou
 #team-workers.team-board-section .team-board-name-strip h3 {
   color: #ffffff !important;
   text-shadow: 0 3px 8px rgba(0, 0, 0, 0.95) !important;
+}
+
+.verify-email-card {
+  text-align: center;
+}
+
+.verification-email {
+  display: block;
+  margin-top: 8px;
+  word-break: break-word;
+}
+
+.verification-code-input {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 14px;
+}
+
+.verification-code-input::placeholder {
+  letter-spacing: 14px;
+}
+
+/* Hero brand strip below the photo for every theme */
+html body .hero {
+  position: relative !important;
+  height: 100vh !important;
+  overflow: visible !important;
+  margin-bottom: 92px !important;
+}
+
+html body .hero > .hero-brand-strip {
+  position: absolute !important;
+  top: 100% !important;
+  bottom: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 92px !important;
+  margin: 0 !important;
+  z-index: 6 !important;
+}
+
+/* Homepage company description */
+.hero-company-description {
+  width: 100%;
+  max-width: 760px !important;
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  margin-top: 18px;
+}
+
+@media (max-width: 768px) {
+  .hero-company-description {
+    max-width: 92vw !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+.hero#hero > .hero-content {
+  bottom: -225px !important;
+}
+
+@media (max-width: 1024px) {
+  .hero#hero > .hero-content {
+    bottom: 125px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero#hero > .hero-content {
+    bottom: 105px !important;
+  }
 }

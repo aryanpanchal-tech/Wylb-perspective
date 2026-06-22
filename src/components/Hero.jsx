@@ -20,17 +20,39 @@ function Hero() {
         loop
         playsInline
       >
-        <source src="/Videos/Keke @ 40 60fps.mp4" type="video/mp4" />
+        <source
+          src="/Videos/Keke @ 40 60fps.mp4"
+          type="video/mp4"
+        />
       </video>
 
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <span className="hero-tag">{t.hero.tag}</span>
+        <span className="hero-tag">
+          {t.hero.tag}
+        </span>
 
-        <h1 className="hero-title">{t.hero.title}</h1>
+        <h1 className="hero-title">
+          {t.hero.title}
+        </h1>
 
-        <p className="hero-subtitle">{t.hero.subtitle}</p>
+        <p className="hero-subtitle hero-company-description">
+          Wyld Perspective Studios Inc. is a Toronto-based audio-visual
+          creative company delivering high-quality video production, live
+          production, photography, and digital media solutions across Canada,
+          Africa, and beyond.
+          <br />
+          <br />
+          Our strength lies in our ability to merge creativity, technology,
+          and cultural perspectives to create content that is not only visually
+          compelling but meaningful and memorable.
+          <br />
+          <br />
+          With a global network of creative talent and over 9 years of industry
+          experience, we transform ideas into powerful visual stories that
+          connect, inspire, and leave a lasting impact.
+        </p>
 
         <div className="hero-buttons">
           <button className="hero-btn-primary">
@@ -45,16 +67,26 @@ function Hero() {
 
       <div className="hero-brand-strip">
         <div className="hero-brand-title">
-          <span>Brands that Wyld SP has collaborated with</span>
+          <span>
+            Brands that Wyld SP has collaborated with
+          </span>
         </div>
 
         <div className="hero-brand-scroll-window">
           <div className="hero-brand-track">
-            {[...brandLogos, ...brandLogos, ...brandLogos].map((logo, index) => (
-              <div className="hero-brand-logo" key={`${logo}-${index}`}>
-                <img src={logo} alt="Brand logo" />
-              </div>
-            ))}
+            {[...brandLogos, ...brandLogos, ...brandLogos].map(
+              (logo, index) => (
+                <div
+                  className="hero-brand-logo"
+                  key={`${logo}-${index}`}
+                >
+                  <img
+                    src={logo}
+                    alt="Brand logo"
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>
