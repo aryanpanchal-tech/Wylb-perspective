@@ -107,6 +107,128 @@ const terms = [
   },
 ]
 
+const services = {
+  creativeDirection: {
+    title: 'Creative Direction & Concept Development',
+    category: 'Creative Services',
+    description:
+      'Every great project starts with a strong idea. We work with brands, organizations, and individuals to develop creative concepts, visual strategies, and storytelling approaches that align with their goals and audience.',
+    services: [
+      'Creative consultation',
+      'Campaign concepts',
+      'Brand storytelling',
+      'Visual strategy',
+      'Content planning',
+      'Creative project development',
+    ],
+  },
+
+  videoProduction: {
+    title: 'Video Production',
+    category: 'Production',
+    description:
+      'We create powerful visual content that captures attention and communicates your message effectively. Our production team manages every stage of the process, from planning and filming to editing and delivery.',
+    services: [
+      'Corporate videos',
+      'Commercials',
+      'Brand films',
+      'Promotional content',
+      'Interviews',
+      'Event highlights',
+      'Documentary production',
+      'Social media video content',
+    ],
+  },
+
+  liveProduction: {
+    title: 'Live Production & Streaming',
+    category: 'Live Media',
+    description:
+      'We deliver professional live experiences that connect audiences anywhere in the world. Our team provides reliable production solutions for events, conferences, performances, and broadcasts.',
+    services: [
+      'Multi-camera live production',
+      'Live streaming',
+      'Virtual events',
+      'Conference production',
+      'Hybrid event solutions',
+      'Broadcast support',
+    ],
+  },
+
+  postProduction: {
+    title: 'Post-Production & Visual Design',
+    category: 'Post-Production',
+    description:
+      'Our post-production team transforms raw footage into polished, engaging content through creative editing and visual storytelling.',
+    services: [
+      'Video editing',
+      'Color grading',
+      'Motion graphics',
+      'Animation',
+      'Visual effects',
+      'Sound design',
+      'Content optimization',
+    ],
+  },
+
+  photographyContent: {
+    title: 'Photography & Visual Content',
+    category: 'Photography',
+    description:
+      'We create professional imagery that strengthens brand identity and captures meaningful moments.',
+    services: [
+      'Corporate photography',
+      'Event photography',
+      'Brand photography',
+      'Portraits',
+      'Product photography',
+      'Creative campaigns',
+    ],
+  },
+
+  brandStrategy: {
+    title: 'Brand Strategy & Digital Marketing',
+    category: 'Brand Development',
+    description:
+      'Beyond production, we help brands build stronger connections with their audiences through creative strategy and digital storytelling.',
+    services: [
+      'Brand consultation',
+      'Social media management',
+      'Content strategy',
+      'Digital campaigns',
+      'Marketing support',
+      'Audience engagement strategies',
+    ],
+  },
+
+  webDevelopment: {
+    title: 'Web Development & Digital Experiences',
+    category: 'Digital Development',
+    description:
+      'We create digital platforms that support your brand presence and improve audience experience.',
+    services: [
+      'Website development',
+      'Website design',
+      'Digital content integration',
+      'Creative web solutions',
+    ],
+  },
+
+  eventPlanning: {
+    title: 'Event Planning & Production',
+    category: 'Events',
+    description:
+      'We support events from concept to execution, ensuring every detail aligns with the creative vision.',
+    services: [
+      'Event production',
+      'Creative event concepts',
+      'Audio-visual coordination',
+      'Production management',
+      'On-site technical support',
+    ],
+  },
+}
+
 const getInitialTab = () => {
   const saved = sessionStorage.getItem('activeTab')
 
@@ -390,6 +512,8 @@ function MediaSection() {
   const [workerFading, setWorkerFading] = useState(false)
   const [selectedTerm, setSelectedTerm] = useState(null)
   const [termFading, setTermFading] = useState(false)
+  const [selectedService, setSelectedService] = useState(null)
+  const [serviceFading, setServiceFading] = useState(false)
 
   const offset = slideIndex[activeTab] ?? 0
 
@@ -435,6 +559,32 @@ function MediaSection() {
     setTimeout(() => {
       setSelectedWorker(null)
       setWorkerFading(false)
+    }, 300)
+  }
+
+  const openService = (service) => {
+    if (serviceFading) {
+      return
+    }
+
+    setServiceFading(true)
+
+    setTimeout(() => {
+      setSelectedService(service)
+      setServiceFading(false)
+    }, 300)
+  }
+
+  const closeService = () => {
+    if (serviceFading) {
+      return
+    }
+
+    setServiceFading(true)
+
+    setTimeout(() => {
+      setSelectedService(null)
+      setServiceFading(false)
     }, 300)
   }
 
@@ -597,6 +747,52 @@ function MediaSection() {
         </div>
       </div>
 
+  <section className="middle-board-section">
+  <div className="middle-board-content">
+    <div className="middle-board-column middle-board-column-1">
+      <img
+        src="/Images/Professional confidence.png"
+        alt="Professional confidence"
+        className="middle-board-image"
+      />
+
+      <div className="middle-board-shade"></div>
+
+      <h2 className="middle-board-title">
+        Our Services
+      </h2>
+    </div>
+
+    <div className="middle-board-column middle-board-column-2">
+      <img
+        src="/Images/MZS09877.jpg"
+        alt="Creative portrait"
+        className="middle-board-image"
+      />
+
+      <div className="middle-board-shade"></div>
+
+      <h2 className="middle-board-title">
+        About Section
+      </h2>
+    </div>
+
+    <div className="middle-board-column middle-board-column-3">
+      <img
+        src="/Images/IMG_3616.png"
+        alt="Professional portrait"
+        className="middle-board-image"
+      />
+
+      <div className="middle-board-shade"></div>
+
+      <h2 className="middle-board-title">
+        Why Work With Us?
+      </h2>
+    </div>
+  </div>
+</section>
+
       <section className="about-section" id="about">
         <div className="about-wrapper">
           <div className="about-content">
@@ -737,92 +933,328 @@ function MediaSection() {
         </div>
       </section>
 
-      <section className="quick-links-section">
-        <div className="quick-links-header">
-          <h2>Explore More From Wyld Perspective</h2>
+      <section
+        className="quick-links-section services-showcase"
+        id="services"
+      >
+        <div
+          className={`services-showcase-content ${
+            selectedService
+              ? 'services-showcase-content--selected'
+              : ''
+          } ${
+            serviceFading
+              ? 'services-showcase-content--fading'
+              : ''
+          }`}
+        >
+          {!selectedService && (
+            <>
+              <div className="quick-links-header">
+                <h2>Explore More From Wyld Perspective</h2>
 
-          <p>
-            Take a look at the different types that we do from photoshoots to
-            video proges and art peices, we have a wide variety of work that we
-            have done and are always looking to expand our portfolio with new
-            and exciting projects, click on any of the categories below to
-            explore more of our work and see how we can bring your ideas to life
-            with our unique perspective and creative vision.
-          </p>
-        </div>
+                <p>
+                  Take a look at the different types of work and services
+                  offered by Wyld Perspective Studios. Select any service
+                  below to learn more about what it includes.
+                </p>
+              </div>
 
-        <div className="quick-links-wrapper">
-          <div className="quick-link-card">
-            <div className="quick-link-title">
-              <img src="/Images/OIP (13).webp" alt="Photos icon" />
-              <h3>Photos</h3>
-            </div>
+              <div className="quick-links-wrapper">
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img
+                      src="/Images/OIP (13).webp"
+                      alt="Photos icon"
+                    />
+                    <h3>Photos</h3>
+                  </div>
 
-            <p>
-              View photo shoots, creative portraits, scenery, animals, and
-              captured moments from Wyld Perspective Studios.
-            </p>
+                  <p>
+                    View photo shoots, creative portraits, scenery, animals,
+                    and captured moments from Wyld Perspective Studios.
+                  </p>
 
-            <div className="quick-link-actions">
-              <Link to="/photos" className="quick-link-button">
-                View Photos
-              </Link>
-            </div>
-          </div>
+                  <div className="quick-link-actions">
+                    <Link
+                      to="/photos"
+                      className="quick-link-button"
+                    >
+                      View Photos
+                    </Link>
+                  </div>
+                </div>
 
-          <div className="quick-link-card">
-            <div className="quick-link-title">
-              <img src="/Images/OIP (14).webp" alt="Videos icon" />
-              <h3>Videos</h3>
-            </div>
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img
+                      src="/Images/OIP (14).webp"
+                      alt="Videos icon"
+                    />
+                    <h3>Videos</h3>
+                  </div>
 
-            <p>
-              Watch video projects, short films, creative visuals, and
-              storytelling work created by the studio.
-            </p>
+                  <p>
+                    Watch video projects, short films, creative visuals, and
+                    storytelling work created by the studio.
+                  </p>
 
-            <div className="quick-link-actions">
-              <Link to="/videos" className="quick-link-button">
-                View Videos
-              </Link>
-            </div>
-          </div>
+                  <div className="quick-link-actions">
+                    <Link
+                      to="/videos"
+                      className="quick-link-button"
+                    >
+                      View Videos
+                    </Link>
+                  </div>
+                </div>
 
-          <div className="quick-link-card">
-            <div className="quick-link-title">
-              <img src="/Images/OIP (15).webp" alt="Art icon" />
-              <h3>Art</h3>
-            </div>
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img
+                      src="/Images/OIP (15).webp"
+                      alt="Art icon"
+                    />
+                    <h3>Art</h3>
+                  </div>
 
-            <p>
-              Explore art projects, construction process shots, completed
-              pieces, and creative visual work.
-            </p>
+                  <p>
+                    Explore art projects, construction process shots,
+                    completed pieces, and creative visual work.
+                  </p>
 
-            <div className="quick-link-actions">
-              <Link to="/art" className="quick-link-button">
-                View Art
-              </Link>
-            </div>
-          </div>
+                  <div className="quick-link-actions">
+                    <Link
+                      to="/art"
+                      className="quick-link-button"
+                    >
+                      View Art
+                    </Link>
+                  </div>
+                </div>
 
-          <div className="quick-link-card">
-            <div className="quick-link-title">
-              <img src="/icons/events.png" alt="Events icon" />
-              <h3>Events</h3>
-            </div>
+                <div className="quick-link-card">
+                  <div className="quick-link-title">
+                    <img
+                      src="/icons/events.png"
+                      alt="Events icon"
+                    />
+                    <h3>Events</h3>
+                  </div>
 
-            <p>
-              Check upcoming events, studio updates, live sessions, and
-              announcements from Wyld Perspective Studios.
-            </p>
+                  <p>
+                    Check upcoming events, studio updates, live sessions,
+                    and announcements from Wyld Perspective Studios.
+                  </p>
 
-            <div className="quick-link-actions">
-              <Link to="/events" className="quick-link-button">
-                View Events
-              </Link>
-            </div>
-          </div>
+                  <div className="quick-link-actions">
+                    <Link
+                      to="/events"
+                      className="quick-link-button"
+                    >
+                      View Events
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>
+                      Creative Direction &amp; Concept Development
+                    </h3>
+                  </div>
+
+                 
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.creativeDirection)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Video Production</h3>
+                  </div>
+
+                
+
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.videoProduction)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Live Production &amp; Streaming</h3>
+                  </div>
+
+                
+
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.liveProduction)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Post-Production &amp; Visual Design</h3>
+                  </div>
+
+              
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.postProduction)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Photography &amp; Visual Content</h3>
+                  </div>
+                
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.photographyContent)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Brand Strategy &amp; Digital Marketing</h3>
+                  </div>
+
+            
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.brandStrategy)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Web Development &amp; Digital Experiences</h3>
+                  </div>
+
+
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.webDevelopment)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+
+                <div className="quick-link-card quick-link-service-card">
+                  <div className="quick-link-title">
+                    <h3>Event Planning &amp; Production</h3>
+                  </div>
+
+
+                  <div className="quick-link-actions">
+                    <button
+                      type="button"
+                      className="quick-link-button"
+                      onClick={() =>
+                        openService(services.eventPlanning)
+                      }
+                    >
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {selectedService && (
+  <div className="service-selected-view">
+    <button
+      type="button"
+      className="service-selected-back"
+      onClick={closeService}
+    >
+      Back to view all services
+    </button>
+
+    <div className="service-selected-box">
+      <div className="service-selected-info">
+        <h2>{selectedService.title}</h2>
+
+        <div className="about-title-line"></div>
+
+        <p>{selectedService.description}</p>
+
+        <h3 className="service-list-title">
+          Services include:
+        </h3>
+
+        <ul className="service-list">
+          {selectedService.services.map((serviceItem) => (
+            <li key={serviceItem}>
+              {serviceItem}
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          to="/contact"
+          className="quick-link-button service-contact-button"
+        >
+          Contact Us
+        </Link>
+      </div>
+    </div>
+  </div>
+)}
         </div>
       </section>
 
